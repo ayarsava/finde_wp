@@ -1,8 +1,28 @@
+.grid-sizer,
+.grid-item {
+  width: 20%;
+  padding: 8px; }
+
+/* 2 columns wide */
+.grid-item--width2 {
+  width: 38%; }
+
 /** CARD **/
 .grid-item-content.card .card-body .rubro {
   font-size: .75rem; }
   .grid-item-content.card .card-body .rubro span:after {
     content: " / "; }
+
+.card .card-text {
+  font-size: .75rem; }
+
+#agenda .bg-image {
+  height: 140px; }
+#agenda .col.destacado {
+  flex: 0 0 60%;
+  max-width: 60% !important; }
+  #agenda .col.destacado > div {
+    height: 100%; }
 
 body.menu-opened {
   overflow: hidden; }

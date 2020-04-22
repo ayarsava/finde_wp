@@ -153,7 +153,8 @@ function finde_wp_scripts() {
 	wp_enqueue_script( 'finde_wp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'boostrap', get_template_directory_uri() . '/js/bootstrap.js', array(), _S_VERSION );
-    wp_enqueue_script( 'isotope', "https://npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js", array(), _S_VERSION );
+    wp_enqueue_script( 'isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array(), _S_VERSION );
+    
 
 	wp_enqueue_script( 'finde_wp-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), _S_VERSION, true );
 
@@ -164,6 +165,15 @@ function finde_wp_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'finde_wp_scripts' );
+
+
+add_action( 'mb_relationships_init', function() {
+    MB_Relationships_API::register( [
+        'id'   => 'catalogo_to_estudios',
+        'from' => 'catalogo',
+        'to'   => 'estudio',
+    ] );
+} );
 
 /**
  * Implement the Custom Header feature.

@@ -1,3 +1,11 @@
+.grid-sizer,
+.grid-item { 
+  width: 20%; 
+  padding:8px; 
+}
+/* 2 columns wide */
+.grid-item--width2 { width: 38%; }
+
 /** CARD **/
 .grid-item-content.card {
   .card-body {
@@ -10,6 +18,21 @@
       }
     } 
   } 
+}
+.card .card-text {
+  font-size: .75rem;
+}
+#agenda {
+  .bg-image {
+    height: 140px;
+  }
+  .col.destacado {
+    flex: 0 0 60%;
+    max-width: 60%!important;
+    > div {
+      height: 100%;
+    }
+  }
 }
 
 

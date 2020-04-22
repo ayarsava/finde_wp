@@ -6,19 +6,19 @@ Description: Plugin generado por Ayar Sava para FINDE | GPBA
 /* Start Adding Functions Below this Line */
 
 
-function wporg_register_taxonomy_categoria() {
+function wporg_register_taxonomy_sector() {
   $labels = [
-      'name'              => _x('Categorias', 'taxonomy general name'),
-      'singular_name'     => _x('Categoria', 'taxonomy singular name'),
-      'search_items'      => __('Buscar categorias'),
-      'all_items'         => __('Todos los categorias'),
-      'parent_item'       => __('Categoria padre'),
-      'parent_item_colon' => __('Categoria padre:'),
-      'edit_item'         => __('Editar Categoria'),
-      'update_item'       => __('Actualizar Categoria'),
-      'add_new_item'      => __('Agregar nuevo Categoria'),
-      'new_item_name'     => __('Nuevo nombre de categoria'),
-      'menu_name'         => __('Categoria'),
+      'name'              => _x('Sectores', 'taxonomy general name'),
+      'singular_name'     => _x('Sector', 'taxonomy singular name'),
+      'search_items'      => __('Buscar sectores'),
+      'all_items'         => __('Todos los sectores'),
+      'parent_item'       => __('Sector padre'),
+      'parent_item_colon' => __('Sector padre:'),
+      'edit_item'         => __('Editar Sector'),
+      'update_item'       => __('Actualizar Sector'),
+      'add_new_item'      => __('Agregar nuevo Sector'),
+      'new_item_name'     => __('Nuevo nombre de sector'),
+      'menu_name'         => __('Sector'),
     ];
 
   $args = [
@@ -28,11 +28,11 @@ function wporg_register_taxonomy_categoria() {
     'show_admin_column' => true,
     'query_var'         => true,
     'show_in_rest'      => true,
-    'rewrite'           => array( 'slug' => 'categoria', 'with_front' => false ),
+    'rewrite'           => array( 'slug' => 'sector', 'with_front' => false ),
   ];
-  register_taxonomy('categoria', ['catalogo'], $args);
+  register_taxonomy('sector', ['catalogo'], $args);
 }
-add_action('init', 'wporg_register_taxonomy_categoria');
+add_action('init', 'wporg_register_taxonomy_sector');
 
 
 function wporg_register_taxonomy_descuento() {
@@ -160,7 +160,7 @@ function custom_post_type() {
         // Features this CPT supports in Post Editor
         'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
         // You can associate this CPT with a taxonomy or custom taxonomy. 
-        'taxonomies'          => array('categoria', 'descuento', 'rubro' ),
+        'taxonomies'          => array('sector', 'descuento', 'rubro',),
         /* A hierarchical CPT is like Pages and can have
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.
@@ -216,7 +216,7 @@ function custom_post_type_estudio() {
         // Features this CPT supports in Post Editor
         'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
         // You can associate this CPT with a taxonomy or custom taxonomy. 
-        // 'taxonomies'          => array('categoria', 'descuento', 'rubro' ),
+        // 'taxonomies'          => array('sector', 'descuento', 'rubro' ),
         /* A hierarchical CPT is like Pages and can have
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.
@@ -273,7 +273,7 @@ function custom_post_type_agenda() {
         // Features this CPT supports in Post Editor
         'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
         // You can associate this CPT with a taxonomy or custom taxonomy. 
-        'taxonomies'          => array('categoria'),
+        'taxonomies'          => array('sector'),
         /* A hierarchical CPT is like Pages and can have
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.
@@ -441,6 +441,12 @@ function mbox_register_meta_boxes( $meta_boxes ){
     'priority'   => 'low',
     'autosave'   => true,
     'fields'     => array(
+      array(
+          'name' => 'Destacado',
+          'id'   => 'destacado_id',
+          'type' => 'checkbox',
+          'std'  => 0, // 0 or 1
+      ),
       //  URL
       array(
         'name' => __( 'URL', 'mbox' ),
@@ -518,6 +524,13 @@ function mbox_register_meta_boxes( $meta_boxes ){
     'priority'   => 'low',
     'autosave'   => true,
     'fields'     => array(
+
+      array(
+          'name' => 'Destacado',
+          'id'   => 'destacado_id',
+          'type' => 'checkbox',
+          'std'  => 0, // 0 or 1
+      ),
       array(
         'name'       => 'Date picker',
         'id'         => 'fecha_id',
@@ -560,19 +573,24 @@ function mbox_register_meta_boxes( $meta_boxes ){
 /*** CATALOGOVJ ***/
 function wp_archive_catalogovj() {
 $args = array(
-  'post_type'              => array( 'catalogo' ),
+  'post_type'              => 'catalogo',
   'order'                  => 'ASC',
   'orderby'                => 'title',
 );
-
 
 // The Query
 $query_catalogo = new WP_Query( $args );
 // The Loop
 if ( $query_catalogo->have_posts() ) {
 
-  while ( $query_catalogo->have_posts() ) {
-    $query_catalogo->the_post();
+  while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
+
+
+    $estudios = MB_Relationships_API::get_connected( [
+      'id'   => 'catalogo_to_estudios',
+      'from' => get_the_ID(),
+    ] );
+    
     $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
     $url = rwmb_meta( 'mbox_url' );
     $plataformas = rwmb_meta( 'mbox_plataforma' );
@@ -580,13 +598,13 @@ if ( $query_catalogo->have_posts() ) {
     $terms = get_the_terms( $post->ID, 'rubro' );
     $dterms = get_the_terms( $post->ID, 'descuento' );
 
-    echo '<div class="grid-item item col-md-3 mb-3"';
+    echo '<div class="grid-item item mb-3"';
     echo 'data-category="';
     foreach( $terms as $term ) echo $term->slug. ' ';
     echo '" data-descuento="';
     foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
     echo '">';
-    echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+    echo '<a href="' . get_the_permalink() .'" rel="slidemark"></a>';
     echo '<div class="grid-item-content card">';
     if ( has_post_thumbnail() ) {
       echo get_the_post_thumbnail( $post_id, 'small', array( 'class' => 'img-fluid card-img-top' ) );
@@ -595,14 +613,18 @@ if ( $query_catalogo->have_posts() ) {
     echo '<h5 class="card-title">' . get_the_title() . '</h5>';
     echo '<div class="card-text over-content d-none">' . get_the_content() . '</div>';
     echo '<div class="rubro">';
-    foreach( $terms as $term ) echo '<span>' . $term->name . '</span>', ' ';
+    foreach( $terms as $term ) echo '<span><a href="' . get_the_permalink($term) .'">' . $term->name . '</a></span>', ' ';
     foreach ( $plataformas as $plataforma ) {
     echo '<span>' . $plataforma . '</span>', ' ';
     }
     echo '</div></div><small class="card-footer text-muted text-sm">';
-    echo 'Por <a href="' . $url .'">Mass Media & Co.</a>';
+    if ($estudios) {
+    echo 'Por '; foreach ( $estudios as $estudio ) {
+        echo '<a href="' . get_the_permalink($estudio) .'" rel="slidemark">' .$estudio->post_title.'</a> ';
+    }}
     echo '</small></div></div>';
-  }
+  endwhile;
+  wp_reset_postdata();
 } else {
   echo 'No hemos encontrado productos o servicios asociados al catálogo.';
 }
@@ -626,34 +648,33 @@ $args = array(
 $query_agenda = new WP_Query( $args );
 // The Loop
 if ( $query_agenda->have_posts() ) {
-  $num = 0;
-  echo '<div class="carousel-inner" style="width: 100% !important;">';
   while ( $query_agenda->have_posts() ) {
     $query_agenda->the_post();
     $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
-    $video = rwmb_meta( 'mbox_video' );
-    if ($video != '') {
-      echo '<div class="carousel-item"><div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="'.$video.'"></iframe></div></div>';
-    } else {
-      if ( has_post_thumbnail() ) {
-        echo '<div class="carousel-item" style="background: url('. $src[0] .') no-repeat center / cover;"></div>';
-      }
-    };
-  }
-  echo '<ul class="list-group preloading">';
-  while ( $query_agenda->have_posts() ) {
-    $query_agenda->the_post();
-    $video = rwmb_meta( 'mbox_video' );
     $fecha = rwmb_meta( 'fecha_id' ); 
+    $destacado = rwmb_meta( 'destacado_id' );
+
+    if ($destacado == 1) {
+    echo '<div class="col mb-3 destacado" style="min-height=300px;">';
+    echo '<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">';
+    echo '<div class="col-6 d-none d-lg-block" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
+    echo '<div class="col p-4 d-flex flex-column position-static"><strong class="d-inline-block mb-2 text-primary">'. $fecha .'</strong>';
+    echo '<h3>' . get_the_title() . '</h3>';
+    echo '<small class="card-text mb-auto">' . get_the_content() . '</small>';
+    echo '<a href="' . get_the_permalink() .'" class="stretched-link">Ver más</a>';
+    echo '</div></div></div>';
+    } else {
+    echo '<div class="col mb-3"><div class="card">';
+    echo '<div class="bg-image card-img-top" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
+    echo '<div class="card-body">';
+    echo '<h5 class="card-title">' . get_the_title() . '</h5>';
+    echo '<div class="text-primary">' . $fecha  .'</div>';
+    echo '<small class="card-text">' . get_the_content() . '</small>';
+    echo '<a href="' . get_the_permalink() .'">Ver más</a>';
+    echo '</div></div></div>';
+    }
     
-    echo '<li data-target="#ruleta" data-slide-to="'. ($num++) .'" class="list-group-item" data-event-date="' . $fecha .'">';
-    echo '<div>'. $fecha .'</div>';
-    echo '<h5>' . get_the_title() . '</h5>';
-    echo '<div><small>' . get_the_content() .'</small></div>';
-    // echo '<div class="href-goto" data-href="' . get_the_permalink() .'"></div>'; 
-    echo '</li>';
   }
-  echo '</ul>';
 } else {
   echo 'No hemos encontrado eventos programados.';
 }

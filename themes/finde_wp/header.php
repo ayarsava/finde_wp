@@ -43,26 +43,24 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarTogglerVJ">
 			    	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-						<li class="nav-item">
-						<a class="nav-link" href="#">Qué es <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-						<a class="nav-link active" href="/videojuegos">Finde Videojuegos</a>
-						</li>
 
 						<li class="nav-item">
-						<a class="nav-link" href="#">Compras</a>
-						</li>
-
-						<li class="nav-item">
-						<a class="nav-link" href="#">Agenda</a>
-						</li>
-
-						<li class="nav-item">
-						<a class="nav-link" href="#">Editorial</a>
+							<a class="nav-link active" href="/videojuegos">Finde Videojuegos</a>
 						</li>
 						<li class="nav-item">
-						<a class="nav-link" href="#">Música</a>
+							<a class="nav-link" href="#">Qué es</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/catalogo">Juegos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Accesorios</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Agenda</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Libros Música</a>
 						</li>
 			    	</ul>
 			    	<div class="d-flex bd-highlight">
