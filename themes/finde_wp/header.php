@@ -28,7 +28,7 @@
 	  		<div class="row">
 		  		<div class="col-sm-5">
 			        <!-- Brand -->
-			        <a class="navbar-brand my-3" href="./index.html">
+			        <a class="navbar-brand my-3" href="/">
 			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_finde_vj_blanco_top.png" class="navbar-brand-img img-fluid" alt="Logo Finde">
 			        </a>
 			    </div>
@@ -57,7 +57,7 @@
 							<a class="nav-link" href="#">Accesorios</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Agenda</a>
+							<a class="nav-link" href="/agenda">Agenda</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">Libros Música</a>

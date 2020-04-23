@@ -2,60 +2,8 @@
   $(".carousel-indicators li:first").addClass("active");
   $(".carousel-inner .carousel-item:first").addClass("active");
 
+  $("ul.agenda-list li:first").addClass("destacado");
 
-  $('#ruleta .carousel-inner div.carousel-item').first().addClass('active'); 
-  $('#ruleta .list-group .list-group-item').first().addClass('active');
-
-
-  $('#ruleta').carousel('pause');
-  var hoverTimer;
-  var hoverDelay = 200;
-  var clickEvent = false;
-  $('#ruleta').carousel().on('click', '.list-group li', function() {
-      clickEvent = true;
-      $('.list-group li').removeClass('active');
-      $(this).addClass('active');   
-  }).on('slid.bs.carousel', function() {
-    if(!clickEvent) {
-      var count = $('.list-group').children().length -1;
-      var current = $('.list-group li.active');
-      current.removeClass('active').next().addClass('active');
-      var id = parseInt(current.data('slide-to'));
-      if(count === id) {
-        $('.list-group li').first().addClass('active'); 
-      }
-    }
-    clickEvent = false;
-  });
-
-  
-  $('.list-group li').hover(function() {
-      var $target = $(this);
-      // on mouse in, start a timeout
-      hoverTimer = setTimeout(function() {        
-          // do your stuff here
-          $target.trigger('click');         
-      }, hoverDelay);
-  }, function() {
-      // on mouse out, cancel the timer
-      clearTimeout(hoverTimer);
-
-  });
-
-  $(".list-group li .href-goto").click(function() {
-    window.open($(this).attr("data-href"),'_self');
-    return false;
-  });
-
-  /*
-  var boxheight = $('#ruleta .carousel-inner').innerHeight();
-  var itemlength = $('#ruleta .carousel-item').length;
-  var triggerheight = Math.round(boxheight/itemlength);
-  $('#ruleta .list-group-item').outerHeight(triggerheight);*/
-  $('#ruleta .list-group').removeClass('preloading');
-  $('#ruleta .carousel-inner').removeClass('preloading');
-
-  
   $('[rel="tooltip"]').tooltip();
 
 // Filtro de catalogo

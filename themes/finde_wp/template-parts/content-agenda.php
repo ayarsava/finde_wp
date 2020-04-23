@@ -9,55 +9,27 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+<?php 
+/* grab the url for the full size featured image */
+$featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+?>
 
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				finde_wp_posted_on();
-				finde_wp_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
 
-	<?php finde_wp_post_thumbnail(); ?>
-
-	<div class="entry-content">
-		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'finde_wp' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			)
-		);
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'finde_wp' ),
-				'after'  => '</div>',
-			)
-		);
+<div class="card col-12 mb-3">
+  <div class="row no-gutters">
+    <?php if ($featured_img_url) { echo '<div class="col-md-4" style="background-image: url('. esc_url($featured_img_url) .'); background-size:cover;"></div>';} ?>
+    
+    <div class="<?php if ($featured_img_url) { echo 'col-md-8'; } else { echo 'col-md-12';} ?>">
+      <div class="card-body">
+        <?php
+		the_title( '<h5 class="card-title">', '</h5>' );
 		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php finde_wp_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+        <p class="card-text"><?php get_the_content(); ?></p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <ul class="list-unstyled">
+			<li><?php echo rwmb_meta( 'fecha_id' ) ?></li>
+		</ul>
+      </div>
+    </div>
+  </div>
+</div>

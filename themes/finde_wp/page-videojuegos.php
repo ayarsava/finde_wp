@@ -13,7 +13,7 @@
 
 get_header(); ?>
 
-	<div id="content">
+	<div id="content" class="home-vj">
 		<section>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part( 'template-parts/content', 'slide' ); ?>
@@ -60,7 +60,7 @@ get_header(); ?>
 							<?php 
 							$rubros = get_terms('rubro');
 							if( $rubros ){ foreach ($rubros as $cat ) {?>
-							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="category"><?php echo $cat->name; ?></label></li>
+							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="category"> <?php echo $cat->name; ?></label></li>
 							<?php  } }?>
 						</div>
 					</div>
@@ -73,7 +73,7 @@ get_header(); ?>
 							<?php 
 							$descuento = get_terms('descuento');
 							if( $descuento ){ foreach ($descuento as $cat ) {?>
-							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="discount"><?php echo $cat->name; ?></label></li>
+							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="discount"> <?php echo $cat->name; ?></label></li>
 							<?php  } }?>
 						</div>
 					</div>
@@ -96,9 +96,9 @@ get_header(); ?>
 		<section id="agenda" class="bg-light py-5">
 			<div class="container">
 				<h1>Agenda</h1>
-					<div class="row justify-content-center row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+					<ul class="agenda-list list-unstyled row justify-content-left row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
 					<?php wp_archive_agenda() ?>
-					</div>
+					</ul>
 					<div class="row">
 						<div class="col-12">
 							<div class="border-top mt-3 py-3">

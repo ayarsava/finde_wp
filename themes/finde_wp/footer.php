@@ -22,10 +22,10 @@
 			</div>
 		</div>
 	</section>
-	<footer class="site-footer">
+	<footer class="site-footer py-5">
     	<div class="container">
 			<div class="row my-5">
-			    <div class="col-sm-3">
+			    <div class="col-sm-2">
 			      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_finde_vj_blanco.png" class="img-fluid mb-5">
 			    </div>
 			    <div class="col-sm-3">
@@ -37,7 +37,7 @@
 			      	<li>Contacto</li>
 			      </ul>
 			    </div>
-			    <div class="col-sm-6">
+			    <div class="col-sm-5 ml-auto">
 			      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_gba_ss_m_footer_blanco.png" class="img-fluid">
 			    </div>
 			</div>

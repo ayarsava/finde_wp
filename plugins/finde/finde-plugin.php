@@ -6,35 +6,6 @@ Description: Plugin generado por Ayar Sava para FINDE | GPBA
 /* Start Adding Functions Below this Line */
 
 
-function wporg_register_taxonomy_sector() {
-  $labels = [
-      'name'              => _x('Sectores', 'taxonomy general name'),
-      'singular_name'     => _x('Sector', 'taxonomy singular name'),
-      'search_items'      => __('Buscar sectores'),
-      'all_items'         => __('Todos los sectores'),
-      'parent_item'       => __('Sector padre'),
-      'parent_item_colon' => __('Sector padre:'),
-      'edit_item'         => __('Editar Sector'),
-      'update_item'       => __('Actualizar Sector'),
-      'add_new_item'      => __('Agregar nuevo Sector'),
-      'new_item_name'     => __('Nuevo nombre de sector'),
-      'menu_name'         => __('Sector'),
-    ];
-
-  $args = [
-    'hierarchical'      => true, // make it hierarchical (like categories)
-    'labels'            => $labels,
-    'show_ui'           => true,
-    'show_admin_column' => true,
-    'query_var'         => true,
-    'show_in_rest'      => true,
-    'rewrite'           => array( 'slug' => 'sector', 'with_front' => false ),
-  ];
-  register_taxonomy('sector', ['catalogo'], $args);
-}
-add_action('init', 'wporg_register_taxonomy_sector');
-
-
 function wporg_register_taxonomy_descuento() {
   $labels = [
     'name'              => _x('Descuentos', 'taxonomy general name'),
@@ -124,7 +95,7 @@ function slider_init() {
 	  'has_archive'        => true,
 	  'Hierarchical'       => false,
 	  'menu_position'      => null,
-	  'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
+	  'supports'           => array( 'title', 'editor', 'author', 'thumbnail')
 	);
 	register_post_type( 'slide', $args );
 }
@@ -160,7 +131,7 @@ function custom_post_type() {
         // Features this CPT supports in Post Editor
         'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
         // You can associate this CPT with a taxonomy or custom taxonomy. 
-        'taxonomies'          => array('sector', 'descuento', 'rubro',),
+        'taxonomies'          => array('category', 'descuento', 'rubro',),
         /* A hierarchical CPT is like Pages and can have
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.
@@ -216,7 +187,7 @@ function custom_post_type_estudio() {
         // Features this CPT supports in Post Editor
         'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
         // You can associate this CPT with a taxonomy or custom taxonomy. 
-        // 'taxonomies'          => array('sector', 'descuento', 'rubro' ),
+        'taxonomies'  => array( 'category' ),
         /* A hierarchical CPT is like Pages and can have
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.
@@ -273,7 +244,7 @@ function custom_post_type_agenda() {
         // Features this CPT supports in Post Editor
         'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
         // You can associate this CPT with a taxonomy or custom taxonomy. 
-        'taxonomies'          => array('sector'),
+        'taxonomies'  => array( 'category' ),
         /* A hierarchical CPT is like Pages and can have
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.
@@ -301,77 +272,8 @@ function custom_post_type_agenda() {
 add_action( 'init', 'custom_post_type_agenda', 0 );
 
 
-/*** HOME - CREAR SLIDESHOW ***/
-function wp_showSlides() {
-	global $post;
-	// the query
-	$the_query = new WP_Query( array( 'post_type' => 'slide', 'posts_per_page' => 3 ) );
-	// The Loop
-	if ( $the_query->have_posts() ) {
-		
-		while ( $the_query->have_posts() ) {
-			$the_query->the_post();
-			$src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
-			$color = rwmb_meta( 'mbox_color' );
-			$url = rwmb_meta( 'mbox_url' );
-				if ( has_post_thumbnail() ) {
-					echo '<div class="item" style="background-image: url('. $src[0] .')">';
-				} else { 
-					echo '<div class="item" style="background: '. $color .'">';
-				}
-				echo '<div class="container"><div class="row">';
-				echo '<div class="col-sm-7"><h1>' .get_the_title(). ' <a href="'. $url .'"><i class="fa fa-arrow-circle-o-right"></i></a></h1><h2><span>' .get_the_excerpt(). '</span></h2></div>';
-				echo '';
-				echo '<div class="col-sm-5">' .get_the_content(). '</div>';
-				echo '</div></div></div>';
-				
-			}
-		} else {
-		echo 'No hemos encontrado Info.';
-	};
-	/* Restore original Post Data */
-	wp_reset_postdata();
-}
 
-/*** HOME - CREAR SLIDESHOW ***/
-function wp_showSlides_fullbg() {
-  global $post;
-  
-  // the query
-  $the_query = new WP_Query( array( 'post_type' => 'slide', 'posts_per_page' => 6 ) );
-  // The Loop
-  if ( $the_query->have_posts() ) {
-    while ( $the_query->have_posts() ) {
-      $the_query->the_post();
-      $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
-      $response_radio = rwmb_meta('mbox_hide_text');
-      $color = rwmb_meta( 'mbox_color' );
-      $textcolor = rwmb_meta( 'mbox_text_color' );
-      $shadowcolor = rwmb_meta( 'mbox_shadow_color' );
-      $url = rwmb_meta( 'mbox_url' );
-        
-        if ( has_post_thumbnail() ) {
-          echo '<div class="carousel-item" style="background-image: url('. $src[0] .')">';
-        } else { 
-          echo '<div class="carousel-item" style="background: '. $color .'">';
-        }
-        if ($response_radio=="imagen-texto") {
-          echo '<div class="container"><div class="row">';
-          echo '<div class="col-sm-9">
-                  <h1 style="color: '. $textcolor .';text-shadow: 1px 1px 0 '. $shadowcolor .'"><a href="'. $url .'">' .get_the_title(). '</a></h1>
-                  <div style="color: '. $textcolor .';text-shadow: 1px 1px 0 '. $shadowcolor .'">' .get_the_content(). '<div>
-                  <p style="color: '. $textcolor .';text-shadow: 1px 1px 0 '. $shadowcolor .'">' .get_the_excerpt(). '</p>
-                </div>';
-          echo '</div></div></div></div>';
-        }
-        echo '</div>';
-    }
-    /* Restore original Post Data */
-    wp_reset_postdata();
-    } else {
-    echo 'No hemos encontrado Info.';
-  };
-}
+
 
 /*** META BOX ***/
 add_filter( 'rwmb_meta_boxes', 'mbox_register_meta_boxes' );
@@ -393,34 +295,6 @@ function mbox_register_meta_boxes( $meta_boxes ){
     'autosave'   => true,
     // List of meta fields
     'fields'     => array(
-      // BG COLOR
-      array(
-        'name'    => __( 'Contenido', 'mbox' ),
-		    'id'      => "{$prefix}hide_text",
-    		'type'    => 'radio',
-    		'options' => array(
-    			'imagen-texto' => __( 'Imágen + texto', 'mbox' ),
-    			'solo-imagen' => __( 'Sólo imágen', 'mbox' ),
-          	),
-	    ),
-      // BG COLOR
-      array(
-        'name' => __( 'Color de fondo', 'mbox' ),
-        'id'   => "{$prefix}color",
-        'type' => 'color',
-      ),
-      // TEXT COLOR
-      array(
-        'name' => __( 'Color del texto', 'mbox' ),
-        'id'   => "{$prefix}text_color",
-        'type' => 'color',
-      ),
-      // SHADOW TEXT COLOR
-      array(
-        'name' => __( 'Color de la sombra del texto', 'mbox' ),
-        'id'   => "{$prefix}shadow_color",
-        'type' => 'color',
-      ),
       //  URL
       array(
         'name' => __( 'URL', 'mbox' ),
@@ -535,25 +409,6 @@ function mbox_register_meta_boxes( $meta_boxes ){
         'name'       => 'Date picker',
         'id'         => 'fecha_id',
         'type'       => 'datetime',
-
-        // Datetime picker options.
-        // For date options, see here http://api.jqueryui.com/datepicker
-        // For time options, see here http://trentrichardson.com/examples/timepicker/
-        'js_options' => array(
-            'stepMinute'      => 15,
-            'showTimepicker'  => true,
-            'controlType'     => 'select',
-            'showButtonPanel' => false,
-            'oneLine'         => true,
-            'dateFormat'      => 'dd-mm-yy',
-        ),
-        'save_format' => 'd-m-Y H:i:s',
-
-        // Display inline?
-        'inline'     => false,
-
-        // Save value as timestamp?
-        'timestamp'  => false,
       ),
       array(
         'name' => __( 'Video', 'mbox' ),
@@ -570,109 +425,160 @@ function mbox_register_meta_boxes( $meta_boxes ){
 }
 
 
+/*** HOME - CREAR SLIDESHOW ***/
+function wp_showSlides_fullbg() {
+  global $post;
+  
+  // the query
+  $the_query = new WP_Query( array( 'post_type' => 'slide', 'posts_per_page' => 6 ) );
+  // The Loop
+  if ( $the_query->have_posts() ) {
+    while ( $the_query->have_posts() ) {
+      $the_query->the_post();
+      $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
+      $url = rwmb_meta( 'mbox_url' );
+        
+        if ( has_post_thumbnail() ) {
+          echo '<div class="carousel-item" style="background-image: url('. $src[0] .')">';
+        } else { 
+          echo '<div class="carousel-item" style="background:#009aae">';
+        }
+        echo '<div class="container">';
+        echo '<div class="carousel-caption text-left">';
+        echo '<a href="'. $url .'" class="arrows">>></a>';
+        echo '<div class="info">';
+        echo '<h1><a href="'. $url .'">' .get_the_title(). '</a></h1><div>' .get_the_content(). '</div>';
+        echo '</div></div></div></div>';
+    }
+    /* Restore original Post Data */
+    wp_reset_postdata();
+    } else {
+    echo 'No hemos encontrado Info.';
+  };
+}
+
 /*** CATALOGOVJ ***/
 function wp_archive_catalogovj() {
-$args = array(
-  'post_type'              => 'catalogo',
-  'order'                  => 'ASC',
-  'orderby'                => 'title',
-);
+  $args = array(
+    'post_type'              => 'catalogo',
+    'order'                  => 'ASC',
+    'orderby'                => 'title',
+  );
 
-// The Query
-$query_catalogo = new WP_Query( $args );
-// The Loop
-if ( $query_catalogo->have_posts() ) {
+  // The Query
+  $query_catalogo = new WP_Query( $args );
+  // The Loop
+  if ( $query_catalogo->have_posts() ) {
 
-  while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
+    while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
 
 
-    $estudios = MB_Relationships_API::get_connected( [
-      'id'   => 'catalogo_to_estudios',
-      'from' => get_the_ID(),
-    ] );
-    
-    $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
-    $url = rwmb_meta( 'mbox_url' );
-    $plataformas = rwmb_meta( 'mbox_plataforma' );
-    
-    $terms = get_the_terms( $post->ID, 'rubro' );
-    $dterms = get_the_terms( $post->ID, 'descuento' );
+      $estudios = MB_Relationships_API::get_connected( [
+        'id'   => 'catalogo_to_estudios',
+        'from' => get_the_ID(),
+      ] );
+      
+      $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
+      $url = rwmb_meta( 'mbox_url' );
+      $plataformas = rwmb_meta( 'mbox_plataforma' );
+      
+      $terms = get_the_terms( $post->ID, 'rubro' );
+      $dterms = get_the_terms( $post->ID, 'descuento' );
 
-    echo '<div class="grid-item item mb-3"';
-    echo 'data-category="';
-    foreach( $terms as $term ) echo $term->slug. ' ';
-    echo '" data-descuento="';
-    foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
-    echo '">';
-    echo '<a href="' . get_the_permalink() .'" rel="slidemark"></a>';
-    echo '<div class="grid-item-content card">';
-    if ( has_post_thumbnail() ) {
-      echo get_the_post_thumbnail( $post_id, 'small', array( 'class' => 'img-fluid card-img-top' ) );
-    }
-    echo '<div class="card-body">';
-    echo '<h5 class="card-title">' . get_the_title() . '</h5>';
-    echo '<div class="card-text over-content d-none">' . get_the_content() . '</div>';
-    echo '<div class="rubro">';
-    foreach( $terms as $term ) echo '<span><a href="' . get_the_permalink($term) .'">' . $term->name . '</a></span>', ' ';
-    foreach ( $plataformas as $plataforma ) {
-    echo '<span>' . $plataforma . '</span>', ' ';
-    }
-    echo '</div></div><small class="card-footer text-muted text-sm">';
-    if ($estudios) {
-    echo 'Por '; foreach ( $estudios as $estudio ) {
-        echo '<a href="' . get_the_permalink($estudio) .'" rel="slidemark">' .$estudio->post_title.'</a> ';
-    }}
-    echo '</small></div></div>';
-  endwhile;
+      echo '<div class="grid-item item mb-3"';
+      echo 'data-category="';
+      foreach( $terms as $term ) echo $term->slug. ' ';
+      echo '" data-descuento="';
+      foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
+      echo '">';
+      echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+      echo '<div class="grid-item-content card">';
+      if ( has_post_thumbnail() ) {
+        echo get_the_post_thumbnail( $post_id, 'small', array( 'class' => 'img-fluid card-img-top' ) );
+      }
+      echo '<div class="card-body">';
+      echo '<h5 class="card-title">' . get_the_title() . '</h5>';
+      echo '<div class="card-text over-content d-none">' . get_the_content() . '</div>';
+      echo '<div class="rubro">';
+      foreach( $terms as $term ) echo '<span><a href="' . get_the_permalink($term) .'">' . $term->name . '</a></span>', ' ';
+      foreach ( $plataformas as $plataforma ) {
+      echo '<span>' . $plataforma . '</span>', ' ';
+      }
+      echo '</div></div><small class="card-footer text-muted text-sm">';
+      if ($estudios) {
+      echo 'Por '; foreach ( $estudios as $estudio ) {
+          echo '<a href="' . get_the_permalink($estudio) .'" rel="slidemark" class="os">' .$estudio->post_title.'</a> ';
+      }}
+      echo '</small></div></div>';
+    endwhile;
+    wp_reset_postdata();
+  } else {
+    echo 'No hemos encontrado productos o servicios asociados al catálogo.';
+  }
+
+  // Restore original Post Data
   wp_reset_postdata();
-} else {
-  echo 'No hemos encontrado productos o servicios asociados al catálogo.';
 }
-
-// Restore original Post Data
-wp_reset_postdata();
-}
-
 
 
 /*** AGENDA ***/
 function wp_archive_agenda() {
-$args = array(
-  'post_type'              => array( 'agenda' ),
-  'order'                  => 'ASC',
-  'orderby'                => 'title',
-);
 
+$args = array(
+  'post_type'              => 'agenda',
+  'posts_per_page' => 8,
+  'meta_query' => array(
+      'fecha_clause' => array(
+          'key' => 'fecha_id',
+      ),
+      'destacado_clause' => array(
+          'key' => 'destacado_id',
+      ), 
+  ),
+  'orderby' => array( 
+        'destacado_clause' => 'DESC',
+        'fecha_clause' => 'DESC',
+  ),
+);
 
 // The Query
 $query_agenda = new WP_Query( $args );
 // The Loop
 if ( $query_agenda->have_posts() ) {
+
   while ( $query_agenda->have_posts() ) {
     $query_agenda->the_post();
     $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
     $fecha = rwmb_meta( 'fecha_id' ); 
     $destacado = rwmb_meta( 'destacado_id' );
 
-    if ($destacado == 1) {
-    echo '<div class="col mb-3 destacado" style="min-height=300px;">';
-    echo '<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">';
-    echo '<div class="col-6 d-none d-lg-block" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
-    echo '<div class="col p-4 d-flex flex-column position-static"><strong class="d-inline-block mb-2 text-primary">'. $fecha .'</strong>';
-    echo '<h3>' . get_the_title() . '</h3>';
-    echo '<small class="card-text mb-auto">' . get_the_content() . '</small>';
-    echo '<a href="' . get_the_permalink() .'" class="stretched-link">Ver más</a>';
-    echo '</div></div></div>';
-    } else {
-    echo '<div class="col mb-3"><div class="card">';
+    echo '<li class="col mb-3"><div class="card">';
+    if ($src) {
     echo '<div class="bg-image card-img-top" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
+    }
     echo '<div class="card-body">';
     echo '<h5 class="card-title">' . get_the_title() . '</h5>';
     echo '<div class="text-primary">' . $fecha  .'</div>';
     echo '<small class="card-text">' . get_the_content() . '</small>';
     echo '<a href="' . get_the_permalink() .'">Ver más</a>';
-    echo '</div></div></div>';
+    echo '</div></div></li>';
+
+    
+    /*if ($destacado == 1) {
+    echo '<div class="col mb-3 destacado">';
+    echo '<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">';
+    if ($src) {
+    echo '<div class="col-6 d-none d-lg-block" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
     }
+    echo '<div class="col p-4 d-flex flex-column position-static"><strong class="d-inline-block mb-2 text-primary">'. $fecha .'</strong>';
+    echo '<h3>' . get_the_title() . '</h3>';
+    echo '<small class="card-text mb-auto">' . the_content() . '</small>';
+    echo '<a href="' . get_the_permalink() .'" class="stretched-link">Ver más</a>';
+    echo '</div></div></div>';
+    
+    } else {
+
+    }*/
     
   }
 } else {
