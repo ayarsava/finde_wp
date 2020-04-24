@@ -262,6 +262,8 @@ function custom_post_type_agenda() {
         'publicly_queryable'  => true,
         'capability_type'     => 'post',
         'show_in_rest'        => true,
+
+        'timestamp'  => true,
  
     );
      
@@ -330,21 +332,19 @@ function mbox_register_meta_boxes( $meta_boxes ){
         'std'  => '',
       ),
       array(
-        'name' => __( 'PLATAFORMA', 'mbox' ),
-        'id'      => "{$prefix}plataforma",
-        'type'    => 'checkbox_list',
-        // Options of checkboxes, in format 'value' => 'Label'
-        'options' => array(
-            'pc'        => 'PC',
-            'iOS'       => 'iOS',
-            'android'   => 'Android',
-            'amazon'    => 'Amazon',
-            'consolas'  => 'Consolas',
-        ),
-        // Display options in a single row?
-        'inline' => true,
-        // Display "Select All / None" button?
-        'select_all_none' => true,
+          'id'      => 'descarga_id',
+          'name'    => 'Descargas',
+          'type'    => 'fieldset_text',
+
+          // Options: array of key => Label for text boxes
+          // Note: key is used as key of array of values stored in the database
+          'options' => array(
+              'd_name'    => 'Plataforma',
+              'd_url' => 'Link de descarga o compra',
+          ),
+
+          // Is field cloneable?
+          'clone' => true,
       ),
 
     )
@@ -409,6 +409,14 @@ function mbox_register_meta_boxes( $meta_boxes ){
         'name'       => 'Date picker',
         'id'         => 'fecha_id',
         'type'       => 'datetime',
+
+        'timestamp'  => true,
+
+        'js_options' => array(
+          'dateFormat'      => 'dd-mm-yy',
+          'showTimepicker'  => true,
+          ),
+        'save_format' => 'Y-m-d H:i:s',
       ),
       array(
         'name' => __( 'Video', 'mbox' ),
@@ -480,7 +488,8 @@ function wp_archive_catalogovj() {
       
       $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
       $url = rwmb_meta( 'mbox_url' );
-      $plataformas = rwmb_meta( 'mbox_plataforma' );
+      $descargas = rwmb_meta( 'descarga_id' );
+      
       
       $terms = get_the_terms( $post->ID, 'rubro' );
       $dterms = get_the_terms( $post->ID, 'descuento' );
@@ -501,10 +510,12 @@ function wp_archive_catalogovj() {
       echo '<div class="card-text over-content d-none">' . get_the_content() . '</div>';
       echo '<div class="rubro">';
       foreach( $terms as $term ) echo '<span><a href="' . get_the_permalink($term) .'">' . $term->name . '</a></span>', ' ';
-      foreach ( $plataformas as $plataforma ) {
-      echo '<span>' . $plataforma . '</span>', ' ';
+      echo '</div><small class="descargas mt-2">';
+      foreach ( $descargas as $descarga ) {
+         echo '<a href="'.$descarga['d_url'].'" class="os" target="_blank"><i class="fas fa-cloud-download-alt"></i> ' . $descarga['d_name'] .'</a>';
       }
-      echo '</div></div><small class="card-footer text-muted text-sm">';
+      echo '</small>';
+      echo '</div><small class="card-footer text-muted text-sm">';
       if ($estudios) {
       echo 'Por '; foreach ( $estudios as $estudio ) {
           echo '<a href="' . get_the_permalink($estudio) .'" rel="slidemark" class="os">' .$estudio->post_title.'</a> ';
@@ -524,69 +535,69 @@ function wp_archive_catalogovj() {
 /*** AGENDA ***/
 function wp_archive_agenda() {
 
-$args = array(
-  'post_type'              => 'agenda',
-  'posts_per_page' => 8,
-  'meta_query' => array(
-      'fecha_clause' => array(
-          'key' => 'fecha_id',
-      ),
-      'destacado_clause' => array(
-          'key' => 'destacado_id',
-      ), 
-  ),
-  'orderby' => array( 
-        'destacado_clause' => 'DESC',
-        'fecha_clause' => 'DESC',
-  ),
-);
+  $args = array(
+    'post_type'              => 'agenda',
+    'posts_per_page' => 8,
+    'meta_query' => array(
+        'fecha_clause' => array(
+            'key' => 'fecha_id',
+        ),
+        'destacado_clause' => array(
+            'key' => 'destacado_id',
+        ), 
+    ),
+    'orderby' => array( 
+          'destacado_clause' => 'DESC',
+          'fecha_clause' => 'DESC',
+    ),
+  );
 
-// The Query
-$query_agenda = new WP_Query( $args );
-// The Loop
-if ( $query_agenda->have_posts() ) {
+  // The Query
+  $query_agenda = new WP_Query( $args );
+  // The Loop
+  if ( $query_agenda->have_posts() ) {
 
-  while ( $query_agenda->have_posts() ) {
-    $query_agenda->the_post();
-    $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
-    $fecha = rwmb_meta( 'fecha_id' ); 
-    $destacado = rwmb_meta( 'destacado_id' );
+    while ( $query_agenda->have_posts() ) {
+      $query_agenda->the_post();
+      $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
+      $fecha = rwmb_meta( 'fecha_id' ); 
+      $destacado = rwmb_meta( 'destacado_id' );
 
-    echo '<li class="col mb-3"><div class="card">';
-    if ($src) {
-    echo '<div class="bg-image card-img-top" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
+      echo '<li class="col mb-3"><div class="card"><a href="'. get_permalink() .'" class="stretched-link"></a>';
+      if ($src) {
+      echo '<div class="bg-image card-img-top" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
+      }
+      echo '<div class="card-body">';
+      echo '<h5 class="card-title">' . get_the_title() . '</h5>';
+      echo '<div class="text-primary">' . date( 'j F, Y', $fecha) .'</div>';
+      echo '<small class="card-text">' . get_the_content() . '</small>';
+      echo '<a href="' . get_the_permalink() .'">Ver más</a>';
+      echo '</div></div></li>';
+
+      
+      /*if ($destacado == 1) {
+      echo '<div class="col mb-3 destacado">';
+      echo '<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">';
+      if ($src) {
+      echo '<div class="col-6 d-none d-lg-block" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
+      }
+      echo '<div class="col p-4 d-flex flex-column position-static"><strong class="d-inline-block mb-2 text-primary">'. $fecha .'</strong>';
+      echo '<h3>' . get_the_title() . '</h3>';
+      echo '<small class="card-text mb-auto">' . the_content() . '</small>';
+      echo '<a href="' . get_the_permalink() .'" class="stretched-link">Ver más</a>';
+      echo '</div></div></div>';
+      
+      } else {
+
+      }*/
+      
     }
-    echo '<div class="card-body">';
-    echo '<h5 class="card-title">' . get_the_title() . '</h5>';
-    echo '<div class="text-primary">' . $fecha  .'</div>';
-    echo '<small class="card-text">' . get_the_content() . '</small>';
-    echo '<a href="' . get_the_permalink() .'">Ver más</a>';
-    echo '</div></div></li>';
-
-    
-    /*if ($destacado == 1) {
-    echo '<div class="col mb-3 destacado">';
-    echo '<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">';
-    if ($src) {
-    echo '<div class="col-6 d-none d-lg-block" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
-    }
-    echo '<div class="col p-4 d-flex flex-column position-static"><strong class="d-inline-block mb-2 text-primary">'. $fecha .'</strong>';
-    echo '<h3>' . get_the_title() . '</h3>';
-    echo '<small class="card-text mb-auto">' . the_content() . '</small>';
-    echo '<a href="' . get_the_permalink() .'" class="stretched-link">Ver más</a>';
-    echo '</div></div></div>';
-    
-    } else {
-
-    }*/
-    
+  } else {
+    echo 'No hemos encontrado eventos programados.';
   }
-} else {
-  echo 'No hemos encontrado eventos programados.';
-}
 
-// Restore original Post Data
-wp_reset_postdata();
+  // Restore original Post Data
+  wp_reset_postdata();
 }
 
 

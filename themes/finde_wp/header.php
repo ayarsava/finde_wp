@@ -48,7 +48,7 @@
 							<a class="nav-link active" href="/videojuegos">Finde Videojuegos</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Qué es</a>
+							<a class="nav-link" href="/que-es">Qué es</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="/catalogo">Juegos</a>

@@ -33,7 +33,7 @@
 			      	<li><strong>Finde</strong></li>
 			      	<li>Juegos</li>
 			      	<li>Agenda</li>
-			      	<li>Preguntas frecuentes</li>
+			      	<li><a href="/preguntas-frecuentes/" class="text-light">Preguntas frecuentes</a></li>
 			      	<li>Contacto</li>
 			      </ul>
 			    </div>

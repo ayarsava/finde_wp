@@ -32,12 +32,29 @@ get_header();
 	<div class="container py-5">
 		<div class="row">
 			<div class="col-md-8 mx-auto">
-			<?php if ( have_posts() ) : ?>
+			<?php 
+			$args = array(
+		    'post_type'              => 'agenda',
+		    'posts_per_page' => -1,
+		    'meta_query' => array(
+		        'fecha_clause' => array(
+		            'key' => 'fecha_id',
+		        ),
+		    ),
+		    'orderby' => array( 
+		          'fecha_clause' => 'DESC',
+		    ),
+		  );
+
+		  // The Query
+		  $query_agenda = new WP_Query( $args );
+
+			if ( $query_agenda->have_posts() ) : ?>
 
 				<?php
 				/* Start the Loop */
-				while ( have_posts() ) :
-					the_post();
+				while ( $query_agenda->have_posts() ) :
+					$query_agenda->the_post();
 
 					/*
 					 * Include the Post-Type-specific template for the content.

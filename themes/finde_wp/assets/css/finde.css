@@ -20,6 +20,10 @@ body.home {
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease; }
 
+h1 {
+  font-size: 3rem;
+  font-weight: bold; }
+
 .home .card {
   background: transparent;
   border: solid 1px #ffffff75; }

@@ -80,7 +80,7 @@
 				    echo '" data-descuento="';
 				    foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
 				    echo '">';
-				    echo '<a href="' . get_the_permalink() .'" rel="slidemark"></a>';
+				    echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
 				    echo '<div class="grid-item-content card">';
 				    if ( has_post_thumbnail() ) {
 				      echo get_the_post_thumbnail( $post_id, 'small', array( 'class' => 'img-fluid card-img-top' ) );
@@ -94,15 +94,11 @@
 				    echo '<span>' . $plataforma . '</span>', ' ';
 				    }
 				    echo '</div></div><small class="card-footer text-muted text-sm">';
-				    if ($estudios) {
-				    echo 'Por '; foreach ( $estudios as $estudio ) {
-				        echo '<a href="' . get_the_permalink($estudio) .'" rel="slidemark">' .$estudio->post_title.'</a> ';
-				    }}
 				    echo '</small></div></div>';
 				  endwhile;
 				  wp_reset_postdata();
 				} else {
-				  echo 'No hemos encontrado productos o servicios asociados al catálogo.';
+				  echo 'No hemos encontrado productos o servicios asociados al estudio.';
 				}
 
 				// Restore original Post Data

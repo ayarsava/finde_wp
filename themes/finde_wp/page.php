@@ -19,7 +19,7 @@ get_header();
   		<div class="row">
       		<div class="col-12 col-md-8">
       			<div id="primary" class="content-area">
-        			<main id="main" class="site-main">
+        			<main id="main" class="site-main m-5">
 
 					<?php
 					while ( have_posts() ) :
@@ -33,7 +33,7 @@ get_header();
 					</main><!-- #main -->
       			</div><!-- #primary -->
     		</div><!-- .col-12 .col-md-8 -->
+    	</div>
 
 <?php
-get_sidebar();
 get_footer();
