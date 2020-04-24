@@ -3,12 +3,7 @@ body.menu-opened {
   overflow: hidden; }
 
 body.home {
-  background: #2193b0;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #6dd5ed, #2193b0);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #6dd5ed, #2193b0);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
+  background: #009aae; }
 
 [class*=shadow] {
   -webkit-transition: all 0.2s ease;
@@ -23,6 +18,9 @@ body.home {
 h1 {
   font-size: 3rem;
   font-weight: bold; }
+  @media (max-width: 767.98px) {
+    h1 {
+      font-size: 2rem; } }
 
 .home .card {
   background: transparent;
@@ -40,24 +38,39 @@ h1 {
 /*** header ***/
 header.main-header {
   background: #009aae; }
-  header.main-header .navbar button.navbar-toggler {
-    margin-bottom: 1rem; }
+  header.main-header a.nav-link.active {
+    font-weight: bold; }
+
+.search-form .screen-reader-text {
+  display: none; }
+.search-form > label {
+  margin-bottom: 0; }
+.search-form input.search-field {
+  border-radius: 4px;
+  border: 0;
+  padding: 4px 10px;
+  background: #e6e6e6; }
+.search-form button.search-submit {
+  background: #e6e6e6;
+  border: 0;
+  border-radius: 4px;
+  padding: 4px 10px;
+  color: #747474; }
+
+.not-found .search-form input.search-field {
+  border: solid 1px #CCC; }
+
+.redes i.fab,
+.redes span.fab {
+  padding: 7px 2px; }
 
 /*** footer ***/
 footer {
   overflow: hidden; }
   footer .list-unstyled li {
     margin-bottom: 0.25rem; }
-  footer .logos img {
-    opacity: 0.5; }
-    footer .logos img.enas {
-      max-width: 90px; }
-    footer .logos img.tersuave {
-      max-width: 80px; }
-    footer .logos img.galicia-eminent {
-      max-width: 112px; }
-    footer .logos img.fundacion-medife {
-      max-width: 80px; }
+  footer img.logo-cultura {
+    width: 280px; }
 
 .site-footer {
   background: #009aae; }
@@ -98,6 +111,18 @@ footer {
 .grid-item {
   width: 20%;
   padding: 8px; }
+  @media (min-width: 320px) and (max-width: 479px) {
+    .grid-sizer,
+    .grid-item {
+      width: 100%; } }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    .grid-sizer,
+    .grid-item {
+      width: 50%; } }
+  @media only screen and (min-width: 768px) and (max-width: 979px) {
+    .grid-sizer,
+    .grid-item {
+      width: 33%; } }
 
 /* 2 columns wide */
 .grid-item--width2 {
@@ -318,10 +343,16 @@ footer {
   list-style-type: none;
   padding: .9em;
   text-transform: uppercase; }
+  @media (max-width: 767.98px) {
+    #clock li {
+      font-size: 0.7em; } }
 #clock li span {
   display: block;
   font-size: 4rem;
   line-height: 1; }
+  @media (max-width: 767.98px) {
+    #clock li span {
+      font-size: 3.5em; } }
 
 .card .icon {
   max-width: 60px; }

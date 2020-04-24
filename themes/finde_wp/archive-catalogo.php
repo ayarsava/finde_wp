@@ -33,7 +33,7 @@ get_header();
 					<ul id="form-ui" class="list-inline">
 					<div class="row">
 						<div class="col-md-3">
-							<h5>Categorías</h5>
+							<h5><strong>Categorías</strong></h5>
 						</div>
 						<div class="col-md-9">
 							<?php 
@@ -46,7 +46,7 @@ get_header();
 					<hr>
 					<div class="row">
 						<div class="col-md-3">
-							<h5>Elegí tu descuento</h5>
+							<h5><strong>Elegí tu descuento</strong></h5>
 						</div>
 						<div class="col-md-9">
 							<?php 

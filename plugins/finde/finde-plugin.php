@@ -21,7 +21,7 @@ function wporg_register_taxonomy_descuento() {
     'menu_name'         => __('Descuento'),
   ];
   $args = [
-    'hierarchical'      => true, // make it hierarchical (like categories)
+    'hierarchical'      => false, // make it hierarchical (like categories)
     'labels'            => $labels,
     'show_ui'           => true,
     'show_admin_column' => true,
@@ -51,7 +51,7 @@ function wporg_register_taxonomy_rubro() {
   $args = [
     'hierarchical'      => true, // make it hierarchical (like categories)
     'labels'            => $labels,
-    'show_ui'           => true,
+    //'show_ui'           => true,
     'show_admin_column' => true,
     'query_var'         => true,
     'show_in_rest'      => true,
@@ -95,6 +95,7 @@ function slider_init() {
 	  'has_archive'        => true,
 	  'Hierarchical'       => false,
 	  'menu_position'      => null,
+    'exclude_from_search' => false,
 	  'supports'           => array( 'title', 'editor', 'author', 'thumbnail')
 	);
 	register_post_type( 'slide', $args );

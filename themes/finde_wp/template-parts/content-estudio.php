@@ -69,7 +69,8 @@
 				    
 				    $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
 				    $url = rwmb_meta( 'mbox_url' );
-				    $plataformas = rwmb_meta( 'mbox_plataforma' );
+				    $descargas = rwmb_meta( 'descarga_id' );
+			
 				    
 				    $terms = get_the_terms( $post->ID, 'rubro' );
 				    $dterms = get_the_terms( $post->ID, 'descuento' );
@@ -87,12 +88,14 @@
 				    }
 				    echo '<div class="card-body">';
 				    echo '<h5 class="card-title">' . get_the_title() . '</h5>';
-				    echo '<div class="card-text over-content d-none">' . get_the_content() . '</div>';
+				    echo '<div class="card-text over-content d-none">' . the_content() . '</div>';
 				    echo '<div class="rubro">';
 				    foreach( $terms as $term ) echo '<span><a href="' . get_the_permalink($term) .'">' . $term->name . '</a></span>', ' ';
-				    foreach ( $plataformas as $plataforma ) {
-				    echo '<span>' . $plataforma . '</span>', ' ';
-				    }
+				    echo '<div class="descargas mt-2">';
+					foreach ( $descargas as $descarga ) {
+		         		echo '<a href="'.$descarga['d_url'].'" class="btn btn-outline-dark" target="_blank"><i class="fas fa-cloud-download-alt"></i> ' . $descarga['d_name'] .'</a>';
+		      		}
+					echo '</div>';
 				    echo '</div></div><small class="card-footer text-muted text-sm">';
 				    echo '</small></div></div>';
 				  endwhile;

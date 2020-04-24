@@ -9,9 +9,9 @@
 
 ?>
 
-<section class="no-results not-found">
+<section class="no-results not-found ">
 	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'finde_wp' ); ?></h1>
+		<h3 class="page-title"><?php esc_html_e( 'Mmm... no hemos encontrado contenido para mostrar', 'finde_wp' ); ?></h3>
 	</header><!-- .page-header -->
 
 	<div class="page-content">
@@ -34,7 +34,7 @@
 		elseif ( is_search() ) :
 			?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'finde_wp' ); ?></p>
+			<p><?php esc_html_e( 'Intentelo nuevamente', 'finde_wp' ); ?></p>
 			<?php
 			get_search_form();
 
@@ -43,8 +43,6 @@
 
 			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'finde_wp' ); ?></p>
 			<?php
-			get_search_form();
-
 		endif;
 		?>
 	</div><!-- .page-content -->

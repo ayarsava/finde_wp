@@ -30,15 +30,14 @@
 			    </div>
 			    <div class="col-sm-3">
 			      <ul class="list-unstyled text-white">
-			      	<li><strong>Finde</strong></li>
-			      	<li>Juegos</li>
-			      	<li>Agenda</li>
+			      	<li><a href="/" class="text-light">Finde</a></li>
+			      	<li><a href="/juegos/" class="text-light">Juegos</a></li>
+			      	<li><a href="/agenda/" class="text-light">Agenda</a></li>
 			      	<li><a href="/preguntas-frecuentes/" class="text-light">Preguntas frecuentes</a></li>
-			      	<li>Contacto</li>
 			      </ul>
 			    </div>
-			    <div class="col-sm-5 ml-auto">
-			      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_gba_ss_m_footer_blanco.png" class="img-fluid">
+			    <div class="col-sm-5 ml-auto text-right">
+			      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-cultura-gobierno-blanco.png" class="logo-cultura img-fluid">
 			    </div>
 			</div>
 		</div><!-- .container -->

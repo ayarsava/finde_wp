@@ -23,7 +23,7 @@ get_header(); ?>
 
 		<!--OPB-->
 		<section>
-			<div class="container-fluid py-5" style="background:#009aae;">
+			<div class="container-fluid py-5" style="background:#222;">
 				<div class="container">
 					<div class="col-md-8 mx-auto text-center text-white py-5">
 						<div class="h4">#FINDEJUGANDO</div>
@@ -35,12 +35,12 @@ get_header(); ?>
 		</section>
 
 		<!--BP-->
-		<section>
-			<div class="container-fluid" style="background: linear-gradient(90deg, #FFF 50%, #97c13c 50%);">
+		<section  class="bg-white">
+			<div class="container-fluid">
 				<div class="container">
 					<div class="col-12">
 						<a href="https://www.bancoprovincia.com.ar/web" target="_blank" title="Enlace al sitio web del Banco Provincia">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-banco-provincia.png" class="img-fluid" alt="Banco Provincia">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/BannerBP_1140x160.gif" class="img-fluid" alt="Banco Provincia">
 						</a>
 					</div>
 				</div>
@@ -48,7 +48,7 @@ get_header(); ?>
 		</section>
 
 		<!--CATALOGO-->
-		<section id="catalogo" class="bg-white py-5">
+		<section id="catalogo" class="bg-light py-5">
 			<div class="container">
 				<h1 class="mb-4"><strong>Juegos</strong></h1>
 				<ul id="form-ui" class="list-inline">
@@ -93,7 +93,7 @@ get_header(); ?>
 
 
 		<!--AGENDA-->
-		<section id="agenda" class="bg-light py-5">
+		<section id="agenda" class="bg-white py-5">
 			<div class="container">
 				<h1>Agenda</h1>
 					<ul class="agenda-list list-unstyled row justify-content-left row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
