@@ -49,24 +49,28 @@ $estudios = MB_Relationships_API::get_connected( [
 										the_title( '<h1 class="card-title">', '</h1>' );
 										
 										if ($estudios) {
-							      echo 'Por '; foreach ( $estudios as $estudio ) {
-							          echo '<a href="' . get_the_permalink($estudio) .'" rel="slidemark" class="os">' .$estudio->post_title.'</a> ';
-							      }}
+							      		echo 'Por '; foreach ( $estudios as $estudio ) {
+							          	echo '<a href="' . get_the_permalink($estudio) .'" rel="slidemark" class="os">' .$estudio->post_title.'</a> ';
+							      		}}
+										if ($terms) {
 										echo '<div class="mt-3 rubro">';
 										foreach( $terms as $term ) echo '<span><a href="' . get_the_permalink($term) .'">' . $term->name . '</a></span>', ' ';
 										echo '</div>';
+										}
+										if ($dterms) {
 										echo '<div class="descuento">';
 										foreach( $dterms as $dterm ) echo '<span><a href="' . get_the_permalink($dterm) .'"> ' . $dterm->name . '</a></span>', ' /';
 										echo '</div>';
+										}
 										echo '<div class="mt-2 d-block">' . get_the_content().'</div>';
-
+										if ($descargas) {
 										echo '<div class="descargas mt-2">';
 										foreach ( $descargas as $descarga ) {
-							         echo '<a href="'.$descarga['d_url'].'" class="btn btn-outline-dark" target="_blank"><i class="fas fa-cloud-download-alt"></i> ' . $descarga['d_name'] .'</a>';
-							      }
-										echo '</div></div>';
-										
-										echo '</div></div>';
+							         	echo '<a href="'.$descarga['d_url'].'" class="btn btn-outline-dark" target="_blank"><i class="fas fa-cloud-download-alt"></i> ' . $descarga['d_name'] .'</a>';
+							      		}
+										echo '</div>';
+										}
+										echo '</div></div></div>';
 										?>
 									</div>
 								</div>

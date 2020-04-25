@@ -34,16 +34,23 @@
   	<?php wp_body_open(); ?>
   	<header class="main-header">
   		<div class="container">
-	  		<div class="row">
-		  		<div class="col-sm-5">
+	  		<div class="row position-relative">
+		  		<div class="logo-wrapper col-lg-2 col-md-3 col-5">
 			        <!-- Brand -->
-			        <a class="navbar-brand my-3" href="/">
-			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_finde_vj_blanco_top.png" class="navbar-brand-img img-fluid" alt="Logo Finde">
+			        <a class="main-logo mt-3" href="/">
+			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde_vj_logo.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
 			        </a>
 			    </div>
-			    <div class="col-sm-4 text-right ml-auto mt-6">
-			    	<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_gba_ss_m_footer_blanco.png" class="img-fluid">
+			    <div class="col-lg-6 col-md-5 col-7  pt-4">
+			    	<ul class="list-unstyled text-light pt-3">
+			    		<li><strong>Videojuegos > Jue 30.04 al Dom 03.05</strong></li>
+						<li>Editorial > Jue 07 al Dom 10.05</li>
+						<li>Música > Jue 14 al Dom 17.05</li>
+					</ul>
 			    </div>
+			    <div class="col-md-4 d-none d-md-block pt-4 text-right">
+				    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-cultura-gobierno-blanco.png" class="img-fluid ml-auto" width="250">
+				</div>
 			</div>
 		</div>
 		<div class="menu-wrapper bg-light">
@@ -54,19 +61,19 @@
 				<div class="collapse navbar-collapse" id="navbarTogglerVJ">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 						<li class="nav-item">
-							<a class="nav-link active" href="/videojuegos">Finde Videojuegos</a>
+							<a class="nav-link active" href="/videojuegos/#finde-vj">Finde Videojuegos</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="/que-es">Qué es</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/catalogo">Juegos</a>
+							<a class="nav-link" href="/videojuegos/#catalogo">Juegos</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">Accesorios</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/agenda">Agenda</a>
+							<a class="nav-link" href="/videojuegos/#agenda">Agenda</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="/">Próximas ediciones</a>

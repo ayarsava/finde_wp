@@ -1,6 +1,7 @@
 ( function( $ ) {
   $(".carousel-indicators li:first").addClass("active");
   $(".carousel-inner .carousel-item:first").addClass("active");
+  $("#juego-destacado.carousel .carousel-inner .carousel-item:first").addClass("active");
 
   $("ul.agenda-list li:first").addClass("destacado");
 

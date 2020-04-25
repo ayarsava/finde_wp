@@ -14,7 +14,7 @@
 get_header(); ?>
 
 	<div id="content" class="home-vj">
-		<section>
+		<section id="slide-principal">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part( 'template-parts/content', 'slide' ); ?>
 			<?php endwhile; // End of the loop. ?>
@@ -22,7 +22,7 @@ get_header(); ?>
 
 
 		<!--OPB-->
-		<section>
+		<section id="finde-vj">
 			<div class="container-fluid py-5" style="background:#222;">
 				<div class="container">
 					<div class="col-md-8 mx-auto text-center text-white py-5">
@@ -35,7 +35,7 @@ get_header(); ?>
 		</section>
 
 		<!--BP-->
-		<section  class="bg-white">
+		<section class="bg-white">
 			<div class="container-fluid">
 				<div class="container">
 					<div class="col-12">
@@ -47,8 +47,28 @@ get_header(); ?>
 			</div>
 		</section>
 
+		<!--JUEGO DESTACADO-->
+		<section class="py-5 bg-light">
+			<div class="container">
+				<div id="juego-destacado" class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+						<?php wp_archive_destacadovj() ?>
+					</div>
+					<!-- Controls -->
+					<a class="carousel-control-prev" href="#juego-destacado" role="button" data-slide="prev">
+				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Previous</span>
+				  </a>
+				  <a class="carousel-control-next" href="#juego-destacado" role="button" data-slide="next">
+				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				  </a>
+				</div>
+			</div>	
+		</section>
+
 		<!--CATALOGO-->
-		<section id="catalogo" class="bg-light py-5">
+		<section id="catalogo" class="bg-white py-5">
 			<div class="container">
 				<h1 class="mb-4"><strong>Juegos</strong></h1>
 				<ul id="form-ui" class="list-inline">
@@ -93,9 +113,9 @@ get_header(); ?>
 
 
 		<!--AGENDA-->
-		<section id="agenda" class="bg-white py-5">
+		<section id="agenda" class="bg-light py-5">
 			<div class="container">
-				<h1>Agenda</h1>
+				<h1 class="mb-3"><a href="/agenda/" title="Agenda de eventos">Agenda</a></h1>
 					<ul class="agenda-list list-unstyled row justify-content-left row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
 					<?php wp_archive_agenda() ?>
 					</ul>

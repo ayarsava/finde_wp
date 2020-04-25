@@ -21,7 +21,7 @@ function wporg_register_taxonomy_descuento() {
     'menu_name'         => __('Descuento'),
   ];
   $args = [
-    'hierarchical'      => false, // make it hierarchical (like categories)
+    'hierarchical'      => true, // make it hierarchical (like categories)
     'labels'            => $labels,
     'show_ui'           => true,
     'show_admin_column' => true,
@@ -318,6 +318,7 @@ function mbox_register_meta_boxes( $meta_boxes ){
     'priority'   => 'low',
     'autosave'   => true,
     'fields'     => array(
+
       array(
           'name' => 'Destacado',
           'id'   => 'destacado_id',
@@ -360,14 +361,6 @@ function mbox_register_meta_boxes( $meta_boxes ){
     'priority'   => 'low',
     'autosave'   => true,
     'fields'     => array(
-      //  URL
-      array(
-        'name' => __( 'URL', 'mbox' ),
-        'id'   => "{$prefix}url",
-        'desc' => __( 'Ingrese la url donde se ofrece el producto a la venta', 'mbox' ),
-        'type' => 'url',
-        'std'  => '',
-      ),
       array(
         'name'        => 'Dirección postal',
         'label_description' => 'Dirección postal',
@@ -385,6 +378,32 @@ function mbox_register_meta_boxes( $meta_boxes ){
         'desc'        => 'Ingrese el año de fundación',
         'type'        => 'text',
         'size'        => 4,
+      ),
+      //  URL
+      array(
+        'name' => __( 'Sitio web', 'mbox' ),
+        'id'   => "{$prefix}url",
+        'desc' => __( 'Ingrese la url donde se ofrece el producto a la venta', 'mbox' ),
+        'type' => 'url',
+        'std'  => '',
+      ),
+      //  Instagram
+      array(
+        'name' => __( 'Instagram', 'mbox' ),
+        'id'   => "{$prefix}instagram",
+        'type' => 'url',
+      ),
+      //  Twitter
+      array(
+        'name' => __( 'Twitter', 'mbox' ),
+        'id'   => "{$prefix}twitter",
+        'type' => 'url',
+      ),
+      //  Facebook
+      array(
+        'name' => __( 'Facebook', 'mbox' ),
+        'id'   => "{$prefix}facebook",
+        'type' => 'url',
       ),
 
     )
@@ -496,11 +515,17 @@ function wp_archive_catalogovj() {
       $dterms = get_the_terms( $post->ID, 'descuento' );
 
       echo '<div class="grid-item item mb-3"';
-      echo 'data-category="';
+      if ($terms) {
+      echo ' data-category="';
       foreach( $terms as $term ) echo $term->slug. ' ';
-      echo '" data-descuento="';
+      echo '" ';
+      }
+      if ($terms) {
+      echo ' data-descuento="';
       foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
-      echo '">';
+      echo '"';
+      }
+      echo '>';
       echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
       echo '<div class="grid-item-content card">';
       if ( has_post_thumbnail() ) {
@@ -509,19 +534,89 @@ function wp_archive_catalogovj() {
       echo '<div class="card-body">';
       echo '<h5 class="card-title">' . get_the_title() . '</h5>';
       echo '<div class="card-text over-content d-none">' . get_the_content() . '</div>';
+      if ($terms) {
       echo '<div class="rubro">';
       foreach( $terms as $term ) echo '<span><a href="' . get_the_permalink($term) .'">' . $term->name . '</a></span>', ' ';
-      echo '</div><small class="descargas mt-2">';
+      echo '</div>';
+      }
+      if ($descargas) {
+      echo '<small class="descargas mt-2">';
       foreach ( $descargas as $descarga ) {
          echo '<a href="'.$descarga['d_url'].'" class="os" target="_blank"><i class="fas fa-cloud-download-alt"></i> ' . $descarga['d_name'] .'</a>';
       }
       echo '</small>';
-      echo '</div><small class="card-footer text-muted text-sm">';
+      }
+      echo '</div><small class="card-footer text-muted text-sm lista">';
       if ($estudios) {
       echo 'Por '; foreach ( $estudios as $estudio ) {
-          echo '<a href="' . get_the_permalink($estudio) .'" rel="slidemark" class="os">' .$estudio->post_title.'</a> ';
+          echo '<span><a href="' . get_the_permalink($estudio) .'" rel="slidemark" class="os">' .$estudio->post_title.'</a></span> ';
       }}
       echo '</small></div></div>';
+    endwhile;
+    wp_reset_postdata();
+  } else {
+    echo 'No hemos encontrado productos o servicios asociados al catálogo.';
+  }
+
+  // Restore original Post Data
+  wp_reset_postdata();
+}
+
+/*** JUEGO DESTAADO ***/
+function wp_archive_destacadovj() {
+  $args = array(
+    'post_type'              => 'catalogo',
+    'meta_query'=> array(
+        array(
+            'key'            => 'destacado_id', // this key will change!
+            'compare'        => '=',
+            'value'          => '1',
+            'type'           => 'BINARY',
+        )
+    ),
+    'order'                  => 'ASC',
+    'orderby'                => 'title',
+  );
+
+  // The Query
+  $query_catalogo = new WP_Query( $args );
+  // The Loop
+  if ( $query_catalogo->have_posts() ) {
+
+    while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
+
+
+      $estudios = MB_Relationships_API::get_connected( [
+        'id'   => 'catalogo_to_estudios',
+        'from' => get_the_ID(),
+      ] );
+      
+      $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
+      $url = rwmb_meta( 'mbox_url' );
+      $descargas = rwmb_meta( 'descarga_id' );
+      
+      
+      $terms = get_the_terms( $post->ID, 'rubro' );
+      $dterms = get_the_terms( $post->ID, 'descuento' );
+
+
+      echo '<div class="carousel-item card">';
+        echo '<div class="row no-gutters">';
+          if ($src) {
+          echo '<div class="col-md-6" style="height:350px;">';
+          echo '<div class="bg-image h-100" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
+          }
+          echo '</div>';
+          echo '<div class="col-md-6 p-5" style="background:#CCC">';
+            echo '<div class="lead">Juego destacado del día</div>';
+            echo '<h1>' . get_the_title() . '</h1>';
+            echo '<p>' . get_the_content() . '</p>';
+            echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+          echo '</div>';
+        echo '</div>';
+      echo '</div>';
+
+      
     endwhile;
     wp_reset_postdata();
   } else {
