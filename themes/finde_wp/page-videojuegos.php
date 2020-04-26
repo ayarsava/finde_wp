@@ -156,7 +156,6 @@ get_header(); ?>
 
 						endwhile;
 
-						the_posts_navigation();
 
 					else :
 
@@ -165,7 +164,7 @@ get_header(); ?>
 					endif;
 					?>
 				</div><!-- #main -->
-			</div>
+			
 				<div class="row">
 						<div class="col-12">
 							<div class="border-top mt-3 py-3">
