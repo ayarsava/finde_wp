@@ -57,7 +57,7 @@
 									</div>
 									<div class="pb-5 text-white">
 											<h3><strong>Videojuegos</strong></h3>
-											<p>30 ABRIL - 2 MAYO</p>
+											<p>30 ABRIL - 3 MAYO</p>
 											<a href="#" class="btn btn-outline-light disabled">Muy pronto</a>
 									</div>
 							</div>
