@@ -16,23 +16,20 @@ $fecha = rwmb_meta( 'fecha_id' );
 
 
 ?>
+<div class="col-sm-3 mb-3">
+  <div class="card h-100">
+    <div class="img-wrapper img-fluid card-img-top"<?php if ($featured_img_url) { echo ' style="background-image: url('. esc_url($featured_img_url) .'); background-size:cover;background-position: center center; height:160px;">';} ?>
+    </div>
+    <div class="card-body">
+    	<a href="<?php echo get_permalink();?>" class="stretched-link"></a>
 
-
-<div class="card col-12 mb-3">
-  <div class="row no-gutters">
-  	<a href="<?php echo get_permalink();?>" class="stretched-link"></a>
-    <?php if ($featured_img_url) { echo '<div class="col-md-4" style="background-image: url('. esc_url($featured_img_url) .'); background-size:cover;background-position: center center;"></div>';} ?>
-    <a href="<?php echo get_permalink();?>" class="stretched-link"></a>
-    <div class="<?php if ($featured_img_url) { echo 'col-md-8'; } else { echo 'col-md-12';} ?>">
-      <div class="card-body">
-      	<?php
-		the_title( '<h5 class="card-title">', '</h5>' );
-		?>
-        <p class="card-text"><?php get_the_content(); ?></p>
-        <ul class="list-unstyled">
-			<li><?php echo date( 'j F, Y', $fecha); ?></li>
-		</ul>
-      </div>
+      <ul class="list-unstyled">
+        <li class="text-primary"><?php echo date('d-m\, H:i', $fecha); ?>hs</li>
+      </ul>
+      <?php 
+  		the_title( '<h5 class="card-title">', '</h5>' );
+  		?>
+      <p class="card-text"><?php echo wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ); ?></p>
     </div>
   </div>
 </div>

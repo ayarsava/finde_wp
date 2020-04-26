@@ -12,16 +12,20 @@
 ?>
 
 	</div><!-- #content -->
-	<section class="bg-white">
-		<div class="container pt-3">
-			<div class="row">
-				<div class="col-md-8"><strong>Auspician</strong></div>
-				<div class="col-md-4 text-right">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logos_sponsors.png" class="img-fluid pb-3">
+	<?php if ( is_page( 'Videojuegos' ) ) {?>
+		<section id="sponsors" class="bg-white">
+			<div class="container pt-3">
+				<div class="row">
+					<div class="col-md-8"><strong>Acompañan</strong></div>
+					<div class="col-md-4 text-right">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logos_sponsors.png" class="img-fluid pb-3">
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+
+	<?php } ?>
+	
 	<footer class="site-footer py-5">
     	<div class="container">
 			<div class="row my-5">

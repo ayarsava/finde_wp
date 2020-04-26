@@ -31,7 +31,6 @@ get_header();
 	
 	<div class="container py-5">
 		<div class="row">
-			<div class="col-md-8 mx-auto">
 			<?php 
 			$args = array(
 		    'post_type'              => 'agenda',
@@ -42,7 +41,7 @@ get_header();
 		        ),
 		    ),
 		    'orderby' => array( 
-		          'fecha_clause' => 'DESC',
+		          'fecha_clause' => 'ASC',
 		    ),
 		  );
 
@@ -73,8 +72,7 @@ get_header();
 
 			endif;
 			?>
-				</div>
-			</div><!-- #main -->
+		</div><!-- #main -->
 	</div><!-- #primary -->
 
 <?php

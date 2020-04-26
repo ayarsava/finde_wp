@@ -66,7 +66,7 @@ $estudios = MB_Relationships_API::get_connected( [
 										if ($descargas) {
 										echo '<div class="descargas mt-2">';
 										foreach ( $descargas as $descarga ) {
-							         	echo '<a href="'.$descarga['d_url'].'" class="btn btn-outline-dark" target="_blank"><i class="fas fa-cloud-download-alt"></i> ' . $descarga['d_name'] .'</a>';
+							         	echo '<a href="'.$descarga['d_url'].'" class="btn btn-sm btn-outline-dark mr-2 mb-2" target="_blank"><i class="fas fa-cloud-download-alt"></i> ' . $descarga['d_name'] .'</a>';
 							      		}
 										echo '</div>';
 										}

@@ -56,6 +56,13 @@ header.main-header {
       bottom: 0;
     }
   }
+  .header-dates {
+    padding-top: 1rem;
+    @media (max-width: 577px) {
+      font-size: .7rem;
+      padding-top: 2rem;
+    }
+  }
   a.nav-link.active {
     font-weight: bold;
   }
@@ -119,17 +126,6 @@ footer {
         @media (max-width: 767.98px) {
           width: 70%;
         }
-        a.arrows {
-          padding: .2rem .8rem;
-          font-size: 2rem;
-          background: #009aae;
-          display: inline-block;
-          font-weight: bold;
-          color: #FFF;
-          &:hover {
-            text-decoration: none;
-          }
-        }
         .info {
           background:#FFF;
           padding:1rem;
@@ -138,6 +134,9 @@ footer {
             margin-top: 2rem;
             font-weight: bold;
             color: #7b7b7b;
+            @media (max-width: 767.98px) {
+                font-size: 1.3rem;
+            }
             &:hover {
               text-decoration: none;
             }

@@ -16,50 +16,53 @@ var discountFilters = [];
 //var categoryFilter;
 var qsRegex;
 
+
 // init Isotope
-var $container = $('#container').isotope({
-  itemSelector: '.grid-item',
-  filter: function() {
-    var $this = $(this);
-    // search
-    var searchResult = qsRegex ? $this.text().match(qsRegex) : true;
+var $container = $('#container').imagesLoaded( function() {
+  $container.isotope({
+    itemSelector: '.grid-item',
+    filter: function() {
+      var $this = $(this);
+      // search
+      var searchResult = qsRegex ? $this.text().match(qsRegex) : true;
 
-    // category
-    if ((categoryFilters.length === 0) && (discountFilters.length === 0)) return true;
+      // category
+      if ((categoryFilters.length === 0) && (discountFilters.length === 0)) return true;
 
-    // Si no hay categorías, chequeamos sólo por discounts
-    if (categoryFilters.length === 0){
-      for (var i = 0; i < discountFilters.length; i++) {
-        if ($this.is('[data-descuento*=' + discountFilters[i] + ']')) {
-          return searchResult;
+      // Si no hay categorías, chequeamos sólo por discounts
+      if (categoryFilters.length === 0){
+        for (var i = 0; i < discountFilters.length; i++) {
+          if ($this.is('[data-descuento*=' + discountFilters[i] + ']')) {
+            return searchResult;
+          }
         }
-      }
-    // Si no hay discounts, chequeamos sólo por categorías
-    } else if (discountFilters.length == 0) {
-      for (var i = 0; i < categoryFilters.length; i++) {
-        if ($this.is('[data-category*=' + categoryFilters[i] + ']')) {
-          return searchResult;
+      // Si no hay discounts, chequeamos sólo por categorías
+      } else if (discountFilters.length == 0) {
+        for (var i = 0; i < categoryFilters.length; i++) {
+          if ($this.is('[data-category*=' + categoryFilters[i] + ']')) {
+            return searchResult;
+          }
         }
-      }
-    // Sino, chequeamos por ambos a la vez
-    } else {
-      for (var i = 0; i < categoryFilters.length; i++) {
-        if ($this.is('[data-category*=' + categoryFilters[i] + ']')) {
-          for (var j = 0; j < discountFilters.length; j++) {
-            if ($this.is('[data-descuento*=' + discountFilters[j] + ']')) {
-              return searchResult;
+      // Sino, chequeamos por ambos a la vez
+      } else {
+        for (var i = 0; i < categoryFilters.length; i++) {
+          if ($this.is('[data-category*=' + categoryFilters[i] + ']')) {
+            for (var j = 0; j < discountFilters.length; j++) {
+              if ($this.is('[data-descuento*=' + discountFilters[j] + ']')) {
+                return searchResult;
+              }
             }
           }
         }
       }
+      return false;
+    },
+    percentPosition: true,
+    masonry: {
+      columnWidth: '.grid-sizer'
     }
-    return false;
-  },
-  percentPosition: true,
-  masonry: {
-    columnWidth: '.grid-sizer'
-  }
 
+  });
 });
 
 // filter with checkboxes

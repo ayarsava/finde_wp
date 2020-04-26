@@ -12,7 +12,6 @@
 <?php 
 	$address = rwmb_meta( 'address' );
 	$url = rwmb_meta( 'mbox_url' );
-	$founded = rwmb_meta( 'founded' );
 	$instagram = rwmb_meta( 'mbox_instagram' );
 	$twitter = rwmb_meta( 'mbox_twitter' );
 	$facebook = rwmb_meta( 'mbox_facebook' );
@@ -34,7 +33,6 @@
 					<?php 
 						if ($address) { echo '<li>'. $address .'</li>';}
 						if ($url) { echo '<li>'. $url .'</li>' ;}
-						if ($founded) { echo '<li>'. $founded .'</li>' ;}
 					?>
 				</ul>
 				<ul class="list-unstyled list-inline text-center h4">

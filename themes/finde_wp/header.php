@@ -41,7 +41,7 @@
 			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde_vj_logo.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
 			        </a>
 			    </div>
-			    <div class="col-lg-6 col-md-5 col-7  pt-4">
+			    <div class="header-dates col-lg-6 col-md-5 col-7">
 			    	<ul class="list-unstyled text-light pt-3">
 			    		<li><strong>Videojuegos > Jue 30.04 al Dom 03.05</strong></li>
 						<li>Editorial > Jue 07 al Dom 10.05</li>
@@ -58,6 +58,7 @@
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerVJ" aria-controls="navbarTogglerVJ" aria-expanded="false" aria-label="Toggle navigation">
 			    <span class="navbar-toggler-icon"></span>
 				</button>
+				<button class="btn btn-link d-lg-none p-0 ml-3" type="button" data-toggle="collapse" data-target="#navbarTogglerVJ" aria-controls="navbarTogglerVJ" aria-expanded="false" aria-label="Toggle docs navigation"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button>
 				<div class="collapse navbar-collapse" id="navbarTogglerVJ">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 						<li class="nav-item">
@@ -100,3 +101,5 @@
 	   		</nav>
 	   	</div>
 	</header>
+
+

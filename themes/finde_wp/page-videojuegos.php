@@ -38,10 +38,12 @@ get_header(); ?>
 		<section class="bg-white">
 			<div class="container-fluid">
 				<div class="container">
-					<div class="col-12">
-						<a href="https://www.bancoprovincia.com.ar/web" target="_blank" title="Enlace al sitio web del Banco Provincia">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/BannerBP_1140x160.gif" class="img-fluid" alt="Banco Provincia">
-						</a>
+					<div class="row">
+						<div class="col-12">
+							<a href="https://www.bancoprovincia.com.ar/web" target="_blank" title="Enlace al sitio web del Banco Provincia">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/BannerBP_1140x160.gif" class="img-fluid" alt="Banco Provincia">
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -111,15 +113,60 @@ get_header(); ?>
 			</div>
 		</section>
 
-
 		<!--AGENDA-->
 		<section id="agenda" class="bg-light py-5">
 			<div class="container">
 				<h1 class="mb-3"><a href="/agenda/" title="Agenda de eventos">Agenda</a></h1>
-					<ul class="agenda-list list-unstyled row justify-content-left row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-					<?php wp_archive_agenda() ?>
-					</ul>
-					<div class="row">
+
+				<div class="row">
+					<?php 
+					$args = array(
+				    'post_type'              => 'agenda',
+				    'posts_per_page' => 12,
+				    'meta_query' => array(
+				        'fecha_clause' => array(
+				            'key' => 'fecha_id',
+				        ),
+				        'destacado_clause' => array(
+				            'key' => 'destacado_id',
+				        ), 
+				    ),
+				    'orderby' => array( 
+				          'destacado_clause' => 'DESC',
+				          'fecha_clause' => 'ASC',
+				    ),
+				  );
+
+				  // The Query
+				  $query_agenda = new WP_Query( $args );
+
+					if ( $query_agenda->have_posts() ) : ?>
+
+						<?php
+						/* Start the Loop */
+						while ( $query_agenda->have_posts() ) :
+							$query_agenda->the_post();
+
+							/*
+							 * Include the Post-Type-specific template for the content.
+							 * If you want to override this in a child theme, then include a file
+							 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+							 */
+							get_template_part( 'template-parts/content', get_post_type() );
+
+						endwhile;
+
+						the_posts_navigation();
+
+					else :
+
+						get_template_part( 'template-parts/content', 'none' );
+
+					endif;
+					?>
+				</div><!-- #main -->
+			</div>
+				<div class="row">
 						<div class="col-12">
 							<div class="border-top mt-3 py-3">
 								<a href="/agenda"><strong>+ Ver agenda completa</strong></a>

@@ -473,9 +473,8 @@ function wp_showSlides_fullbg() {
         }
         echo '<div class="container">';
         echo '<div class="carousel-caption text-left">';
-        echo '<a href="'. $url .'" class="arrows">>></a>';
         echo '<div class="info">';
-        echo '<h1><a href="'. $url .'">' .get_the_title(). '</a></h1><div>' .get_the_content(). '</div>';
+        echo '<h1><a href="'. $url .'">' .get_the_title(). '</a></h1><div>' .wp_trim_words( get_the_content(), 18, '...' ). '</div>';
         echo '</div></div></div></div>';
     }
     /* Restore original Post Data */
@@ -533,16 +532,16 @@ function wp_archive_catalogovj() {
       }
       echo '<div class="card-body">';
       echo '<h5 class="card-title">' . get_the_title() . '</h5>';
-      echo '<div class="card-text over-content d-none">' . get_the_content() . '</div>';
+      echo '<div class="card-text over-content d-none">' . wp_trim_words( get_the_content(), 18, '...' ) . '</div>';
       if ($terms) {
       echo '<div class="rubro">';
-      foreach( $terms as $term ) echo '<span><a href="' . get_the_permalink($term) .'">' . $term->name . '</a></span>', ' ';
+      foreach( $terms as $term ) { echo '<span><a href="'.get_term_link($term->slug, 'rubro').'" class="os">'.$term->name.'</a></span>', ' ';}
       echo '</div>';
       }
       if ($descargas) {
       echo '<small class="descargas mt-2">';
       foreach ( $descargas as $descarga ) {
-         echo '<a href="'.$descarga['d_url'].'" class="os" target="_blank"><i class="fas fa-cloud-download-alt"></i> ' . $descarga['d_name'] .'</a>';
+         echo '<a href="'.$descarga['d_url'].'" class="os btn btn-sm btn-outline-dark mr-2 mb-2" target="_blank"><i class="fas fa-cloud-download-alt"></i> ' . $descarga['d_name'] .'</a>';
       }
       echo '</small>';
       }
@@ -603,14 +602,14 @@ function wp_archive_destacadovj() {
       echo '<div class="carousel-item card">';
         echo '<div class="row no-gutters">';
           if ($src) {
-          echo '<div class="col-md-6" style="height:350px;">';
+          echo '<div class="col-md-6" style="min-height:350px;">';
           echo '<div class="bg-image h-100" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
           }
           echo '</div>';
           echo '<div class="col-md-6 p-5" style="background:#CCC">';
-            echo '<div class="lead">Juego destacado del día</div>';
+            echo '<div class="lead">Juego destacado</div>';
             echo '<h1>' . get_the_title() . '</h1>';
-            echo '<p>' . get_the_content() . '</p>';
+            echo '<p>' . wp_trim_words( get_the_content(), 18, '...' ) . '</p>';
             echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
           echo '</div>';
         echo '</div>';
@@ -633,7 +632,7 @@ function wp_archive_agenda() {
 
   $args = array(
     'post_type'              => 'agenda',
-    'posts_per_page' => 8,
+    'posts_per_page' => 13,
     'meta_query' => array(
         'fecha_clause' => array(
             'key' => 'fecha_id',
@@ -644,7 +643,7 @@ function wp_archive_agenda() {
     ),
     'orderby' => array( 
           'destacado_clause' => 'DESC',
-          'fecha_clause' => 'DESC',
+          'fecha_clause' => 'ASC',
     ),
   );
 
@@ -666,8 +665,8 @@ function wp_archive_agenda() {
       echo '<div class="card-body">';
       echo '<h5 class="card-title">' . get_the_title() . '</h5>';
       echo '<div class="text-primary">' . date( 'j F, Y', $fecha) .'</div>';
-      echo '<small class="card-text">' . get_the_content() . '</small>';
-      echo '<a href="' . get_the_permalink() .'">Ver más</a>';
+      echo '<small class="card-text">' . wp_trim_words( wp_trim_words( get_the_content(), 18, '...' ), 18, '...' ) . '</small>';
+      echo '<a href="' . get_the_permalink() .'" class="d-block">Ver más</a>';
       echo '</div></div></li>';
 
       
@@ -749,22 +748,3 @@ if ( ! function_exists( 'rwmb_the_value' ) ) {
         return false;
     }
 }
-
-/* Stop Adding Functions Below this Line */
-/*
-    echo '<div class="col-md-3 mb-3 sort-item" data-event-date="' . $fecha .'">';
-    echo '<div class="card">';
-    // echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
-    if ($video != '') {
-      echo '<div class="item-video" data-merge="1"><a class="owl-video" href="'.$video.'"></a></div>';
-    } else {
-      if ( has_post_thumbnail() ) {
-        echo get_the_post_thumbnail( $post_id, 'small', array( 'class' => 'img-fluid card-img-top' ) );
-      }
-    };
-    echo '<div class="card-body">';
-    echo '<h5 class="card-title">' . get_the_title() . '</h5>';
-    echo get_the_content();
-    echo '<div class="video">'. $video .'</div>';
-    echo '<div>'. $fecha .'</div>';
-    echo '</div></div></div>';*/
