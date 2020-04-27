@@ -22,14 +22,14 @@ get_header();
 					while ( have_posts() ) :
 						the_post();
 						?>
-						  <div class="row no-gutters" style="min-height:350px;">
+						  <div class="row no-gutters">
 						  	<?php if ($featured_img_url) { 
-						    	echo '<div class="col-md-7">';
+						    	echo '<div class="col-md-4">';
 						    	the_post_thumbnail('full', array('class' => 'img-fluid'));
 						    	echo '</div>';
 						    } ?>
 						    
-						    <div class="<?php if ($featured_img_url) { echo 'col-md-8'; } else { echo 'col-md-15';} ?>">
+						    <div class="<?php if ($featured_img_url) { echo 'col-md-11 border-left'; } else { echo 'col-md-15';} ?>">
 						      <div class="card-body">
 						      	<?php 
 							    $post_tags = get_the_tags();

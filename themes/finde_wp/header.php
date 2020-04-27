@@ -48,8 +48,8 @@
 						<li>Música > Jue 14 al Dom 17.05</li>
 					</ul>
 			    </div>
-			    <div class="col-md-4 d-none d-md-block pt-4 text-right">
-				    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-cultura-gobierno-blanco.png" class="img-fluid ml-auto" width="250">
+			    <div class="col-md-7 d-none d-md-block pt-4 text-right">
+				    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-cultura-gobierno-blanco.png" class="img-fluid ml-auto" width="340">
 				</div>
 			</div>
 		</div>
@@ -69,9 +69,6 @@
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="/videojuegos/#catalogo">Juegos</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Accesorios</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="/videojuegos/#agenda">Agenda</a>

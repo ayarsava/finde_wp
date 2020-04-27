@@ -106,7 +106,7 @@ footer {
     }
   }
   img.logo-cultura {
-    width: 280px;
+    width: 360px;
   }
 }
 .site-footer {
@@ -241,6 +241,11 @@ a.badge.os {
     border: 0;
     border-radius: 0;
   }
+}
+.bg-white .card {
+    border: 0;
+    border-radius: 0;
+    background: #f1f1f1;
 }
 .grid-item-content.card {
   .card-body {

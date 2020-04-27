@@ -40,7 +40,13 @@ $destacado = rwmb_meta( 'destacado_id' );
       <?php 
       the_title( '<h5 class="card-title">', '</h5>' );
       ?>
-      <div class="card-text"><?php echo wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ); ?></div>
+      <?php if ( get_the_excerpt() ) {
+        echo '<div class="card-text">' . get_the_excerpt() .'</div>';
+      } else {
+        echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+      }
+      ?>
+      
     </div>
   </div>
 </div>

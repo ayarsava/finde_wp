@@ -23,7 +23,7 @@ get_header(); ?>
 
 		<!--OPB-->
 		<section id="finde-vj">
-			<div class="container-fluid py-5" style="background:#222;">
+			<div class="container-fluid py-5 bg-primary">
 				<div class="container">
 					<div class="col-md-8 mx-auto text-center text-white py-5">
 						<div class="h4">#FINDEJUGANDO</div>
@@ -116,7 +116,7 @@ get_header(); ?>
 		<!--AGENDA-->
 		<section id="agenda" class="bg-card py-5">
 			<div class="container">
-				<h1 class="mb-3"><a href="/agenda/" title="Agenda de eventos">Agenda</a></h1>
+				<h1 class="mb-3">Agenda  <a href="/agenda/" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
 
 				<div class="row">
 					<?php 

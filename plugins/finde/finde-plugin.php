@@ -532,7 +532,11 @@ function wp_archive_catalogovj() {
       }
       echo '<div class="card-body">';
       echo '<h5 class="card-title">' . get_the_title() . '</h5>';
-      echo '<div class="card-text">' . wp_trim_words( get_the_content(), 18, '...' ) . '</div>';
+      if ( get_the_excerpt() ) {
+        echo '<div class="card-text">' . get_the_excerpt() .'</div>';
+      } else {
+        echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+      }
       if ($terms) {
       echo '<div class="rubro">';
       foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
@@ -545,12 +549,15 @@ function wp_archive_catalogovj() {
       }
       echo '</small>';
       }
-      echo '</div><small class="card-footer text-muted text-sm lista">';
+      echo '</div>';
       if ($estudios) {
-      echo 'Por '; foreach ( $estudios as $estudio ) {
-          echo '<span><a href="' . get_the_permalink($estudio) .'" rel="slidemark" class="os">' .$estudio->post_title.'</a></span> ';
-      }}
-      echo '</small></div></div>';
+        echo '<small class="card-footer text-muted text-sm lista">';
+        echo 'Por '; foreach ( $estudios as $estudio ) {
+            echo '<span><a href="' . get_the_permalink($estudio) .'" rel="slidemark" class="os">' .$estudio->post_title.'</a></span> ';
+        }
+        echo '</small>';
+      }
+      echo '</div></div>';
     endwhile;
     wp_reset_postdata();
   } else {

@@ -46,7 +46,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-lg-10 col-md-12 mx-auto">
+			<div class="col-lg-12 col-md-15 mx-auto">
 				<h2 class="text-light"><strong>Próximas ediciones</strong><hr></h2>
 				<div class="card-deck my-4 text-center">
 					<div class="col-md-5 bg-transparent mb-4">

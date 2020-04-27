@@ -119,26 +119,9 @@ function debounce(fn, threshold) {
 
 
   //CAPTURO FUENTE Y ASIGNO AUTOPLAY
-  function autoPlayYouTubeModal(){
-    var trigger = $("body").find('[data-toggle="modal"]');
-    trigger.click(function() {
-      var theModal = $(this).data( "target" ),
-      videoSRC = $(this).attr( "data-theVideo" ), 
-      videoSRCauto = videoSRC+"?autoplay=1" ;
-      $(theModal+' iframe').attr('src', videoSRCauto);
-
-      $('#videoModal').on('hidden.bs.modal', function () {
-          $('#videoModal iframe').removeAttr('src');
-      })
-
-      
-    });
-  }
-  //AUTOPLAY
-  $(document).ready(function(){
-    autoPlayYouTubeModal();
-  });
-
+  $('iframe[src*="youtube"]').wrap(
+    "<div class='embed-responsive embed-responsive-16by9'></div>"
+    ).addClass("embed-responsive-item");
 
   //ORDER BY DATE
     /*var container = $(".sort-list");
