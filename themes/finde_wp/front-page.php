@@ -49,7 +49,7 @@
 			<div class="col-lg-10 col-md-12 mx-auto">
 				<h2 class="text-light"><strong>Próximas ediciones</strong><hr></h2>
 				<div class="card-deck my-4 text-center">
-					<div class="col-md-4 bg-transparent mb-4">
+					<div class="col-md-5 bg-transparent mb-4">
 							<div class="card text-center shadow hover-shadow">
 								<a href="#" class="stretched-link"></a>
 									<div class="py-3 col-md-8 mx-auto">
@@ -62,7 +62,7 @@
 									</div>
 							</div>
 					</div>
-					<div class="col-md-4 bg-transparent mb-4">
+					<div class="col-md-5 bg-transparent mb-4">
 							<div class="card text-center shadow hover-shadow">
 								<a href="#" class="stretched-link"></a>
 									<div class="py-3 col-md-8 mx-auto">
@@ -75,7 +75,7 @@
 									</div>
 							</div>
 					</div>
-					<div class="col-md-4 bg-transparent mb-4">
+					<div class="col-md-5 bg-transparent mb-4">
 						<div class="card text-center shadow hover-shadow">
 							<a href="#" class="stretched-link"></a>
 								<div class="py-3 col-md-8 mx-auto">
