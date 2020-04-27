@@ -12,7 +12,7 @@ get_header();
 
 	<div class="container">
 		<div class="row">
-			<div class="col-12">
+			<div class="col">
 				<section id="primary" class="content-area py-5">
 					<main id="main" class="site-main">
 

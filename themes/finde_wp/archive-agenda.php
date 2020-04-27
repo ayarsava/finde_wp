@@ -9,7 +9,7 @@
 
 get_header();
 ?>
-<div class="main-content">
+<div id="agenda" class="main-content bg-card">
 	<section class="archive-agenda spotlight bg-cover" style="background-image: url('/wp-content/themes/finde_wp/assets/img/bg_agenda_vj.jpg'); background-size:cover; background-position:center center; height:400px;">
 		<div class="spotlight-holder pt-5 pb-7 py-lg-0">
 			<span class="mask bg-gradient-primary opacity-6"></span>

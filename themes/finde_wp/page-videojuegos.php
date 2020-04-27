@@ -39,7 +39,7 @@ get_header(); ?>
 			<div class="container-fluid">
 				<div class="container">
 					<div class="row">
-						<div class="col-12">
+						<div class="col">
 							<a href="https://www.bancoprovincia.com.ar/web" target="_blank" title="Enlace al sitio web del Banco Provincia">
 								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/BannerBP_1140x160.gif" class="img-fluid" alt="Banco Provincia">
 							</a>
@@ -114,7 +114,7 @@ get_header(); ?>
 		</section>
 
 		<!--AGENDA-->
-		<section id="agenda" class="bg-light py-5">
+		<section id="agenda" class="bg-card py-5">
 			<div class="container">
 				<h1 class="mb-3"><a href="/agenda/" title="Agenda de eventos">Agenda</a></h1>
 
@@ -122,7 +122,7 @@ get_header(); ?>
 					<?php 
 					$args = array(
 				    'post_type'              => 'agenda',
-				    'posts_per_page' => 12,
+				    'posts_per_page' => 13,
 				    'meta_query' => array(
 				        'fecha_clause' => array(
 				            'key' => 'fecha_id',
@@ -166,10 +166,9 @@ get_header(); ?>
 				</div><!-- #main -->
 			
 				<div class="row">
-						<div class="col-12">
-							<div class="border-top mt-3 py-3">
-								<a href="/agenda"><strong>+ Ver agenda completa</strong></a>
-							</div>
+					<div class="col">
+						<div class="border-top mt-3 py-3">
+							<a href="/agenda"><strong>+ Ver agenda completa</strong></a>
 						</div>
 					</div>
 				</div>

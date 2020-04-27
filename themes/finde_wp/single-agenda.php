@@ -12,9 +12,9 @@ $fecha = rwmb_meta( 'fecha_id' );
 get_header();
 ?>
 
-	<div class="container">
+	<div id="agenda" class="container">
   		<div class="row">
-      		<div class="col-12">
+      		<div class="col">
       			<div id="primary" class="content-area">
         			<main id="main" class="site-main my-5">
 
@@ -23,18 +23,26 @@ get_header();
 						the_post();
 						?>
 						  <div class="row no-gutters" style="min-height:350px;">
-						  	<a href="<?php echo get_permalink();?>" class="stretched-link"></a>
-						    <?php if ($featured_img_url) { 
-						    	echo '<div class="col-md-5">';
+						  	<?php if ($featured_img_url) { 
+						    	echo '<div class="col-md-7">';
 						    	the_post_thumbnail('full', array('class' => 'img-fluid'));
 						    	echo '</div>';
 						    } ?>
 						    
-						    <div class="<?php if ($featured_img_url) { echo 'col-md-7'; } else { echo 'col-md-12';} ?>">
+						    <div class="<?php if ($featured_img_url) { echo 'col-md-8'; } else { echo 'col-md-15';} ?>">
 						      <div class="card-body">
-
+						      	<?php 
+							    $post_tags = get_the_tags();
+							    if ( $post_tags ) {
+							      echo '<div class="tags">';
+							        foreach( $post_tags as $tag ) {
+							        echo '<span>' .$tag->name . '</span>'; 
+							        }
+							      echo '</div>';
+							    }
+							    ?>
 						        <ul class="list-unstyled">
-									<li><?php echo date( 'j F, Y', $fecha); ?></li>
+									<li><?php echo date('d-m\, H:i', $fecha); ?>hs</li>
 								</ul>
 						      	<?php
 								the_title( '<h1 class="card-title">', '</h1>' );

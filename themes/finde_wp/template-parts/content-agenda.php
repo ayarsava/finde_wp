@@ -13,14 +13,24 @@
 /* grab the url for the full size featured image */
 $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
 $fecha = rwmb_meta( 'fecha_id' ); 
-
+$destacado = rwmb_meta( 'destacado_id' );
 
 ?>
-<div class="col-sm-3 mb-3">
+<div class="item col-lg-3 col-md-5 mb-4<?php if ($destacado == 1) { echo ' destacado'; } ?>">
   <div class="card h-100">
     <?php if ($featured_img_url) { 
     echo '<div class="img-wrapper img-fluid card-img-top" style="background-image: url('. esc_url($featured_img_url) .'); background-size:cover;background-position: center center; height:160px;"></div>';
     } ?>
+    <?php 
+    $post_tags = get_the_tags();
+    if ( $post_tags ) {
+      echo '<div class="tags">';
+        foreach( $post_tags as $tag ) {
+        echo '<span>' .$tag->name . '</span>'; 
+        }
+      echo '</div>';
+    }
+    ?>
     <div class="card-body">
       <a href="<?php echo get_permalink();?>" class="stretched-link"></a>
 

@@ -245,7 +245,7 @@ function custom_post_type_agenda() {
         // Features this CPT supports in Post Editor
         'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
         // You can associate this CPT with a taxonomy or custom taxonomy. 
-        'taxonomies'  => array( 'category' ),
+        'taxonomies'  => array( 'category', 'post_tag'),
         /* A hierarchical CPT is like Pages and can have
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.
@@ -532,16 +532,16 @@ function wp_archive_catalogovj() {
       }
       echo '<div class="card-body">';
       echo '<h5 class="card-title">' . get_the_title() . '</h5>';
-      echo '<div class="card-text over-content d-none">' . wp_trim_words( get_the_content(), 18, '...' ) . '</div>';
+      echo '<div class="card-text">' . wp_trim_words( get_the_content(), 18, '...' ) . '</div>';
       if ($terms) {
       echo '<div class="rubro">';
-      foreach( $terms as $term ) { echo '<span><a href="'.get_term_link($term->slug, 'rubro').'" class="os">'.$term->name.'</a></span>', ' ';}
+      foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
       echo '</div>';
       }
       if ($descargas) {
-      echo '<small class="descargas mt-2">';
+      echo '<small class="descargas mt-2 d-block">';
       foreach ( $descargas as $descarga ) {
-         echo '<a href="'.$descarga['d_url'].'" class="os btn btn-sm btn-outline-dark mr-2 mb-2" target="_blank"><i class="fas fa-cloud-download-alt"></i> ' . $descarga['d_name'] .'</a>';
+         echo '<a href="'.$descarga['d_url'].'" class="os btn btn-sm btn-outline-dark mr-1 mb-1 descarga" target="_blank"><span>' . $descarga['d_name'] .'</span></a>';
       }
       echo '</small>';
       }
@@ -602,11 +602,11 @@ function wp_archive_destacadovj() {
       echo '<div class="carousel-item card">';
         echo '<div class="row no-gutters">';
           if ($src) {
-          echo '<div class="col-md-6" style="min-height:350px;">';
+          echo '<div class="col-md-7" style="min-height:350px;">';
           echo '<div class="bg-image h-100" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
           }
           echo '</div>';
-          echo '<div class="col-md-6 p-5" style="background:#CCC">';
+          echo '<div class="col-md-8 p-5" style="background:#CCC">';
             echo '<div class="lead">Juego destacado</div>';
             echo '<h1>' . get_the_title() . '</h1>';
             echo '<p>' . wp_trim_words( get_the_content(), 18, '...' ) . '</p>';

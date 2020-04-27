@@ -107,16 +107,16 @@
 			    echo '<h5 class="card-title">' . get_the_title() . '</h5>';
 			    echo '<div class="card-text over-content d-none">' . the_content() . '</div>';
 			    if ($terms) {
-			    echo '<div class="rubro">';
-			    foreach( $terms as $term ) echo '<span><a href="' . get_the_permalink($term) .'" class="os">' . $term->name . '</a></span>', ' ';
-			    echo '</div>';
+				echo '<div class="rubro">';
+				foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
+				echo '</div>';
 				}
 				if ($descargas) {
-			    echo '<div class="descargas mt-2">';
+				echo '<small class="descargas mt-2 d-block">';
 				foreach ( $descargas as $descarga ) {
-	         		echo '<a href="'.$descarga['d_url'].'" class="btn btn-outline-dark" target="_blank"><i class="fas fa-cloud-download-alt"></i> ' . $descarga['d_name'] .'</a>';
-	      		}
-				echo '</div>';
+				echo '<a href="'.$descarga['d_url'].'" class="os btn btn-sm btn-outline-dark mr-1 mb-1 descarga" target="_blank"><span>' . $descarga['d_name'] .'</span></a>';
+				}
+				echo '</small>';
 				}
 			    echo '</div></div></div>';
 			  endwhile;

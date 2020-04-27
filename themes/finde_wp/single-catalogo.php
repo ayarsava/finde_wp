@@ -27,7 +27,7 @@ $estudios = MB_Relationships_API::get_connected( [
 
 	<div class="container">
 			<div class="row">
-					<div class="col-12">
+					<div class="col">
 						<div id="primary" class="content-area">
 							<main id="main" class="site-main my-5">
 
@@ -37,12 +37,12 @@ $estudios = MB_Relationships_API::get_connected( [
 						?>
 							<div class="row no-gutters" style="min-height:350px;">
 								<?php if ($featured_img_url) { 
-						    	echo '<div class="col-md-5">';
+						    	echo '<div class="col-md-7">';
 						    	the_post_thumbnail('full', array('class' => 'img-fluid'));
 						    	echo '</div>';
 						    } ?>
 								
-								<div class="<?php if ($featured_img_url) { echo 'col-md-7'; } else { echo 'col-md-12';} ?>">
+								<div class="<?php if ($featured_img_url) { echo 'col-md-8'; } ?>">
 									<div class="card-body">
 
 										<?php
@@ -53,21 +53,17 @@ $estudios = MB_Relationships_API::get_connected( [
 							          	echo '<a href="' . get_the_permalink($estudio) .'" rel="slidemark" class="os">' .$estudio->post_title.'</a> ';
 							      		}}
 										if ($terms) {
-										echo '<div class="mt-3 rubro">';
-										foreach( $terms as $term ) echo '<span><a href="' . get_the_permalink($term) .'">' . $term->name . '</a></span>', ' ';
-										echo '</div>';
-										}
-										if ($dterms) {
-										echo '<div class="descuento">';
-										foreach( $dterms as $dterm ) echo '<span><a href="' . get_the_permalink($dterm) .'"> ' . $dterm->name . '</a></span>', ' /';
+										echo '<div class="rubro">';
+										foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
 										echo '</div>';
 										}
 										echo '<div class="mt-2 d-block">' . get_the_content().'</div>';
 										if ($descargas) {
-										echo '<div class="descargas mt-2">';
+										echo '<small class="descargas mt-2 d-block">';
 										foreach ( $descargas as $descarga ) {
-							         	echo '<a href="'.$descarga['d_url'].'" class="btn btn-sm btn-outline-dark mr-2 mb-2" target="_blank"><i class="fas fa-cloud-download-alt"></i> ' . $descarga['d_name'] .'</a>';
-							      		}
+										echo '<a href="'.$descarga['d_url'].'" class="os btn btn-sm btn-outline-dark mr-1 mb-1 descarga" target="_blank"><span>' . $descarga['d_name'] .'</span></a>';
+										}
+										echo '</small>';
 										echo '</div>';
 										}
 										echo '</div></div></div>';

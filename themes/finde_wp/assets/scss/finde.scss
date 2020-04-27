@@ -167,18 +167,81 @@ footer {
 
 #catalogo {
   .item {
-    .over-content .text{
-      font-size: .8rem;
-    }
     h5.card-title {
       margin-bottom: .5rem;
     }
+  }
+}
+a.badge.os {
+    font-size: .7rem;
+    font-weight: 400;
+    padding: 5px;
+}
+.descarga[href*="play.google"] { 
+    &>span {
+      display: none;
+    }
+    &:after {
+    content: "\f17b";
+    font-family: 'Font Awesome 5 Brands', sans-serif;
+  }
+}
+.descarga[href*="windows.com"] { 
+    &>span {
+      display: none;
+    }
+    &:after {
+    content: "\f17a";
+    font-family: 'Font Awesome 5 Brands', sans-serif;
+  }
+}
+.descarga[href*="apple.com"] { 
+    &>span {
+      display: none;
+    }
+    &:after {
+    content: "\f370";
+    font-family: 'Font Awesome 5 Brands', sans-serif;
+  }
+}
+.descarga[href*="steampowered.com"] { 
+    &>span {
+      display: none;
+    }
+    &:after {
+    content: "\f3f6";
+    font-family: 'Font Awesome 5 Brands', sans-serif;
+  }
+}
+.descarga[href*="playstation.com"] { 
+    &>span {
+      display: none;
+    }
+    &:after {
+    content: "\f3df";
+    font-family: 'Font Awesome 5 Brands', sans-serif;
+  }
+}
+.descarga[href*="microsoft.com"] { 
+    &>span {
+      display: none;
+    }
+    &:after {
+    content: "\f412";
+    font-family: 'Font Awesome 5 Brands', sans-serif;
   }
 }
 
 
 
 /*** CARD **/
+.bg-card {
+  background: #eaeaea;
+  .card {
+    border: 0;
+    border-radius: 0;
+  }
+}
 .grid-item-content.card {
   .card-body {
     .rubro {
@@ -218,11 +281,65 @@ footer {
   .bg-image {
     height: 140px;
   }
-  .col.destacado {
-    flex: 0 0 60%;
-    max-width: 60%!important;
-    > div {
-      height: 100%;
+  .tags {
+    position: absolute;
+    background: #009aae;
+    right: 0px;
+    top:9px;
+    padding: 2px 6px;
+    color: #F1F1F1;
+    font-size: .75rem;
+    span {
+      &:after {
+        content: " | ";
+      }
+      &:last-child:after {
+        content: "";
+      }
+    }
+  }
+  .item.destacado {
+    @media (min-width: 992px) { 
+      width: 60%;
+      flex: 0 0 60%;
+      max-width: 60%;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 991px) { 
+      width: 66.66%;
+      flex: 0 0 66.66%;
+      max-width: 66.66%;
+    }
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+      width: 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    
+    @media (min-width: 767.98px) {
+      .img-wrapper.card-img-top {
+        width: 50%;
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        height: 100%!important;
+      }
+      .card-body {
+        width: 50%;
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        right: 0;
+        height: 100%!important;
+      }
+      .tags {
+        right: 50%;
+      }
+    }
+    .card-title {
+      font-weight:bold;
+    }
+    .card-text {
+      font-size:.9rem;
     }
   }
 }

@@ -30,13 +30,13 @@
     	<div class="container">
 			<div class="row my-5">
 			    <div class="col-sm-2">
-			      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_finde_vj_blanco.png" class="img-fluid mb-5">
+			      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_finde_footer-vj.png" class="img-fluid mb-5">
 			    </div>
 			    <div class="col-sm-3">
 			      <ul class="list-unstyled text-white">
 			      	<li><a href="/" class="text-light">Finde</a></li>
-			      	<li><a href="/juegos/" class="text-light">Juegos</a></li>
-			      	<li><a href="/agenda/" class="text-light">Agenda</a></li>
+			      	<li><a href="/videojuegos/#juegos" class="text-light">Juegos</a></li>
+			      	<li><a href="/videojuegos/#agenda" class="text-light">Agenda</a></li>
 			      	<li><a href="/preguntas-frecuentes/" class="text-light">Preguntas frecuentes</a></li>
 			      </ul>
 			    </div>
