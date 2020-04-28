@@ -17,6 +17,7 @@ $destacado = rwmb_meta( 'destacado_id' );
 
 ?>
 <div class="item col-lg-3 col-md-5 mb-4<?php if ($destacado == 1) { echo ' destacado'; } ?>">
+  <?php if ($destacado == 1) { echo '<div class="ribbon ribbon-top-left"><span>DESTACADO</span></div>'; } ?>
   <div class="card h-100">
     <?php if ($featured_img_url) { 
     echo '<div class="img-wrapper img-fluid card-img-top" style="background-image: url('. esc_url($featured_img_url) .'); background-size:cover;background-position: center center; height:160px;"></div>';

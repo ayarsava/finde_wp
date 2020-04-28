@@ -177,7 +177,7 @@ add_action( 'mb_relationships_init', function() {
 
 function finde_filter_search($query) {
 	if (!$query->is_admin && $query->is_search) {
-		$query->set('post_type', array('post', 'page', 'book'));
+		$query->set('post_type', array('page', 'catalogo', 'agenda'));
 	}
 	return $query;
 }

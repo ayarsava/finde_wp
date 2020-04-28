@@ -234,7 +234,8 @@ a.badge.os {
 #agenda .item.destacado {
   width: 100%;
   flex: 0 0 100%;
-  max-width: 100%; }
+  max-width: 100%;
+  /* common */ }
   @media (min-width: 992px) {
     #agenda .item.destacado {
       width: 60%;
@@ -265,14 +266,48 @@ a.badge.os {
     font-weight: bold; }
   #agenda .item.destacado .card-text {
     font-size: .9rem; }
-  #agenda .item.destacado:after {
-    content: 'hola';
+  #agenda .item.destacado .ribbon {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
     position: absolute;
-    left: 0;
-    top: 0;
-    border-style: solid;
-    border-width: 0 30px 30px 0;
-    border-color: transparent #608A32 transparent transparent; }
+    /* top left*/ }
+    #agenda .item.destacado .ribbon::before, #agenda .item.destacado .ribbon::after {
+      position: absolute;
+      z-index: -1;
+      content: '';
+      display: block;
+      border: 5px solid #2980b9; }
+    #agenda .item.destacado .ribbon span {
+      position: absolute;
+      display: block;
+      width: 225px;
+      padding: 7px 0;
+      background-color: #01ca46;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      color: #fff;
+      font: 700 18px/1 'Lato', sans-serif;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+      text-transform: uppercase;
+      text-align: center; }
+    #agenda .item.destacado .ribbon.ribbon-top-left {
+      top: -1px;
+      left: 9px; }
+    #agenda .item.destacado .ribbon.ribbon-top-left::before, #agenda .item.destacado .ribbon.ribbon-top-left::after {
+      border-top-color: transparent;
+      border-left-color: transparent; }
+    #agenda .item.destacado .ribbon.ribbon-top-left::before {
+      top: 0;
+      right: 0; }
+    #agenda .item.destacado .ribbon.ribbon-top-left::after {
+      bottom: 0;
+      left: 0; }
+    #agenda .item.destacado .ribbon.ribbon-top-left span {
+      right: -30px;
+      top: 24px;
+      transform: rotate(-45deg);
+      font-size: .75rem;
+      z-index: 2; }
 
 /*** AGENDA ARCHVE ***/
 .spotlight {

@@ -488,6 +488,9 @@ function wp_showSlides_fullbg() {
 function wp_archive_catalogovj() {
   $args = array(
     'post_type'              => 'catalogo',
+    'posts_per_page'         => 15,
+    'post_status'            => 'publish',
+    'no_found_rows'          => true,
   );
 
   // The Query
@@ -496,7 +499,6 @@ function wp_archive_catalogovj() {
   if ( $query_catalogo->have_posts() ) {
 
     while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
-
 
       $estudios = MB_Relationships_API::get_connected( [
         'id'   => 'catalogo_to_estudios',

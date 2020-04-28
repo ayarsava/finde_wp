@@ -41,7 +41,8 @@ get_header(); ?>
 					<div class="row">
 						<div class="col">
 							<a href="https://www.bancoprovincia.com.ar/web" target="_blank" title="Enlace al sitio web del Banco Provincia">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/BannerBP_1140x160.gif" class="img-fluid" alt="Banco Provincia">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-banco-provincia.gif" class="img-fluid d-none d-sm-block" alt="Banco Provincia">
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-banco-provincia_m.gif" class="mx-auto img-fluid d-block d-sm-none" alt="Banco Provincia">
 							</a>
 						</div>
 					</div>
@@ -99,17 +100,21 @@ get_header(); ?>
 							<?php  } }?>
 						</div>
 					</div>
-
 				</ul>
 
 				<div id="container" class="grid">
-					<div class="">
-						<!-- 2 col grid @ xs, 3 col grid @ sm, 4 col grid @ md -->
-						<div class="grid-sizer"></div>
-							<?php wp_archive_catalogovj() ?>
+					<!-- 2 col grid @ xs, 3 col grid @ sm, 4 col grid @ md -->
+					<div class="grid-sizer"></div>
+					<?php wp_archive_catalogovj() ?>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="border-top mt-3 py-3">
+							<a href="/catalogo"><strong>+ Ver todos los juegos</strong></a>
 						</div>
 					</div>
 				</div>
+					
 			</div>
 		</section>
 

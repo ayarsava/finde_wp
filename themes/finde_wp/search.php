@@ -19,14 +19,14 @@ get_header();
 					<?php if ( have_posts() ) : ?>
 
 						<header class="page-header">
-							<h1 class="page-title h3">
+							<h1 class="page-title h3 mb-4">
 								<?php
 								/* translators: %s: search query. */
-								printf( esc_html__( 'Resultados para la búsqueda: %s', 'finde_wp' ), '<span>' . get_search_query() . '</span>' );
+								printf( esc_html__( 'Buscando %s', 'finde_wp' ), '<span>' . get_search_query() . '</span>' );
 								?>
 							</h1>
 						</header><!-- .page-header -->
-
+						<ul>
 						<?php
 						/* Start the Loop */
 						while ( have_posts() ) :
@@ -40,8 +40,7 @@ get_header();
 							get_template_part( 'template-parts/content', 'search' );
 
 						endwhile;
-
-						the_posts_navigation();
+						echo '</ul>';
 
 					else :
 
