@@ -46,7 +46,10 @@ get_header();
 								</ul>
 						      	<?php
 								the_title( '<h1 class="card-title">', '</h1>' );
-								?>
+								if( has_excerpt() ){
+									echo '<div class="lead">'. get_the_excerpt() .'</div>';
+								}
+						        ?>
 						        <p class="card-text"><?php the_content(); ?></p>
 						      </div>
 						    </div>

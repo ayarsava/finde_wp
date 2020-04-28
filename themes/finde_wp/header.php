@@ -41,7 +41,7 @@
 			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde_vj_logo.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
 			        </a>
 			    </div>
-			    <div class="header-dates col-lg-6 col-md-5 col-7">
+			    <div class="header-dates col-lg-6 col-md-5 col-10">
 			    	<ul class="list-unstyled text-light pt-3">
 			    		<li><strong>Videojuegos > Jue 30.04 al Dom 03.05</strong></li>
 						<li>Editorial > Jue 07 al Dom 10.05</li>
@@ -62,7 +62,7 @@
 				<div class="collapse navbar-collapse" id="navbarTogglerVJ">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 						<li class="nav-item">
-							<a class="nav-link active" href="/videojuegos/#finde-vj">Finde Videojuegos</a>
+							<a class="nav-link active" href="/videojuegos/#finde-vj">Inicio</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="/que-es">Qué es</a>

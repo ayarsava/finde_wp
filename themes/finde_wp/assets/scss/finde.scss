@@ -53,13 +53,16 @@ header.main-header {
     a.main-logo {
       position: absolute;
       left: -76px;
+      @media (max-width: 577px) {
+        left: -65px;
+      }
       bottom: 0;
     }
   }
   .header-dates {
     padding-top: 1rem;
     @media (max-width: 577px) {
-      font-size: .7rem;
+      font-size: .75rem;
       padding-top: 2rem;
     }
   }
@@ -130,15 +133,17 @@ footer {
           background:#FFF;
           padding:1rem;
           color: #7b7b7b;
-          h1 a {
-            margin-top: 2rem;
+          h1 {
+            font-size: 2.4rem;
             font-weight: bold;
-            color: #7b7b7b;
             @media (max-width: 767.98px) {
                 font-size: 1.3rem;
             }
+            a {
+              color: #7b7b7b;
             &:hover {
-              text-decoration: none;
+                text-decoration: none;
+              }
             }
           }
         }
@@ -304,6 +309,9 @@ a.badge.os {
     }
   }
   .item.destacado {
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
     @media (min-width: 992px) { 
       width: 60%;
       flex: 0 0 60%;
@@ -314,12 +322,6 @@ a.badge.os {
       flex: 0 0 66.66%;
       max-width: 66.66%;
     }
-    @media only screen and (min-width: 480px) and (max-width: 767px) {
-      width: 100%;
-      flex: 0 0 100%;
-      max-width: 100%;
-    }
-    
     @media (min-width: 767.98px) {
       .img-wrapper.card-img-top {
         width: 50%;
@@ -345,6 +347,15 @@ a.badge.os {
     }
     .card-text {
       font-size:.9rem;
+    }
+    &:after {
+      content: 'hola';
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-style: solid;
+      border-width: 0 30px 30px 0;
+      border-color: transparent #608A32 transparent transparent;
     }
   }
 }

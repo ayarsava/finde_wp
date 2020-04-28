@@ -78,7 +78,7 @@ get_header(); ?>
 						<div class="col-md-3">
 							<h5>Categorías</h5>
 						</div>
-						<div class="col-md-9">
+						<div class="col-md-12">
 							<?php 
 							$rubros = get_terms('rubro');
 							if( $rubros ){ foreach ($rubros as $cat ) {?>
@@ -89,9 +89,9 @@ get_header(); ?>
 					<hr>
 					<div class="row">
 						<div class="col-md-3">
-							<h5>Elegí tu descuento</h5>
+							<h5>Precio</h5>
 						</div>
-						<div class="col-md-9">
+						<div class="col-md-12">
 							<?php 
 							$descuento = get_terms('descuento');
 							if( $descuento ){ foreach ($descuento as $cat ) {?>

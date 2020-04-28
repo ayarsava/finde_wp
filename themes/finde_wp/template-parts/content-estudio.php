@@ -32,21 +32,18 @@
 				<ul class="list-unstyled text-light">
 					<?php 
 						if ($address) { echo '<li>'. $address .'</li>';}
-						if ($url) { echo '<li>'. $url .'</li>' ;}
 					?>
 				</ul>
 				<ul class="list-unstyled list-inline text-center h4">
 					<?php
-						if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. ' target="_blank"><i class="ml-1 fab fa-instagram"></i></a></li>';}
-						if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. ' target="_blank"><i class="ml-1 fab fa-twitter"></i></a></li>';}
+						if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank"><i class="ml-1 fab fa-instagram"></i></a></li>';}
+						if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank"><i class="ml-1 fab fa-twitter"></i></a></li>';}
 						
-						if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. ' target="_blank"><i class="ml-1 fab fa-facebook"></i></a></li>';}
+						if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank"><i class="ml-1 fab fa-facebook"></i></a></li>';}
+						if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank"><i class="ml-1 fas fa-globe-americas"></i></i></a></li>';}
 						
 					?>
 				</ul>
-
-					<li><a href="<?php echo rwmb_meta( 'mbox_url' ) ?>" target="_blank"><?php echo rwmb_meta( 'mbox_url' ) ?></a></li>
-					<li>Fundada en <?php echo rwmb_meta( 'founded' ) ?></li>
 				</ul>
 			</div>
 
@@ -97,16 +94,31 @@
 			    $terms = get_the_terms( $post->ID, 'rubro' );
 			    $dterms = get_the_terms( $post->ID, 'descuento' );
 
-			    echo '<div class="col-md-4 my-3">';
-			    echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
-			    echo '<div class="grid-item-content card">';
-			    if ( has_post_thumbnail() ) {
-			      echo get_the_post_thumbnail( $post_id, 'small', array( 'class' => 'img-fluid card-img-top' ) );
-			    }
-			    echo '<div class="card-body">';
-			    echo '<h5 class="card-title">' . get_the_title() . '</h5>';
-			    echo '<div class="card-text over-content d-none">' . the_content() . '</div>';
-			    if ($terms) {
+			    echo '<div class="col-md-4 mb-1 text-left"';
+				if ($terms) {
+				echo ' data-category="';
+				foreach( $terms as $term ) echo $term->slug. ' ';
+				echo '" ';
+				}
+				if ($terms) {
+				echo ' data-descuento="';
+				foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
+				echo '"';
+				}
+				echo '>';
+				echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+				echo '<div class="grid-item-content card h-100">';
+				if ( has_post_thumbnail() ) {
+					echo get_the_post_thumbnail( $post_id, 'small', array( 'class' => 'img-fluid card-img-top' ) );
+				}
+				echo '<div class="card-body">';
+				echo '<h5 class="card-title">' . get_the_title() . '</h5>';
+				if( has_excerpt() ){
+					echo '<div class="card-text">'. get_the_excerpt() .'</div>';
+				} else {
+					echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+				}
+				if ($terms) {
 				echo '<div class="rubro">';
 				foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
 				echo '</div>';
@@ -114,11 +126,12 @@
 				if ($descargas) {
 				echo '<small class="descargas mt-2 d-block">';
 				foreach ( $descargas as $descarga ) {
-				echo '<a href="'.$descarga['d_url'].'" class="os btn btn-sm btn-outline-dark mr-1 mb-1 descarga" target="_blank"><span>' . $descarga['d_name'] .'</span></a>';
+					 echo '<a href="'.$descarga['d_url'].'" class="os btn btn-sm btn-outline-dark mr-1 mb-1 descarga" target="_blank"><span>' . $descarga['d_name'] .'</span></a>';
 				}
 				echo '</small>';
 				}
-			    echo '</div></div></div>';
+				echo '</div>';
+				echo '</div></div>';
 			  endwhile;
 			  wp_reset_postdata();
 			} else {

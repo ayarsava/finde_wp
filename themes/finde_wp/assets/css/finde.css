@@ -47,11 +47,14 @@ header.main-header {
       position: absolute;
       left: -76px;
       bottom: 0; }
+      @media (max-width: 577px) {
+        header.main-header .logo-wrapper a.main-logo {
+          left: -65px; } }
   header.main-header .header-dates {
     padding-top: 1rem; }
     @media (max-width: 577px) {
       header.main-header .header-dates {
-        font-size: .7rem;
+        font-size: .75rem;
         padding-top: 2rem; } }
   header.main-header a.nav-link.active {
     font-weight: bold; }
@@ -105,15 +108,16 @@ footer {
       background: #FFF;
       padding: 1rem;
       color: #7b7b7b; }
-      #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info h1 a {
-        margin-top: 2rem;
-        font-weight: bold;
-        color: #7b7b7b; }
+      #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info h1 {
+        font-size: 2.4rem;
+        font-weight: bold; }
         @media (max-width: 767.98px) {
-          #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info h1 a {
+          #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info h1 {
             font-size: 1.3rem; } }
-        #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info h1 a:hover {
-          text-decoration: none; }
+        #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info h1 a {
+          color: #7b7b7b; }
+          #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info h1 a:hover {
+            text-decoration: none; }
 
 /*** catalogo isotope ***/
 .grid-sizer,
@@ -227,41 +231,48 @@ a.badge.os {
     content: " | "; }
   #agenda .tags span:last-child:after {
     content: ""; }
-@media (min-width: 992px) {
-  #agenda .item.destacado {
-    width: 60%;
-    flex: 0 0 60%;
-    max-width: 60%; } }
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  #agenda .item.destacado {
-    width: 66.66%;
-    flex: 0 0 66.66%;
-    max-width: 66.66%; } }
-@media only screen and (min-width: 480px) and (max-width: 767px) {
-  #agenda .item.destacado {
-    width: 100%;
-    flex: 0 0 100%;
-    max-width: 100%; } }
-@media (min-width: 767.98px) {
-  #agenda .item.destacado .img-wrapper.card-img-top {
-    width: 50%;
+#agenda .item.destacado {
+  width: 100%;
+  flex: 0 0 100%;
+  max-width: 100%; }
+  @media (min-width: 992px) {
+    #agenda .item.destacado {
+      width: 60%;
+      flex: 0 0 60%;
+      max-width: 60%; } }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    #agenda .item.destacado {
+      width: 66.66%;
+      flex: 0 0 66.66%;
+      max-width: 66.66%; } }
+  @media (min-width: 767.98px) {
+    #agenda .item.destacado .img-wrapper.card-img-top {
+      width: 50%;
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      height: 100% !important; }
+    #agenda .item.destacado .card-body {
+      width: 50%;
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      right: 0;
+      height: 100% !important; }
+    #agenda .item.destacado .tags {
+      right: 50%; } }
+  #agenda .item.destacado .card-title {
+    font-weight: bold; }
+  #agenda .item.destacado .card-text {
+    font-size: .9rem; }
+  #agenda .item.destacado:after {
+    content: 'hola';
     position: absolute;
-    bottom: 0;
+    left: 0;
     top: 0;
-    height: 100% !important; }
-  #agenda .item.destacado .card-body {
-    width: 50%;
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    right: 0;
-    height: 100% !important; }
-  #agenda .item.destacado .tags {
-    right: 50%; } }
-#agenda .item.destacado .card-title {
-  font-weight: bold; }
-#agenda .item.destacado .card-text {
-  font-size: .9rem; }
+    border-style: solid;
+    border-width: 0 30px 30px 0;
+    border-color: transparent #608A32 transparent transparent; }
 
 /*** AGENDA ARCHVE ***/
 .spotlight {
