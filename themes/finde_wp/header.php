@@ -18,6 +18,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico" type="image/vnd.microsoft.icon" />
+    
+    <meta property="og:description" content="<?php the_title();?>" />
+	<meta property="og:url" content="" />
+    <meta property="og:image" content="https://finde.gba.gob.ar/wp-content/themes/finde_wp/assets/img/finde-logo-azul.png" />
+
+    <meta name="description" content="<?php the_title();?>">
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="<?php the_title();?>" />
+    <meta property="og:url" content="https://finde.gba.gob.ar">
+	<meta property="og:image" content="https://finde.gba.gob.ar/wp-content/themes/finde_wp/assets/img/finde-logo-azul.png" />
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@ba_cultura">
+    <meta name="twitter:title" content="<?php the_title();?>">
+
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164544539-1"></script>
 	<script>
@@ -29,6 +45,7 @@
 	</script>
 
     <?php wp_head(); ?>
+
 
   </head>
   <body <?php body_class(); ?>>

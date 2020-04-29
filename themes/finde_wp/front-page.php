@@ -19,6 +19,14 @@
 		<meta name="description" content="">
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164544539-1"></script>
+
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Finde | Feria virtual de cultura independiente de la Provincia de Buenos Aires">
+		<meta property="og:description" content="Feria virtual de cultura independiente de la Provincia de Buenos Aires">
+		<meta property="og:url" content="https://finde.gba.gob.ar">
+		<meta property="og:image" content="https://finde.gba.gob.ar/wp-content/themes/finde_wp/assets/img/finde-logo-azul.png" />
+
+	    <link rel="canonical" href="https://finde.gba.gob.ar/">
 		<script>
 		  window.dataLayer = window.dataLayer || [];
 		  function gtag(){dataLayer.push(arguments);}
