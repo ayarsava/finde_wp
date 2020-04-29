@@ -34,12 +34,12 @@ $dterms = get_the_terms( $post->ID, 'descuento' );
 			echo '"';
 			}
 			echo '>';
-			echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
-			echo '<div class="grid-item-content card h-100">';
+			echo '';
+			echo '<div class="grid-item-content card h-100"><a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link">';
 			if ( has_post_thumbnail() ) {
 				echo get_the_post_thumbnail( $post_id, 'small', array( 'class' => 'img-fluid card-img-top' ) );
 			}
-			echo '<div class="card-body">';
+			echo '</a><div class="card-body">';
 			echo '<h5 class="card-title">' . get_the_title() . '</h5>';
 			if( has_excerpt() ){
 				echo '<div class="card-text">'. get_the_excerpt() .'</div>';
@@ -48,7 +48,7 @@ $dterms = get_the_terms( $post->ID, 'descuento' );
 			}
 			if ($terms) {
 			echo '<div class="rubro">';
-			foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
+			foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro').'" class="badge badge-dark mt-1 os">'.$term->name.'</a>', ' ';}
 			echo '</div>';
 			}
 			if ($descargas) {

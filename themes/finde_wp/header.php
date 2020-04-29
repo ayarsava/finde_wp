@@ -12,6 +12,7 @@
 ?>
 
 <!doctype html>
+<?php global $wp;?>
 <html  <?php language_attributes(); ?>>
   <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -19,19 +20,15 @@
     <meta name="description" content="">
     <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico" type="image/vnd.microsoft.icon" />
     
-    <meta property="og:description" content="<?php the_title();?>" />
-	<meta property="og:url" content="" />
-    <meta property="og:image" content="https://finde.gba.gob.ar/wp-content/themes/finde_wp/assets/img/finde-logo-azul.png" />
-
-    <meta name="description" content="<?php the_title();?>">
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="<?php the_title();?>" />
-    <meta property="og:url" content="https://finde.gba.gob.ar">
+    <meta property="og:type" content="website">
+	<meta property="og:title" content="Finde | Feria virtual de cultura independiente de la Provincia de Buenos Aires">
+	<meta property="og:description" content="Feria virtual de cultura independiente de la Provincia de Buenos Aires">
+	<meta property="og:url" content="https://finde.gba.gob.ar">
 	<meta property="og:image" content="https://finde.gba.gob.ar/wp-content/themes/finde_wp/assets/img/finde-logo-azul.png" />
-
-    <meta name="twitter:card" content="summary">
+    <meta property="og:url" content="<?php echo home_url( $wp->request ) ?>">
+	<meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@ba_cultura">
-    <meta name="twitter:title" content="<?php the_title();?>">
+    <meta name="twitter:title" content="Finde ">
 
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
