@@ -79,41 +79,40 @@ get_header(); ?>
 						<div class="col-md-3">
 							<h5>Categorías</h5>
 						</div>
-						<div class="col-md-12">
+						<ul class="col-md-12">
 							<?php 
 							$rubros = get_terms('rubro');
 							if( $rubros ){ foreach ($rubros as $cat ) {?>
-							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="category"> <?php echo $cat->name; ?></label></li>
+							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="category" autocomplete="off"> <?php echo $cat->name; ?></label></li>
 							<?php  } }?>
-						</div>
+						</ul>
 					</div>
 					<hr>
 					<div class="row">
 						<div class="col-md-3">
 							<h5>Precio</h5>
 						</div>
-						<div class="col-md-12">
+						<ul class="col-md-12">
 							<?php 
 							$descuento = get_terms('descuento');
 							if( $descuento ){ foreach ($descuento as $cat ) {?>
-							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="discount"> <?php echo $cat->name; ?></label></li>
+							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="discount" autocomplete="off"> <?php echo $cat->name; ?></label></li>
 							<?php  } }?>
-						</div>
+						</ul>
 					</div>
 				</ul>
 
-				<div id="container" class="grid">
+				<div id="container" class="grid loadable collapsed">
 					<!-- 2 col grid @ xs, 3 col grid @ sm, 4 col grid @ md -->
 					<div class="grid-sizer"></div>
 					<?php wp_archive_catalogovj() ?>
 				</div>
-				<div class="row">
-					<div class="col">
-						<div class="border-top mt-3 py-3">
-							<a href="/catalogo"><strong>+ Ver todos los juegos</strong></a>
-						</div>
+
+					<div class="load-content" id="more">
+						<a href="#" class="btn btn-outline-primary"><span class="less">Mostrar menos juegos</span><span class="more">Mostrar más juegos</span></a>
 					</div>
-				</div>
+					<a href="/catalogo" class="btn btn-primary"><strong>Ver todos los juegos</strong></a>
+				
 					
 			</div>
 		</section>

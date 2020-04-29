@@ -488,7 +488,7 @@ function wp_showSlides_fullbg() {
 function wp_archive_catalogovj() {
   $args = array(
     'post_type'              => 'catalogo',
-    'posts_per_page'         => 15,
+    'posts_per_page'         => -1,
     'post_status'            => 'publish',
     'no_found_rows'          => true,
   );

@@ -35,26 +35,26 @@ get_header();
 						<div class="col-md-3">
 							<h5><strong>Categorías</strong></h5>
 						</div>
-						<div class="col-md-12">
+						<ul class="col-md-12">
 							<?php 
 							$rubros = get_terms('rubro');
 							if( $rubros ){ foreach ($rubros as $cat ) {?>
-							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="category"> <?php echo $cat->name; ?></label></li>
+							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="category" autocomplete="off"> <?php echo $cat->name; ?></label></li>
 							<?php  } }?>
-						</div>
+						</ul>
 					</div>
 					<hr>
 					<div class="row">
 						<div class="col-md-3">
 							<h5><strong>Precio</strong></h5>
 						</div>
-						<div class="col-md-12">
+						<ul class="col-md-12">
 							<?php 
 							$descuento = get_terms('descuento');
 							if( $descuento ){ foreach ($descuento as $cat ) {?>
-							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="discount"> <?php echo $cat->name; ?></label></li>
+							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="discount" autocomplete="off"> <?php echo $cat->name; ?></label></li>
 							<?php  } }?>
-						</div>
+						</ul>
 					</div>
 
 				</ul>

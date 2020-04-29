@@ -520,4 +520,45 @@ a.badge.os {
 .card .icon {
   max-width: 60px; }
 
+.loadable {
+  transition: all 0.3 ease;
+  max-height: 100000px;
+  overflow: hidden;
+  position: relative; }
+  .loadable:after {
+    content: "";
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f2f2f3+0,f2f2f3+100&0+0,1+100 */
+    background: -moz-linear-gradient(top, rgba(242, 242, 243, 0) 0%, #f2f2f3 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(242, 242, 243, 0) 0%, #f2f2f3 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(242, 242, 243, 0) 0%, #f2f2f3 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f2f2f3', endColorstr='#f2f2f3', GradientType=0);
+    /* IE6-9 */
+    z-index: 1;
+    height: 0;
+    position: absolute;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: all 0.3 ease; }
+  .loadable.collapsed {
+    max-height: 1600px; }
+    .loadable.collapsed:after {
+      height: 200px; }
+
+.load-content {
+  margin: 2rem 0 1rem 0;
+  display: inline-block; }
+  .load-content .less {
+    display: none; }
+  .load-content .more {
+    display: inline; }
+  .load-content.collapsed .more {
+    display: none; }
+  .load-content.collapsed .less {
+    display: inline; }
+
 /*# sourceMappingURL=finde.css.map */
