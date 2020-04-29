@@ -55,7 +55,7 @@ $estudios = MB_Relationships_API::get_connected( [
 										the_title( '<h1 class="card-title">', '</h1>' );
 										
 										if ($estudios) {
-												echo 'Por '; foreach ( $estudios as $estudio ) {
+												echo 'Desarrollador: '; foreach ( $estudios as $estudio ) {
 													echo '<a href="' . get_the_permalink($estudio) .'" rel="slidemark" class="os">' .$estudio->post_title.'</a> ';
 												}}
 										if( has_excerpt() ){
@@ -63,6 +63,7 @@ $estudios = MB_Relationships_API::get_connected( [
 										}
 										echo '<div class="mt-2 d-block">' . get_the_content().'</div>';
 										if ($descargas) {
+										echo 'Descargas:';
 										echo '<small class="descargas mt-2 d-block">';
 										foreach ( $descargas as $descarga ) {
 										echo '<a href="'.$descarga['d_url'].'" class="os btn btn-sm btn-outline-dark mr-1 mb-1 descarga" target="_blank"><span>' . $descarga['d_name'] .'</span></a>';

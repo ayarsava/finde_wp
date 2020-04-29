@@ -39,11 +39,11 @@ get_header();
 							<?php 
 							$rubros = get_terms('rubro');
 							if( $rubros ){ foreach ($rubros as $cat ) {?>
-							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="category" autocomplete="off"> <?php echo $cat->name; ?></label></li>
+							<li class="list-inline-item <?php echo $cat->slug; ?>"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="category" autocomplete="off"> <?php echo $cat->name; ?></label></li>
 							<?php  } }?>
 						</ul>
 					</div>
-					<hr>
+					<!--<hr>
 					<div class="row">
 						<div class="col-md-3">
 							<h5><strong>Precio</strong></h5>
@@ -55,7 +55,7 @@ get_header();
 							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="discount" autocomplete="off"> <?php echo $cat->name; ?></label></li>
 							<?php  } }?>
 						</ul>
-					</div>
+					</div>-->
 
 				</ul>
 

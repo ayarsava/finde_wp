@@ -51,20 +51,19 @@
 				<div class="card-deck my-4 text-center">
 					<div class="col-md-5 bg-transparent mb-4">
 							<div class="card text-center shadow hover-shadow">
-								<a href="#" class="stretched-link"></a>
 									<div class="py-3 col-md-8 mx-auto">
 											<img src="/wp-content/themes/finde_wp/assets/img/icon-vj.png" class="img-fluid icon">
 									</div>
 									<div class="pb-5 text-white">
-											<h3><strong>Videojuegos</strong></h3>
-											<p>30 ABRIL - 3 MAYO</p>
-											<a href="#" class="btn btn-outline-light disabled">Muy pronto</a>
+										<h3><strong>Videojuegos</strong></h3>
+										<p>30 ABRIL - 3 MAYO</p>
+										<a href="#" class="btn btn-outline-light disabled" id="soon">Muy pronto</a>
+										<a href="/videojuegos" class="btn btn-outline-light" id="activo" style="display:none;">Accedé</a>
 									</div>
 							</div>
 					</div>
 					<div class="col-md-5 bg-transparent mb-4">
 							<div class="card text-center shadow hover-shadow">
-								<a href="#" class="stretched-link"></a>
 									<div class="py-3 col-md-8 mx-auto">
 											<img src="/wp-content/themes/finde_wp/assets/img/icon-editorial.png" class="img-fluid icon">
 									</div>
@@ -77,7 +76,6 @@
 					</div>
 					<div class="col-md-5 bg-transparent mb-4">
 						<div class="card text-center shadow hover-shadow">
-							<a href="#" class="stretched-link"></a>
 								<div class="py-3 col-md-8 mx-auto">
 										<img src="/wp-content/themes/finde_wp/assets/img/icon-musica.png" class="img-fluid icon">
 								</div>
@@ -104,7 +102,7 @@
 			hour = minute * 60,
 			day = hour * 24;
 
-			let countDown = new Date('2020-04-30T00:00:00'.replace(/\s/, 'T')).getTime(),
+			let countDown = new Date('2020-04-30T12:00:00'.replace(/\s/, 'T')).getTime(),
 			x = setInterval(function() {    
 
 			let now = new Date().getTime(),
@@ -118,9 +116,12 @@
 			//do something later when date is reached
 			if (distance > 0) {
 				document.getElementById("clock").style.display = "block";
+				document.getElementById("soon").style.display = "inline-block";
 			} else {
 				clearInterval(x);
 				document.getElementById("clock").style.display = "none";
+				document.getElementById("soon").style.display = "none";
+				document.getElementById("activo").style.display = "inline-block";
 			}
 
 			}, second)

@@ -474,7 +474,7 @@ function wp_showSlides_fullbg() {
         echo '<div class="container">';
         echo '<div class="carousel-caption text-left">';
         echo '<div class="info">';
-        echo '<h1>' .get_the_title(). '</h1><div>' .wp_trim_words( get_the_content(), 18, '...' ). '</div>';
+        echo '<h1>' .get_the_title(). '</h1><div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
         echo '</div></div></div></div>';
     }
     /* Restore original Post Data */
@@ -537,7 +537,6 @@ function wp_archive_catalogovj() {
       } else {
         echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
       }
-      echo '<a href="#" class="card-text">Ver más</a>';
       if ($terms) {
       echo '<div class="rubro">';
       foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
@@ -615,7 +614,7 @@ function wp_archive_destacadovj() {
           }
           echo '</div>';
           echo '<div class="col-md-8 p-5" style="background:#CCC">';
-            echo '<div class="lead">Juegos destacados</div>';
+            echo '<div class="lead">JUEGO DEL DÍA</div>';
             echo '<h1>' . get_the_title() . '</h1>';
             if ( get_the_excerpt() ) {
               echo '<div>' . get_the_excerpt() .'</div>';

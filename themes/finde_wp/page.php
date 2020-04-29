@@ -17,7 +17,11 @@ get_header();
 
 	<div class="container">
   		<div class="row">
-      		<div class="col-md-11">
+      		<div class="<?php if (is_page( 'en-vivo' )) { 
+      			echo 'col-md-15';
+      		} else { 
+      			echo 'col-md-11';
+      		} ?>">
       			<div id="primary" class="content-area">
         			<main id="main" class="site-main my-5">
 

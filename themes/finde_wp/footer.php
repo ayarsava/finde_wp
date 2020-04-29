@@ -19,6 +19,7 @@
 					<div class="col-lg-3 py-2"><strong>Acompañan</strong></div>
 					<div class="col-lg-12 text-right">
 						<div class="container">
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/press-over.png" class="img-fluid mx-3" width="90"></span>
 							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/woman-in-games.png" class="img-fluid mx-3" width="40"></span> 
 							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/juegosargentinos.png" class="img-fluid mx-3" width="90"></span>
 							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/adva_logo.png" class="img-fluid mx-3" width="90"></span>

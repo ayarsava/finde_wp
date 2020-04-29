@@ -83,11 +83,11 @@ get_header(); ?>
 							<?php 
 							$rubros = get_terms('rubro');
 							if( $rubros ){ foreach ($rubros as $cat ) {?>
-							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="category" autocomplete="off"> <?php echo $cat->name; ?></label></li>
+							<li class="list-inline-item <?php echo $cat->slug; ?>"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="category" autocomplete="off"> <?php echo $cat->name; ?></label></li>
 							<?php  } }?>
 						</ul>
 					</div>
-					<hr>
+					<!--<hr>
 					<div class="row">
 						<div class="col-md-3">
 							<h5>Precio</h5>
@@ -99,7 +99,7 @@ get_header(); ?>
 							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="discount" autocomplete="off"> <?php echo $cat->name; ?></label></li>
 							<?php  } }?>
 						</ul>
-					</div>
+					</div>-->
 				</ul>
 
 				<div id="container" class="grid loadable collapsed">
@@ -107,13 +107,6 @@ get_header(); ?>
 					<div class="grid-sizer"></div>
 					<?php wp_archive_catalogovj() ?>
 				</div>
-
-					<div class="load-content" id="more">
-						<a href="#" class="btn btn-outline-primary"><span class="less">Mostrar menos juegos</span><span class="more">Mostrar más juegos</span></a>
-					</div>
-					<a href="/catalogo" class="btn btn-primary"><strong>Ver todos los juegos</strong></a>
-				
-					
 			</div>
 		</section>
 
@@ -169,13 +162,13 @@ get_header(); ?>
 					?>
 				</div><!-- #main -->
 			
-				<div class="row">
+				<!--<div class="row">
 					<div class="col">
 						<div class="border-top mt-3 py-3">
 							<a href="/agenda"><strong>+ Ver agenda completa</strong></a>
 						</div>
 					</div>
-				</div>
+				</div>-->
 			</div>
 		</section>
 

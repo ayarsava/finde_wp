@@ -24,12 +24,12 @@ get_header();
 						?>
 						  <div class="row no-gutters">
 						  	<?php if ($featured_img_url) { 
-						    	echo '<div class="col-md-4">';
+						    	echo '<div class="col-md-6">';
 						    	the_post_thumbnail('full', array('class' => 'img-fluid'));
 						    	echo '</div>';
 						    } ?>
 						    
-						    <div class="<?php if ($featured_img_url) { echo 'col-md-11 border-left'; } else { echo 'col-md-15';} ?>">
+						    <div class="<?php if ($featured_img_url) { echo 'col-md-9 border-left'; } else { echo 'col-md-15';} ?>">
 						      <div class="card-body">
 						      	<?php 
 							    $post_tags = get_the_tags();

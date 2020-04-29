@@ -109,14 +109,6 @@ function debounce(fn, threshold) {
 };
 
 
-$('.loadable ~ .load-content').on('click', function(e) {
-    e.preventDefault();
-    $('.loadable, .load-content').toggleClass('collapsed');
-});
-
-
-
-
   // use value of search field to filter
   var $quicksearch = $('#search').keyup(debounce(function() {
     qsRegex = new RegExp($quicksearch.val(), 'gi');
