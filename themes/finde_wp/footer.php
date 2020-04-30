@@ -42,7 +42,7 @@
 			    <div class="col-lg-6 col-md-5">
 			      <ul class="list-unstyled text-white">
 			      	<li><a href="/" class="text-light">Finde</a></li>
-			      	<li><a href="/videojuegos/#juegos" class="text-light">Juegos</a></li>
+			      	<li><a href="/videojuegos/#catalogo" class="text-light">Juegos</a></li>
 			      	<li><a href="/videojuegos/#agenda" class="text-light">Agenda</a></li>
 			      	<li><a href="/preguntas-frecuentes/" class="text-light">Preguntas frecuentes</a></li>
 			      </ul>

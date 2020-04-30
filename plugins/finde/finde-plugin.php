@@ -458,7 +458,7 @@ function wp_showSlides_fullbg() {
   global $post;
   
   // the query
-  $the_query = new WP_Query( array( 'post_type' => 'slide', 'posts_per_page' => 6 ) );
+  $the_query = new WP_Query( array( 'post_type' => 'slide', 'posts_per_page' => -1 ) );
   // The Loop
   if ( $the_query->have_posts() ) {
     while ( $the_query->have_posts() ) {
@@ -474,7 +474,7 @@ function wp_showSlides_fullbg() {
         echo '<div class="container">';
         echo '<div class="carousel-caption text-left">';
         echo '<div class="info">';
-        echo '<h1>' .get_the_title(). '</h1><div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
+        echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1><div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
         echo '</div></div></div></div>';
     }
     /* Restore original Post Data */
