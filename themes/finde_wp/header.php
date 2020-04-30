@@ -17,8 +17,8 @@
   <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico" type="image/vnd.microsoft.icon" />
+    <meta name="description" content="Feria virtual de cultura independiente de la Provincia de Buenos Aires">
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico">
     
     <meta property="og:type" content="website">
 	<meta property="og:title" content="Finde | Feria virtual de cultura independiente de la Provincia de Buenos Aires">
