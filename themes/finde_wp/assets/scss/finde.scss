@@ -8,7 +8,8 @@ body {
   }
 }
 
-body.home {
+body.home,
+body.page-splash {
 background: #009aae;
 }
 [class*=shadow] {
@@ -29,7 +30,7 @@ h1 {
   }
   font-weight: bold;
 }
-.home .card {
+.page-splash .card {
   background:transparent;
   border: solid 1px #ffffff75;
   &.shadow {

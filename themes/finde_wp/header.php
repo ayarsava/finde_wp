@@ -88,8 +88,8 @@
 						<li class="nav-item">
 							<a class="nav-link" href="/videojuegos/#agenda">Agenda</a>
 						</li>
-						<li class="nav-item ml-sm-2 mb-2 mb-sm-0">
-							<a class="nav-link btn btn-primary" href="/en-vivo"><span class="fas fa-video"></span> En vivo</a>
+						<li class="nav-item">
+							<a class="nav-link" href="/en-vivo">En vivo</a>
 						</li>
 						<!--<li class="nav-item">
 							<a class="nav-link" href="/">Próximas ediciones</a>

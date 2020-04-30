@@ -5,7 +5,8 @@ html {
 body.menu-opened {
   overflow: hidden; }
 
-body.home {
+body.home,
+body.page-splash {
   background: #009aae; }
 
 [class*=shadow] {
@@ -25,13 +26,13 @@ h1 {
     h1 {
       font-size: 2rem; } }
 
-.home .card {
+.page-splash .card {
   background: transparent;
   border: solid 1px #ffffff75; }
-  .home .card.shadow {
+  .page-splash .card.shadow {
     -webkit-box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
     box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03); }
-    .home .card.shadow:hover {
+    .page-splash .card.shadow:hover {
       -webkit-transform: translateY(-10px) !important;
       -ms-transform: translateY(-10px) !important;
       transform: translateY(-10px) !important;
