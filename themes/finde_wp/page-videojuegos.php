@@ -113,7 +113,7 @@ get_header(); ?>
 		<!--AGENDA-->
 		<section id="agenda" class="bg-card py-5">
 			<div class="container">
-				<h1 class="mb-3">Agenda  <a href="/agenda/" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
+				<h1 class="mb-3">Agenda  <a href="/en-vivo" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
 
 				<div class="row">
 					<?php 

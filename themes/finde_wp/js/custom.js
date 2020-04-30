@@ -123,6 +123,10 @@ function debounce(fn, threshold) {
     "<div class='embed-responsive embed-responsive-16by9'></div>"
     ).addClass("embed-responsive-item");
 
+  $('iframe[src*="twitch.tv"]').wrap(
+  "<div class='embed-responsive embed-responsive-16by9'></div>"
+  ).addClass("embed-responsive-item");
+
   //ORDER BY DATE
     /*var container = $(".sort-list");
     var items = $(".sort-item");
