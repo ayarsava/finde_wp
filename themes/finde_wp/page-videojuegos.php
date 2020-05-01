@@ -40,7 +40,7 @@ get_header(); ?>
 				<div class="container">
 					<div class="row">
 						<div class="col">
-							<a href="https://www.bancoprovincia.com.ar/web" target="_blank" title="Enlace al sitio web del Banco Provincia">
+							<a href="https://www.bancoprovincia.com.ar/cuentadni/index?url=cdniIndividuos" target="_blank" title="Enlace al sitio web del Banco Provincia">
 								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-banco-provincia.gif" class="img-fluid d-none d-sm-block" alt="Banco Provincia">
 								<img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-banco-provincia_m.gif" class="mx-auto img-fluid d-block d-sm-none" alt="Banco Provincia">
 							</a>
