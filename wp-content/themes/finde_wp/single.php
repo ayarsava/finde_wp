@@ -9,25 +9,20 @@
 
 get_header();
 ?>
-	<div class="container">
-  		<div class="row">
-      		<div class="col-12">
-      			<div id="primary" class="content-area">
-        			<main id="main" class="site-main">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main">
 
-					<?php
-					while ( have_posts() ) :
-						the_post();
+			<?php
 
-						get_template_part( 'template-parts/content', get_post_type() );
+			// Start the Loop.
+			while ( have_posts() ) :
+				the_post();
+				get_template_part( 'template-parts/content', get_post_type() );
+			endwhile; // End the loop.
+			?>
 
-					endwhile; // End of the loop.
-					?>
-
-					</main><!-- #main -->
-      			</div><!-- #primary -->
-    		</div><!-- .col-12 .col-md-8 -->
-    	</div><!-- .row -->
+		</main><!-- #main -->
+	</div><!-- #primary -->
 
 <?php
 get_footer();

@@ -62,6 +62,61 @@ function wporg_register_taxonomy_rubro() {
 add_action('init', 'wporg_register_taxonomy_rubro');
 
 
+function wporg_register_taxonomy_rubro_ed() {
+  $labels = [
+    'name'              => _x('Rubros', 'taxonomy general name'),
+    'singular_name'     => _x('Rubro', 'taxonomy singular name'),
+    'search_items'      => __('Buscar rubros'),
+    'all_items'         => __('Todos los rubros'),
+    'parent_item'       => __('Rubro padre'),
+    'parent_item_colon' => __('Rubro padre:'),
+    'edit_item'         => __('Editar Rubro'),
+    'update_item'       => __('Actualizar Rubro'),
+    'add_new_item'      => __('Agregar nuevo Rubro'),
+    'new_item_name'     => __('Nuevo nombre de rubro'),
+    'menu_name'         => __('Rubro'),
+  ];
+  $args = [
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    //'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => array( 'slug' => 'rubro_ed', 'with_front' => false ),
+  ];
+  register_taxonomy('rubro_ed', ['editoriales'], $args);
+}
+add_action('init', 'wporg_register_taxonomy_rubro_ed');
+
+
+function wporg_register_taxonomy_descuento_ed() {
+  $labels = [
+    'name'              => _x('Descuentos', 'taxonomy general name'),
+    'singular_name'     => _x('Descuento', 'taxonomy singular name'),
+    'search_items'      => __('Buscar descuentos'),
+    'all_items'         => __('Todos los descuentos'),
+    'parent_item'       => __('Descuento padre'),
+    'parent_item_colon' => __('Descuento padre:'),
+    'edit_item'         => __('Editar Descuento'),
+    'update_item'       => __('Actualizar Descuento'),
+    'add_new_item'      => __('Agregar nuevo Descuento'),
+    'new_item_name'     => __('Nuevo nombre de descuento'),
+    'menu_name'         => __('Descuento'),
+  ];
+  $args = [
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => array( 'slug' => 'descuento_ed', 'with_front' => false ),
+  ];
+  register_taxonomy('descuento_ed', ['editoriales'], $args);
+}
+add_action('init', 'wporg_register_taxonomy_descuento_ed');
+
 
 /*** HOME - SLIDER***/
 
@@ -93,10 +148,12 @@ function slider_init() {
 	  'rewrite'            => array( 'slug' => 'slide' ),
 	  'capability_type'    => 'post',
 	  'has_archive'        => true,
-	  'Hierarchical'       => false,
-	  'menu_position'      => null,
+	  'hierarchical'       => false,
+	  'menu_position'      => 4,
     'exclude_from_search' => false,
-	  'supports'           => array( 'title', 'editor', 'author', 'thumbnail')
+	  'supports'           => array( 'title', 'editor', 'author', 'thumbnail'),
+    // You can associate this CPT with a taxonomy or custom taxonomy. 
+    'taxonomies'          => array('category'),
 	);
 	register_post_type( 'slide', $args );
 }
@@ -110,7 +167,7 @@ function custom_post_type() {
     $labels = array(
         'name'                => _x( 'Catalogos', 'Post Type General Name', 'finde-plugin' ),
         'singular_name'       => _x( 'Catalogo', 'Post Type Singular Name', 'finde-plugin' ),
-        'menu_name'           => __( 'Catalogos', 'finde-plugin' ),
+        'menu_name'           => __( 'VJ - Catalogos', 'finde-plugin' ),
         'parent_item_colon'   => __( 'Catalogo padre', 'finde-plugin' ),
         'all_items'           => __( 'Todos los Catalogos', 'finde-plugin' ),
         'view_item'           => __( 'Ver Catalogo', 'finde-plugin' ),
@@ -143,7 +200,7 @@ function custom_post_type() {
         'show_in_menu'        => true,
         'show_in_nav_menus'   => true,
         'show_in_admin_bar'   => true,
-        'menu_position'       => 5,
+        'menu_position'       => 15,
         'can_export'          => true,
         'has_archive'         => true,
         'exclude_from_search' => false,
@@ -166,7 +223,7 @@ function custom_post_type_estudio() {
     $labels = array(
         'name'                => _x( 'Estudios', 'Post Type General Name', 'finde-plugin' ),
         'singular_name'       => _x( 'Estudio', 'Post Type Singular Name', 'finde-plugin' ),
-        'menu_name'           => __( 'Estudios', 'finde-plugin' ),
+        'menu_name'           => __( 'VJ - Estudios', 'finde-plugin' ),
         'parent_item_colon'   => __( 'Estudio padre', 'finde-plugin' ),
         'all_items'           => __( 'Todos los Estudios', 'finde-plugin' ),
         'view_item'           => __( 'Ver Estudio', 'finde-plugin' ),
@@ -199,7 +256,7 @@ function custom_post_type_estudio() {
         'show_in_menu'        => true,
         'show_in_nav_menus'   => true,
         'show_in_admin_bar'   => true,
-        'menu_position'       => 5,
+        'menu_position'       => 15,
         'can_export'          => true,
         'has_archive'         => true,
         'exclude_from_search' => false,
@@ -275,6 +332,117 @@ function custom_post_type_agenda() {
 add_action( 'init', 'custom_post_type_agenda', 0 );
 
 
+/*** CPT EDITORIAL ***/
+function custom_post_type_editoriales() {
+  // Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Editoriales', 'Post Type General Name', 'finde-plugin' ),
+        'singular_name'       => _x( 'Editorial', 'Post Type Singular Name', 'finde-plugin' ),
+        'menu_name'           => __( 'Editoriales', 'finde-plugin' ),
+        'parent_item_colon'   => __( 'Editorial padre', 'finde-plugin' ),
+        'all_items'           => __( 'Todas las Editoriales', 'finde-plugin' ),
+        'view_item'           => __( 'Ver Editorial', 'finde-plugin' ),
+        'add_new_item'        => __( 'Agregar nueva Editorial', 'finde-plugin' ),
+        'add_new'             => __( 'Agregar nueva', 'finde-plugin' ),
+        'edit_item'           => __( 'Editar Editorial', 'finde-plugin' ),
+        'update_item'         => __( 'Actualizar Editorial', 'finde-plugin' ),
+        'search_items'        => __( 'Buscar Editorial', 'finde-plugin' ),
+        'not_found'           => __( 'No encontrado', 'finde-plugin' ),
+        'not_found_in_trash'  => __( 'No encontrado en la papelera', 'finde-plugin' ),
+    );
+     
+  // Set other options for Custom Post Type
+     
+    $args = array(
+        'label'               => __( 'editoriales', 'finde-plugin' ),
+        'description'         => __( 'Editoriales', 'finde-plugin' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields', ),
+        // You can associate this CPT with a taxonomy or custom taxonomy. 
+        'taxonomies'  => array( 'post_tag', 'rubro_ed', 'descuento_ed'),
+        /* A hierarchical CPT is like Pages and can have
+        * Parent and child items. A non-hierarchical CPT
+        * is like Posts.
+        */ 
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 7,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest'        => true,
+
+        'timestamp'  => true,
+ 
+    );
+     
+    // Registering your Custom Post Type
+    register_post_type( 'editoriales', $args );
+ 
+}
+add_action( 'init', 'custom_post_type_editoriales', 0 );
+
+
+/*** CPT PRODUCTO Editorial ***/ 
+function custom_post_type_productoeditorial() {
+ 
+  // Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Productos', 'Post Type General Name', 'finde-plugin' ),
+        'singular_name'       => _x( 'Producto', 'Post Type Singular Name', 'finde-plugin' ),
+        'menu_name'           => __( 'Productos editoriales', 'finde-plugin' ),
+        'parent_item_colon'   => __( 'Producto padre', 'finde-plugin' ),
+        'all_items'           => __( 'Todos los Productos', 'finde-plugin' ),
+        'view_item'           => __( 'Ver Producto', 'finde-plugin' ),
+        'add_new_item'        => __( 'Agregar nuevo Producto', 'finde-plugin' ),
+        'add_new'             => __( 'Agregar nuevo', 'finde-plugin' ),
+        'edit_item'           => __( 'Editar Producto', 'finde-plugin' ),
+        'update_item'         => __( 'Actualizar Producto', 'finde-plugin' ),
+        'search_items'        => __( 'Buscar Producto', 'finde-plugin' ),
+        'not_found'           => __( 'No encontrado', 'finde-plugin' ),
+        'not_found_in_trash'  => __( 'No encontrado en la papelera', 'finde-plugin' ),
+    );
+     
+  // Set other options for Custom Post Type
+     
+    $args = array(
+        'label'               => __( 'productoeditorial', 'finde-plugin' ),
+        'description'         => __( 'Producto editorial', 'finde-plugin' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        /* A hierarchical CPT is like Pages and can have
+        * Parent and child items. A non-hierarchical CPT
+        * is like Posts.
+        */ 
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 7,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest'        => true,
+ 
+    );
+     
+    // Registering your Custom Post Type
+    register_post_type( 'productoeditorial', $args );
+ 
+}
+add_action( 'init', 'custom_post_type_productoeditorial', 0 );
 
 
 
@@ -309,7 +477,7 @@ function mbox_register_meta_boxes( $meta_boxes ){
     )
   );
 
-# meta_box para catalogo
+  # meta_box para catalogo
   $meta_boxes[] = array(
     'id'         => 'mb_finde_catalogo',
     'title'      => __( 'Campos adicionales', 'mbox' ),
@@ -448,17 +616,147 @@ function mbox_register_meta_boxes( $meta_boxes ){
 
     )
   );
+
+  # meta_box para editoriales
+  $meta_boxes[] = array(
+    'id'         => 'mb_finde_nodo',
+    'title'      => __( 'Campos adicionales', 'mbox' ),
+    'post_types' => 'editoriales',
+    'context'    => 'normal',
+    'priority'   => 'low',
+    'autosave'   => true,
+    'fields'     => array(
+      array(
+          'name' => 'Destacado',
+          'id'   => 'destacado_id',
+          'type' => 'checkbox',
+          'std'  => 0, // 0 or 1
+      ),
+      array(
+        'name'        => 'Dirección postal',
+        'label_description' => 'Dirección postal',
+        'id'          => 'address',
+        'desc'        => 'Ingrese la dirección postal',
+        'type'        => 'text',
+
+        // Placeholder
+        'placeholder' => 'Dirección, Ciudad, Provincia de Buenos Aires',
+      ),
+      //  URL
+      array(
+        'name' => __( 'Sitio web', 'mbox' ),
+        'id'   => "{$prefix}url",
+        'desc' => __( 'Ingrese la url donde se ofrece el producto a la venta', 'mbox' ),
+        'type' => 'url',
+        'std'  => '',
+      ),
+      //  Instagram
+      array(
+        'name' => __( 'Instagram', 'mbox' ),
+        'id'   => "{$prefix}instagram",
+        'type' => 'url',
+      ),
+      //  Twitter
+      array(
+        'name' => __( 'Twitter', 'mbox' ),
+        'id'   => "{$prefix}twitter",
+        'type' => 'url',
+      ),
+      //  Facebook
+      array(
+        'name' => __( 'Facebook', 'mbox' ),
+        'id'   => "{$prefix}facebook",
+        'type' => 'url',
+      ),
+
+
+    )
+  );
 	
   return $meta_boxes;
 }
 
 
-/*** HOME - CREAR SLIDESHOW ***/
+/*** HOME - CREAR SLIDESHOW - VJ***/
 function wp_showSlides_fullbg() {
   global $post;
   
   // the query
-  $the_query = new WP_Query( array( 'post_type' => 'slide', 'posts_per_page' => -1 ) );
+  $the_query = new WP_Query( array( 
+    'post_type' => 'slide', 
+    'posts_per_page' => -1,
+    'category_name'  => 'videojuegos'
+  ) );
+  // The Loop
+  if ( $the_query->have_posts() ) {
+    while ( $the_query->have_posts() ) {
+      $the_query->the_post();
+      $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
+      $url = rwmb_meta( 'mbox_url' );
+        
+        if ( has_post_thumbnail() ) {
+          echo '<div class="carousel-item" style="background-image: url('. $src[0] .')">';
+        } else { 
+          echo '<div class="carousel-item" style="background:#009aae">';
+        }
+        echo '<div class="container">';
+        echo '<div class="carousel-caption text-left">';
+        echo '<div class="info">';
+        echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1><div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
+        echo '</div></div></div></div>';
+    }
+    /* Restore original Post Data */
+    wp_reset_postdata();
+    } else {
+    echo 'No hemos encontrado Info.';
+  };
+}
+
+/*** HOME - CREAR SLIDESHOW - EDITORIAL***/
+function wp_showSlides_fullbg_editorial() {
+  global $post;
+  
+  // the query
+  $the_query = new WP_Query( array( 
+    'post_type' => 'slide', 
+    'posts_per_page' => -1,
+    'category_name'  => 'editorial'
+  ) );
+  // The Loop
+  if ( $the_query->have_posts() ) {
+    while ( $the_query->have_posts() ) {
+      $the_query->the_post();
+      $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
+      $url = rwmb_meta( 'mbox_url' );
+        
+        if ( has_post_thumbnail() ) {
+          echo '<div class="carousel-item" style="background-image: url('. $src[0] .')">';
+        } else { 
+          echo '<div class="carousel-item" style="background:#009aae">';
+        }
+        echo '<div class="container">';
+        echo '<div class="carousel-caption text-left">';
+        echo '<div class="info">';
+        echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1><div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
+        echo '</div></div></div></div>';
+    }
+    /* Restore original Post Data */
+    wp_reset_postdata();
+    } else {
+    echo 'No hemos encontrado Info.';
+  };
+}
+
+/*** HOME - CREAR SLIDESHOW - MUSICA***/
+function wp_showSlides_fullbg_musica() {
+  global $post;
+  
+  // the query
+  $the_query = new WP_Query( array( 
+    'post_type' => 'slide', 
+    'posts_per_page' => -1,
+    'category_name'  => 'musica'
+  ) );
   // The Loop
   if ( $the_query->have_posts() ) {
     while ( $the_query->have_posts() ) {
@@ -568,7 +866,91 @@ function wp_archive_catalogovj() {
   wp_reset_postdata();
 }
 
-/*** JUEGO DESTAADO ***/
+/*** CATALOGO EDITORIAL ***/
+function wp_archive_catalogoed() {
+  $args = array(
+    'post_type'              => 'editoriales',
+    'posts_per_page'         => -1,
+    'post_status'            => 'publish',
+    'no_found_rows'          => true,
+  );
+
+  // The Query
+  $query_catalogo = new WP_Query( $args );
+  // The Loop
+  if ( $query_catalogo->have_posts() ) {
+
+    while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
+
+      $producto = MB_Relationships_API::get_connected( [
+        'id'   => 'productoeditorial_to_editoriales',
+        'from' => get_the_ID(),
+      ] );
+      
+      $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
+      $url = rwmb_meta( 'mbox_url' );
+      $descargas = rwmb_meta( 'descarga_id' );
+      
+      
+      $terms = get_the_terms( $post->ID, 'rubro_ed' );
+      $dterms = get_the_terms( $post->ID, 'descuento_ed' );
+
+      echo '<div class="grid-item item mb-1"';
+      if ($terms) {
+      echo ' data-category="';
+      foreach( $terms as $term ) echo $term->slug. ' ';
+      echo '" ';
+      }
+      if ($terms) {
+      echo ' data-descuento="';
+      foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
+      echo '"';
+      }
+      echo '>';
+      echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+      echo '<div class="grid-item-content card">';
+      if ( has_post_thumbnail() ) {
+        echo get_the_post_thumbnail( $post_id, 'small', array( 'class' => 'img-fluid card-img-top' ) );
+      }
+      echo '<div class="card-body">';
+      echo '<h5 class="card-title">' . get_the_title() . '</h5>';
+      if ( get_the_excerpt() ) {
+        echo '<div class="card-text">' . get_the_excerpt() .'</div>';
+      } else {
+        echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+      }
+      if ($terms) {
+      echo '<div class="rubro_ed">';
+      foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro_ed').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
+      echo '</div>';
+      }
+      if ($descargas) {
+      echo '<small class="descargas mt-2 d-block">';
+      foreach ( $descargas as $descarga ) {
+         echo '<a href="'.$descarga['d_url'].'" class="os btn btn-sm btn-outline-dark mr-1 mb-1 descarga" target="_blank"><span>' . $descarga['d_name'] .'</span></a>';
+      }
+      echo '</small>';
+      }
+      echo '</div>';
+      if ($productos) {
+        echo '<small class="card-footer text-muted text-sm lista">';
+        echo 'Por '; foreach ( $productos as $producto ) {
+            echo '<span><a href="' . get_the_permalink($producto) .'" rel="slidemark" class="os">' .$producto->post_title.'</a></span> ';
+        }
+        echo '</small>';
+      }
+      echo '</div></div>';
+    endwhile;
+    wp_reset_postdata();
+  } else {
+    echo 'No hemos encontrado productos o servicios asociados al catálogo.';
+  }
+
+  // Restore original Post Data
+  wp_reset_postdata();
+}
+
+/*** JUEGO DESTACADO ***/
 function wp_archive_destacadovj() {
   $args = array(
     'post_type'              => 'catalogo',
@@ -615,6 +997,76 @@ function wp_archive_destacadovj() {
           echo '</div>';
           echo '<div class="col-md-8 p-5" style="background:#CCC">';
             echo '<div class="lead">JUEGO DEL DÍA</div>';
+            echo '<h1>' . get_the_title() . '</h1>';
+            if ( get_the_excerpt() ) {
+              echo '<div>' . get_the_excerpt() .'</div>';
+            } else {
+              echo '<div>' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+            }
+            echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+          echo '</div>';
+        echo '</div>';
+      echo '</div>';
+
+      
+    endwhile;
+    wp_reset_postdata();
+  } else {
+    echo 'No hemos encontrado productos o servicios asociados al catálogo.';
+  }
+
+  // Restore original Post Data
+  wp_reset_postdata();
+}
+
+
+/*** EDITORIAL DESTACADO ***/
+function wp_archive_destacadoed() {
+  $args = array(
+    'post_type'              => 'editoriales',
+    'meta_query'=> array(
+        array(
+            'key'            => 'destacado_id', // this key will change!
+            'compare'        => '=',
+            'value'          => '1',
+            'type'           => 'BINARY',
+        )
+    ),
+    'order'                  => 'ASC',
+    'orderby'                => 'title',
+  );
+
+  // The Query
+  $query_catalogo = new WP_Query( $args );
+  // The Loop
+  if ( $query_catalogo->have_posts() ) {
+
+    while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
+
+
+      $estudios = MB_Relationships_API::get_connected( [
+        'id'   => 'productoeditorial_to_editoriales',
+        'from' => get_the_ID(),
+      ] );
+      
+      $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
+      $url = rwmb_meta( 'mbox_url' );
+      $descargas = rwmb_meta( 'descarga_id' );
+      
+      
+      $terms = get_the_terms( $post->ID, 'rubro_ed' );
+      $dterms = get_the_terms( $post->ID, 'descuento_ed' );
+
+
+      echo '<div class="carousel-item card">';
+        echo '<div class="row no-gutters">';
+          if ($src) {
+          echo '<div class="col-md-7" style="min-height:350px;">';
+          echo '<div class="bg-image h-100" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
+          }
+          echo '</div>';
+          echo '<div class="col-md-8 p-5" style="background:#CCC">';
+            echo '<div class="lead">EDITORIAL DEL DÍA</div>';
             echo '<h1>' . get_the_title() . '</h1>';
             if ( get_the_excerpt() ) {
               echo '<div>' . get_the_excerpt() .'</div>';
@@ -715,41 +1167,6 @@ function add_search_box_to_nav_menu( $items, $args ) {
         return $items."<li class='menu-header-search'><form action='/' id='searchform' method='get' class='navbar-form navbar-right'><div class='form-group'><input type='text' name='s' id='s' placeholder='Búsqueda' class='form-control'><input type='submit' class='btn btn-default' value='Ir'></div></form></li>";
 
     return $items;
-}
-
-/*** AGREGO SHORTCODE DE VIDEO ***/
-function video_embed_shortcode( $atts ) {
-
-  // Attributes
-  extract( shortcode_atts(
-    array(
-      'src' => '',
-    ), $atts )
-  );
-
-  return '<div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/'.$src.'"></iframe>
-          </div>';
-}
-add_shortcode( 'video', 'video_embed_shortcode' );
-
-
-/*** AGREGO PAGINADO ***/
-function pagination_bar() {
-    global $wp_query;
- 
-    $total_pages = $wp_query->max_num_pages;
- 
-    if ($total_pages > 1){
-        $current_page = max(1, get_query_var('paged'));
- 
-        echo paginate_links(array(
-            'base' => get_pagenum_link(1) . '%_%',
-            'format' => '/page/%#%',
-            'current' => $current_page,
-            'total' => $total_pages,
-        ));
-    }
 }
 
 

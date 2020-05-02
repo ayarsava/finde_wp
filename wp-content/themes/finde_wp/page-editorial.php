@@ -13,9 +13,26 @@
 
 get_header(); ?>
 
-	<div id="content" class="home-vj">
+	<div id="content" class="editorial">
 		<section id="slide-principal">
-			<?php get_template_part( 'template-parts/content', 'slide' ); ?>
+			<div id="carouselCaptions" class="carousel slide" data-ride="carousel">
+
+			  <!-- Wrapper for slides -->
+			  <div class="carousel-inner">
+			    <?php wp_showSlides_fullbg_editorial() ?>
+			  </div>
+
+			  <!-- Controls -->
+			  <!-- Carousel nav -->
+			  <a class="carousel-control-prev" href="#carouselCaptions" role="button" data-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Previous</span>
+			  </a>
+			  <a class="carousel-control-next" href="#carouselCaptions" role="button" data-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="sr-only">Next</span>
+			  </a>
+			</div>
 		</section>
 
 
@@ -24,9 +41,10 @@ get_header(); ?>
 			<div class="container-fluid py-5 bg-primary">
 				<div class="container">
 					<div class="col-md-8 mx-auto text-center text-white py-5">
-						<div class="h4">#FINDEJUGANDO</div>
-						<div class="h1 pb-3"><strong>Un finde para jugar y apoyar a los creadores locales</strong></div>
-						<div class="lead">FINDE te propone un fin de semana dedicado a jugar, aprender y descubrir nuevas experiencias digitales. Una iniciativa para que puedas comprar, regalar, descargar juegos y apoyar a los creadores durante la cuarentena.</div>
+						<div class="h4">#FINDELEYENDO</div>
+						<div class="h1 pb-3"><strong>Un finde para leer y apoyar a las editoriales locales</strong></div>
+						<div class="lead">FINDE te propone un fin de semana dedicado a descubrir nuevas experiencias digitales. Una iniciativa para que puedas comprar, regalar, descargar libros y apoyar a los creadores durante la cuarentena.</div>
+						<a href="/editoriales" title="Ingresá al catalogo" class="btn btn-outline-light btn-lg mt-5">Ingresá al catalogo de editoriales</a>
 					</div>
 				</div>
 			</div>
@@ -48,12 +66,53 @@ get_header(); ?>
 			</div>
 		</section>
 
+
+		<!--CATALOGO-->
+		<section id="catalogo" class="bg-white py-5">
+			<div class="container">
+				<h1 class="mb-4"><strong>Editoriales</strong></h1>
+				<ul id="form-ui" class="list-inline">
+					<div class="row">
+						<div class="col-md-3">
+							<h5>Categorías</h5>
+						</div>
+						<ul class="col-md-12">
+							<?php 
+							$rubros = get_terms('rubro_ed');
+							if( $rubros ){ foreach ($rubros as $cat ) {?>
+							<li class="list-inline-item <?php echo $cat->slug; ?>"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="category" autocomplete="off"> <?php echo $cat->name; ?></label></li>
+							<?php  } }?>
+						</ul>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-md-3">
+							<h5>Precio</h5>
+						</div>
+						<ul class="col-md-12">
+							<?php 
+							$descuento = get_terms('descuento_ed');
+							if( $descuento ){ foreach ($descuento as $cat ) {?>
+							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="discount" autocomplete="off"> <?php echo $cat->name; ?></label></li>
+							<?php  } }?>
+						</ul>
+					</div>
+				</ul>
+
+				<div id="container" class="grid loadable collapsed">
+					<!-- 2 col grid @ xs, 3 col grid @ sm, 4 col grid @ md -->
+					<div class="grid-sizer"></div>
+					<?php wp_archive_catalogoed() ?>
+				</div>
+			</div>
+		</section>
+
 		<!--JUEGO DESTACADO-->
 		<section class="py-5 bg-light">
 			<div class="container">
 				<div id="juego-destacado" class="carousel slide" data-ride="carousel">
 					<div class="carousel-inner">
-						<?php wp_archive_destacadovj() ?>
+						<?php wp_archive_destacadoed() ?>
 					</div>
 					<!-- Controls -->
 					<a class="carousel-control-prev" href="#juego-destacado" role="button" data-slide="prev">
@@ -66,46 +125,6 @@ get_header(); ?>
 				  </a>
 				</div>
 			</div>	
-		</section>
-
-		<!--CATALOGO-->
-		<section id="catalogo" class="bg-white py-5">
-			<div class="container">
-				<h1 class="mb-4"><strong>Juegos</strong></h1>
-				<ul id="form-ui" class="list-inline">
-					<div class="row">
-						<div class="col-md-3">
-							<h5>Categorías</h5>
-						</div>
-						<ul class="col-md-12">
-							<?php 
-							$rubros = get_terms('rubro');
-							if( $rubros ){ foreach ($rubros as $cat ) {?>
-							<li class="list-inline-item <?php echo $cat->slug; ?>"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="category" autocomplete="off"> <?php echo $cat->name; ?></label></li>
-							<?php  } }?>
-						</ul>
-					</div>
-					<!--<hr>
-					<div class="row">
-						<div class="col-md-3">
-							<h5>Precio</h5>
-						</div>
-						<ul class="col-md-12">
-							<?php 
-							$descuento = get_terms('descuento');
-							if( $descuento ){ foreach ($descuento as $cat ) {?>
-							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="discount" autocomplete="off"> <?php echo $cat->name; ?></label></li>
-							<?php  } }?>
-						</ul>
-					</div>-->
-				</ul>
-
-				<div id="container" class="grid loadable collapsed">
-					<!-- 2 col grid @ xs, 3 col grid @ sm, 4 col grid @ md -->
-					<div class="grid-sizer"></div>
-					<?php wp_archive_catalogovj() ?>
-				</div>
-			</div>
 		</section>
 
 		<!--AGENDA-->
