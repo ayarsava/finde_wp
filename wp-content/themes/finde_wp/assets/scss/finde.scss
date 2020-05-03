@@ -3,8 +3,12 @@ $editorial: #c12157;
 .editorial .bg-primary,
 .editorial .btn-primary,
 .post-type-archive-editorial header.main-header,
-.post-type-archive-editorial .site-footer {
-  background: #c12157!important;
+.post-type-archive-editorial .site-footer,
+.bg-editorial {
+  background: #bb3a64 !important;
+}
+.bg-editorial a {
+  color:#FFF;
 }
 
 html {

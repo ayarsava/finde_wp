@@ -118,44 +118,100 @@ function wporg_register_taxonomy_descuento_ed() {
 add_action('init', 'wporg_register_taxonomy_descuento_ed');
 
 
+function wporg_register_taxonomy_rubro_mu() {
+  $labels = [
+    'name'              => _x('Rubros', 'taxonomy general name'),
+    'singular_name'     => _x('Rubro', 'taxonomy singular name'),
+    'search_items'      => __('Buscar rubros'),
+    'all_items'         => __('Todos los rubros'),
+    'parent_item'       => __('Rubro padre'),
+    'parent_item_colon' => __('Rubro padre:'),
+    'edit_item'         => __('Editar Rubro'),
+    'update_item'       => __('Actualizar Rubro'),
+    'add_new_item'      => __('Agregar nuevo Rubro'),
+    'new_item_name'     => __('Nuevo nombre de rubro'),
+    'menu_name'         => __('Rubro'),
+  ];
+  $args = [
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    //'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => array( 'slug' => 'rubro_mu', 'with_front' => false ),
+  ];
+  register_taxonomy('rubro_mu', ['musica'], $args);
+}
+add_action('init', 'wporg_register_taxonomy_rubro_mu');
+
+
+function wporg_register_taxonomy_descuento_mu() {
+  $labels = [
+    'name'              => _x('Descuentos', 'taxonomy general name'),
+    'singular_name'     => _x('Descuento', 'taxonomy singular name'),
+    'search_items'      => __('Buscar descuentos'),
+    'all_items'         => __('Todos los descuentos'),
+    'parent_item'       => __('Descuento padre'),
+    'parent_item_colon' => __('Descuento padre:'),
+    'edit_item'         => __('Editar Descuento'),
+    'update_item'       => __('Actualizar Descuento'),
+    'add_new_item'      => __('Agregar nuevo Descuento'),
+    'new_item_name'     => __('Nuevo nombre de descuento'),
+    'menu_name'         => __('Descuento'),
+  ];
+  $args = [
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => array( 'slug' => 'descuento_mu', 'with_front' => false ),
+  ];
+  register_taxonomy('descuento_mu', ['musica'], $args);
+}
+add_action('init', 'wporg_register_taxonomy_descuento_mu');
+
+
 /*** HOME - SLIDER***/
 
 function slider_init() {
-	$labels = array(
-		'name' => __( 'Slides', 'post type general name', 'finde-plugin' ),
-		'singular_name'=> __( 'Slide', 'post type singular name', 'finde-plugin' ),
-		'menu_name' => __( 'Slides', 'admin menu', 'finde-plugin' ),
-		'name_admin_bar'=> __( 'Slide', 'add new on admin bar', 'finde-plugin' ),
-		'add_new'   => __( 'Agregar Nuevo', 'slide', 'finde-plugin' ),
-		'add_new_item'=> __( 'Agregar Nuevo Slide', 'finde-plugin' ),
-		'new_item'    => __( 'Nuevo Slide', 'finde-plugin' ),
-		'edit_item'     => __( 'Editar Slide', 'finde-plugin' ),
-		'view_item'   => __( 'Ver Slide', 'finde-plugin' ),
-		'all_items'     => __( 'Todos los Slides', 'finde-plugin' ),
-		'search_items'=> __( 'Buscar Slides', 'finde-plugin' ),
-		'parent_item_colon' => __( 'Parent Slides:', 'finde-plugin' ),
-		'not_found'  => __( 'No hemos encontrado slides.', 'finde-plugin' ),
-		'not_found_in_trash' => __( 'No encontramos slides en la papelera.', 'finde-plugin' )
-	);
+    $labels = array(
+        'name' => __( 'Slides', 'post type general name', 'finde-plugin' ),
+        'singular_name'=> __( 'Slide', 'post type singular name', 'finde-plugin' ),
+        'menu_name' => __( 'Slides', 'admin menu', 'finde-plugin' ),
+        'name_admin_bar'=> __( 'Slide', 'add new on admin bar', 'finde-plugin' ),
+        'add_new'   => __( 'Agregar Nuevo', 'slide', 'finde-plugin' ),
+        'add_new_item'=> __( 'Agregar Nuevo Slide', 'finde-plugin' ),
+        'new_item'    => __( 'Nuevo Slide', 'finde-plugin' ),
+        'edit_item'     => __( 'Editar Slide', 'finde-plugin' ),
+        'view_item'   => __( 'Ver Slide', 'finde-plugin' ),
+        'all_items'     => __( 'Todos los Slides', 'finde-plugin' ),
+        'search_items'=> __( 'Buscar Slides', 'finde-plugin' ),
+        'parent_item_colon' => __( 'Parent Slides:', 'finde-plugin' ),
+        'not_found'  => __( 'No hemos encontrado slides.', 'finde-plugin' ),
+        'not_found_in_trash' => __( 'No encontramos slides en la papelera.', 'finde-plugin' )
+    );
 
-	$args = array(
-	  'labels'             => $labels,
-	  'public'             => true,
-	  'publicly_queryable' => true,
-	  'show_ui'            => true,
-	  'show_in_menu'       => true,
-	  'query_var'          => true,
-	  'rewrite'            => array( 'slug' => 'slide' ),
-	  'capability_type'    => 'post',
-	  'has_archive'        => true,
-	  'hierarchical'       => false,
-	  'menu_position'      => 4,
-    'exclude_from_search' => false,
-	  'supports'           => array( 'title', 'editor', 'author', 'thumbnail'),
-    // You can associate this CPT with a taxonomy or custom taxonomy. 
-    'taxonomies'          => array('category'),
-	);
-	register_post_type( 'slide', $args );
+    $args = array(
+      'labels'             => $labels,
+      'public'             => true,
+      'publicly_queryable' => true,
+      'show_ui'            => true,
+      'show_in_menu'       => true,
+      'query_var'          => true,
+      'rewrite'            => array( 'slug' => 'slide' ),
+      'capability_type'    => 'post',
+      'has_archive'        => true,
+      'hierarchical'       => false,
+      'menu_position'      => 4,
+      'exclude_from_search' => false,
+      'supports'           => array( 'title', 'editor', 'author', 'thumbnail'),
+      // You can associate this CPT with a taxonomy or custom taxonomy. 
+      'taxonomies'          => array('category'),
+    );
+    register_post_type( 'slide', $args );
 }
 add_action( 'init', 'slider_init' );
 
@@ -207,6 +263,7 @@ function custom_post_type() {
         'publicly_queryable'  => true,
         'capability_type'     => 'post',
         'show_in_rest'        => true,
+        'menu_icon'           => 'dashicons-buddicons-activity',
  
     );
      
@@ -263,6 +320,7 @@ function custom_post_type_estudio() {
         'publicly_queryable'  => true,
         'capability_type'     => 'post',
         'show_in_rest'        => true,
+        'menu_icon'           => 'dashicons-buddicons-activity',
  
     );
      
@@ -378,6 +436,7 @@ function custom_post_type_editoriales() {
         'publicly_queryable'  => true,
         'capability_type'     => 'post',
         'show_in_rest'        => true,
+        'menu_icon'           => 'dashicons-book',
 
         'timestamp'  => true,
  
@@ -435,6 +494,7 @@ function custom_post_type_productoeditorial() {
         'publicly_queryable'  => true,
         'capability_type'     => 'post',
         'show_in_rest'        => true,
+        'menu_icon'           => 'dashicons-book',
  
     );
      
@@ -443,6 +503,121 @@ function custom_post_type_productoeditorial() {
  
 }
 add_action( 'init', 'custom_post_type_productoeditorial', 0 );
+
+
+/*** CPT MUSICA ***/
+function custom_post_type_musica() {
+  // Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Música', 'Post Type General Name', 'finde-plugin' ),
+        'singular_name'       => _x( 'Musica', 'Post Type Singular Name', 'finde-plugin' ),
+        'menu_name'           => __( 'Música', 'finde-plugin' ),
+        'parent_item_colon'   => __( 'Música padre', 'finde-plugin' ),
+        'all_items'           => __( 'Todos los registros de  Música', 'finde-plugin' ),
+        'view_item'           => __( 'Ver Música', 'finde-plugin' ),
+        'add_new_item'        => __( 'Agregar nueva Música', 'finde-plugin' ),
+        'add_new'             => __( 'Agregar nueva', 'finde-plugin' ),
+        'edit_item'           => __( 'Editar Música', 'finde-plugin' ),
+        'update_item'         => __( 'Actualizar Música', 'finde-plugin' ),
+        'search_items'        => __( 'Buscar Música', 'finde-plugin' ),
+        'not_found'           => __( 'No encontrado', 'finde-plugin' ),
+        'not_found_in_trash'  => __( 'No encontrado en la papelera', 'finde-plugin' ),
+    );
+     
+  // Set other options for Custom Post Type
+     
+    $args = array(
+        'label'               => __( 'musica', 'finde-plugin' ),
+        'description'         => __( 'Música', 'finde-plugin' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields', ),
+        // You can associate this CPT with a taxonomy or custom taxonomy. 
+        'taxonomies'  => array( 'post_tag', 'rubro_mu', 'descuento_mu'),
+        /* A hierarchical CPT is like Pages and can have
+        * Parent and child items. A non-hierarchical CPT
+        * is like Posts.
+        */ 
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 16,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest'        => true,
+        'menu_icon'           => 'dashicons-format-audio',
+
+        'timestamp'  => true,
+ 
+    );
+     
+    // Registering your Custom Post Type
+    register_post_type( 'musica', $args );
+ 
+}
+add_action( 'init', 'custom_post_type_musica', 0 );
+
+
+/*** CPT PRODUCTO Musica ***/ 
+function custom_post_type_productomusica() {
+ 
+  // Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Productos', 'Post Type General Name', 'finde-plugin' ),
+        'singular_name'       => _x( 'Producto', 'Post Type Singular Name', 'finde-plugin' ),
+        'menu_name'           => __( 'Productos de música', 'finde-plugin' ),
+        'parent_item_colon'   => __( 'Producto padre', 'finde-plugin' ),
+        'all_items'           => __( 'Todos los Productos', 'finde-plugin' ),
+        'view_item'           => __( 'Ver Producto', 'finde-plugin' ),
+        'add_new_item'        => __( 'Agregar nuevo Producto', 'finde-plugin' ),
+        'add_new'             => __( 'Agregar nuevo', 'finde-plugin' ),
+        'edit_item'           => __( 'Editar Producto', 'finde-plugin' ),
+        'update_item'         => __( 'Actualizar Producto', 'finde-plugin' ),
+        'search_items'        => __( 'Buscar Producto', 'finde-plugin' ),
+        'not_found'           => __( 'No encontrado', 'finde-plugin' ),
+        'not_found_in_trash'  => __( 'No encontrado en la papelera', 'finde-plugin' ),
+    );
+     
+  // Set other options for Custom Post Type
+     
+    $args = array(
+        'label'               => __( 'productomusica', 'finde-plugin' ),
+        'description'         => __( 'Producto de música', 'finde-plugin' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        /* A hierarchical CPT is like Pages and can have
+        * Parent and child items. A non-hierarchical CPT
+        * is like Posts.
+        */ 
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 17,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest'        => true,
+        'menu_icon'           => 'dashicons-format-audio',
+ 
+    );
+     
+    // Registering your Custom Post Type
+    register_post_type( 'productomusica', $args );
+ 
+}
+add_action( 'init', 'custom_post_type_productomusica', 0 );
 
 
 
@@ -619,7 +794,7 @@ function mbox_register_meta_boxes( $meta_boxes ){
 
   # meta_box para editoriales
   $meta_boxes[] = array(
-    'id'         => 'mb_finde_nodo',
+    'id'         => 'mb_finde_editoriales',
     'title'      => __( 'Campos adicionales', 'mbox' ),
     'post_types' => 'editoriales',
     'context'    => 'normal',
@@ -672,7 +847,105 @@ function mbox_register_meta_boxes( $meta_boxes ){
 
     )
   );
-	
+
+  # meta_box para producto editorial
+  $meta_boxes[] = array(
+    'id'         => 'mb_finde_productoeditorial',
+    'title'      => __( 'Campos adicionales', 'mbox' ),
+    'post_types' => 'productoeditorial',
+    'context'    => 'normal',
+    'priority'   => 'low',
+    'autosave'   => true,
+    'fields'     => array(
+      //  URL
+      array(
+        'name' => __( 'Url del producto, servicio u oferta', 'mbox' ),
+        // prefix es mbox_, o sea que en este caso es mbox_url.
+        'id'   => "{$prefix}url",
+        'desc' => __( 'Ingrese la url donde se ofrece el producto a la venta', 'mbox' ),
+        'type' => 'url',
+        'std'  => '',
+      ),
+    )
+  );
+
+  # meta_box para musica
+  $meta_boxes[] = array(
+    'id'         => 'mb_finde_musica',
+    'title'      => __( 'Campos adicionales', 'mbox' ),
+    'post_types' => 'musica',
+    'context'    => 'normal',
+    'priority'   => 'low',
+    'autosave'   => true,
+    'fields'     => array(
+      array(
+          'name' => 'Destacado',
+          'id'   => 'destacado_id',
+          'type' => 'checkbox',
+          'std'  => 0, // 0 or 1
+      ),
+      array(
+        'name'        => 'Dirección postal',
+        'label_description' => 'Dirección postal',
+        'id'          => 'address',
+        'desc'        => 'Ingrese la dirección postal',
+        'type'        => 'text',
+
+        // Placeholder
+        'placeholder' => 'Dirección, Ciudad, Provincia de Buenos Aires',
+      ),
+      //  URL
+      array(
+        'name' => __( 'Sitio web', 'mbox' ),
+        'id'   => "{$prefix}url",
+        'desc' => __( 'Ingrese la url donde se ofrece el producto a la venta', 'mbox' ),
+        'type' => 'url',
+        'std'  => '',
+      ),
+      //  Instagram
+      array(
+        'name' => __( 'Instagram', 'mbox' ),
+        'id'   => "{$prefix}instagram",
+        'type' => 'url',
+      ),
+      //  Twitter
+      array(
+        'name' => __( 'Twitter', 'mbox' ),
+        'id'   => "{$prefix}twitter",
+        'type' => 'url',
+      ),
+      //  Facebook
+      array(
+        'name' => __( 'Facebook', 'mbox' ),
+        'id'   => "{$prefix}facebook",
+        'type' => 'url',
+      ),
+
+
+    )
+  );
+
+  # meta_box para producto de musica
+  $meta_boxes[] = array(
+    'id'         => 'mb_finde_productomusica',
+    'title'      => __( 'Campos adicionales', 'mbox' ),
+    'post_types' => 'productomusica',
+    'context'    => 'normal',
+    'priority'   => 'low',
+    'autosave'   => true,
+    'fields'     => array(
+      //  URL
+      array(
+        'name' => __( 'Url del producto, servicio u oferta', 'mbox' ),
+        // prefix es mbox_, o sea que en este caso es mbox_url.
+        'id'   => "{$prefix}url",
+        'desc' => __( 'Ingrese la url donde se ofrece el producto a la venta', 'mbox' ),
+        'type' => 'url',
+        'std'  => '',
+      ),
+    )
+  );
+    
   return $meta_boxes;
 }
 
@@ -1019,7 +1292,6 @@ function wp_archive_destacadovj() {
   wp_reset_postdata();
 }
 
-
 /*** EDITORIAL DESTACADO ***/
 function wp_archive_destacadoed() {
   $args = array(
@@ -1089,7 +1361,6 @@ function wp_archive_destacadoed() {
   wp_reset_postdata();
 }
 
-
 /*** AGENDA ***/
 function wp_archive_agenda() {
 
@@ -1157,7 +1428,6 @@ function wp_archive_agenda() {
   // Restore original Post Data
   wp_reset_postdata();
 }
-
 
 
 /*** AGREGAR SEARCH FORM AL MENU ***/

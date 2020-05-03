@@ -183,6 +183,14 @@ add_action( 'mb_relationships_init', function() {
     ] );
 } );
 
+add_action( 'mb_relationships_init', function() {
+    MB_Relationships_API::register( [
+        'id'   => 'productomusica_to_musica',
+        'from' => 'productomusica',
+        'to'   => 'musica',
+    ] );
+} );
+
 function finde_filter_search($query) {
 	if (!$query->is_admin && $query->is_search) {
 		$query->set('post_type', array('page', 'catalogo', 'agenda'));

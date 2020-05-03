@@ -15,6 +15,7 @@ wp-content/plugins/akismet
 wp-content/plugins/mb-relationships
 wp-content/plugins/meta-box
 wp-content/plugins/simple-custom-post-order
+wp-content/plugins/wp-all-import
 wp-content/plugins/index.php
 
 # ignore specific themes
