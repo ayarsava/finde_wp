@@ -70,8 +70,7 @@
 									<div class="pb-5 text-white">
 										<h3><strong>Videojuegos</strong></h3>
 										<p>30 ABRIL - 3 MAYO</p>
-										<a href="#" class="btn btn-outline-light disabled" id="soon">Muy pronto</a>
-										<a href="/videojuegos" class="btn btn-outline-light" id="activo" style="display:none;">Accedé</a>
+										<a href="/videojuegos" class="btn btn-outline-light">Accedé</a>
 									</div>
 							</div>
 					</div>
@@ -115,7 +114,7 @@
 			hour = minute * 60,
 			day = hour * 24;
 
-			let countDown = new Date('2020-05-07T13:00:00'.replace(/\s/, 'T')).getTime(),
+			let countDown = new Date('2020-05-07T15:00:00'.replace(/\s/, 'T')).getTime(),
 			x = setInterval(function() {    
 
 			let now = new Date().getTime(),
