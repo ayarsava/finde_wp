@@ -33,7 +33,7 @@
 
 	<?php } ?>
 	
-	<footer class="site-footer py-5">
+	<footer class="site-footer py-5 bg-primary">
     	<div class="container">
 			<div class="row my-5">
 			    <div class="col-lg-2 col-md-3 col-5">

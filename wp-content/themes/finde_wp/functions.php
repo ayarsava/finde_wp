@@ -146,15 +146,18 @@ add_action( 'widgets_init', 'finde_wp_widgets_init' );
 function finde_wp_scripts() {
   	wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.9.0/css/all.css' );
 	wp_enqueue_style( 'finde_wp-style', get_template_directory_uri() . '/assets/css/styles.css', array(), _S_VERSION );
+	wp_enqueue_style( 'slick', get_template_directory_uri() . '/assets/css/slick/slick.css', array(), _S_VERSION );
+	wp_enqueue_style( 'slick-theme', get_template_directory_uri() . '/assets/css/slick/slick-theme.css', array(), _S_VERSION );
 	wp_enqueue_style( 'finde_custom', get_template_directory_uri() . '/assets/css/finde.css', array(), _S_VERSION );
 	
-	wp_style_add_data( 'finde_wp-style', 'finde_custom', 'rtl', 'replace' );
+	wp_style_add_data( 'finde_wp-style', 'slick', 'slick-theme', 'finde_custom', 'replace' );
 
 	wp_enqueue_script( 'finde_wp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'boostrap', get_template_directory_uri() . '/js/bootstrap.js', array(), _S_VERSION );
     wp_enqueue_script( 'isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array(), _S_VERSION );
     wp_enqueue_script( 'imagesloaded', get_template_directory_uri() . '/js/imagesloaded.pkgd.min.js', array(), _S_VERSION );
+    wp_enqueue_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array(), _S_VERSION );
 
 	wp_enqueue_script( 'finde_wp-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), _S_VERSION, true );
 
@@ -191,6 +194,17 @@ add_action( 'mb_relationships_init', function() {
     ] );
 } );
 
+//Page Slug Body Class
+function add_slug_body_class( $classes ) {
+	global $post;
+	if ( isset( $post ) ) {
+	$classes[] = $post->post_type . '-' . $post->post_name;
+	}
+	return $classes;
+	}
+add_filter( 'body_class', 'add_slug_body_class' );
+
+
 function finde_filter_search($query) {
 	if (!$query->is_admin && $query->is_search) {
 		$query->set('post_type', array('page', 'catalogo', 'agenda'));
@@ -206,6 +220,27 @@ function prefix_category_title( $title ) {
     return $title;
 }
 add_filter( 'get_the_archive_title', 'prefix_category_title' );
+
+
+function wpb_hook_javascript() {
+  if (is_page ('editorial')) { 
+    ?>
+        <script type="text/javascript">
+        jQuery(document).ready(function($){
+			$('.galeria-slick').slick({
+			  dots: true,
+			  infinite: true,
+			  speed: 300,
+			  slidesToShow: 1,
+			  adaptiveHeight: true,
+			  dots: true
+			});
+		});
+        </script>
+    <?php
+  }
+}
+add_action('wp_head', 'wpb_hook_javascript');
 
 
 /**

@@ -1,15 +1,84 @@
-/*** FINDE Custom ***/
-$editorial: #c12157;
-.editorial .bg-primary,
-.editorial .btn-primary,
-.post-type-archive-editorial header.main-header,
-.post-type-archive-editorial .site-footer,
-.bg-editorial {
-  background: #bb3a64 !important;
+/*** Videojuegos Custom ***/
+$videojuegos: #009aae;
+[class*="videojuegos"],
+[class*="catalogo"] {
+  .videojuegos .bg-primary,
+  .videojuegos .btn-primary,
+  .descuento_ed .badge-primary,
+  .main-header,
+  .site-footer,
+  #agenda .tags {
+    background: $videojuegos!important;
+    color:#FFF!important;
+  }
+  .bg-videojuegos a,
+  .badge-dark {
+    color:#FFF!important;
+  }
+  a {
+    color: $videojuegos;
+    &:hover {
+      color: darken($videojuegos, 15%);
+    }
+  }
+  .btn-outline-primary {
+    color: $videojuegos;
+    border-color: $videojuegos;
+    &:hover {
+      color: #fff;
+      background-color: $videojuegos;
+      border-color: $videojuegos;
+    }
+  }
+  .text-primary {
+    color: $videojuegos!important;
+  }
 }
-.bg-editorial a {
-  color:#FFF;
+
+
+/*** EDitorial Custom ***/
+$editorial: #ff677d;
+[class*="editorial"],
+.page-en-vivo {
+  .editorial .bg-primary,
+  .editorial .btn-primary,
+  .descuento_ed .badge-primary,
+  .main-header,
+  .site-footer,
+  #agenda .tags {
+    background: $editorial!important;
+    color:#FFF!important;
+  }
+  .bg-editorial a,
+  .badge-dark {
+    color:#FFF!important;
+  }
+  a {
+    color: $editorial;
+    &:hover {
+      color: darken($editorial, 15%);
+    }
+  }
+  .btn-outline-primary {
+    color: $editorial;
+    border-color: $editorial;
+    &:hover {
+      color: #fff;
+      background-color: $editorial;
+      border-color: $editorial;
+    }
+  }
+  .text-primary {
+    color: $editorial!important;
+  }
 }
+
+
+.btn-outline-dark {
+    color: #343a40!important;
+    border-color: #343a40!important;
+}
+
 
 html {
   scroll-behavior: smooth;
@@ -20,7 +89,6 @@ body {
   }
 }
 
-body.home,
 body.page-splash {
 background: #009aae;
 }
@@ -60,7 +128,6 @@ h1 {
 
 /*** header ***/
 header.main-header {
-  background:#009aae;
   .logo-wrapper {
     min-height: 120px;
     a.main-logo {
@@ -81,8 +148,6 @@ header.main-header {
   }
   a.nav-link.active {
     font-weight: bold;
-  }
-  .navbar {
   }
 }
 .search-form {
@@ -124,9 +189,6 @@ footer {
   img.logo-cultura {
     width: 360px;
   }
-}
-.site-footer {
-  background:#009aae;
 }
 
 /*** SLIDE ***/
@@ -319,6 +381,56 @@ a.badge.os {
   }
 }
 
+.galeria-slick {
+  &.slick-dotted.slick-slider {
+    margin-bottom: 0;
+  }
+
+  .slick-dots {
+    bottom:15px;
+    li {
+      margin:0;
+      button {
+        width: 5px;
+        &:before {
+          color: #FFF;
+          opacity: .5;
+          font-size: 8px;
+        }
+      }
+    &.slick-active {
+        button {
+          &:before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  .slick-prev {
+    left: 15px;
+    z-index: 1;
+  }
+  .slick-next {
+    right: 15px;
+    z-index: 1;
+  }
+  .slick-track {
+    display: flex;
+  }
+  .slick-track .slick-slide {
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    img {
+      height: 100%; 
+      width: 100%; 
+      object-fit: cover;
+    }
+  }
+}
 
 /*** AGENDA HOME ***/
 #agenda {

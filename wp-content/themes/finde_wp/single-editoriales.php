@@ -15,6 +15,8 @@ get_header();
     $instagram = rwmb_meta( 'mbox_instagram' );
     $twitter = rwmb_meta( 'mbox_twitter' );
     $facebook = rwmb_meta( 'mbox_facebook' );
+    $libreria = rwmb_meta( 'mbox_libreria' );
+    $whatsapp = rwmb_meta( 'mbox_whatsapp' );
 ?>
 
 <?php while ( have_posts() ) :
@@ -35,11 +37,16 @@ get_header();
 
                 <ul class="list-unstyled list-inline text-center h4">
                     <?php
-                        if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank"><i class="ml-1 fab fa-instagram"></i></a></li>';}
-                        if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank"><i class="ml-1 fab fa-twitter"></i></a></li>';}
-                        
-                        if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank"><i class="ml-1 fab fa-facebook"></i></a></li>';}
-                        if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank"><i class="ml-1 fas fa-globe-americas"></i></i></a></li>';}
+                        if ($url || $instagram || $facebook || $twitter) {
+                            echo '<div class="contacto mt-2">';
+                            if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></i></a></li>';}
+                            if ($libreria) { echo '<li class="list-inline-item"><a href="'. $libreria . '" target="_blank" class="os"><i class="fas fa-shopping-cart"></i></a></li>';}
+                            if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
+                            if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
+                            if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
+                            if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
+                            echo '</div>';
+                        }
                         
                     ?>
                 </ul>

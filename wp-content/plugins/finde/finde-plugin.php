@@ -801,55 +801,87 @@ function mbox_register_meta_boxes( $meta_boxes ){
     'priority'   => 'low',
     'autosave'   => true,
     'fields'     => array(
-      array(
-          'name' => 'Destacado',
-          'id'   => 'destacado_id',
-          'type' => 'checkbox',
-          'std'  => 0, // 0 or 1
-      ),
-      array(
-        'name'        => 'Dirección postal',
-        'label_description' => 'Dirección postal',
-        'id'          => 'address',
-        'desc'        => 'Ingrese la dirección postal',
-        'type'        => 'text',
+        array(
+            'name' => 'Destacado',
+            'id'   => 'destacado_id',
+            'type' => 'checkbox',
+            'std'  => 0, // 0 or 1
+        ),
+        array(
+            'id'               => 'image_ed',
+            'name'             => 'Imágenes adicionales',
+            'type'             => 'image_advanced',
 
-        // Placeholder
-        'placeholder' => 'Dirección, Ciudad, Provincia de Buenos Aires',
-      ),
-      //  URL
-      array(
-        'name' => __( 'Sitio web', 'mbox' ),
-        'id'   => "{$prefix}url",
-        'desc' => __( 'Ingrese la url donde se ofrece el producto a la venta', 'mbox' ),
-        'type' => 'url',
-        'std'  => '',
-      ),
-      //  Instagram
-      array(
-        'name' => __( 'Instagram', 'mbox' ),
-        'id'   => "{$prefix}instagram",
-        'type' => 'url',
-      ),
-      //  Twitter
-      array(
-        'name' => __( 'Twitter', 'mbox' ),
-        'id'   => "{$prefix}twitter",
-        'type' => 'url',
-      ),
-      //  Facebook
-      array(
-        'name' => __( 'Facebook', 'mbox' ),
-        'id'   => "{$prefix}facebook",
-        'type' => 'url',
-      ),
+            // Delete image from Media Library when remove it from post meta?
+            // Note: it might affect other posts if you use same image for multiple posts
+            'force_delete'     => false,
+
+            // Maximum image uploads.
+            'max_file_uploads' => 5,
+
+            // Do not show how many images uploaded/remaining.
+            'max_status'       => 'false',
+
+            // Image size that displays in the edit page. Possible sizes small,medium,large,original
+            'image_size'       => 'thumbnail',
+        ),
+        array(
+            'name'        => 'Dirección postal',
+            'label_description' => 'Dirección postal',
+            'id'          => 'address',
+            'desc'        => 'Ingrese la dirección postal',
+            'type'        => 'text',
+
+            // Placeholder
+            'placeholder' => 'Dirección, Ciudad, Provincia de Buenos Aires',
+        ),
+        //  URL
+        array(
+            'name' => __( 'Sitio web', 'mbox' ),
+            'id'   => "{$prefix}url",
+            'desc' => __( 'Ingrese la url del sitio oficial de la editorial', 'mbox' ),
+            'type' => 'url',
+            'std'  => '',
+        ),
+        //  Libreria
+        array(
+            'name' => __( 'Librería', 'mbox' ),
+            'id'   => "{$prefix}libreria",
+            'desc' => __( 'Ingrese la url donde se ofrecen productos a la venta', 'mbox' ),
+            'type' => 'url',
+            'std'  => '',
+        ),
+        //  Instagram
+        array(
+            'name' => __( 'Instagram', 'mbox' ),
+            'id'   => "{$prefix}instagram",
+            'type' => 'url',
+        ),
+        //  Facebook
+        array(
+            'name' => __( 'Facebook', 'mbox' ),
+            'id'   => "{$prefix}facebook",
+            'type' => 'url',
+        ),
+        //  Twitter
+        array(
+            'name' => __( 'Twitter', 'mbox' ),
+            'id'   => "{$prefix}twitter",
+            'type' => 'url',
+        ),
+        //  Whatsapp
+        array(
+            'name' => __( 'Whatsapp', 'mbox' ),
+            'id'   => "{$prefix}whatsapp",
+            'type' => 'number',
+        ),
 
 
     )
   );
 
-  # meta_box para producto editorial
-  $meta_boxes[] = array(
+    # meta_box para producto editorial
+    $meta_boxes[] = array(
     'id'         => 'mb_finde_productoeditorial',
     'title'      => __( 'Campos adicionales', 'mbox' ),
     'post_types' => 'productoeditorial',
@@ -857,20 +889,20 @@ function mbox_register_meta_boxes( $meta_boxes ){
     'priority'   => 'low',
     'autosave'   => true,
     'fields'     => array(
-      //  URL
-      array(
-        'name' => __( 'Url del producto, servicio u oferta', 'mbox' ),
-        // prefix es mbox_, o sea que en este caso es mbox_url.
-        'id'   => "{$prefix}url",
-        'desc' => __( 'Ingrese la url donde se ofrece el producto a la venta', 'mbox' ),
-        'type' => 'url',
-        'std'  => '',
-      ),
+        //  URL
+        array(
+            'name' => __( 'Url del producto, servicio u oferta', 'mbox' ),
+            // prefix es mbox_, o sea que en este caso es mbox_url.
+            'id'   => "{$prefix}url",
+            'desc' => __( 'Ingrese la url donde se ofrece el producto a la venta', 'mbox' ),
+            'type' => 'url',
+            'std'  => '',
+        ),
     )
-  );
+);
 
-  # meta_box para musica
-  $meta_boxes[] = array(
+# meta_box para musica
+$meta_boxes[] = array(
     'id'         => 'mb_finde_musica',
     'title'      => __( 'Campos adicionales', 'mbox' ),
     'post_types' => 'musica',
@@ -1005,7 +1037,7 @@ function wp_showSlides_fullbg_editorial() {
         if ( has_post_thumbnail() ) {
           echo '<div class="carousel-item" style="background-image: url('. $src[0] .')">';
         } else { 
-          echo '<div class="carousel-item" style="background:#009aae">';
+          echo '<div class="carousel-item">';
         }
         echo '<div class="container">';
         echo '<div class="carousel-caption text-left">';
@@ -1155,64 +1187,93 @@ function wp_archive_catalogoed() {
 
     while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
 
-      $producto = MB_Relationships_API::get_connected( [
-        'id'   => 'productoeditorial_to_editoriales',
-        'from' => get_the_ID(),
-      ] );
-      
-      $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
-      $url = rwmb_meta( 'mbox_url' );
-      $descargas = rwmb_meta( 'descarga_id' );
-      
-      
-      $terms = get_the_terms( $post->ID, 'rubro_ed' );
-      $dterms = get_the_terms( $post->ID, 'descuento_ed' );
+        $producto = MB_Relationships_API::get_connected( [
+            'id'   => 'productoeditorial_to_editoriales',
+            'from' => get_the_ID(),
+        ] );
 
-      echo '<div class="grid-item item mb-1"';
-      if ($terms) {
-      echo ' data-category="';
-      foreach( $terms as $term ) echo $term->slug. ' ';
-      echo '" ';
-      }
-      if ($terms) {
-      echo ' data-descuento="';
-      foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
-      echo '"';
-      }
-      echo '>';
-      echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
-      echo '<div class="grid-item-content card">';
-      if ( has_post_thumbnail() ) {
-        echo get_the_post_thumbnail( $post_id, 'small', array( 'class' => 'img-fluid card-img-top' ) );
-      }
-      echo '<div class="card-body">';
-      echo '<h5 class="card-title">' . get_the_title() . '</h5>';
-      if ( get_the_excerpt() ) {
-        echo '<div class="card-text">' . get_the_excerpt() .'</div>';
-      } else {
-        echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
-      }
-      if ($terms) {
-      echo '<div class="rubro_ed">';
-      foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro_ed').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
-      echo '</div>';
-      }
-      if ($descargas) {
-      echo '<small class="descargas mt-2 d-block">';
-      foreach ( $descargas as $descarga ) {
-         echo '<a href="'.$descarga['d_url'].'" class="os btn btn-sm btn-outline-dark mr-1 mb-1 descarga" target="_blank"><span>' . $descarga['d_name'] .'</span></a>';
-      }
-      echo '</small>';
-      }
-      echo '</div>';
-      if ($productos) {
-        echo '<small class="card-footer text-muted text-sm lista">';
-        echo 'Por '; foreach ( $productos as $producto ) {
-            echo '<span><a href="' . get_the_permalink($producto) .'" rel="slidemark" class="os">' .$producto->post_title.'</a></span> ';
+        $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
+        $url = rwmb_meta( 'mbox_url' );
+        $descargas = rwmb_meta( 'descarga_id' );
+        $images = rwmb_meta( 'image_ed', array( 'size' => 'large' ) );
+        $instagram = rwmb_meta( 'mbox_instagram' );
+        $twitter = rwmb_meta( 'mbox_twitter' );
+        $facebook = rwmb_meta( 'mbox_facebook' );
+        $libreria = rwmb_meta( 'mbox_libreria' );
+        $whatsapp = rwmb_meta( 'mbox_whatsapp' );
+
+
+        $terms = get_the_terms( $post->ID, 'rubro_ed' );
+        $dterms = get_the_terms( $post->ID, 'descuento_ed' );
+
+        echo '<div class="grid-item item mb-1"';
+        if ($terms) {
+        echo ' data-category="';
+        foreach( $terms as $term ) echo $term->slug. ' ';
+        echo '" ';
         }
-        echo '</small>';
-      }
-      echo '</div></div>';
+        if ($terms) {
+        echo ' data-descuento="';
+        foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
+        echo '"';
+        }
+        echo '>';
+        // slick
+        if ($images) {
+        echo '<div class="galeria-slick">';
+        foreach ( $images as $image ) {
+            echo '<a href="#/"><img src="', $image['url'], '"></a>';
+        }    
+        echo '</div>';
+        }
+        echo '<div class="grid-item-content card">';
+        echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+        echo '<div class="card-body">';
+        echo '<h5 class="card-title">' . get_the_title() . '</h5>';
+        if ( get_the_excerpt() ) {
+            echo '<div class="card-text">' . get_the_excerpt() .'</div>';
+        } else {
+            echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+        }
+        
+        if ($terms) {
+            echo '<div class="rubro_ed">';
+            foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro_ed').'" class="badge bg-primary mt-1 os">'.$term->name.'</a></span>', ' ';}
+            echo '</div>';
+        }
+        if ($dterms) {
+            echo '<div class="descuento_ed">';
+            foreach( $dterms as $term ) { echo '<a href="'.get_term_link($term->slug, 'descuento_ed').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
+            echo '</div>';
+        }
+        if ($descargas) {
+            echo '<small class="descargas mt-2 d-block">';
+            foreach ( $descargas as $descarga ) {
+                echo '<a href="'.$descarga['d_url'].'" class="os btn btn-sm btn-outline-dark mr-1 mb-1 descarga" target="_blank"><span>' . $descarga['d_name'] .'</span></a>';
+            }
+            echo '</small>';
+        }
+        if ($url || $instagram || $facebook || $twitter) {
+            echo '<div class="contacto mt-2">';
+            if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></i></a></li>';}
+            if ($libreria) { echo '<li class="list-inline-item"><a href="'. $libreria . '" target="_blank" class="os"><i class="fas fa-shopping-cart"></i></a></li>';}
+            if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
+            if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
+            if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
+            if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
+            echo '</div>';
+        }
+        
+        echo '</div>';
+        
+        if ($productos) {
+            echo '<small class="card-footer text-muted text-sm lista">';
+            echo 'Por '; foreach ( $productos as $producto ) {
+            echo '<span><a href="' . get_the_permalink($producto) .'" rel="slidemark" class="os">' .$producto->post_title.'</a></span> ';
+            }
+            echo '</small>';
+        }
+        echo '</div></div>';
     endwhile;
     wp_reset_postdata();
   } else {
@@ -1321,22 +1382,25 @@ function wp_archive_destacadoed() {
         'from' => get_the_ID(),
       ] );
       
-      $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
       $url = rwmb_meta( 'mbox_url' );
       $descargas = rwmb_meta( 'descarga_id' );
       
-      
+      $images = rwmb_meta( 'image_ed', array( 'size' => 'large' ) );
+
       $terms = get_the_terms( $post->ID, 'rubro_ed' );
       $dterms = get_the_terms( $post->ID, 'descuento_ed' );
 
 
       echo '<div class="carousel-item card">';
         echo '<div class="row no-gutters">';
-          if ($src) {
-          echo '<div class="col-md-7" style="min-height:350px;">';
-          echo '<div class="bg-image h-100" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
-          }
-          echo '</div>';
+        if ($images) {
+        echo '<div class="col-md-7 galeria-slick" style="min-height:300px;">';
+            // slick
+            foreach ( $images as $image ) {
+            echo '<a href="#"><img src="', $image['url'], '"></a>';
+            }    
+        echo '</div>';
+        }
           echo '<div class="col-md-8 p-5" style="background:#CCC">';
             echo '<div class="lead">EDITORIAL DEL DÍA</div>';
             echo '<h1>' . get_the_title() . '</h1>';

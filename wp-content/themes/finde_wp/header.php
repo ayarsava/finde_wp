@@ -47,7 +47,7 @@
   </head>
   <body <?php body_class(); ?>>
   	<?php wp_body_open(); ?>
-  	<header class="main-header">
+  	<header class="main-header bg-primary">
   		<div class="container">
 	  		<div class="row position-relative">
 		  		<div class="logo-wrapper col-lg-2 col-md-3 col-5">

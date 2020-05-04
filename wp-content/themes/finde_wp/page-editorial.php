@@ -68,7 +68,7 @@ get_header(); ?>
 
 
 		<!--CATALOGO-->
-		<section id="catalogo" class="bg-white py-5">
+		<section id="catalogo" class="bg-light py-5">
 			<div class="container">
 				<h1 class="mb-4"><strong>Editoriales</strong></h1>
 				<ul id="form-ui" class="list-inline">

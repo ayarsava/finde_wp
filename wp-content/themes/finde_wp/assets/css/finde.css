@@ -1,13 +1,84 @@
-/*** FINDE Custom ***/
-.editorial .bg-primary,
-.editorial .btn-primary,
-.post-type-archive-editorial header.main-header,
-.post-type-archive-editorial .site-footer,
-.bg-editorial {
-  background: #bb3a64 !important; }
+/*** Videojuegos Custom ***/
+[class*="videojuegos"] .videojuegos .bg-primary,
+[class*="videojuegos"] .videojuegos .btn-primary,
+[class*="videojuegos"] .descuento_ed .badge-primary,
+[class*="videojuegos"] .main-header,
+[class*="videojuegos"] .site-footer,
+[class*="videojuegos"] #agenda .tags,
+[class*="catalogo"] .videojuegos .bg-primary,
+[class*="catalogo"] .videojuegos .btn-primary,
+[class*="catalogo"] .descuento_ed .badge-primary,
+[class*="catalogo"] .main-header,
+[class*="catalogo"] .site-footer,
+[class*="catalogo"] #agenda .tags {
+  background: #009aae !important;
+  color: #FFF !important; }
+[class*="videojuegos"] .bg-videojuegos a,
+[class*="videojuegos"] .badge-dark,
+[class*="catalogo"] .bg-videojuegos a,
+[class*="catalogo"] .badge-dark {
+  color: #FFF !important; }
+[class*="videojuegos"] a,
+[class*="catalogo"] a {
+  color: #009aae; }
+  [class*="videojuegos"] a:hover,
+  [class*="catalogo"] a:hover {
+    color: #005662; }
+[class*="videojuegos"] .btn-outline-primary,
+[class*="catalogo"] .btn-outline-primary {
+  color: #009aae;
+  border-color: #009aae; }
+  [class*="videojuegos"] .btn-outline-primary:hover,
+  [class*="catalogo"] .btn-outline-primary:hover {
+    color: #fff;
+    background-color: #009aae;
+    border-color: #009aae; }
+[class*="videojuegos"] .text-primary,
+[class*="catalogo"] .text-primary {
+  color: #009aae !important; }
 
-.bg-editorial a {
-  color: #FFF; }
+/*** EDitorial Custom ***/
+[class*="editorial"] .editorial .bg-primary,
+[class*="editorial"] .editorial .btn-primary,
+[class*="editorial"] .descuento_ed .badge-primary,
+[class*="editorial"] .main-header,
+[class*="editorial"] .site-footer,
+[class*="editorial"] #agenda .tags,
+.page-en-vivo .editorial .bg-primary,
+.page-en-vivo .editorial .btn-primary,
+.page-en-vivo .descuento_ed .badge-primary,
+.page-en-vivo .main-header,
+.page-en-vivo .site-footer,
+.page-en-vivo #agenda .tags {
+  background: #ff677d !important;
+  color: #FFF !important; }
+[class*="editorial"] .bg-editorial a,
+[class*="editorial"] .badge-dark,
+.page-en-vivo .bg-editorial a,
+.page-en-vivo .badge-dark {
+  color: #FFF !important; }
+[class*="editorial"] a,
+.page-en-vivo a {
+  color: #ff677d; }
+  [class*="editorial"] a:hover,
+  .page-en-vivo a:hover {
+    color: #ff1b3c; }
+[class*="editorial"] .btn-outline-primary,
+.page-en-vivo .btn-outline-primary {
+  color: #ff677d;
+  border-color: #ff677d; }
+  [class*="editorial"] .btn-outline-primary:hover,
+  .page-en-vivo .btn-outline-primary:hover {
+    color: #fff;
+    background-color: #ff677d;
+    border-color: #ff677d; }
+[class*="editorial"] .text-primary,
+.page-en-vivo .text-primary {
+  color: #ff677d !important; }
+
+.btn-outline-dark {
+  color: #343a40 !important;
+  border-color: #343a40 !important; }
 
 html {
   scroll-behavior: smooth; }
@@ -15,7 +86,6 @@ html {
 body.menu-opened {
   overflow: hidden; }
 
-body.home,
 body.page-splash {
   background: #009aae; }
 
@@ -50,25 +120,23 @@ h1 {
       box-shadow: 0 1rem 3rem rgba(31, 45, 61, 0.125) !important; }
 
 /*** header ***/
-header.main-header {
-  background: #009aae; }
-  header.main-header .logo-wrapper {
-    min-height: 120px; }
-    header.main-header .logo-wrapper a.main-logo {
-      position: absolute;
-      left: -76px;
-      bottom: 0; }
-      @media (max-width: 577px) {
-        header.main-header .logo-wrapper a.main-logo {
-          left: -65px; } }
-  header.main-header .header-dates {
-    padding-top: 1rem; }
+header.main-header .logo-wrapper {
+  min-height: 120px; }
+  header.main-header .logo-wrapper a.main-logo {
+    position: absolute;
+    left: -76px;
+    bottom: 0; }
     @media (max-width: 577px) {
-      header.main-header .header-dates {
-        font-size: .75rem;
-        padding-top: 2rem; } }
-  header.main-header a.nav-link.active {
-    font-weight: bold; }
+      header.main-header .logo-wrapper a.main-logo {
+        left: -65px; } }
+header.main-header .header-dates {
+  padding-top: 1rem; }
+  @media (max-width: 577px) {
+    header.main-header .header-dates {
+      font-size: .75rem;
+      padding-top: 2rem; } }
+header.main-header a.nav-link.active {
+  font-weight: bold; }
 
 .search-form .screen-reader-text {
   display: none; }
@@ -100,9 +168,6 @@ footer {
     margin-bottom: 0.25rem; }
   footer img.logo-cultura {
     width: 360px; }
-
-.site-footer {
-  background: #009aae; }
 
 /*** SLIDE ***/
 #slide-principal .carousel .carousel-inner .carousel-item {
@@ -258,6 +323,39 @@ a.badge.os {
 .lista span:last-child:after {
   content: ""; }
 
+.galeria-slick.slick-dotted.slick-slider {
+  margin-bottom: 0; }
+.galeria-slick .slick-dots {
+  bottom: 15px; }
+  .galeria-slick .slick-dots li {
+    margin: 0; }
+    .galeria-slick .slick-dots li button {
+      width: 5px; }
+      .galeria-slick .slick-dots li button:before {
+        color: #FFF;
+        opacity: .5;
+        font-size: 8px; }
+    .galeria-slick .slick-dots li.slick-active button:before {
+      opacity: 1; }
+.galeria-slick .slick-prev {
+  left: 15px;
+  z-index: 1; }
+.galeria-slick .slick-next {
+  right: 15px;
+  z-index: 1; }
+.galeria-slick .slick-track {
+  display: flex; }
+.galeria-slick .slick-track .slick-slide {
+  display: flex;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  height: 300px; }
+  .galeria-slick .slick-track .slick-slide img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; }
+
 /*** AGENDA HOME ***/
 #agenda .bg-image {
   height: 140px; }
@@ -389,8 +487,8 @@ a.badge.os {
           font-weight: bold; }
 
 .editorial .spotlight .spotlight-holder .bg-gradient-primary {
-  background: -o-linear-gradient(40deg, #c12157 0, #951a43 100%) !important;
-  background: linear-gradient(50deg, #c12157 0, #951a43 100%) !important; }
+  background: -o-linear-gradient(40deg, #ff677d 0, #ff3451 100%) !important;
+  background: linear-gradient(50deg, #ff677d 0, #ff3451 100%) !important; }
 
 /*** branding-header ***/
 .branding-header {
