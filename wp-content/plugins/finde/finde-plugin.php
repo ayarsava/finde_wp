@@ -1187,14 +1187,13 @@ function wp_archive_catalogoed() {
 
     while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
 
-        $producto = MB_Relationships_API::get_connected( [
+        $productos = MB_Relationships_API::get_connected( [
             'id'   => 'productoeditorial_to_editoriales',
-            'from' => get_the_ID(),
+            'to' => get_the_ID(),
         ] );
 
         $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
         $url = rwmb_meta( 'mbox_url' );
-        $descargas = rwmb_meta( 'descarga_id' );
         $images = rwmb_meta( 'image_ed', array( 'size' => 'large' ) );
         $instagram = rwmb_meta( 'mbox_instagram' );
         $twitter = rwmb_meta( 'mbox_twitter' );
@@ -1222,7 +1221,7 @@ function wp_archive_catalogoed() {
         if ($images) {
         echo '<div class="galeria-slick">';
         foreach ( $images as $image ) {
-            echo '<a href="#/"><img src="', $image['url'], '"></a>';
+            echo '<a href="' . get_the_permalink() .'"><img src="', $image['url'], '"></a>';
         }    
         echo '</div>';
         }
@@ -1246,13 +1245,6 @@ function wp_archive_catalogoed() {
             foreach( $dterms as $term ) { echo '<a href="'.get_term_link($term->slug, 'descuento_ed').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
             echo '</div>';
         }
-        if ($descargas) {
-            echo '<small class="descargas mt-2 d-block">';
-            foreach ( $descargas as $descarga ) {
-                echo '<a href="'.$descarga['d_url'].'" class="os btn btn-sm btn-outline-dark mr-1 mb-1 descarga" target="_blank"><span>' . $descarga['d_name'] .'</span></a>';
-            }
-            echo '</small>';
-        }
         if ($url || $instagram || $facebook || $twitter) {
             echo '<div class="contacto mt-2">';
             if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></i></a></li>';}
@@ -1268,10 +1260,10 @@ function wp_archive_catalogoed() {
         
         if ($productos) {
             echo '<small class="card-footer text-muted text-sm lista">';
-            echo 'Por '; foreach ( $productos as $producto ) {
-            echo '<span><a href="' . get_the_permalink($producto) .'" rel="slidemark" class="os">' .$producto->post_title.'</a></span> ';
+            echo 'Productos u ofertas:<ul>'; foreach ( $productos as $producto ) {
+            echo '<li><span><a href="' . get_the_permalink($producto) .'" rel="slidemark" class="os">' .$producto->post_title.'</a></span></li> ';
             }
-            echo '</small>';
+            echo '</ul></small>';
         }
         echo '</div></div>';
     endwhile;

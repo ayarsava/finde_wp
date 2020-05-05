@@ -7,7 +7,7 @@
  * @package Finde_WP
  */
 
-get_header();
+get_template_part( 'layouts/header', 'ed' );
 ?>
 <?php 
     $address = rwmb_meta( 'address' );
@@ -159,5 +159,4 @@ get_header();
 <?php
 endwhile; // End the loop.
 ?>
-<?php
-get_footer();
+<?php get_template_part( 'layouts/footer', 'ed' ); 

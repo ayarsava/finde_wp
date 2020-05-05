@@ -11,7 +11,8 @@
  * @package Finde_WP
  */
 
-get_header(); ?>
+get_template_part( 'layouts/header', 'vj' );
+?>
 
 	<div id="content" class="home-vj">
 		<section id="slide-principal">
@@ -172,4 +173,4 @@ get_header(); ?>
 
 
 
-<?php get_footer(); ?>
+<?php get_template_part( 'layouts/footer', 'vj' ); 

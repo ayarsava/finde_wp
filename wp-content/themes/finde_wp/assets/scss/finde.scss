@@ -5,9 +5,8 @@ $videojuegos: #009aae;
   .videojuegos .bg-primary,
   .videojuegos .btn-primary,
   .descuento_ed .badge-primary,
-  .main-header,
-  .site-footer,
-  #agenda .tags {
+  #agenda .tags,
+  .branding-header {
     background: $videojuegos!important;
     color:#FFF!important;
   }
@@ -46,9 +45,8 @@ $editorial: #ff677d;
   .editorial .bg-primary,
   .editorial .btn-primary,
   .descuento_ed .badge-primary,
-  .main-header,
-  .site-footer,
-  #agenda .tags {
+  #agenda .tags,
+  .branding-header {
     background: $editorial!important;
     color:#FFF!important;
   }
@@ -430,6 +428,8 @@ a.badge.os {
     align-items: center;
     justify-content: center;
     height: 300px;
+    background: rgb(204,204,204);
+    background: linear-gradient(45deg, rgb(255, 255, 255) 0%, rgb(233, 233, 233) 100%);
     img {
       height: 100%; 
       width: 100%; 
@@ -450,11 +450,27 @@ a.badge.os {
     align-items: center;
     justify-content: center;
     height: 500px;
+    background: rgb(204,204,204);
+    background: linear-gradient(45deg, rgb(255, 255, 255) 0%, rgb(233, 233, 233) 100%);
     img {
       height: 100%; 
       width: 100%; 
       object-fit: cover;
     }
+  }
+}
+.cta-librerias {
+  position: absolute;
+  width: 35%;
+  padding: 0;
+  margin-right: 65%;
+  top: 0;
+  overflow-x: hidden;
+  bottom: 0px;
+  img {
+    height: 100%; 
+    width: 100%; 
+    object-fit: cover;
   }
 }
 
@@ -876,9 +892,36 @@ a[class^="hvr-"] {
 }
 .extra-grande {
   font-size: 3rem;
+  @media (max-width: 767.98px) {
+    font-size: 2rem;
+  }
 }
 .cta-info{
   
 }
 .cta-galeria:after {
 }
+
+.archive-editoriales {
+  ul#form-ui {
+    background: #eaeaea;
+    padding: 40px;
+    margin-bottom: 0;
+    border-bottom: solid 3px #ff677c;
+  }
+}
+.opb-editoriales {
+  position: relative;
+  background:#f6f5f3;
+  padding-bottom: 2rem;
+  min-height: 500px;
+  @media (max-width: 767.98px) {
+    min-height: auto;
+  }
+  .opb-wrap {
+    position:relative;
+  }
+}
+
+
+

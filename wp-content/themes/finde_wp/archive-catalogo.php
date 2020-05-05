@@ -7,7 +7,7 @@
  * @package Finde_WP
  */
 
-get_header();
+get_template_part( 'layouts/header', 'vj' ); 
 ?>
 <div class="main-content bg-card">
 	<section class="archive-agenda spotlight bg-cover" style="background-image: url('/wp-content/themes/finde_wp/assets/img/bg_vj.png'); background-size:cover; background-position:center center; height:400px;">
@@ -82,4 +82,4 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_footer();
+get_template_part( 'layouts/footer', 'vj' ); 

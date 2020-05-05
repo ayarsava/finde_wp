@@ -7,7 +7,7 @@
  * @package Finde_WP
  */
 
-get_header();
+get_template_part( 'layouts/header', 'vj' );
 ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
@@ -24,5 +24,5 @@ get_header();
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php
-get_footer();
+
+<?php get_template_part( 'layouts/footer', 'vj' ); 

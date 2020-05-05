@@ -11,7 +11,8 @@
  * @package Finde_WP
  */
 
-get_header(); ?>
+get_template_part( 'layouts/header', 'ed' ); 
+?>
 
 	<div id="content" class="editorial">
 		<section id="slide-principal">
@@ -44,7 +45,6 @@ get_header(); ?>
 						<div class="h4">#FINDELEYENDO</div>
 						<div class="h1 pb-3"><strong>Un finde para leer y apoyar a la cultura local</strong></div>
 						<div class="lead">Finde te propone un fin de semana dedicado a la lectura, a descubrir y compartir el placer que desatan los libros. Una iniciativa para comprar, regalar, recomendar y descargar libros, y apoyar a los creadores locales.</div>
-						<a href="/editoriales" title="Ingresá al catalogo" class="btn btn-outline-light btn-lg mt-5">Ingresá al catalogo de editoriales</a>
 					</div>
 				</div>
 			</div>
@@ -67,65 +67,43 @@ get_header(); ?>
 		</section>
 
 
-		<!--JUEGO DESTACADO-->
-		<section class="" style="background:#f6f5f3;">
-			<div class="position-relative" style="height: 500px;">
-				<div class="cta-galeria">
+		<!--ENTRADA AL CATALOGO DE EDITORIALES-->
+		<section class="opb-editoriales">
+			<div class="opb-wrapper">
+				<div class="container">
+			        <div class="col-lg-9 col-md-11 p-lg-5 p-3 cta-info">
+			        	<div class="ml-lg-5">
+					        <h1 class="extra-grande mt-4">Entrá a la oferta de editoriales independientes que participan en Finde</h1>
+					        <div class="lead my-3">Apoyá tu circuito cultural local</div>
+					        <a href="/editoriales" class="hvr-icon-forward"><strong>Conocé las editoriales</strong> <i class="fas fa-angle-double-right hvr-icon"></i></a>
+					    </div>
+				    </div>
+			    </div>
+			    <div class="cta-galeria d-none d-md-block">
 					<div class="slick-fade">
 			            <a href="#"><img src="/wp-content/themes/finde_wp/assets/img/editorial-01.jpg"></a>
 			            <a href="#"><img src="/wp-content/themes/finde_wp/assets/img/editorial-02.jpg"></a>
 			        </div>
 		        </div>
-				<div class="container">
-			        <div class="col-9 p-5 cta-info">
-			        	<div class="ml-5">
-					        <h1 class="extra-grande mt-4">Entrá a la oferta de editoriales independientes que participan en Finde</h1>
-					        <div class="lead my-3">Apoyá tu circuito cultural local</div>
-					        <a href="#" class="hvr-icon-forward"><strong>Conocé las librerías</strong> <i class="fas fa-angle-double-right hvr-icon"></i></a>
-					    </div>
-				    </div>
-					
-			    </div>
+				
 			</div>
 		</section>
 
-
-		<!--CATALOGO-->
-		<section id="catalogo" class="bg-white py-5">
-			<div class="container">
-				<ul id="form-ui" class="list-inline">
-					<div class="row">
-						<div class="col-md-3">
-							<h5>Categorías</h5>
-						</div>
-						<ul class="col-md-12">
-							<?php 
-							$rubros = get_terms('rubro_ed');
-							if( $rubros ){ foreach ($rubros as $cat ) {?>
-							<li class="list-inline-item <?php echo $cat->slug; ?>"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="category" autocomplete="off"> <?php echo $cat->name; ?></label></li>
-							<?php  } }?>
-						</ul>
-					</div>
-					<hr>
-					<div class="row">
-						<div class="col-md-3">
-							<h5>Precio</h5>
-						</div>
-						<ul class="col-md-12">
-							<?php 
-							$descuento = get_terms('descuento_ed');
-							if( $descuento ){ foreach ($descuento as $cat ) {?>
-							<li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="discount" autocomplete="off"> <?php echo $cat->name; ?></label></li>
-							<?php  } }?>
-						</ul>
-					</div>
-				</ul>
-
-				<div id="container" class="grid loadable collapsed">
-					<!-- 2 col grid @ xs, 3 col grid @ sm, 4 col grid @ md -->
-					<div class="grid-sizer"></div>
-					<?php wp_archive_catalogoed() ?>
-				</div>
+		<!--ENTRADA AL CATALOGO DE LIBRERÍAS-->
+		<section class="bg-white">
+			<div class="position-relative" style="min-height: 400px;">
+			    <div class="cta-librerias d-none d-md-block">
+			        <img src="/wp-content/themes/finde_wp/assets/img/editorial-03.jpg">
+		        </div>
+				<div class="container">
+			        <div class="col-lg-10 col-md-9 ml-auto p-lg-5 p-3 cta-info">
+			        	<div class="ml-lg-5">
+					        <h2 class="font-weight-bold mt-5 pt-5">Después de Finde, seguí comprando los libros de las editoriales independientes en librerías de la provincia de Buenos Aires</h2>
+					        <div class="lead my-3">Apoyá tu circuito cultural local</div>
+					        <a href="/editoriales" class="hvr-icon-forward"><strong>Conocé las librerías</strong> <i class="fas fa-angle-double-right hvr-icon"></i></a>
+					    </div>
+				    </div>
+			    </div>
 			</div>
 		</section>
 
@@ -193,4 +171,5 @@ get_header(); ?>
 
 
 
-<?php get_footer(); ?>
+<?php 
+get_template_part( 'layouts/footer', 'ed' ); 

@@ -7,7 +7,7 @@
  * @package Finde_WP
  */
 
-get_header();
+get_template_part( 'layouts/header', 'vj' );
 
 $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
 
@@ -85,5 +85,5 @@ $estudios = MB_Relationships_API::get_connected( [
 				</div><!-- .col-12 .col-md-8 -->
 		</div><!-- .row -->
 
-<?php
-get_footer();
+
+<?php get_template_part( 'layouts/footer', 'vj' ); 

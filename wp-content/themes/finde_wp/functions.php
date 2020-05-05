@@ -222,35 +222,6 @@ function prefix_category_title( $title ) {
 add_filter( 'get_the_archive_title', 'prefix_category_title' );
 
 
-function wpb_hook_javascript() {
-  if (is_page ('editorial')) { 
-    ?>
-        <script type="text/javascript">
-        jQuery(document).ready(function($){
-			$('.galeria-slick').slick({
-			  dots: true,
-			  infinite: true,
-			  speed: 300,
-			  slidesToShow: 1,
-			  adaptiveHeight: true,
-			  dots: true
-			});
-
-			$('.slick-fade').slick({
-			  infinite: true,
-			  speed: 500,
-			  fade: true,
-			  cssEase: 'linear',
-			  autoplay: true,
-			  autoplaySpeed: 2000,
-			});
-		});
-        </script>
-    <?php
-  }
-}
-add_action('wp_head', 'wpb_hook_javascript');
-
 
 /**
  * Implement the Custom Header feature.

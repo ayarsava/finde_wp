@@ -7,8 +7,24 @@
 
   $('[rel="tooltip"]').tooltip();
 
-// Filtro de catalogo
-// set up variables
+$('.galeria-slick').slick({
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  adaptiveHeight: true,
+  dots: true
+});
+
+$('.slick-fade').slick({
+  infinite: true,
+  speed: 500,
+  fade: true,
+  cssEase: 'linear',
+  autoplay: true,
+  autoplaySpeed: 2000,
+});
+
 // Filtro de catalogo
 // set up variables
 var categoryFilters = [];
@@ -127,32 +143,7 @@ function debounce(fn, threshold) {
   "<div class='embed-responsive embed-responsive-16by9'></div>"
   ).addClass("embed-responsive-item");
 
-  //ORDER BY DATE
-    /*var container = $(".sort-list");
-    var items = $(".sort-item");
-    
-    items.each(function() {
-       // Convert the string in 'data-event-date' attribute to a more
-       // standardized date format
-       var BCDate = $(this).attr("data-event-date").split("-");
-       var standardDate = BCDate[1]+" "+BCDate[0]+" "+BCDate[2];
-       standardDate = new Date(standardDate).getTime();
-       $(this).attr("data-event-date", standardDate);
- 
-    });
-    
-
-    items.sort(function(a,b){
-        a = parseFloat($(a).attr("data-event-date"));
-        b = parseFloat($(b).attr("data-event-date"));
-        return a>b ? -1 : a<b ? 1 : 0;
-    }).each(function(){
-        container.prepend(this);
-    });
-*/
-/* This script sorts your list in descending order... 
-to change it to ascending order change the "less than" operator (<) to "greater than" (>) */
-  
+//SLICK
 
     
 
