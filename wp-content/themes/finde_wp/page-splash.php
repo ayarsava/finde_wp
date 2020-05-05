@@ -80,7 +80,7 @@
 											<img src="/wp-content/themes/finde_wp/assets/img/icon-editorial.png" class="img-fluid icon">
 									</div>
 									<div class="pb-5 text-white">
-											<h3><strong>Libros</strong></h3>
+											<h3><strong>Editorial</strong></h3>
 											<p>7 MAYO - 10 MAYO</p>
 											<a href="#" class="btn btn-outline-light disabled">Muy pronto</a>
 									</div>

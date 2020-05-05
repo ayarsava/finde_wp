@@ -33,6 +33,9 @@
     color: #fff;
     background-color: #009aae;
     border-color: #009aae; }
+[class*="videojuegos"] .btn-outline-light,
+[class*="catalogo"] .btn-outline-light {
+  color: #FFF; }
 [class*="videojuegos"] .text-primary,
 [class*="catalogo"] .text-primary {
   color: #009aae !important; }
@@ -62,7 +65,7 @@
   color: #ff677d; }
   [class*="editorial"] a:hover,
   .page-en-vivo a:hover {
-    color: #ff1b3c; }
+    color: #cc4a5d; }
 [class*="editorial"] .btn-outline-primary,
 .page-en-vivo .btn-outline-primary {
   color: #ff677d;
@@ -72,6 +75,9 @@
     color: #fff;
     background-color: #ff677d;
     border-color: #ff677d; }
+[class*="editorial"] .btn-outline-light,
+.page-en-vivo .btn-outline-light {
+  color: #FFF; }
 [class*="editorial"] .text-primary,
 .page-en-vivo .text-primary {
   color: #ff677d !important; }
@@ -356,6 +362,52 @@ a.badge.os {
     width: 100%;
     object-fit: cover; }
 
+.cta-galeria {
+  position: absolute;
+  width: 35%;
+  padding: 0;
+  margin-left: 65%;
+  top: 50px;
+  overflow-x: hidden; }
+  .cta-galeria .slick-track .slick-slide {
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    height: 500px; }
+    .cta-galeria .slick-track .slick-slide img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover; }
+
+.hvr-icon-forward {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s; }
+  .hvr-icon-forward .hvr-icon {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out; }
+  .hvr-icon-forward:hover .hvr-icon, .hvr-icon-forward:focus .hvr-icon, .hvr-icon-forward:active .hvr-icon {
+    -webkit-transform: translateX(4px);
+    transform: translateX(4px); }
+
+a[class^="hvr-"] {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  a[class^="hvr-"]:hover {
+    text-decoration: none !important; }
+
 /*** AGENDA HOME ***/
 #agenda .bg-image {
   height: 140px; }
@@ -483,7 +535,7 @@ a.badge.os {
         position: absolute;
         bottom: 2rem; }
         .spotlight .spotlight-holder .container .info h1.extra-grande {
-          font-size: 4rem;
+          font-size: 3rem;
           font-weight: bold; }
 
 .editorial .spotlight .spotlight-holder .bg-gradient-primary {
@@ -668,5 +720,8 @@ a.badge.os {
 
 .card .icon {
   max-width: 60px; }
+
+.extra-grande {
+  font-size: 3rem; }
 
 /*# sourceMappingURL=finde.css.map */

@@ -42,8 +42,8 @@ get_header(); ?>
 				<div class="container">
 					<div class="col-md-8 mx-auto text-center text-white py-5">
 						<div class="h4">#FINDELEYENDO</div>
-						<div class="h1 pb-3"><strong>Un finde para leer y apoyar a las editoriales locales</strong></div>
-						<div class="lead">FINDE te propone un fin de semana dedicado a descubrir nuevas experiencias digitales. Una iniciativa para que puedas comprar, regalar, descargar libros y apoyar a los creadores durante la cuarentena.</div>
+						<div class="h1 pb-3"><strong>Un finde para leer y apoyar a la cultura local</strong></div>
+						<div class="lead">Finde te propone un fin de semana dedicado a la lectura, a descubrir y compartir el placer que desatan los libros. Una iniciativa para comprar, regalar, recomendar y descargar libros, y apoyar a los creadores locales.</div>
 						<a href="/editoriales" title="Ingresá al catalogo" class="btn btn-outline-light btn-lg mt-5">Ingresá al catalogo de editoriales</a>
 					</div>
 				</div>
@@ -67,10 +67,32 @@ get_header(); ?>
 		</section>
 
 
+		<!--JUEGO DESTACADO-->
+		<section class="" style="background:#f6f5f3;">
+			<div class="position-relative" style="height: 500px;">
+				<div class="cta-galeria">
+					<div class="slick-fade">
+			            <a href="#"><img src="/wp-content/themes/finde_wp/assets/img/editorial-01.jpg"></a>
+			            <a href="#"><img src="/wp-content/themes/finde_wp/assets/img/editorial-02.jpg"></a>
+			        </div>
+		        </div>
+				<div class="container">
+			        <div class="col-9 p-5 cta-info">
+			        	<div class="ml-5">
+					        <h1 class="extra-grande mt-4">Entrá a la oferta de editoriales independientes que participan en Finde</h1>
+					        <div class="lead my-3">Apoyá tu circuito cultural local</div>
+					        <a href="#" class="hvr-icon-forward"><strong>Conocé las librerías</strong> <i class="fas fa-angle-double-right hvr-icon"></i></a>
+					    </div>
+				    </div>
+					
+			    </div>
+			</div>
+		</section>
+
+
 		<!--CATALOGO-->
-		<section id="catalogo" class="bg-light py-5">
+		<section id="catalogo" class="bg-white py-5">
 			<div class="container">
-				<h1 class="mb-4"><strong>Editoriales</strong></h1>
 				<ul id="form-ui" class="list-inline">
 					<div class="row">
 						<div class="col-md-3">
@@ -105,26 +127,6 @@ get_header(); ?>
 					<?php wp_archive_catalogoed() ?>
 				</div>
 			</div>
-		</section>
-
-		<!--JUEGO DESTACADO-->
-		<section class="py-5 bg-light">
-			<div class="container">
-				<div id="juego-destacado" class="carousel slide" data-ride="carousel">
-					<div class="carousel-inner">
-						<?php wp_archive_destacadoed() ?>
-					</div>
-					<!-- Controls -->
-					<a class="carousel-control-prev" href="#juego-destacado" role="button" data-slide="prev">
-				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				    <span class="sr-only">Previous</span>
-				  </a>
-				  <a class="carousel-control-next" href="#juego-destacado" role="button" data-slide="next">
-				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-				    <span class="sr-only">Next</span>
-				  </a>
-				</div>
-			</div>	
 		</section>
 
 		<!--AGENDA-->
