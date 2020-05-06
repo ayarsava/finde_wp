@@ -1261,7 +1261,7 @@ function wp_archive_catalogoed() {
         if ($productos) {
             echo '<small class="card-footer text-muted text-sm lista">';
             echo 'Productos u ofertas:<ul>'; foreach ( $productos as $producto ) {
-            echo '<li><span><a href="' . get_the_permalink($producto) .'" rel="slidemark" class="os">' .$producto->post_title.'</a></span></li> ';
+            echo '<li><span><strong>' .$producto->post_title.'</strong></span></li> ';
             }
             echo '</ul></small>';
         }

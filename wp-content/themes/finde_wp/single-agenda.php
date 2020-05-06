@@ -9,7 +9,14 @@
 
 $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
 $fecha = rwmb_meta( 'fecha_id' ); 
-get_header();
+
+if (has_category( 'Editorial' )) {
+  get_template_part( 'layouts/header', 'ed' ); 
+} elseif (has_category( 'Videojuegos' )) {
+  get_template_part( 'layouts/header', 'vj' ); 
+} else {
+get_footer();
+}
 ?>
 
 	<div id="agenda" class="container">
@@ -64,4 +71,10 @@ get_header();
 		</div><!-- .row -->
 
 <?php
+if (has_category( 'Editorial' )) {
+  get_template_part( 'layouts/footer', 'ed' ); 
+} elseif (has_category( 'Videojuegos' )) {
+  get_template_part( 'layouts/footer', 'vj' ); 
+} else {
 get_footer();
+}

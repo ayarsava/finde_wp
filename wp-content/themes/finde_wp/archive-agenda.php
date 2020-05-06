@@ -28,20 +28,6 @@ get_header();
 		</div>
 	</section>-->
 
-<section id="en-vivo" class="bg-primary py-4">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3">
-				<h1 class="text-white">En vivo</h1>
-			</div>
-			<div class="col-lg-12">
-				<div style="border-radius:4px;">
-				  <iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/ggXgBoGJ-P0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
 	
 	<div class="container py-5">
 		<h1 class="extra-grande mb-4">Programación</h1>

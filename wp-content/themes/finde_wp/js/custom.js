@@ -24,6 +24,15 @@ $('.slick-fade').slick({
   autoplay: true,
   autoplaySpeed: 2000,
 });
+$('.profile-slick').slick({
+  infinite: true,
+  speed: 500,
+  fade: true,
+  cssEase: 'linear',
+  autoplay: true,
+  autoplaySpeed: 2000,
+  dots: true
+});
 
 // Filtro de catalogo
 // set up variables

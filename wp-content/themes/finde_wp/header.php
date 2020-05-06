@@ -53,12 +53,12 @@
 		  		<div class="logo-wrapper col-lg-2 col-md-3 col-5">
 			        <!-- Brand -->
 			        <a class="main-logo mt-3" href="/">
-			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde_vj_logo.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
+			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde-logo-azul-base.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
 			        </a>
 			    </div>
 			    <div class="header-dates col-lg-6 col-md-5 col-10">
 			    	<ul class="list-unstyled text-light pt-3">
-			    		<li><strong>Videojuegos > Jue 30.04 al Dom 03.05</strong></li>
+			    		<li>Videojuegos > Jue 30.04 al Dom 03.05</li>
 						<li>Editorial > Jue 07 al Dom 10.05</li>
 						<li>Música > Jue 14 al Dom 17.05</li>
 					</ul>
@@ -77,16 +77,19 @@
 				<div class="collapse navbar-collapse" id="navbarTogglerVJ">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 						<li class="nav-item">
-							<a class="nav-link active" href="/videojuegos/#finde-vj">Inicio</a>
+							<a class="nav-link" href="/videojuegos/#finde-vj">Inicio</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="/que-es">Qué es</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/videojuegos/#catalogo">Juegos</a>
+							<a class="nav-link" href="/videojuegos/#catalogo">Videojuegos</a>
 						</li>
+						<!--<li class="nav-item">
+							<a class="nav-link" href="/editorial">Editorial</a>
+						</li>-->
 						<li class="nav-item">
-							<a class="nav-link" href="/videojuegos/#agenda">Agenda</a>
+							<a class="nav-link" href="/agenda">Agenda</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="/en-vivo">En vivo</a>

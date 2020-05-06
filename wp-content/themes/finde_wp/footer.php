@@ -37,13 +37,14 @@
     	<div class="container">
 			<div class="row my-5">
 			    <div class="col-lg-2 col-md-3 col-5">
-			      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_finde_footer-vj.png" class="img-fluid mb-5">
+			      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_finde_footer-base.png" class="img-fluid mb-5">
 			    </div>
 			    <div class="col-lg-6 col-md-5">
 			      <ul class="list-unstyled text-white">
 			      	<li><a href="/" class="text-light">Finde</a></li>
-			      	<li><a href="/videojuegos/#catalogo" class="text-light">Juegos</a></li>
-			      	<li><a href="/videojuegos/#agenda" class="text-light">Agenda</a></li>
+			      	<li><a href="/videojuegos/#catalogo" class="text-light">Videojuegos</a></li>
+			      	<li><a href="/editorial" class="text-light">Editorial</a></li>
+			      	<li><a href="/agenda" class="text-light">Agenda</a></li>
 			      	<li><a href="/preguntas-frecuentes/" class="text-light">Preguntas frecuentes</a></li>
 			      </ul>
 			    </div>
