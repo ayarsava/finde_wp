@@ -74,7 +74,7 @@ get_template_part( 'layouts/header', 'ed' );
 			        <div class="col-lg-9 col-md-11 p-lg-5 p-3 cta-info">
 			        	<div class="ml-lg-5">
 					        <h1 class="extra-grande mt-4">Entrá a la oferta de editoriales independientes que participan en Finde</h1>
-					        <div class="lead my-3">Apoyá tu circuito cultural local</div>
+					        <div class="lead my-3">Apoyá tu circuito cultural local.</div>
 					        <a href="/editoriales" class="hvr-icon-forward"><strong>Conocé las editoriales</strong> <i class="fas fa-angle-double-right hvr-icon"></i></a>
 					    </div>
 				    </div>
@@ -98,9 +98,9 @@ get_template_part( 'layouts/header', 'ed' );
 				<div class="container">
 			        <div class="col-lg-10 col-md-9 ml-auto p-lg-5 p-3 cta-info">
 			        	<div class="ml-lg-5">
-					        <h2 class="font-weight-bold mt-5 pt-5">Después de Finde, seguí comprando los libros de las editoriales independientes en librerías de la provincia de Buenos Aires</h2>
-					        <div class="lead my-3">Apoyá tu circuito cultural local</div>
-					        <a href="/editoriales" class="hvr-icon-forward"><strong>Conocé las librerías</strong> <i class="fas fa-angle-double-right hvr-icon"></i></a>
+					        <h2 class="font-weight-bold mt-5 pt-5">Después de Finde, seguí comprando los libros de las editoriales independientes en librerías de la Provincia</h2>
+					        <div class="lead my-3">Apoyá tu circuito cultural local.</div>
+					        <a href="/librerias" class="hvr-icon-forward"><strong>Conocé las librerías</strong> <i class="fas fa-angle-double-right hvr-icon"></i></a>
 					    </div>
 				    </div>
 			    </div>
