@@ -374,7 +374,7 @@ a.badge.os {
   width: 35%;
   padding: 0;
   margin-right: 65%;
-  top: 0;
+  top: -30px;
   overflow-x: hidden;
   bottom: 0px; }
   .cta-librerias img {
@@ -744,6 +744,8 @@ a[class^="hvr-"] {
 .opb-editoriales {
   position: relative;
   background: #f6f5f3;
+  background: -o-linear-gradient(90deg, #f6f5f3 0, #f6f5f3 95%, #ffffff 95%) !important;
+  background: linear-gradient(90deg, #f6f5f3 0, #f6f5f3 95%, #ffffff 95%) !important;
   padding-bottom: 2rem;
   min-height: 500px; }
   @media (max-width: 767.98px) {
