@@ -80,9 +80,10 @@
 											<img src="/wp-content/themes/finde_wp/assets/img/icon-editorial.png" class="img-fluid icon">
 									</div>
 									<div class="pb-5 text-white">
-											<h3><strong>Editorial</strong></h3>
-											<p>7 MAYO - 10 MAYO</p>
-											<a href="#" class="btn btn-outline-light disabled">Muy pronto</a>
+										<h3><strong>Editorial</strong></h3>
+										<p>7 MAYO - 10 MAYO</p>
+										<a href="/editorial" id="activo" class="btn btn-outline-light" style="display:none;">Accedé</a>
+										<a href="#" class="btn btn-outline-light disabled" id="soon">Muy pronto</a>
 									</div>
 							</div>
 					</div>

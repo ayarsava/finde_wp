@@ -91,6 +91,9 @@
 						<li class="nav-item">
 							<a class="nav-link" href="/en-vivo">En vivo</a>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/videojuegos" style="border-color:#009aae!important; color: #009aae!important">Edición Videojuegos</a>
+						</li>
 						<!--<li class="nav-item">
 							<a class="nav-link" href="/">Próximas ediciones</a>
 						</li>-->

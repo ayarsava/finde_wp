@@ -91,6 +91,9 @@
 						<li class="nav-item">
 							<a class="nav-link" href="/en-vivo">En vivo</a>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/editorial" style="border-color:#ff677d!important; color: #ff677d!important">Edición Editorial</a>
+						</li>
 						<!--<li class="nav-item">
 							<a class="nav-link" href="/">Próximas ediciones</a>
 						</li>-->
