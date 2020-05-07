@@ -8,7 +8,6 @@
  */
 
 $destacado = rwmb_meta( 'destacado_id' );
-$destacado = rwmb_meta( 'destacado_id' );
 ?>
 <article class="item col-lg-3 col-md-5 mb-4<?php if ($destacado == 1) { echo ' destacado'; } ?>">
 	<div class="card h-100">

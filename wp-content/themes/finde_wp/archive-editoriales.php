@@ -35,7 +35,7 @@ get_template_part( 'layouts/header', 'ed' );
 				<hr>
 				<div class="row">
 					<div class="col-md-3">
-						<h5><strong>Precio</strong></h5>
+						<h5><strong>Promociones</strong></h5>
 					</div>
 					<ul class="col-md-12">
 						<?php 
