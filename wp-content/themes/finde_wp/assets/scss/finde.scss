@@ -437,7 +437,10 @@ a.badge.os {
 }
 .galeria-slick {
   .slick-track .slick-slide {
-    height: 300px;
+    height: 354px;
+    @media (max-width: 991px) {
+      height: 224px;
+    }
   } 
 }
 .cta-galeria {
@@ -445,14 +448,14 @@ a.badge.os {
     width: 35%;
     padding: 0;
     margin-left: 65%;
-    top: 50px;
+    top: 0px;
     overflow-x: hidden;
   .slick-track .slick-slide {
     display: flex;
     height: auto;
     align-items: center;
     justify-content: center;
-    height: 500px;
+    min-height: 461px;
     background: rgb(204,204,204);
     background: linear-gradient(45deg, rgb(255, 255, 255) 0%, rgb(233, 233, 233) 100%);
     img {
@@ -462,12 +465,19 @@ a.badge.os {
     }
   }
 }
+@media (max-width: 767px) {
+  .cta-galeria {
+      position: relative;
+      width: 100%;
+      margin-left: 0;
+  }
+}
 .cta-librerias {
   position: absolute;
   width: 35%;
   padding: 0;
   margin-right: 65%;
-  top: -30px;
+  top: 0px;
   overflow-x: hidden;
   bottom: 0px;
   img {
@@ -633,6 +643,10 @@ a[class^="hvr-"] {
       }
     }
   }
+}
+
+.post-type-archive-editoriales .card-text {
+
 }
 /*** AGENDA ARCHVE ***/
 .spotlight {
@@ -909,8 +923,6 @@ a[class^="hvr-"] {
 .cta-info{
   
 }
-.cta-galeria:after {
-}
 
 .archive-editoriales {
   ul#form-ui {
@@ -923,10 +935,7 @@ a[class^="hvr-"] {
 .opb-editoriales {
   position: relative;
   background:#f6f5f3;
-  background: -o-linear-gradient(90deg, #f6f5f3 0,  #f6f5f3 95%, #ffffff 95%) !important;
-  background:linear-gradient(90deg, #f6f5f3 0,  #f6f5f3 95%, #ffffff 95%) !important;
-  padding-bottom: 2rem;
-  min-height: 500px;
+  min-height: 461px;
   @media (max-width: 767.98px) {
     min-height: auto;
   }
