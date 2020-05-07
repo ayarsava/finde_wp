@@ -103,7 +103,7 @@ get_template_part( 'layouts/header', 'ed' );
         <section class="bg-white">
             <div class="position-relative" style="min-height: 400px;">
                 <div class="cta-librerias d-none d-md-block">
-                    <img src="/wp-content/themes/finde_wp/assets/img/editorial-03.jpg">
+                    <img src="/wp-content/themes/finde_wp/assets/img/galerias/librerias.jpg">
                 </div>
                 <div class="container">
                     <div class="col-lg-10 col-md-9 ml-auto p-lg-5 p-3 cta-info">
