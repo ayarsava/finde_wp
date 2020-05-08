@@ -1220,7 +1220,7 @@ function wp_archive_catalogoed() {
         if ($images) {
         echo '<div class="galeria-slick">';
         foreach ( $images as $image ) {
-            echo '<a href="' . get_the_permalink() .'"><img data-lazy="', $image['url'], '"></a>';
+            echo '<a href="' . get_the_permalink() .'"><img data-lazy="'. $image['url']. '"></a>';
         }    
         echo '</div>';
         }
