@@ -1192,9 +1192,8 @@ function wp_archive_catalogoed() {
             'to' => get_the_ID(),
         ] );
 
-        $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
         $url = rwmb_meta( 'mbox_url' );
-        $images = rwmb_meta( 'image_ed', array( 'size' => 'large' ) );
+        $images = rwmb_meta( 'image_ed', array( 'size' => 'medium' ) );
         $instagram = rwmb_meta( 'mbox_instagram' );
         $twitter = rwmb_meta( 'mbox_twitter' );
         $facebook = rwmb_meta( 'mbox_facebook' );

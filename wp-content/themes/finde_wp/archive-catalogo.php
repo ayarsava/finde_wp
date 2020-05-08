@@ -58,7 +58,7 @@ get_template_part( 'layouts/header', 'vj' );
 					</div>-->
 
 				</ul>
-
+				<div id="load" class="lds-wrap">Estamos preparando el catálogo<br><div class="lds-hourglass"></div></div>
 				<div id="container" class="grid">
 					<div class="p-0">
 						<!-- 2 col grid @ xs, 3 col grid @ sm, 4 col grid @ md -->

@@ -7,6 +7,12 @@
 
   $('[rel="tooltip"]').tooltip();
 
+
+$(document).ready(function() {
+    $("#load").hide();
+    $("#container").show();
+});
+
 $('.galeria-slick').slick({
   dots: true,
   infinite: true,
@@ -134,11 +140,12 @@ function debounce(fn, threshold) {
 };
 
 
-  // use value of search field to filter
-  var $quicksearch = $('#search').keyup(debounce(function() {
-    qsRegex = new RegExp($quicksearch.val(), 'gi');
-    $container.isotope();
-  }, 200));
+// use value of search field to filter
+var $quicksearch = $('#search').keyup(debounce(function() {
+  qsRegex = new RegExp($quicksearch.val(), 'gi');
+  $container.isotope();
+}, 200));
+
 
 
 

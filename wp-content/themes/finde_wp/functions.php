@@ -170,6 +170,12 @@ function finde_wp_scripts() {
 add_action( 'wp_enqueue_scripts', 'finde_wp_scripts' );
 
 
+add_action( 'after_setup_theme', 'wpdocs_theme_setup' );
+function wpdocs_theme_setup() {
+    add_image_size( 'card-item', 354 ); // 300 pixels wide (and unlimited height)
+}
+
+
 add_action( 'mb_relationships_init', function() {
     MB_Relationships_API::register( [
         'id'   => 'catalogo_to_estudios',
@@ -212,6 +218,7 @@ function finde_filter_search($query) {
 	return $query;
 }
 add_filter('pre_get_posts', 'finde_filter_search');
+
 
 function prefix_category_title( $title ) {
     if ( is_tax() ) {

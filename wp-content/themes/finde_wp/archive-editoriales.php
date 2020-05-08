@@ -10,7 +10,7 @@
 get_template_part( 'layouts/header', 'ed' ); 
 ?>
 <div class="main-content editorial archive-editoriales">
-	<section class="spotlight bg-cover" style="background-image: url('/wp-content/uploads/2020/05/4633915022_1ec66bf99b_k.jpg'); background-size:cover; background-position:center center; min-height:350px;">
+	<section class="spotlight bg-cover" style="background-color:#ff677c;background-image: url('/wp-content/uploads/2020/05/4633915022_1ec66bf99b_k.jpg'); background-size:cover; background-position:center center; min-height:350px;">
 		<div class="spotlight-holder pt-5 pb-7 py-lg-0">
 			<span class="mask bg-gradient-primary opacity-6"></span>
 		</div>
@@ -52,7 +52,7 @@ get_template_part( 'layouts/header', 'ed' );
 		<!--CATALOGO-->
 		<section id="catalogo" class="bg-white py-5">
 			<div class="container position-relative">
-
+				<div id="load" class="lds-wrap">Estamos preparando el catálogo<br><div class="lds-hourglass"></div></div>
 				<div id="container" class="grid loadable collapsed">
 					<!-- 2 col grid @ xs, 3 col grid @ sm, 4 col grid @ md -->
 					<div class="grid-sizer"></div>
