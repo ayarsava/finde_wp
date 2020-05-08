@@ -19,7 +19,8 @@ $('.galeria-slick').slick({
   speed: 300,
   slidesToShow: 1,
   adaptiveHeight: true,
-  dots: true
+  dots: true,
+  lazyLoad: 'ondemand',
 });
 
 $('.slick-fade').slick({

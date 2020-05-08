@@ -33,7 +33,7 @@ get_template_part( 'layouts/header', 'ed' );
 <article id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
     <header class="branding-header pt-3 bg-editorial">
         <div class="container pb-5">
-            <div class="col-md-8 mx-auto py-4">
+            <div class="col-lg-8 col-md-12 mx-auto py-4">
                 <?php
                 the_title( '<h1 class="entry-title extra-grande text-white">', '</h1>' );
                 ?>
@@ -66,7 +66,7 @@ get_template_part( 'layouts/header', 'ed' );
     <div class="container py-5">
 
         <div class="row">
-            <div class="col-md-8 mx-auto my-5">
+            <div class="col-lg-8 col-md-12 mx-auto my-5">
                 <?php
                 // slick
                 if ($images) {
