@@ -9,7 +9,7 @@
 
 get_template_part( 'layouts/header', 'mu' ); 
 ?>
-<div class="main-content musica archive-musica">
+<div class="main-content music archive-music">
 	<section class="spotlight bg-cover" style="background-color:#7db003;background-image: url('/wp-content/themes/finde_wp/assets/img/musica_002.jpg'); background-size:cover; background-position:center center; min-height:350px;">
 		<div class="spotlight-holder pt-5 pb-7 py-lg-0">
 			<span class="mask bg-gradient-primary opacity-6"></span>
@@ -22,7 +22,7 @@ get_template_part( 'layouts/header', 'mu' );
 			<?php 
 			$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
 			if ($term->slug == 'instrumentos-musicales' ) {
-				echo '<h1 class="page-title">Instrumentos musicales</h1><div class="lead mb-5">Guitarras, bajos, baterías, teclados, bombos, ukeleles, etc.</div>';
+				echo '<h1 class="page-title">Instrumentos</h1><div class="lead mb-5">Guitarras, bajos, baterías, teclados, bombos, ukeleles, etc.</div>';
 			} elseif ($term->slug == 'musica' ) {
 				echo '<h1 class="page-title">Música</h1><div class="lead mb-5">Vinilos, Digital, CDs, etc.</div>';
 			} elseif ($term->slug == 'audio-profesional' ) {

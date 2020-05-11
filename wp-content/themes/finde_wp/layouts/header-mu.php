@@ -77,16 +77,16 @@
 				<div class="collapse navbar-collapse" id="navbarTogglerVJ">
 					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 						<li class="nav-item">
-							<a class="nav-link active" href="/musicas">Inicio</a>
+							<a class="nav-link active" href="/musica">Inicio</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="/que-es">Qué es</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/musicas/#categorias">Rubros</a>
+							<a class="nav-link" href="/musica/#categorias">Rubros</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/musicas/#agenda">Agenda</a>
+							<a class="nav-link" href="/musica/#agenda">Agenda</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="/en-vivo">En vivo</a>

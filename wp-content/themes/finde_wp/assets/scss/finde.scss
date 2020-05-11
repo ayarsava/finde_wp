@@ -85,47 +85,47 @@ $editorial: #ff677d;
 
 
 /*** Musica Custom ***/
-$musica: #793d97;
-[class*="musica"] {
-  .musica .bg-primary,
-  .musica .btn-primary,
+$music: #793d97;
+[class*="music"] {
+  .music .bg-primary,
+  .music .btn-primary,
   .descuento_ed .badge-primary,
   #agenda .tags,
   .branding-header {
-    background: $musica!important;
+    background: $music!important;
     color:#FFF!important;
   }
-  .bg-musica a,
+  .bg-music a,
   .badge-dark {
     color:#FFF!important;
   }
   a {
-    color: $musica;
+    color: $music;
     &:hover {
       color: #597f01;
     }
   }
   .btn-outline-primary {
-    color: $musica;
-    border-color: $musica;
+    color: $music;
+    border-color: $music;
     &:hover {
       color: #fff;
-      background-color: $musica;
-      border-color: $musica;
+      background-color: $music;
+      border-color: $music;
     }
   }
   .btn-outline-light {
     color: #FFF;
   }
   .text-primary {
-    color: $musica!important;
+    color: $music!important;
   }
   .bg-gradient-primary {
-      background: -o-linear-gradient(40deg, $musica 0, darken($musica, 15%) 100%) !important;
-      background: linear-gradient(50deg, $musica 0, darken($musica, 15%) 100%) !important;
+      background: -o-linear-gradient(40deg, $music 0, darken($music, 15%) 100%) !important;
+      background: linear-gradient(50deg, $music 0, darken($music, 15%) 100%) !important;
   }
   .item:hover .card-title {
-    color:$musica;
+    color:$music;
   }
 }
 
@@ -325,8 +325,8 @@ footer {
   .grid-item--width2 { width: 38%; }
 }
 
-.post-type-archive-musica,
-.musica {
+.post-type-archive-music,
+.music {
   .grid-sizer,
   .grid-item { 
     width: 25%;
@@ -519,7 +519,7 @@ a.badge.os {
     }
   } 
 }
-.archive-musica .galeria-slick {
+.archive-music .galeria-slick {
   .slick-track .slick-slide {
     height: 208px;
     @media (max-width: 991px) {
@@ -1032,7 +1032,7 @@ a[class^="hvr-"] {
   }
 }
 
-.archive-musica {
+.archive-music {
   ul#form-ui {
     background: #eaeaea;
     padding: 40px;
@@ -1052,7 +1052,7 @@ a[class^="hvr-"] {
   }
 }
 
-.opb-musica {
+.opb-music {
   position: relative;
   background:#793d97;
   min-height: 512px;

@@ -141,7 +141,7 @@ function wporg_register_taxonomy_rubro_mu() {
     'show_in_rest'      => true,
     'rewrite'           => array( 'slug' => 'rubro_mu', 'with_front' => false ),
   ];
-  register_taxonomy('rubro_mu', ['musica'], $args);
+  register_taxonomy('rubro_mu', ['music'], $args);
 }
 add_action('init', 'wporg_register_taxonomy_rubro_mu');
 
@@ -169,7 +169,7 @@ function wporg_register_taxonomy_descuento_mu() {
     'show_in_rest'      => true,
     'rewrite'           => array( 'slug' => 'descuento_mu', 'with_front' => false ),
   ];
-  register_taxonomy('descuento_mu', ['musica'], $args);
+  register_taxonomy('descuento_mu', ['music'], $args);
 }
 add_action('init', 'wporg_register_taxonomy_descuento_mu');
 
@@ -506,7 +506,7 @@ add_action( 'init', 'custom_post_type_productoeditorial', 0 );
 
 
 /*** CPT MUSICA ***/
-function custom_post_type_musica() {
+function custom_post_type_music() {
   // Set UI labels for Custom Post Type
     $labels = array(
         'name'                => _x( 'Música', 'Post Type General Name', 'finde-plugin' ),
@@ -558,10 +558,10 @@ function custom_post_type_musica() {
     );
      
     // Registering your Custom Post Type
-    register_post_type( 'musica', $args );
+    register_post_type( 'music', $args );
  
 }
-add_action( 'init', 'custom_post_type_musica', 0 );
+add_action( 'init', 'custom_post_type_music', 0 );
 
 
 
@@ -845,11 +845,11 @@ function mbox_register_meta_boxes( $meta_boxes ){
     )
 );
 
-# meta_box para musica
-$meta_boxes[] = array(
+    # meta_box para musica
+    $meta_boxes[] = array(
     'id'         => 'mb_finde_musica',
     'title'      => __( 'Campos adicionales', 'mbox' ),
-    'post_types' => 'musica',
+    'post_types' => 'music',
     'context'    => 'normal',
     'priority'   => 'low',
     'autosave'   => true,
@@ -922,27 +922,6 @@ $meta_boxes[] = array(
         ),
 
 
-    )
-  );
-
-  # meta_box para producto de musica
-  $meta_boxes[] = array(
-    'id'         => 'mb_finde_productomusica',
-    'title'      => __( 'Campos adicionales', 'mbox' ),
-    'post_types' => 'productomusica',
-    'context'    => 'normal',
-    'priority'   => 'low',
-    'autosave'   => true,
-    'fields'     => array(
-      //  URL
-      array(
-        'name' => __( 'Url del producto, servicio u oferta', 'mbox' ),
-        // prefix es mbox_, o sea que en este caso es mbox_url.
-        'id'   => "{$prefix}url",
-        'desc' => __( 'Ingrese la url donde se ofrece el producto a la venta', 'mbox' ),
-        'type' => 'url',
-        'std'  => '',
-      ),
     )
   );
     
@@ -1252,7 +1231,7 @@ function wp_archive_catalogomu() {
                          
 
     $args = array(
-        'post_type'              => 'musica',
+        'post_type'              => 'music',
         'posts_per_page'         => -1,
         'post_status'            => 'publish',
         'no_found_rows'          => true,

@@ -14,7 +14,7 @@
 get_template_part( 'layouts/header', 'mu' ); 
 ?>
 
-    <div id="content" class="musica">
+    <div id="content" class="music">
         <section id="slide-principal">
             <div id="carouselCaptions" class="carousel slide" data-ride="carousel">
 
@@ -68,18 +68,18 @@ get_template_part( 'layouts/header', 'mu' );
 
 
         <!--ENTRADA AL CATALOGO DE MÚSICA-->
-        <section id="categorias" class="opb-musica text-center">
+        <section id="categorias" class="opb-music text-center">
             <div class="d-md-flex flex-md-equal w-100">
                 <div class="py-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden position-relative" style="background: #38ccfe;">
-                    <a href="/rubro_mu/instrumentos-musicales/?post_type=musica" class="stretched-link"></a>
+                    <a href="/rubro_mu/instrumentos-musicales/?post_type=music" class="stretched-link"></a>
                     <div class="mx-lg-5 mx-sm-2 px-lg-5 px-md-3 px-sm-2 py-4">
                         <img src="/wp-content/themes/finde_wp/assets/img/icono-instrumentos.png" class="img-fluid px-5" style="max-height:250px;">
-                        <h2 class="display-5 font-weight-bold">Instrumentos musicales</h2>
+                        <h2 class="display-5 font-weight-bold">Instrumentos</h2>
                         <p class="lead">Guitarras, bajos, baterías, teclados, bombos, ukeleles, etc.</p>
                     </div>
                 </div>
                 <div class="py-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden position-relative" style="background: #f0456e;">
-                    <a href="/rubro_mu/musica/?post_type=musica" class="stretched-link"></a>
+                    <a href="/rubro_mu/musica/?post_type=music" class="stretched-link"></a>
                     <div class="mx-lg-5 mx-sm-2 px-lg-5 px-md-3 px-sm-2 py-4">
                         <img src="/wp-content/themes/finde_wp/assets/img/icono-musica.png" class="img-fluid px-5 pb-4" style="width:250px;">
                         <h2 class="display-5 font-weight-bold">Música</h2>
@@ -89,7 +89,7 @@ get_template_part( 'layouts/header', 'mu' );
             </div>
             <div class="d-md-flex flex-md-equal w-100">
                 <div class="py-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden position-relative" style="background: #01d79e;">
-                    <a href="/rubro_mu/audio-profesional/?post_type=musica" class="stretched-link"></a>
+                    <a href="/rubro_mu/audio-profesional/?post_type=music" class="stretched-link"></a>
                     <div class="mx-lg-5 mx-sm-2 px-lg-5 px-md-3 px-sm-2 py-4">
                         <img src="/wp-content/themes/finde_wp/assets/img/icono-audio.png" class="img-fluid px-5 pb-4" style="width:250px;">
                         <h2 class="display-5 font-weight-bold">Audio</h2>
@@ -97,7 +97,7 @@ get_template_part( 'layouts/header', 'mu' );
                     </div>
                 </div>
                 <div class="py-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden position-relative" style="background: #fefe7a;">
-                    <a href="/rubro_mu/estudios/?post_type=musica" class="stretched-link"></a>
+                    <a href="/rubro_mu/estudios/?post_type=music" class="stretched-link"></a>
                     <div class="mx-lg-5 mx-sm-2 px-lg-5 px-md-3 px-sm-2 py-4">
                         <img src="/wp-content/themes/finde_wp/assets/img/icono-estudios.png" class="img-fluid px-5 pb-4" style="width:250px;">
                         <h2 class="display-5 font-weight-bold">Estudios</h2>
@@ -107,7 +107,7 @@ get_template_part( 'layouts/header', 'mu' );
             </div>
             <div class="d-md-flex flex-md-equal w-100">
                 <div class="py-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden position-relative" style="background: #a39e8d;">
-                    <a href="/rubro_mu/agregadoras-digitales/?post_type=musica" class="stretched-link"></a>
+                    <a href="/rubro_mu/agregadoras-digitales/?post_type=music" class="stretched-link"></a>
                     <div class="mx-lg-5 mx-sm-2 px-lg-5 px-md-3 px-sm-2 py-4">
                         <img src="/wp-content/themes/finde_wp/assets/img/icono-distribuidoras.png" class="img-fluid px-5 pb-4" style="width:250px;">
                         <h2 class="display-5 font-weight-bold">Distribuidoras digitales</h2>

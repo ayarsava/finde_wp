@@ -12,7 +12,7 @@
 ?>
 
 	</div><!-- #content -->
-	<?php if ( is_page( 'musicas' ) ) {?>
+	<?php if ( is_page( 'musica' ) ) {?>
 		<section id="sponsors" class="bg-white">
 			<div class="container py-3">
 				<div class="row">
@@ -25,7 +25,7 @@
 							<span class="align-middle mb-3 mb-lg-0 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/asiar-logo.png" class="img-fluid mx-3" width="70"></span>
 							<span class="align-middle mb-3 mb-lg-0 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/caimavi-logo.png" class="img-fluid mx-3" width="130"></span>
 							<span class="align-middle mb-3 mb-lg-0 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/cafim-logo.png" class="img-fluid mx-3" width="90"></span>
-							<span class="align-middle mb-3 mb-lg-0 d-inline-block">Feria de la música</span>
+							<span class="align-middle mb-3 mb-lg-0 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/feria-de-la-musica-logo.png" class="img-fluid mx-3" width="90"></span>
 						</div>
 					</div>
 				</div>

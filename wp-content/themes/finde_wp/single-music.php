@@ -20,15 +20,7 @@ get_template_part( 'layouts/header', 'mu' );
     $images = rwmb_meta( 'image_ed', array( 'size' => 'large' ) );
 ?>
 
-<?php while ( have_posts() ) :
-                the_post(); 
-
-                $productos = MB_Relationships_API::get_connected( [
-            'id'   => 'productoeditorial_to_editoriales',
-            'to' => get_the_ID(),
-        ] );
-
-        ?>
+<?php while ( have_posts() ) : the_post(); ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
     <header class="branding-header pt-3 bg-editorial">
