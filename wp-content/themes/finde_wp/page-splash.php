@@ -63,6 +63,8 @@
 				<h2 class="text-light"><strong>Próximas ediciones</strong><hr></h2>
 				<div class="card-deck my-4 text-center">
 					<div class="col-md-5 bg-transparent mb-4">
+
+							<a href="/videojuegos" class="stretched-link"></a>
 							<div class="card text-center shadow hover-shadow">
 									<div class="py-3 col-md-8 mx-auto">
 											<img src="/wp-content/themes/finde_wp/assets/img/icon-vj.png" class="img-fluid icon">
@@ -70,11 +72,12 @@
 									<div class="pb-5 text-white">
 										<h3><strong>Videojuegos</strong></h3>
 										<p>30 ABRIL - 3 MAYO</p>
-										<a href="/videojuegos" class="btn btn-outline-light">Accedé</a>
+										<a href="/videojuegos" class="btn btn-outline-light os">Accedé</a>
 									</div>
 							</div>
 					</div>
 					<div class="col-md-5 bg-transparent mb-4">
+							<a href="/editorial" class="stretched-link"></a>
 							<div class="card text-center shadow hover-shadow">
 									<div class="py-3 col-md-8 mx-auto">
 											<img src="/wp-content/themes/finde_wp/assets/img/icon-editorial.png" class="img-fluid icon">
@@ -82,8 +85,7 @@
 									<div class="pb-5 text-white">
 										<h3><strong>Editorial</strong></h3>
 										<p>7 MAYO - 10 MAYO</p>
-										<a href="/editorial" id="activo" class="btn btn-outline-light" style="display:none;">Accedé</a>
-										<a href="#" class="btn btn-outline-light disabled" id="soon">Muy pronto</a>
+										<a href="/editorial" class="btn btn-outline-light os">Accedé</a>
 									</div>
 							</div>
 					</div>
@@ -95,7 +97,8 @@
 								<div class="pb-5 text-white">
 										<h3><strong>Música</strong></h3>
 										<p>14 MAYO - 17 MAYO</p>
-										<a href="#" class="btn btn-outline-light disabled">Muy pronto</a>
+										<a href="/musica" id="activo" class="btn btn-outline-light" style="display:none;">Accedé</a>
+										<a href="#" class="btn btn-outline-light disabled" id="soon">Muy pronto</a>
 								</div>
 						</div>
 					</div>
@@ -115,7 +118,7 @@
 			hour = minute * 60,
 			day = hour * 24;
 
-			let countDown = new Date('2020-05-07T16:30:00'.replace(/\s/, 'T')).getTime(),
+			let countDown = new Date('2020-05-14T16:30:00'.replace(/\s/, 'T')).getTime(),
 			x = setInterval(function() {    
 
 			let now = new Date().getTime(),

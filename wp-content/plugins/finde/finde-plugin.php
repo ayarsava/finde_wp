@@ -564,62 +564,6 @@ function custom_post_type_musica() {
 add_action( 'init', 'custom_post_type_musica', 0 );
 
 
-/*** CPT PRODUCTO Musica ***/ 
-function custom_post_type_productomusica() {
- 
-  // Set UI labels for Custom Post Type
-    $labels = array(
-        'name'                => _x( 'Productos', 'Post Type General Name', 'finde-plugin' ),
-        'singular_name'       => _x( 'Producto', 'Post Type Singular Name', 'finde-plugin' ),
-        'menu_name'           => __( 'Productos de música', 'finde-plugin' ),
-        'parent_item_colon'   => __( 'Producto padre', 'finde-plugin' ),
-        'all_items'           => __( 'Todos los Productos', 'finde-plugin' ),
-        'view_item'           => __( 'Ver Producto', 'finde-plugin' ),
-        'add_new_item'        => __( 'Agregar nuevo Producto', 'finde-plugin' ),
-        'add_new'             => __( 'Agregar nuevo', 'finde-plugin' ),
-        'edit_item'           => __( 'Editar Producto', 'finde-plugin' ),
-        'update_item'         => __( 'Actualizar Producto', 'finde-plugin' ),
-        'search_items'        => __( 'Buscar Producto', 'finde-plugin' ),
-        'not_found'           => __( 'No encontrado', 'finde-plugin' ),
-        'not_found_in_trash'  => __( 'No encontrado en la papelera', 'finde-plugin' ),
-    );
-     
-  // Set other options for Custom Post Type
-     
-    $args = array(
-        'label'               => __( 'productomusica', 'finde-plugin' ),
-        'description'         => __( 'Producto de música', 'finde-plugin' ),
-        'labels'              => $labels,
-        // Features this CPT supports in Post Editor
-        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
-        /* A hierarchical CPT is like Pages and can have
-        * Parent and child items. A non-hierarchical CPT
-        * is like Posts.
-        */ 
-        'hierarchical'        => false,
-        'public'              => true,
-        'show_ui'             => true,
-        'show_in_menu'        => true,
-        'show_in_nav_menus'   => true,
-        'show_in_admin_bar'   => true,
-        'menu_position'       => 17,
-        'can_export'          => true,
-        'has_archive'         => true,
-        'exclude_from_search' => false,
-        'publicly_queryable'  => true,
-        'capability_type'     => 'post',
-        'show_in_rest'        => true,
-        'menu_icon'           => 'dashicons-format-audio',
- 
-    );
-     
-    // Registering your Custom Post Type
-    register_post_type( 'productomusica', $args );
- 
-}
-add_action( 'init', 'custom_post_type_productomusica', 0 );
-
-
 
 /*** META BOX ***/
 add_filter( 'rwmb_meta_boxes', 'mbox_register_meta_boxes' );
@@ -917,41 +861,65 @@ $meta_boxes[] = array(
           'std'  => 0, // 0 or 1
       ),
       array(
-        'name'        => 'Dirección postal',
-        'label_description' => 'Dirección postal',
-        'id'          => 'address',
-        'desc'        => 'Ingrese la dirección postal',
-        'type'        => 'text',
+            'id'               => 'image_ed',
+            'name'             => 'Imágenes adicionales',
+            'type'             => 'image_advanced',
 
-        // Placeholder
-        'placeholder' => 'Dirección, Ciudad, Provincia de Buenos Aires',
-      ),
-      //  URL
-      array(
-        'name' => __( 'Sitio web', 'mbox' ),
-        'id'   => "{$prefix}url",
-        'desc' => __( 'Ingrese la url donde se ofrece el producto a la venta', 'mbox' ),
-        'type' => 'url',
-        'std'  => '',
-      ),
-      //  Instagram
-      array(
-        'name' => __( 'Instagram', 'mbox' ),
-        'id'   => "{$prefix}instagram",
-        'type' => 'url',
-      ),
-      //  Twitter
-      array(
-        'name' => __( 'Twitter', 'mbox' ),
-        'id'   => "{$prefix}twitter",
-        'type' => 'url',
-      ),
-      //  Facebook
-      array(
-        'name' => __( 'Facebook', 'mbox' ),
-        'id'   => "{$prefix}facebook",
-        'type' => 'url',
-      ),
+            // Delete image from Media Library when remove it from post meta?
+            // Note: it might affect other posts if you use same image for multiple posts
+            'force_delete'     => false,
+
+            // Maximum image uploads.
+            'max_file_uploads' => 5,
+
+            // Do not show how many images uploaded/remaining.
+            'max_status'       => 'false',
+
+            // Image size that displays in the edit page. Possible sizes small,medium,large,original
+            'image_size'       => 'thumbnail',
+        ),
+        array(
+            'name'        => 'Dirección postal',
+            'label_description' => 'Dirección postal',
+            'id'          => 'address',
+            'desc'        => 'Ingrese la dirección postal',
+            'type'        => 'text',
+
+            // Placeholder
+            'placeholder' => 'Dirección, Ciudad, Provincia de Buenos Aires',
+        ),
+        //  URL
+        array(
+            'name' => __( 'Sitio web', 'mbox' ),
+            'id'   => "{$prefix}url",
+            'desc' => __( 'Ingrese la url del sitio oficial de la editorial', 'mbox' ),
+            'type' => 'url',
+            'std'  => '',
+        ),
+        //  Instagram
+        array(
+            'name' => __( 'Instagram', 'mbox' ),
+            'id'   => "{$prefix}instagram",
+            'type' => 'url',
+        ),
+        //  Facebook
+        array(
+            'name' => __( 'Facebook', 'mbox' ),
+            'id'   => "{$prefix}facebook",
+            'type' => 'url',
+        ),
+        //  Twitter
+        array(
+            'name' => __( 'Twitter', 'mbox' ),
+            'id'   => "{$prefix}twitter",
+            'type' => 'url',
+        ),
+        //  Whatsapp
+        array(
+            'name' => __( 'Whatsapp', 'mbox' ),
+            'id'   => "{$prefix}whatsapp",
+            'type' => 'number',
+        ),
 
 
     )
@@ -1256,6 +1224,119 @@ function wp_archive_catalogoed() {
         }
         
         echo '</div>';
+        
+        if ($productos) {
+            echo '<small class="card-footer text-muted text-sm lista">';
+            echo 'Productos u ofertas:<ul>'; foreach ( $productos as $producto ) {
+            echo '<li><span><strong>' .$producto->post_title.'</strong></span></li> ';
+            }
+            echo '</ul></small>';
+        }
+        echo '</div></div>';
+    endwhile;
+    wp_reset_postdata();
+  } else {
+    echo 'No hemos encontrado productos o servicios asociados al catálogo.';
+  }
+
+  // Restore original Post Data
+  wp_reset_postdata();
+}
+
+/*** CATALOGO MUSICA ***/
+function wp_archive_catalogomu() {
+    $term = get_term_by( 'slug', get_query_var('term'), get_query_var('taxonomy') );
+    $term_id = $term->term_id;
+    $taxonomy_name = 'rubro_mu';
+    $termchildren = get_term_children( $term_id, $taxonomy_name );
+                         
+
+    $args = array(
+        'post_type'              => 'musica',
+        'posts_per_page'         => -1,
+        'post_status'            => 'publish',
+        'no_found_rows'          => true,
+        'tax_query' => array(
+        array(
+            'taxonomy' => 'rubro_mu',
+            'field' => 'term_id', 
+            'terms' => $term_id, /// Where term_id of Term 1 is "1".
+            'include_children' => true
+            )
+        )
+    );
+
+  // The Query
+  $query_catalogo = new WP_Query( $args );
+  // The Loop
+  if ( $query_catalogo->have_posts() ) {
+
+    while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
+
+        $url = rwmb_meta( 'mbox_url' );
+        $images = rwmb_meta( 'image_ed', array( 'size' => 'medium' ) );
+        $instagram = rwmb_meta( 'mbox_instagram' );
+        $twitter = rwmb_meta( 'mbox_twitter' );
+        $facebook = rwmb_meta( 'mbox_facebook' );
+        $libreria = rwmb_meta( 'mbox_libreria' );
+        $whatsapp = rwmb_meta( 'mbox_whatsapp' );
+
+
+        $terms = get_the_terms( $post->ID, 'rubro_mu' );
+        $dterms = get_the_terms( $post->ID, 'descuento_mu' );
+
+        echo '<div class="grid-item item mb-1"';
+        if ($terms) {
+            echo ' data-category="';
+            foreach( $terms as $term ) echo $term->slug. ' ';
+            echo '" ';
+        }
+        if ($dterms) {
+            echo ' data-descuento="';
+            foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
+            echo '"';
+        }
+        echo '>';
+        // slick
+        if ($images) {
+            echo '<div class="galeria-slick">';
+            foreach ( $images as $image ) {
+                echo '<a href="' . get_the_permalink() .'"><img data-lazy="'. $image['url']. '"></a>';
+            }    
+            echo '</div>';
+        }
+        echo '<div class="grid-item-content card">';
+        echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+        echo '<div class="card-body">';
+        echo '<h5 class="card-title">' . get_the_title() . '</h5>';
+        if ( get_the_excerpt() ) {
+            echo '<div class="card-text">' . get_the_excerpt() .'</div>';
+        } else {
+            echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+        }
+        
+        if ($terms) {
+            echo '<div class="rubro_mu">';
+            foreach( $terms as $term ) { echo '<span><a href="'.get_term_link($term->slug, 'rubro_mu').'" class="badge bg-primary mt-1 os">'.$term->name.'</a></span>', ' ';}
+            echo '</div>';
+        }
+        if ($dterms) {
+            echo '<div class="descuento_mu">';
+            foreach( $dterms as $term ) { echo '<a href="'.get_term_link($term->slug, 'descuento_mu').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
+            echo '</div>';
+        }
+        if ($url || $instagram || $facebook || $twitter) {
+            echo '<div class="contacto mt-2">';
+            if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></a></li>';}
+            if ($libreria) { echo '<li class="list-inline-item"><a href="'. $libreria . '" target="_blank" class="os"><i class="fas fa-shopping-cart"></i></a></li>';}
+            if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
+            if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
+            if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
+            if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
+            echo '</div>';
+        }
+        
+        echo '</div><!--End .card-body-->';
         
         if ($productos) {
             echo '<small class="card-footer text-muted text-sm lista">';

@@ -14,8 +14,10 @@ if (has_category( 'Editorial' )) {
   get_template_part( 'layouts/header', 'ed' ); 
 } elseif (has_category( 'Videojuegos' )) {
   get_template_part( 'layouts/header', 'vj' ); 
+} elseif (has_category( 'Música' )) {
+  get_template_part( 'layouts/header', 'mu' ); 
 } else {
-get_footer();
+get_header();
 }
 ?>
 
@@ -75,6 +77,8 @@ if (has_category( 'Editorial' )) {
   get_template_part( 'layouts/footer', 'ed' ); 
 } elseif (has_category( 'Videojuegos' )) {
   get_template_part( 'layouts/footer', 'vj' ); 
+} elseif (has_category( 'Música' )) {
+  get_template_part( 'layouts/footer', 'mu' ); 
 } else {
 get_footer();
 }
