@@ -17,7 +17,7 @@
   <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Feria virtual de cultura independiente de la Provincia de Buenos Aires">
+    <meta name="description" content="Música | Feria virtual de cultura independiente de la Provincia de Buenos Aires">
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico">
     
     <meta property="og:type" content="website">
@@ -83,7 +83,7 @@
 							<a class="nav-link" href="/que-es">Qué es</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/musica/#categorias">Rubros</a>
+							<a class="nav-link" href="/musica/#categorias">Comprar</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="/musica/#agenda">Agenda</a>

@@ -22,15 +22,15 @@ get_template_part( 'layouts/header', 'mu' );
 			<?php 
 			$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
 			if ($term->slug == 'instrumentos-musicales' ) {
-				echo '<h1 class="page-title">Instrumentos</h1><div class="lead mb-5">Guitarras, bajos, baterías, teclados, bombos, ukeleles, etc.</div>';
+				echo '<h1 class="page-title">Instrumentos</h1><div class="lead mb-5">Guitarras, Bajos, Teclados, Baterías y mucho más.</div>';
 			} elseif ($term->slug == 'musica' ) {
-				echo '<h1 class="page-title">Música</h1><div class="lead mb-5">Vinilos, Digital, CDs, etc.</div>';
+				echo '<h1 class="page-title">Música</h1><div class="lead mb-5">Vinilos, Digital y CDs</div>';
 			} elseif ($term->slug == 'audio-profesional' ) {
-				echo '<h1 class="page-title">Audio</h1><div class="lead mb-5">Micrófonos, Auriculares, Parlantes, Consolas, Bandejas, etc.</div>';
+				echo '<h1 class="page-title">Audio</h1><div class="lead mb-5">Profesional y Hogareño</div>';
 			} elseif ($term->slug == 'estudios' ) {
-				echo '<h1 class="page-title">Estudios</h1><div class="lead mb-5">Mezcla, Grabación, Mastering, etc.</div>';
+				echo '<h1 class="page-title">Estudios</h1><div class="lead mb-5">Grabación, Mezcla y Mastering</div>';
 			} elseif ($term->slug == 'agregadoras-digitales' ) {
-				echo '<h1 class="page-title">Distribuidoras digitales</h1><div class="lead mb-5">Agregadoras de contenido</div>';
+				echo '<h1 class="page-title">Distribuidoras Digitales</h1><div class="lead mb-5">Agregadoras de contenido</div>';
 			} else {
 			the_archive_title( '<h1 class="page-title">', '</h1>' );
 			}

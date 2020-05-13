@@ -42,9 +42,9 @@
 			    </div>
 			    <div class="col-lg-6 col-md-5">
 			      <ul class="list-unstyled text-white">
-			      	<li><a href="/musicas" class="text-light">Finde</a></li>
-			      	<li><a href="/musicas/#categorias" class="text-light">Rubros</a></li>
-			      	<li><a href="/musicas/#agenda" class="text-light">Agenda</a></li>
+			      	<li><a href="/musica" class="text-light">Finde</a></li>
+			      	<li><a href="/musica/#categorias" class="text-light">Comprar</a></li>
+			      	<li><a href="/musica/#agenda" class="text-light">Agenda</a></li>
 			      	<li><a href="/preguntas-frecuentes/" class="text-light">Preguntas frecuentes</a></li>
 			      </ul>
 			    </div>
