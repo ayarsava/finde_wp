@@ -76,7 +76,7 @@ get_template_part( 'layouts/header', 'mu' );
                 <div class="py-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden position-relative" style="background: #38ccfe;">
                     <a href="/rubro_mu/instrumentos-musicales/?post_type=music" class="stretched-link"></a>
                     <div class="mx-lg-5 mx-sm-2 px-lg-5 px-md-3 px-sm-2 py-4">
-                        <img src="/wp-content/themes/finde_wp/assets/img/icono-instrumentos.png" class="img-fluid px-5" style="max-height:250px;">
+                        <img src="/wp-content/themes/finde_wp/assets/img/icono-instrumentos.png" class="img-fluid px-5" style="max-width:320px;">
                         <h2 class="display-5 font-weight-bold">Instrumentos</h2>
                         <p class="lead">Guitarras, Bajos, Teclados, Baterías y mucho más</p>
                     </div>
@@ -84,8 +84,8 @@ get_template_part( 'layouts/header', 'mu' );
                 <div class="py-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden position-relative" style="background: #f0456e;">
                     <a href="/rubro_mu/musica/?post_type=music" class="stretched-link"></a>
                     <div class="mx-lg-5 mx-sm-2 px-lg-5 px-md-3 px-sm-2 py-4">
-                        <img src="/wp-content/themes/finde_wp/assets/img/icono-musica.png" class="img-fluid px-5 pb-4" style="width:250px;">
-                        <h2 class="display-5 font-weight-bold">Música</h2>
+                        <img src="/wp-content/themes/finde_wp/assets/img/icono-musica.png" class="img-fluid px-5 pb-4" style="max-height:160px;">
+                        <h2 class="display-5 font-weight-bold">Sellos discográficos</h2>
                         <p class="lead">Vinilos, Digital y CDs</p>
                     </div>
                 </div>
@@ -94,7 +94,7 @@ get_template_part( 'layouts/header', 'mu' );
                 <div class="py-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden position-relative" style="background: #01d79e;">
                     <a href="/rubro_mu/audio-profesional/?post_type=music" class="stretched-link"></a>
                     <div class="mx-lg-5 mx-sm-2 px-lg-5 px-md-3 px-sm-2 py-4">
-                        <img src="/wp-content/themes/finde_wp/assets/img/icono-audio.png" class="img-fluid px-5 py-4" style="max-height:250px;">
+                        <img src="/wp-content/themes/finde_wp/assets/img/icono-audio.png" class="img-fluid px-5 py-4" style="max-height:160px;">
                         <h2 class="display-5 font-weight-bold">Audio</h2>
                         <p class="lead">Profesional y Hogareño</p>
                     </div>
@@ -102,7 +102,7 @@ get_template_part( 'layouts/header', 'mu' );
                 <div class="py-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden position-relative" style="background: #fefe7a;">
                     <a href="/rubro_mu/estudios/?post_type=music" class="stretched-link"></a>
                     <div class="mx-lg-5 mx-sm-2 px-lg-5 px-md-3 px-sm-2 py-4">
-                        <img src="/wp-content/themes/finde_wp/assets/img/icono-estudios.png" class="img-fluid px-5 pb-4" style="width:250px;">
+                        <img src="/wp-content/themes/finde_wp/assets/img/icono-estudios.png" class="img-fluid px-5 pb-4" style="max-height:160px;">
                         <h2 class="display-5 font-weight-bold">Estudios</h2>
                         <p class="lead">Grabación, Mezcla y Mastering</p>
                     </div>
@@ -115,58 +115,6 @@ get_template_part( 'layouts/header', 'mu' );
                         <img src="/wp-content/themes/finde_wp/assets/img/icono-distribuidoras.png" class="img-fluid px-5 pb-4" style="width:250px;">
                         <h2 class="display-5 font-weight-bold">Distribuidoras Digitales</h2>
                         <p class="lead">Agregadoras de contenido</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--BANNERS-->
-        <section class="bg-white">
-            <div class="container-fluid">
-                <div class="container banner-slick">
-                    <div class="item" style="background:white!important;">
-                        <a href="http://aatia.com.ar/" target="_blank" title="Enlace al sitio web de AATIA">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_AATIA.gif" class="img-fluid d-none d-sm-block" alt="AATIA">
-                        </a>
-                        <a href="http://aatia.com.ar/" target="_blank" title="Enlace al sitio web de AATIA">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_AATIA_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="AATIA">
-                        </a>
-                    </div>
-
-                    <div class="item" style="background:white!important;">
-                        <a href="http://www.caimavi.org.ar/" target="_blank" title="Enlace al sitio web de CAIMAVI">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Caimavi.png" class="img-fluid d-none d-sm-block" alt="CAIMAVI">
-                        </a>
-                        <a href="http://www.caimavi.org.ar/" target="_blank" title="Enlace al sitio web de CAIMAVI">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Caimavi_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="CAIMAVI">
-                        </a>
-                    </div>
-
-                    <div class="item" style="background:white!important;">
-                        <a href="https://www.instagram.com/cafimoficial/" target="_blank" title="Enlace al sitio web de CAFIM">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Cafim.gif" class="img-fluid d-none d-sm-block" alt="CAFIM">
-                        </a>
-                        <a href="https://www.instagram.com/cafimoficial/" target="_blank" title="Enlace al sitio web de CAFIM">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Cafim_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="CAFIM">
-                        </a>
-                    </div>
-
-                    <div class="item" style="background:white!important;">
-                        <a href="https://asiar.musica.ar/" target="_blank" title="Enlace al sitio web de ASIAr">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_ASIAr.png" class="img-fluid d-none d-sm-block" alt="ASIAr">
-                        </a>
-                        <a href="https://asiar.musica.ar/" target="_blank" title="Enlace al sitio web de ASIAr">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_ASIAr_Mobile.png" class="mx-auto img-fluid d-block d-sm-none" alt="ASIAr">
-                        </a>
-                    </div>
-
-                    <div class="item" style="background:white!important;">
-                        <a href="https://instagram.com/laferiadelamusica?igshid=1s7wzxtot7mln" target="_blank" title="Enlace al sitio web de La feria de la Música">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Feria_De_La_Musica.gif" class="img-fluid d-none d-sm-block" alt="La feria de la Música">
-                        </a>
-                        <a href="https://instagram.com/laferiadelamusica?igshid=1s7wzxtot7mln" target="_blank" title="Enlace al sitio web de La feria de la Música">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Feria_De_La_Musica_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="La feria de la Música">
-                        </a>
                     </div>
                 </div>
             </div>
@@ -228,6 +176,59 @@ get_template_part( 'layouts/header', 'mu' );
             </div>
         </section>
 
+
+
+        <!--BANNERS-->
+        <section class="bg-dark">
+            <div class="container-fluid">
+                <div class="container banner-slick">
+                    <div class="item" style="background:white!important;">
+                        <a href="http://aatia.com.ar/" target="_blank" title="Enlace al sitio web de AATIA">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_AATIA.gif" class="img-fluid d-none d-sm-block" alt="AATIA">
+                        </a>
+                        <a href="http://aatia.com.ar/" target="_blank" title="Enlace al sitio web de AATIA">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_AATIA_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="AATIA">
+                        </a>
+                    </div>
+
+                    <div class="item" style="background:white!important;">
+                        <a href="http://www.caimavi.org.ar/" target="_blank" title="Enlace al sitio web de CAIMAVI">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Caimavi.png" class="img-fluid d-none d-sm-block" alt="CAIMAVI">
+                        </a>
+                        <a href="http://www.caimavi.org.ar/" target="_blank" title="Enlace al sitio web de CAIMAVI">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Caimavi_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="CAIMAVI">
+                        </a>
+                    </div>
+
+                    <div class="item" style="background:white!important;">
+                        <a href="https://www.instagram.com/cafimoficial/" target="_blank" title="Enlace al sitio web de CAFIM">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_ASIAr.png" class="img-fluid d-none d-sm-block" alt="CAFIM">
+                        </a>
+                        <a href="https://www.instagram.com/cafimoficial/" target="_blank" title="Enlace al sitio web de CAFIM">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Cafim_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="CAFIM">
+                        </a>
+                    </div>
+
+                    <div class="item" style="background:white!important;">
+                        <a href="https://asiar.musica.ar/" target="_blank" title="Enlace al sitio web de ASIAr">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_ASIAr.png" class="img-fluid d-none d-sm-block" alt="ASIAr">
+                        </a>
+                        <a href="https://asiar.musica.ar/" target="_blank" title="Enlace al sitio web de ASIAr">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_ASIAr_Mobile.png" class="mx-auto img-fluid d-block d-sm-none" alt="ASIAr">
+                        </a>
+                    </div>
+
+                    <div class="item" style="background:white!important;">
+                        <a href="https://instagram.com/laferiadelamusica?igshid=1s7wzxtot7mln" target="_blank" title="Enlace al sitio web de La feria de la Música">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Feria_De_La_Musica.gif" class="img-fluid d-none d-sm-block" alt="La feria de la Música">
+                        </a>
+                        <a href="https://instagram.com/laferiadelamusica?igshid=1s7wzxtot7mln" target="_blank" title="Enlace al sitio web de La feria de la Música">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Feria_De_La_Musica_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="La feria de la Música">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
 <?php 
