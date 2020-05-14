@@ -46,7 +46,7 @@ $('.banner-slick').slick({
   fade: true,
   cssEase: 'linear',
   autoplay: true,
-  autoplaySpeed: 2000
+  autoplaySpeed: 8000
 });
 
 // Filtro de catalogo

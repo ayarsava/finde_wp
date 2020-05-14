@@ -182,6 +182,17 @@ get_template_part( 'layouts/header', 'mu' );
         <section class="bg-dark">
             <div class="container-fluid">
                 <div class="container banner-slick">
+
+
+                    <div class="item" style="background:white!important;">
+                        <a href="https://instagram.com/laferiadelamusica?igshid=1s7wzxtot7mln" target="_blank" title="Enlace al sitio web de La feria de la Música">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Feria_De_La_Musica_Infinito.gif" class="img-fluid d-none d-sm-block" alt="La feria de la Música">
+                        </a>
+                        <a href="https://instagram.com/laferiadelamusica?igshid=1s7wzxtot7mln" target="_blank" title="Enlace al sitio web de La feria de la Música">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Feria_De_La_Musica_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="La feria de la Música">
+                        </a>
+                    </div>
+                    
                     <div class="item" style="background:white!important;">
                         <a href="http://aatia.com.ar/" target="_blank" title="Enlace al sitio web de AATIA">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_AATIA.gif" class="img-fluid d-none d-sm-block" alt="AATIA">
@@ -215,15 +226,6 @@ get_template_part( 'layouts/header', 'mu' );
                         </a>
                         <a href="https://asiar.musica.ar/" target="_blank" title="Enlace al sitio web de ASIAr">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_ASIAr_Mobile.png" class="mx-auto img-fluid d-block d-sm-none" alt="ASIAr">
-                        </a>
-                    </div>
-
-                    <div class="item" style="background:white!important;">
-                        <a href="https://instagram.com/laferiadelamusica?igshid=1s7wzxtot7mln" target="_blank" title="Enlace al sitio web de La feria de la Música">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Feria_De_La_Musica.gif" class="img-fluid d-none d-sm-block" alt="La feria de la Música">
-                        </a>
-                        <a href="https://instagram.com/laferiadelamusica?igshid=1s7wzxtot7mln" target="_blank" title="Enlace al sitio web de La feria de la Música">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Feria_De_La_Musica_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="La feria de la Música">
                         </a>
                     </div>
                 </div>
