@@ -202,7 +202,7 @@ get_template_part( 'layouts/header', 'mu' );
 
                     <div class="item" style="background:white!important;">
                         <a href="https://www.instagram.com/cafimoficial/" target="_blank" title="Enlace al sitio web de CAFIM">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_ASIAr.png" class="img-fluid d-none d-sm-block" alt="CAFIM">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Cafim.gif" class="img-fluid d-none d-sm-block" alt="CAFIM">
                         </a>
                         <a href="https://www.instagram.com/cafimoficial/" target="_blank" title="Enlace al sitio web de CAFIM">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Cafim_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="CAFIM">
