@@ -75,8 +75,8 @@ get_template_part( 'layouts/header', 'mu' );
             <div class="d-md-flex flex-md-equal w-100">
                 <div class="py-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden position-relative" style="background: #38ccfe;">
                     <a href="/rubro_mu/instrumentos-musicales/?post_type=music" class="stretched-link"></a>
-                    <div class="mx-lg-5 mx-sm-2 px-lg-5 px-md-3 px-sm-2 py-4">
-                        <img src="/wp-content/themes/finde_wp/assets/img/icono-instrumentos.png" class="img-fluid px-5" style="max-width:320px;">
+                    <div class="mx-lg-4 mx-sm-2 px-lg-5 px-md-3 px-sm-2 py-4">
+                        <img src="/wp-content/themes/finde_wp/assets/img/icono-instrumentos.png" class="img-fluid px-4 py-3" style="max-width:320px;">
                         <h2 class="display-5 font-weight-bold">Instrumentos</h2>
                         <p class="lead">Guitarras, Bajos, Teclados, Baterías y mucho más</p>
                     </div>
