@@ -11,7 +11,7 @@
 
 <?php 
 /* grab the url for the full size featured image */
-$featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+$featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'medium'); 
 $fecha = rwmb_meta( 'fecha_id' ); 
 $destacado = rwmb_meta( 'destacado_id' );
 
