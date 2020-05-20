@@ -60,11 +60,11 @@
 				</div>
 			</div>
 			<div class="col-lg-12 col-md-15 mx-auto">
-				<h2 class="text-light"><strong>Próximas ediciones</strong><hr></h2>
+				<h2 class="text-light px-5" style="line-height:1.5"><strong>Gracias a los 73.000 visitantes que se acercaron a la primera edición de FINDE</strong><hr></h2>
 				<div class="card-deck my-4 text-center">
 					<div class="col-md-5 bg-transparent mb-4">
 
-							<a href="/videojuegos" class="stretched-link"></a>
+						<a href="/videojuegos" title="Accedé a la Edición de Videojuegos" class="stretched-link"></a>
 							<div class="card text-center shadow hover-shadow">
 									<div class="py-3 col-md-8 mx-auto">
 											<img src="/wp-content/themes/finde_wp/assets/img/icon-vj.png" class="img-fluid icon">
@@ -72,12 +72,12 @@
 									<div class="pb-5 text-white">
 										<h3><strong>Videojuegos</strong></h3>
 										<p>30 ABRIL - 3 MAYO</p>
-										<a href="/videojuegos" class="btn btn-outline-light os">Accedé</a>
+										<div class="btn btn-outline-light os">Accedé</div>
 									</div>
 							</div>
 					</div>
 					<div class="col-md-5 bg-transparent mb-4">
-							<a href="/editorial" class="stretched-link"></a>
+						<a href="/editorial" title="Accedé a la Edición de Editorial" class="stretched-link"></a>
 							<div class="card text-center shadow hover-shadow">
 									<div class="py-3 col-md-8 mx-auto">
 											<img src="/wp-content/themes/finde_wp/assets/img/icon-editorial.png" class="img-fluid icon">
@@ -85,11 +85,12 @@
 									<div class="pb-5 text-white">
 										<h3><strong>Editorial</strong></h3>
 										<p>7 MAYO - 10 MAYO</p>
-										<a href="/editorial" class="btn btn-outline-light os">Accedé</a>
+										<div class="btn btn-outline-light os">Accedé</div>
 									</div>
 							</div>
 					</div>
 					<div class="col-md-5 bg-transparent mb-4">
+						<a href="/musica" title="Accedé a la Edición de Música" class="stretched-link"></a>
 						<div class="card text-center shadow hover-shadow">
 								<div class="py-3 col-md-8 mx-auto">
 										<img src="/wp-content/themes/finde_wp/assets/img/icon-musica.png" class="img-fluid icon">
@@ -97,8 +98,7 @@
 								<div class="pb-5 text-white">
 										<h3><strong>Música</strong></h3>
 										<p>14 MAYO - 17 MAYO</p>
-										<a href="/musica" id="activo" class="btn btn-outline-light" style="display:none;">Accedé</a>
-										<a href="#" class="btn btn-outline-light disabled" id="soon">Muy pronto</a>
+										<div class="btn btn-outline-light os">Accedé</div>
 								</div>
 						</div>
 					</div>

@@ -18,6 +18,7 @@ wp-content/plugins/simple-custom-post-order
 wp-content/plugins/wp-all-import
 wp-content/plugins/regenerate-thumbnails
 wp-content/plugins/index.php
+wp-content/plugins/fakerpress
 
 # ignore specific themes
 wp-content/themes/twenty*/
@@ -30,3 +31,4 @@ node_modules/
 *.log
 *.sql
 *.sqlite
+*.DS_Store

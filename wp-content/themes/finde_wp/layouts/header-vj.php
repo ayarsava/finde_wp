@@ -92,11 +92,11 @@
 							<a class="nav-link" href="/en-vivo">En vivo</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/editorial" style="border-color:#ff677d!important; color: #ff677d!important">Edición Editorial</a>
+							<a class="nav-link" href="/editorial" style="color: #ff677d!important">Edición Editorial</a>
 						</li>
-						<!--<li class="nav-item">
-							<a class="nav-link" href="/">Próximas ediciones</a>
-						</li>-->
+						<li class="nav-item">
+							<a class="nav-link" href="/musica" style="color: ##793d97!important">Edición Música</a>
+						</li>
 			    	</ul>
 			    	<div class="d-flex bd-highlight">
 					  	<div class="bd-highlight">

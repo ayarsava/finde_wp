@@ -97,9 +97,6 @@
 						<li class="nav-item">
 							<a class="nav-link" href="/editorial" style="color: #ff677d!important">Edición Editorial</a>
 						</li>
-						<!--<li class="nav-item">
-							<a class="nav-link" href="/">Próximas ediciones</a>
-						</li>-->
 			    	</ul>
 			    	<div class="d-flex bd-highlight">
 					  	<div class="bd-highlight">
