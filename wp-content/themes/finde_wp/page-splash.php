@@ -65,16 +65,16 @@
 					<div class="col-md-5 bg-transparent mb-4">
 
 						<a href="/videojuegos" title="Accedé a la Edición de Videojuegos" class="stretched-link"></a>
-							<div class="card text-center shadow hover-shadow">
-									<div class="py-3 col-md-8 mx-auto">
-											<img src="/wp-content/themes/finde_wp/assets/img/icon-vj.png" class="img-fluid icon">
-									</div>
-									<div class="pb-5 text-white">
-										<h3><strong>Videojuegos</strong></h3>
-										<p>30 ABRIL - 3 MAYO</p>
-										<div class="btn btn-outline-light os">Accedé</div>
-									</div>
-							</div>
+						<div class="card text-center shadow hover-shadow">
+								<div class="py-3 col-md-8 mx-auto">
+										<img src="/wp-content/themes/finde_wp/assets/img/icon-vj.png" class="img-fluid icon">
+								</div>
+								<div class="pb-5 text-white">
+									<h3><strong>Videojuegos</strong></h3>
+									<p>30 ABRIL - 3 MAYO</p>
+									<div class="btn btn-outline-light os">Accedé</div>
+								</div>
+						</div>
 					</div>
 					<div class="col-md-5 bg-transparent mb-4">
 						<a href="/editorial" title="Accedé a la Edición de Editorial" class="stretched-link"></a>

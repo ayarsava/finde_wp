@@ -9,6 +9,14 @@ $videojuegos: #009aae;
   .branding-header {
     background: $videojuegos!important;
     color:#FFF!important;
+    .text-light {
+      a {
+        color: lighten($videojuegos, 30%);
+        &:hover {
+          color: lighten($videojuegos, 40%);
+        }
+      }
+    }
   }
   .bg-videojuegos a,
   .badge-dark {
@@ -20,6 +28,7 @@ $videojuegos: #009aae;
       color: darken($videojuegos, 15%);
     }
   }
+  
   .btn-outline-primary {
     color: $videojuegos;
     border-color: $videojuegos;

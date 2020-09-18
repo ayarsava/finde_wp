@@ -216,7 +216,7 @@ function slider_init() {
 add_action( 'init', 'slider_init' );
 
 
-/*** CPT CATALOGO ***/ 
+/*** CPT CATALOGO Videojuegos ***/ 
 function custom_post_type() {
  
   // Set UI labels for Custom Post Type
@@ -245,7 +245,7 @@ function custom_post_type() {
         // Features this CPT supports in Post Editor
         'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
         // You can associate this CPT with a taxonomy or custom taxonomy. 
-        'taxonomies'          => array('category', 'descuento', 'rubro',),
+        'taxonomies'          => array('category', 'descuento', 'rubro', 'post_tag'),
         /* A hierarchical CPT is like Pages and can have
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.

@@ -34,7 +34,7 @@
 						if ($address) { echo '<li>'. $address .'</li>';}
 					?>
 				</ul>
-				<ul class="list-unstyled list-inline text-center h4">
+				<ul class="list-unstyled list-inline text-center h4 text-light">
 					<?php
 						if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank"><i class="ml-1 fab fa-instagram"></i></a></li>';}
 						if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank"><i class="ml-1 fab fa-twitter"></i></a></li>';}

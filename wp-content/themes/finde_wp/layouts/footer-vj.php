@@ -12,7 +12,7 @@
 ?>
 
 	</div><!-- #content -->
-	<?php if ( is_page( 'Videojuegos' ) ) {?>
+	<?php if ( is_page( 'videojuegos' ) ) {?>
 		<section id="sponsors" class="bg-white">
 			<div class="container py-3">
 				<div class="row">
