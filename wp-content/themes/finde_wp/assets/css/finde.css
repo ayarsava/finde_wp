@@ -526,6 +526,169 @@ a.badge.os {
   content: "";
 }
 
+.slick {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease;
+  -webkit-transition: opacity 1s ease;
+  height: 0;
+}
+
+.slick.slick-initialized {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+}
+
+.slick.ntflx.slick-slider .slick-list,
+.slick.agenda.slick-slider .slick-list {
+  padding: 0px 50px 0 0 !important;
+}
+.slick.ntflx.slick-slider .slick-list .slick-track .slick-slide,
+.slick.agenda.slick-slider .slick-list .slick-track .slick-slide {
+  display: flex;
+  position: relative;
+  height: auto;
+  align-items: start;
+  justify-content: center;
+  padding: 2px;
+  background: transparent;
+}
+.slick.ntflx.slick-slider .slick-list .slick-track .slick-slide .card,
+.slick.agenda.slick-slider .slick-list .slick-track .slick-slide .card {
+  height: 100%;
+}
+.slick.ntflx.slick-slider .slick-list .slick-track .slick-slide .card img.card-img, .slick.ntflx.slick-slider .slick-list .slick-track .slick-slide .card .card-img-top,
+.slick.agenda.slick-slider .slick-list .slick-track .slick-slide .card img.card-img,
+.slick.agenda.slick-slider .slick-list .slick-track .slick-slide .card .card-img-top {
+  border-radius: 0;
+  height: auto;
+}
+.slick.ntflx.slick-slider .slick-list .slick-track .slick-slide .card .tags,
+.slick.agenda.slick-slider .slick-list .slick-track .slick-slide .card .tags {
+  position: absolute;
+  background: #009aae;
+  right: 0px;
+  top: 9px;
+  padding: 2px 6px;
+  color: #F1F1F1;
+  font-size: 0.75rem;
+}
+.slick.ntflx.slick-slider .slick-list .slick-track .slick-slide .card .tags span:after,
+.slick.agenda.slick-slider .slick-list .slick-track .slick-slide .card .tags span:after {
+  content: " | ";
+}
+.slick.ntflx.slick-slider .slick-list .slick-track .slick-slide .card .tags span:last-child:after,
+.slick.agenda.slick-slider .slick-list .slick-track .slick-slide .card .tags span:last-child:after {
+  content: "";
+}
+.slick.ntflx.slick-slider .slick-list .slick-track .slick-slide .ribbon,
+.slick.agenda.slick-slider .slick-list .slick-track .slick-slide .ribbon {
+  width: 92px;
+  height: 92px;
+  overflow: hidden;
+  position: absolute;
+  /* top left*/
+}
+.slick.ntflx.slick-slider .slick-list .slick-track .slick-slide .ribbon::before, .slick.ntflx.slick-slider .slick-list .slick-track .slick-slide .ribbon::after,
+.slick.agenda.slick-slider .slick-list .slick-track .slick-slide .ribbon::before,
+.slick.agenda.slick-slider .slick-list .slick-track .slick-slide .ribbon::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  display: block;
+  border: 2px solid #2980b9;
+}
+.slick.ntflx.slick-slider .slick-list .slick-track .slick-slide .ribbon span,
+.slick.agenda.slick-slider .slick-list .slick-track .slick-slide .ribbon span {
+  position: absolute;
+  display: block;
+  width: 170px;
+  padding: 7px 0;
+  background-color: #01ca46;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font: 700 18px/1 "Lato", sans-serif;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  text-align: center;
+}
+.slick.ntflx.slick-slider .slick-list .slick-track .slick-slide .ribbon.ribbon-top-left,
+.slick.agenda.slick-slider .slick-list .slick-track .slick-slide .ribbon.ribbon-top-left {
+  top: -1px;
+  left: 0px;
+}
+.slick.ntflx.slick-slider .slick-list .slick-track .slick-slide .ribbon.ribbon-top-left::before, .slick.ntflx.slick-slider .slick-list .slick-track .slick-slide .ribbon.ribbon-top-left::after,
+.slick.agenda.slick-slider .slick-list .slick-track .slick-slide .ribbon.ribbon-top-left::before,
+.slick.agenda.slick-slider .slick-list .slick-track .slick-slide .ribbon.ribbon-top-left::after {
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+.slick.ntflx.slick-slider .slick-list .slick-track .slick-slide .ribbon.ribbon-top-left::before,
+.slick.agenda.slick-slider .slick-list .slick-track .slick-slide .ribbon.ribbon-top-left::before {
+  top: 0;
+  left: 88px;
+}
+.slick.ntflx.slick-slider .slick-list .slick-track .slick-slide .ribbon.ribbon-top-left::after,
+.slick.agenda.slick-slider .slick-list .slick-track .slick-slide .ribbon.ribbon-top-left::after {
+  bottom: 0;
+  left: 0;
+}
+.slick.ntflx.slick-slider .slick-list .slick-track .slick-slide .ribbon.ribbon-top-left span,
+.slick.agenda.slick-slider .slick-list .slick-track .slick-slide .ribbon.ribbon-top-left span {
+  right: -30px;
+  top: 24px;
+  transform: rotate(-45deg);
+  font-size: 0.75rem;
+  z-index: 2;
+}
+.slick.ntflx.slick-slider button.slick-next:before,
+.slick.ntflx.slick-slider button.slick-prev:before,
+.slick.agenda.slick-slider button.slick-next:before,
+.slick.agenda.slick-slider button.slick-prev:before {
+  font-family: inherit;
+  padding: 4px 10px 5px;
+  background: #009aae;
+}
+.slick.ntflx.slick-slider button.slick-next,
+.slick.agenda.slick-slider button.slick-next {
+  top: -35px;
+  right: 20px;
+}
+.slick.ntflx.slick-slider button.slick-prev,
+.slick.agenda.slick-slider button.slick-prev {
+  font-family: inherit;
+  top: -35px;
+  right: 60px;
+  left: auto;
+}
+
+.slick.agenda .card {
+  margin-right: 30px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+.slick.agenda .card .img-wrapper .fecha {
+  position: absolute;
+  bottom: 0;
+  background: white;
+  padding: 10px;
+  text-align: center;
+}
+.slick.agenda .card .img-wrapper .fecha span.dia {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.slick.agenda .card .img-wrapper .fecha span.hora {
+  display: block;
+  font-size: 1rem;
+}
+.slick.agenda .card .card-body {
+  padding: 15px 10px 0 0;
+}
+
 .slick-slider.slick-dotted.slick-slider {
   margin-bottom: 0;
 }

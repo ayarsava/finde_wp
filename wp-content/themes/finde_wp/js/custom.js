@@ -3,7 +3,7 @@
   $(".carousel-inner .carousel-item:first").addClass("active");
   $("#juego-destacado.carousel .carousel-inner .carousel-item:first").addClass("active");
 
-  $("ul.agenda-list li:first").addClass("destacado");
+  //$("ul.agenda-list li:first").addClass("destacado");
 
   $('[rel="tooltip"]').tooltip();
 
@@ -48,6 +48,80 @@ $('.banner-slick').slick({
   autoplay: true,
   autoplaySpeed: 8000
 });
+
+$('.slick.ntflx').slick({
+  infinite: true,
+  speed: 300,
+  slidesToScroll: 1,
+  centerMode: true,
+  slidesToShow: 6,
+  lazyLoad: 'ondemand',
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        infinite: true,
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
+
+
+$('.slick.agenda').slick({
+  infinite: false,
+  speed: 300,
+  slidesToScroll: 1,
+  slidesToShow: 4,
+  lazyLoad: 'ondemand',
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        infinite: true,
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
+
+
 
 // Filtro de catalogo
 // set up variables

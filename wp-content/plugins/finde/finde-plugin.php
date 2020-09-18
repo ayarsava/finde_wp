@@ -1118,6 +1118,91 @@ function wp_archive_catalogovj() {
   wp_reset_postdata();
 }
 
+/*** CATALOGOVJ ***/
+if ( ! function_exists( 'wp_archive_catalogovj_tiny' ) ) {
+  function wp_archive_catalogovj_tiny($post_tag) {
+    $args = array(
+      'post_type'              => 'catalogo',
+      'posts_per_page'         => -1,
+      'post_status'            => 'publish',
+      'no_found_rows'          => true,
+      'tag'                    => $post_tag,
+    );
+
+    // The Query
+    $query_catalogo = new WP_Query( $args );
+    // The Loop
+    if ( $query_catalogo->have_posts() ) {
+      while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
+
+        $estudios = MB_Relationships_API::get_connected( [
+          'id'   => 'catalogo_to_estudios',
+          'from' => get_the_ID(),
+        ] );
+        
+        $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
+        $url = rwmb_meta( 'mbox_url' );
+        $descargas = rwmb_meta( 'descarga_id' );
+        
+        $terms = get_the_terms( $post->ID, 'rubro' );
+        $dterms = get_the_terms( $post->ID, 'descuento' );
+
+        echo '<div class="grid-item item mb-1"';
+        if ($terms) {
+        echo ' data-category="';
+        foreach( $terms as $term ) echo $term->slug. ' ';
+        echo '" ';
+        }
+        if ($terms) {
+        echo ' data-descuento="';
+        foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
+        echo '"';
+        }
+        echo '>';
+        echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+        echo '<div class="grid-item-content card ">';
+        if ( has_post_thumbnail() ) {
+          echo '<img data-lazy="'.$src[0].'" class="img-fluid card-img-top">';
+        }
+        echo '<div class="card-body">';
+        echo '<h5 class="card-title">' . get_the_title() . '</h5>';
+        if ( get_the_excerpt() ) {
+          echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_excerpt() ), 8, '...' ) .'</div>';
+        } else {
+          echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 8, '...' ) .'</div>';
+        }
+        if ($terms) {
+        echo '<div class="rubro">';
+        foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
+        echo '</div>';
+        }
+        if ($descargas) {
+        echo '<small class="descargas mt-2 d-block">';
+        foreach ( $descargas as $descarga ) {
+          echo '<a href="'.$descarga['d_url'].'" class="os btn btn-sm btn-outline-dark mr-1 mb-1 descarga" target="_blank"><span>' . $descarga['d_name'] .'</span></a>';
+        }
+        echo '</small>';
+        }
+        echo '</div>';
+        if ($estudios) {
+          echo '<small class="card-footer text-muted text-sm lista">';
+          echo 'Por '; foreach ( $estudios as $estudio ) {
+              echo '<span><a href="' . get_the_permalink($estudio) .'" rel="slidemark" class="os">' .$estudio->post_title.'</a></span> ';
+          }
+          echo '</small>';
+        }
+        echo '</div></div>';
+      endwhile;
+      wp_reset_postdata();
+    } else {
+      echo 'No hemos encontrado productos o servicios asociados al catálogo.';
+    }
+
+    // Restore original Post Data
+    wp_reset_postdata();
+  }
+}
+
 /*** CATALOGO EDITORIAL ***/
 function wp_archive_catalogoed() {
   $args = array(
@@ -1357,8 +1442,6 @@ function wp_archive_destacadovj() {
   if ( $query_catalogo->have_posts() ) {
 
     while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
-
-
       $estudios = MB_Relationships_API::get_connected( [
         'id'   => 'catalogo_to_estudios',
         'from' => get_the_ID(),
@@ -1480,68 +1563,46 @@ function wp_archive_destacadoed() {
 function wp_archive_agenda() {
 
   $args = array(
-    'post_type'              => 'agenda',
-    'posts_per_page' => 13,
-    'meta_query' => array(
-        'fecha_clause' => array(
-            'key' => 'fecha_id',
-        ),
-        'destacado_clause' => array(
-            'key' => 'destacado_id',
-        ), 
-    ),
-    'orderby' => array( 
-          'destacado_clause' => 'DESC',
-          'fecha_clause' => 'ASC',
-    ),
+      'post_type'             => 'agenda',
+      'posts_per_page'        => 13,
+      'meta_query'            => array(
+          'fecha_clause'      => array(
+              'key'           => 'fecha_id',
+          ),
+          /*'destacado_clause'  => array(
+              'key'           => 'destacado_id',
+          ), */
+      ),
+      'orderby'               => array( 
+          //'destacado_clause'  => 'DESC',
+          'fecha_clause'      => 'ASC',
+      ),
   );
 
   // The Query
   $query_agenda = new WP_Query( $args );
-  // The Loop
-  if ( $query_agenda->have_posts() ) {
 
-    while ( $query_agenda->have_posts() ) {
-      $query_agenda->the_post();
-      $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
-      $fecha = rwmb_meta( 'fecha_id' ); 
-      $destacado = rwmb_meta( 'destacado_id' );
+  if ( $query_agenda->have_posts() ) { 
+    echo '<div class="slick agenda">';
+    /* Start the Loop */
+    $count = 1;
+    while ( $query_agenda->have_posts() ) : $query_agenda->the_post();
 
-      echo '<li class="col mb-3"><div class="card"><a href="'. get_permalink() .'" class="stretched-link"></a>';
-      if ($src) {
-      echo '<div class="bg-image card-img-top" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
-      }
-      echo '<div class="card-body">';
-      echo '<h5 class="card-title">' . get_the_title() . '</h5>';
-      echo '<div class="text-primary">' . date( 'j F, Y', $fecha) .'</div>';
-      echo '<small class="card-text">' . wp_trim_words( wp_trim_words( get_the_content(), 18, '...' ), 18, '...' ) . '</small>';
-      echo '<a href="' . get_the_permalink() .'" class="d-block">Ver más</a>';
-      echo '</div></div></li>';
+        /*
+            * Include the Post-Type-specific template for the content.
+            * If you want to override this in a child theme, then include a file
+            * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+            */
+        get_template_part( 'template-parts/content', get_post_type() );
 
-      
-      /*if ($destacado == 1) {
-      echo '<div class="col mb-3 destacado">';
-      echo '<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">';
-      if ($src) {
-      echo '<div class="col-6 d-none d-lg-block" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
-      }
-      echo '<div class="col p-4 d-flex flex-column position-static"><strong class="d-inline-block mb-2 text-primary">'. $fecha .'</strong>';
-      echo '<h3>' . get_the_title() . '</h3>';
-      echo '<small class="card-text mb-auto">' . the_content() . '</small>';
-      echo '<a href="' . get_the_permalink() .'" class="stretched-link">Ver más</a>';
-      echo '</div></div></div>';
-      
-      } else {
-
-      }*/
-      
+    endwhile;
+    echo '</div>';
+    if ($count > '13') {
+      echo '<div class="row"><div class="col-15"><div class="border-top mt-3 py-3"><a href="/agenda-videojuegos"><strong>+ Ver agenda completa</strong></a></div></div></div>';
     }
   } else {
-    echo 'No hemos encontrado eventos programados.';
+    get_template_part( 'template-parts/content', 'none' );    
   }
-
-  // Restore original Post Data
-  wp_reset_postdata();
 }
 
 

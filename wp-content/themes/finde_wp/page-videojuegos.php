@@ -73,6 +73,7 @@ get_template_part( 'layouts/header', 'vj' );
         <section id="catalogo" class="bg-white py-5">
             <div class="container">
                 <h1 class="mb-4"><strong>Juegos</strong></h1>
+                <!--
                 <ul id="form-ui" class="list-inline">
                     <div class="row">
                         <div class="col-md-3">
@@ -86,7 +87,7 @@ get_template_part( 'layouts/header', 'vj' );
                             <?php  } }?>
                         </ul>
                     </div>
-                    <!--<hr>
+                    <hr>
                     <div class="row">
                         <div class="col-md-3">
                             <h5>Precio</h5>
@@ -98,77 +99,31 @@ get_template_part( 'layouts/header', 'vj' );
                             <li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="discount" autocomplete="off"> <?php echo $cat->name; ?></label></li>
                             <?php  } }?>
                         </ul>
-                    </div>-->
+                    </div>
                 </ul>
-                <div id="load" class="lds-wrap">Estamos preparando el catálogo<br><div class="lds-hourglass"></div></div>
-                <div id="container" class="grid loadable collapsed">
-                    <!-- 2 col grid @ xs, 3 col grid @ sm, 4 col grid @ md -->
-                    <div class="grid-sizer"></div>
-                    <?php wp_archive_catalogovj() ?>
+                <div id="load" class="lds-wrap">Estamos preparando el catálogo<br><div class="lds-hourglass"></div></div>-->
+                
+                <h3>Noches de terror</h3>
+                <div class="slick ntflx mb-5">
+                    <?php wp_archive_catalogovj_tiny('noches-de-terror') ?>
+                </div>
+
+                <h3>Poder femenino</h3>
+                <div class="slick ntflx mb-5">
+                    
+                    <?php wp_archive_catalogovj_tiny('poder-femenino') ?>
                 </div>
             </div>
         </section>
 
         <!--AGENDA-->
-        <section id="agenda" class="bg-card py-5">
+        <section id="agenda-slick" class="bg-light py-5">
             <div class="container">
-                <h1 class="mb-3">Agenda  <a href="/en-vivo" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
+                <h1 class="mb-4"><strong>Agenda</strong> <a href="/en-vivo" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
+                
+                <?php wp_archive_agenda('category_name=videojuegos'); ?>
 
-                <div class="row">
-                    <?php 
-                    $args = array(
-                        'post_type'             => 'agenda',
-                        'category_name'         => 'videojuegos',
-                        'posts_per_page'        => 13,
-                        'meta_query'            => array(
-                            'fecha_clause'      => array(
-                                'key'           => 'fecha_id',
-                            ),
-                            'destacado_clause'  => array(
-                                'key'           => 'destacado_id',
-                            ), 
-                        ),
-                        'orderby'               => array( 
-                            'destacado_clause'  => 'DESC',
-                            'fecha_clause'      => 'ASC',
-                        ),
-                    );
-
-                    // The Query
-                    $query_agenda = new WP_Query( $args );
-
-                    if ( $query_agenda->have_posts() ) : ?>
-
-                        <?php
-                        /* Start the Loop */
-                        $count = 1;
-                        while ( $query_agenda->have_posts() ) :
-                            $query_agenda->the_post();
-
-                            /*
-                             * Include the Post-Type-specific template for the content.
-                             * If you want to override this in a child theme, then include a file
-                             * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-                             */
-                            get_template_part( 'template-parts/content', get_post_type() );
-
-                        endwhile;
-
-
-                    else :
-
-                        get_template_part( 'template-parts/content', 'none' );
-
-                    endif;
-                    ?>
-                </div><!-- #main -->
-            
-                <?php 
-                if ($count > '13') {
-                        echo '<div class="row"><div class="col-15"><div class="border-top mt-3 py-3"><a href="/agenda-videojuegos"><strong>+ Ver agenda completa</strong></a></div></div></div>';
-                    }
-                ?>
-            </div>
+            </div><!-- #main -->
         </section>
 
 
