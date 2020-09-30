@@ -121,59 +121,19 @@ get_template_part( 'layouts/header', 'mu' );
         </section>
 
         <!--AGENDA-->
-        <section id="agenda" class="bg-card py-5">
+        <section id="agenda-slick" class="bg-light py-5">
             <div class="container">
-                <h1 class="mb-3">Agenda  <a href="/en-vivo" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
-
+                <h1 class="mb-4"><strong>Agenda</strong> <a href="/en-vivo" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
+                
+                <?php wp_archive_agenda('musica'); ?>
                 <div class="row">
-                    <?php 
-                    $args = array(
-                        'post_type'             => 'agenda',
-                        'category_name'         => 'musica',
-                        'posts_per_page'        => -1,
-                        'meta_query'            => array(
-                            'fecha_clause'      => array(
-                                'key'           => 'fecha_id',
-                            ),
-                            'destacado_clause'  => array(
-                                'key'           => 'destacado_id',
-                            ), 
-                        ),
-                        'orderby'               => array( 
-                            'destacado_clause'  => 'DESC',
-                            'fecha_clause'      => 'ASC',
-                        ),
-                    );
-
-                    // The Query
-                    $query_agenda = new WP_Query( $args );
-                    if ( $query_agenda->have_posts() ) : ?>
-
-                        <?php
-                        /* Start the Loop */
-                        $count = 1;
-                        while ( $query_agenda->have_posts() ) :
-                            $query_agenda->the_post();
-
-                            /*
-                             * Include the Post-Type-specific template for the content.
-                             * If you want to override this in a child theme, then include a file
-                             * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-                             */
-                            get_template_part( 'template-parts/content', get_post_type() );
-
-                        $count++;
-                        endwhile;
-
-
-                    else :
-
-                        get_template_part( 'template-parts/content', 'none' );
-
-                    endif;
-                    ?>
-                </div><!-- #main -->
-            </div>
+                    <div class="col-15">
+                        <div class="border-top mt-3 py-3">
+                            <a href="/agenda-musica"><strong>+ Ver agenda completa</strong></a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- #main -->
         </section>
 
 

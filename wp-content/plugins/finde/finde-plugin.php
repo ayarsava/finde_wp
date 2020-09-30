@@ -1459,7 +1459,7 @@ function wp_archive_destacadovj() {
       echo '<div class="carousel-item card">';
         echo '<div class="row no-gutters">';
           if ($src) {
-          echo '<div class="col-md-7" style="min-height:350px;">';
+          echo '<div class="col-md-7">';
           echo '<div class="bg-image h-100" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
           }
           echo '</div>';
@@ -1560,11 +1560,12 @@ function wp_archive_destacadoed() {
 }
 
 /*** AGENDA ***/
-function wp_archive_agenda() {
+function wp_archive_agenda($post_category) {
 
   $args = array(
       'post_type'             => 'agenda',
-      'posts_per_page'        => 13,
+      'posts_per_page'        => -1,
+      'category_name'         => $post_category,
       'meta_query'            => array(
           'fecha_clause'      => array(
               'key'           => 'fecha_id',
@@ -1583,7 +1584,7 @@ function wp_archive_agenda() {
   $query_agenda = new WP_Query( $args );
 
   if ( $query_agenda->have_posts() ) { 
-    echo '<div class="slick agenda">';
+    echo '<div class="slick agenda slider-nav">';
     /* Start the Loop */
     $count = 1;
     while ( $query_agenda->have_posts() ) : $query_agenda->the_post();
@@ -1597,9 +1598,6 @@ function wp_archive_agenda() {
 
     endwhile;
     echo '</div>';
-    if ($count > '13') {
-      echo '<div class="row"><div class="col-15"><div class="border-top mt-3 py-3"><a href="/agenda-videojuegos"><strong>+ Ver agenda completa</strong></a></div></div></div>';
-    }
   } else {
     get_template_part( 'template-parts/content', 'none' );    
   }

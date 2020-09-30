@@ -48,57 +48,29 @@
 	<div class="container text-center">
 		<div class="row">
 			<div class="col-md-8 mx-auto">
-				<div class="logo mt-5 mb-4"><img src="/wp-content/themes/finde_wp/assets/img/finde-logo-azul.png" width="380" class="img-fluid"></div>
+				<div class="logo mt-5 mb-4"><img src="/wp-content/themes/finde_wp/assets/img/finde-logo-azul2.png" width="380" class="img-fluid"></div>
 				
 				<div id="clock" class="mx-auto text-white" style="display:none;">
 					<ul class="list-unstyled">
-						<li><span id="days"></span>días</li>
-						<li><span id="hours"></span>horas</li>
-						<li><span id="minutes"></span>minutos</li>
-						<li><span id="seconds"></span>segundos</li>
+						<li style="font-size: 1.8em;"><span id="days"></span>días</li>
+						<li style="font-size: 1.8em;"><span id="hours"></span>horas</li>
+						<li style="font-size: 1.8em;"><span id="minutes"></span>minutos</li>
+						<li style="font-size: 1.8em;"><span id="seconds"></span>segundos</li>
 					</ul>
 				</div>
 			</div>
 			<div class="col-lg-12 col-md-15 mx-auto">
-				<h2 class="text-light px-5" style="line-height:1.5"><strong>Gracias a los 73.000 visitantes que se acercaron a la primera edición de FINDE</strong><hr></h2>
 				<div class="card-deck my-4 text-center">
-					<div class="col-md-5 bg-transparent mb-4">
-
-						<a href="/videojuegos" title="Accedé a la Edición de Videojuegos" class="stretched-link"></a>
+					<div class="col-md-5 bg-transparent mb-4 mx-auto">
+						<!--<a href="/videojuegos" title="Accedé a la Edición de Videojuegos" class="stretched-link"></a>-->
 						<div class="card text-center shadow hover-shadow">
 								<div class="py-3 col-md-8 mx-auto">
 										<img src="/wp-content/themes/finde_wp/assets/img/icon-vj.png" class="img-fluid icon">
 								</div>
-								<div class="pb-5 text-white">
+								<div class="pb-1 text-white">
 									<h3><strong>Videojuegos</strong></h3>
-									<p>30 ABRIL - 3 MAYO</p>
-									<div class="btn btn-outline-light os">Accedé</div>
-								</div>
-						</div>
-					</div>
-					<div class="col-md-5 bg-transparent mb-4">
-						<a href="/editorial" title="Accedé a la Edición de Editorial" class="stretched-link"></a>
-							<div class="card text-center shadow hover-shadow">
-									<div class="py-3 col-md-8 mx-auto">
-											<img src="/wp-content/themes/finde_wp/assets/img/icon-editorial.png" class="img-fluid icon">
-									</div>
-									<div class="pb-5 text-white">
-										<h3><strong>Editorial</strong></h3>
-										<p>7 MAYO - 10 MAYO</p>
-										<div class="btn btn-outline-light os">Accedé</div>
-									</div>
-							</div>
-					</div>
-					<div class="col-md-5 bg-transparent mb-4">
-						<a href="/musica" title="Accedé a la Edición de Música" class="stretched-link"></a>
-						<div class="card text-center shadow hover-shadow">
-								<div class="py-3 col-md-8 mx-auto">
-										<img src="/wp-content/themes/finde_wp/assets/img/icon-musica.png" class="img-fluid icon">
-								</div>
-								<div class="pb-5 text-white">
-										<h3><strong>Música</strong></h3>
-										<p>14 MAYO - 17 MAYO</p>
-										<div class="btn btn-outline-light os">Accedé</div>
+									<p>Del 8 AL 11 DE OCTUBRE</p>
+									<!--<div class="btn btn-outline-light os">Muy pronto</div>-->
 								</div>
 						</div>
 					</div>
@@ -118,7 +90,7 @@
 			hour = minute * 60,
 			day = hour * 24;
 
-			let countDown = new Date('2020-05-14T15:00:00'.replace(/\s/, 'T')).getTime(),
+			let countDown = new Date('2020-10-08T15:00:00'.replace(/\s/, 'T')).getTime(),
 			x = setInterval(function() {    
 
 			let now = new Date().getTime(),

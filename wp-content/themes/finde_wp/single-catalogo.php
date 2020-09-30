@@ -35,7 +35,7 @@ $estudios = MB_Relationships_API::get_connected( [
 					while ( have_posts() ) :
 						the_post();
 						?>
-							<div class="row no-gutters" style="min-height:350px;">
+							<div class="row no-gutters">
 								<?php if ($featured_img_url) { 
 									echo '<div class="col-md-7">';
 									the_post_thumbnail('full', array('class' => 'img-fluid'));

@@ -49,11 +49,59 @@ get_template_part( 'layouts/header', 'vj' );
             </div>
         </section>
 
+        <!--JUEGO DESTACADO-->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div id="juego-destacado" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <?php wp_archive_destacadovj() ?>
+                    </div>
+                    <!-- Controls -->
+                    <a class="carousel-control-prev" href="#juego-destacado" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#juego-destacado" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+            </div>  
+        </section>
 
         <!--CATALOGO-->
         <section id="catalogo" class="bg-white py-5">
             <div class="container">
                 <h1 class="mb-4"><strong>Juegos</strong></h1>
+                <!--
+                <ul id="form-ui" class="list-inline">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h5>Categorías</h5>
+                        </div>
+                        <ul class="col-md-12">
+                            <?php 
+                            $rubros = get_terms('rubro');
+                            if( $rubros ){ foreach ($rubros as $cat ) {?>
+                            <li class="list-inline-item <?php echo $cat->slug; ?>"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="category" autocomplete="off"> <?php echo $cat->name; ?></label></li>
+                            <?php  } }?>
+                        </ul>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h5>Precio</h5>
+                        </div>
+                        <ul class="col-md-12">
+                            <?php 
+                            $descuento = get_terms('descuento');
+                            if( $descuento ){ foreach ($descuento as $cat ) {?>
+                            <li class="list-inline-item"><label><input type="checkbox" value="<?php echo $cat->slug; ?>" class="discount" autocomplete="off"> <?php echo $cat->name; ?></label></li>
+                            <?php  } }?>
+                        </ul>
+                    </div>
+                </ul>
+                <div id="load" class="lds-wrap">Estamos preparando el catálogo<br><div class="lds-hourglass"></div></div>-->
                 
                 <h3>Noches de terror</h3>
                 <div class="slick ntflx mb-5">
@@ -74,27 +122,16 @@ get_template_part( 'layouts/header', 'vj' );
             </div>
         </section>
 
-        <!--GJ-->
-        <section class="bg-white">
-            <div class="container-fluid">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <a href="#" target="_blank" title="Enlace al sitio web del Banco Provincia">
-                            Banner GameJam
-                                <!--<img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-banco-provincia.gif" class="img-fluid d-none d-sm-block" alt="Banco Provincia">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-banco-provincia_m.gif" class="mx-auto img-fluid d-block d-sm-none" alt="Banco Provincia">-->
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!--AGENDA-->
         <section id="agenda-slick" class="bg-light py-5">
             <div class="container">
                 <h1 class="mb-4"><strong>Agenda</strong> <a href="/en-vivo" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
+                <!--<div id="external-buttons">
+                    <a data-target="08-10">08-10</a>
+                    <a data-target="09-10">09-10</a>
+                    <a data-target="10-10">10-10</a>
+                    <a data-target="11-10">11-10</a>
+                </div>-->
                 <?php wp_archive_agenda('videojuegos'); ?>
                 <div class="row">
                     <div class="col-15">
@@ -104,13 +141,6 @@ get_template_part( 'layouts/header', 'vj' );
                     </div>
                 </div>
             </div><!-- #main -->
-        </section>
-
-        <!--LB-->
-        <section class="mx-auto d-none d-lg-block pb-4">
-            <div class="container-fluid text-center">
-                <iframe src="http://emlabollita.com/finde/flappy-bird/" width="100%" height="620px" frameborder="0" align="center" scrolling="no"></iframe>
-            </div>
         </section>
 
 
