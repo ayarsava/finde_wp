@@ -1133,6 +1133,10 @@ if ( ! function_exists( 'wp_archive_catalogovj_tiny' ) ) {
     $query_catalogo = new WP_Query( $args );
     // The Loop
     if ( $query_catalogo->have_posts() ) {
+      $term = get_term_by('slug', $post_tag, 'post_tag'); 
+      $tag_name = $term->name;
+      echo '<h3 class="mb-4"><strong>'.$tag_name.'</strong></h3>';
+      echo '<div class="slick ntflx mb-5">';
       while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
 
         $estudios = MB_Relationships_API::get_connected( [
@@ -1193,15 +1197,12 @@ if ( ! function_exists( 'wp_archive_catalogovj_tiny' ) ) {
         }
         echo '</div></div>';
       endwhile;
+      echo '</div>';
       wp_reset_postdata();
-    } else {
-      echo 'No hemos encontrado productos o servicios asociados al catálogo.';
     }
-
-    // Restore original Post Data
-    wp_reset_postdata();
   }
 }
+
 
 /*** CATALOGO EDITORIAL ***/
 function wp_archive_catalogoed() {

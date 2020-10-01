@@ -22,7 +22,7 @@ get_template_part( 'layouts/header', 'vj' );
 
         <!--OPB-->
         <section id="finde-vj">
-            <div class="container-fluid py-5 bg-primary">
+            <div class="container-fluid bg-primary">
                 <div class="container">
                     <div class="col-md-8 mx-auto text-center text-white py-5">
                         <div class="h4">#FINDEJUGANDO</div>
@@ -53,24 +53,22 @@ get_template_part( 'layouts/header', 'vj' );
         <!--CATALOGO-->
         <section id="catalogo" class="bg-white py-5">
             <div class="container">
-                <h1 class="mb-4"><strong>Juegos</strong></h1>
+                <h1 class="mb-5"><strong>Juegos</strong> <a href="/catalogo" title="Catalogo de videojuegos" class="btn btn-outline-primary"><i class="fas fa-gamepad"></i> Ver todos los juegos </a></h1>
                 
-                <h3>Noches de terror</h3>
-                <div class="slick ntflx mb-5">
-                    <?php wp_archive_catalogovj_tiny('noches-de-terror') ?>
+                
+                    <?php wp_archive_catalogovj_tiny('rapidos-y-furiosos') ?>
+                    <?php wp_archive_catalogovj_tiny('concentracion-y-destreza') ?>
+                    <?php wp_archive_catalogovj_tiny('grandes-aventuras') ?>
+                
+                
+                <div class="row">
+                    <div class="col-15">
+                        <div class="border-top mt-3 py-3">
+                            <a href="/catalogo" title="Catalogo de videojuegos" ><strong>+ Ver todos los juegos</strong></a>
+                        </div>
+                    </div>
                 </div>
 
-                <h3>Poder femenino</h3>
-                <div class="slick ntflx mb-5">
-                    
-                    <?php wp_archive_catalogovj_tiny('poder-femenino') ?>
-                </div>
-
-                <h3>Apocalipsis</h3>
-                <div class="slick ntflx mb-5">
-                    
-                    <?php wp_archive_catalogovj_tiny('apocalipsis') ?>
-                </div>
             </div>
         </section>
 
@@ -78,12 +76,11 @@ get_template_part( 'layouts/header', 'vj' );
         <section class="bg-white">
             <div class="container-fluid">
                 <div class="container">
-                    <div class="row">
+                    <div class="row pb-4">
                         <div class="col">
                             <a href="#" target="_blank" title="Enlace al sitio web del Banco Provincia">
-                            Banner GameJam
-                                <!--<img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-banco-provincia.gif" class="img-fluid d-none d-sm-block" alt="Banco Provincia">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-banco-provincia_m.gif" class="mx-auto img-fluid d-block d-sm-none" alt="Banco Provincia">-->
+                                <img src="https://picsum.photos/seed/picsum/1120/157" class="img-fluid d-none d-sm-block" alt="Banco Provincia">
+                                <img src="https://picsum.photos/seed/picsum/354/120" class="mx-auto img-fluid d-block d-sm-none" alt="Banco Provincia">
                             </a>
                         </div>
                     </div>
@@ -99,7 +96,7 @@ get_template_part( 'layouts/header', 'vj' );
                 <div class="row">
                     <div class="col-15">
                         <div class="border-top mt-3 py-3">
-                            <a href="/agenda-musica"><strong>+ Ver agenda completa</strong></a>
+                            <a href="/agenda-videojuegos"><strong>+ Ver agenda completa</strong></a>
                         </div>
                     </div>
                 </div>
@@ -107,9 +104,13 @@ get_template_part( 'layouts/header', 'vj' );
         </section>
 
         <!--LB-->
-        <section class="mx-auto d-none d-lg-block pb-4">
-            <div class="container-fluid text-center">
-                <iframe src="http://emlabollita.com/finde/flappy-bird/" width="100%" height="620px" frameborder="0" align="center" scrolling="no"></iframe>
+        <section class="mx-auto d-none d-lg-block py-5 text-white" style="background:#222;">
+            <div class="container mb-5">
+                <div class="row">
+                    <h1 class="col-12 mb-4"><strong>Titulo del juego</strong></h1>
+                    <p class="col-md-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                    <iframe src="http://emlabollita.com/finde/flappy-bird/" width="100%" height="620px" frameborder="0" align="center" scrolling="no"></iframe>
+                </div>
             </div>
         </section>
 

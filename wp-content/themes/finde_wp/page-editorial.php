@@ -126,7 +126,7 @@ get_template_part( 'layouts/header', 'ed' );
                 <div class="row">
                     <div class="col-15">
                         <div class="border-top mt-3 py-3">
-                            <a href="/agenda-musica"><strong>+ Ver agenda completa</strong></a>
+                            <a href="/agenda-editorial"><strong>+ Ver agenda completa</strong></a>
                         </div>
                     </div>
                 </div>

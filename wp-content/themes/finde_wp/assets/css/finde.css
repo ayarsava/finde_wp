@@ -642,25 +642,55 @@ a.badge.os {
   font-size: 0.75rem;
   z-index: 2;
 }
+.slick.ntflx.slick-slider button.slick-next,
+.slick.ntflx.slick-slider button.slick-prev,
+.slick.agenda.slick-slider button.slick-next,
+.slick.agenda.slick-slider button.slick-prev {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  line-height: 1.5rem;
+  background: #FFF;
+  border-radius: 50%;
+  border: solid 5px #009aae;
+  color: #009aae;
+}
+.slick.ntflx.slick-slider button.slick-next.slick-disabled,
+.slick.ntflx.slick-slider button.slick-prev.slick-disabled,
+.slick.agenda.slick-slider button.slick-next.slick-disabled,
+.slick.agenda.slick-slider button.slick-prev.slick-disabled {
+  opacity: 0;
+}
 .slick.ntflx.slick-slider button.slick-next:before,
 .slick.ntflx.slick-slider button.slick-prev:before,
 .slick.agenda.slick-slider button.slick-next:before,
 .slick.agenda.slick-slider button.slick-prev:before {
   font-family: inherit;
-  padding: 4px 10px 5px;
-  background: #009aae;
+  line-height: 2.3rem;
+  color: #009aae;
 }
 .slick.ntflx.slick-slider button.slick-next,
 .slick.agenda.slick-slider button.slick-next {
-  top: -35px;
-  right: 20px;
+  top: 50%;
+  right: -23px;
+}
+@media (max-width: 767px) {
+  .slick.ntflx.slick-slider button.slick-next,
+.slick.agenda.slick-slider button.slick-next {
+    right: -5px;
+  }
 }
 .slick.ntflx.slick-slider button.slick-prev,
 .slick.agenda.slick-slider button.slick-prev {
   font-family: inherit;
-  top: -35px;
-  right: 60px;
-  left: auto;
+  top: 50%;
+  left: -23px;
+}
+@media (max-width: 767px) {
+  .slick.ntflx.slick-slider button.slick-prev,
+.slick.agenda.slick-slider button.slick-prev {
+    left: -5px;
+  }
 }
 
 .slick.agenda .card {

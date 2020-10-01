@@ -574,21 +574,37 @@ a.badge.os {
     } 
     button.slick-next,
     button.slick-prev {
+      display: block;
+      width: 3rem;
+      height: 3rem;
+      line-height: 1.5rem;
+      background: #FFF;
+      border-radius:50%;
+      border: solid 5px $videojuegos;
+      color: $videojuegos;
+      &.slick-disabled {
+        opacity: 0;
+      }
       &:before {
         font-family: inherit;
-        padding: 4px 10px 5px;
-        background: $videojuegos;
+        line-height: 2.3rem;
+        color: $videojuegos;
       }
     }
     button.slick-next {
-      top: -35px;
-      right: 20px;
+      top: 50%;
+      right: -23px;
+      @media (max-width: 767px) { 
+        right: -5px;
+      }
     }
     button.slick-prev {
       font-family: inherit;
-      top: -35px;
-      right: 60px;
-      left: auto;
+      top: 50%;
+      left: -23px;
+      @media (max-width: 767px) { 
+        left: -5px;
+      }
     }
   }
 }

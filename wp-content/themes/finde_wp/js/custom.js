@@ -116,7 +116,7 @@ $('.slick.agenda').slick({
   slidesToScroll: 1,
   slidesToShow: 4,
   lazyLoad: 'ondemand',
-  initialSlide: slide,
+  //initialSlide: slide,
   responsive: [
     {
       breakpoint: 1024,
