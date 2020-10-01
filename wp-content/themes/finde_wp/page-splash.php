@@ -52,10 +52,10 @@
 				
 				<div id="clock" class="mx-auto text-white" style="display:none;">
 					<ul class="list-unstyled">
-						<li style="font-size: 1.8em;"><span id="days"></span>días</li>
-						<li style="font-size: 1.8em;"><span id="hours"></span>horas</li>
-						<li style="font-size: 1.8em;"><span id="minutes"></span>minutos</li>
-						<li style="font-size: 1.8em;"><span id="seconds"></span>segundos</li>
+						<li><span id="days"></span>días</li>
+						<li><span id="hours"></span>horas</li>
+						<li><span id="minutes"></span>minutos</li>
+						<li><span id="seconds"></span>segundos</li>
 					</ul>
 				</div>
 			</div>
