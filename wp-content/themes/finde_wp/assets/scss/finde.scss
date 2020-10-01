@@ -1160,15 +1160,21 @@ a[class^="hvr-"] {
     padding: .9em;
     text-transform: uppercase;
     @media (max-width: 767.98px) {
-      font-size: .7em
+      font-size: .8em
     }
   }
   li span {
     display: block;
     font-size: 7rem;
+    @media (max-width: 978px) {
+      font-size: 5rem;
+    }
     line-height: 1;
     &#seconds {
       width: 7rem;
+      @media (max-width: 767.98px) {
+        width: auto;
+      }
     }
     @media (max-width: 767.98px) {
       font-size: 3.5em
