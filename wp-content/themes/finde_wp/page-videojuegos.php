@@ -21,19 +21,9 @@ get_template_part( 'layouts/header', 'vj' );
 
 
         <!--OPB-->
-        <section id="finde-vj">
-            <div class="container-fluid bg-primary">
-                <div class="container">
-                    <div class="col-md-8 mx-auto text-center text-white py-5">
-                        <div class="h4">#FINDEJUGANDO</div>
-                        <div class="h1 pb-3"><strong>Un finde para jugar y apoyar a los creadores locales</strong></div>
-                        <div class="lead">FINDE te propone un fin de semana dedicado a jugar, aprender y descubrir nuevas experiencias digitales. Una iniciativa para que puedas comprar, regalar, descargar juegos y apoyar a los creadores durante la cuarentena.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <?php the_content();?>
 
-        <!--BP-->
+        <!--BP
         <section class="bg-white">
             <div class="container-fluid">
                 <div class="container">
@@ -47,7 +37,7 @@ get_template_part( 'layouts/header', 'vj' );
                     </div>
                 </div>
             </div>
-        </section>
+        </section>-->
 
 
         <!--CATALOGO-->
@@ -109,7 +99,7 @@ get_template_part( 'layouts/header', 'vj' );
                 <div class="row">
                     <h1 class="col-12 mb-4"><strong>Titulo del juego</strong></h1>
                     <p class="col-md-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-                    <iframe src="http://emlabollita.com/finde/flappy-bird/" width="100%" height="620px" frameborder="0" align="center" scrolling="no"></iframe>
+                    <iframe src="//emlabollita.com/finde/flappy-bird/" width="100%" height="620px" frameborder="0" align="center" scrolling="no"></iframe>
                 </div>
             </div>
         </section>

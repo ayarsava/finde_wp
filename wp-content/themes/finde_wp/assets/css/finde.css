@@ -1379,5 +1379,41 @@ input[type=radio] + label {
     transform: rotate(1800deg);
   }
 }
+/* GUTEMBERG */
+.wp-block-group__inner-container {
+  max-width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+}
+
+@media (min-width: 576px) {
+  .wp-block-group__inner-container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .wp-block-group__inner-container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .wp-block-group__inner-container {
+    max-width: 960px;
+  }
+  .wp-block-group__inner-container .ancho-50 {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1200px) {
+  .wp-block-group__inner-container {
+    max-width: 1140px;
+  }
+}
 
 /*# sourceMappingURL=finde.css.map */
