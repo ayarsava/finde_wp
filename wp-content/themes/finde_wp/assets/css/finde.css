@@ -1214,8 +1214,11 @@ input[type=radio] + label {
 }
 #clock li span {
   display: block;
-  font-size: 4rem;
+  font-size: 7rem;
   line-height: 1;
+}
+#clock li span#seconds {
+  width: 7rem;
 }
 @media (max-width: 767.98px) {
   #clock li span {

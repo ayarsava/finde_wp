@@ -1149,8 +1149,11 @@ a[class^="hvr-"] {
   }
   li span {
     display: block;
-    font-size: 4rem;
+    font-size: 7rem;
     line-height: 1;
+    &#seconds {
+      width: 7rem;
+    }
     @media (max-width: 767.98px) {
       font-size: 3.5em
     }
