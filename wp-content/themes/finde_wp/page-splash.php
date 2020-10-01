@@ -48,7 +48,7 @@
 	<div class="container text-center">
 		<div class="row">
 			<div class="col-12 mx-auto">
-				<div class="logo mt-5 mb-4"><img src="/wp-content/themes/finde_wp/assets/img/finde-logo-azul2.png" width="380" class="img-fluid"></div>
+				<div class="logo mt-2"><img src="/wp-content/themes/finde_wp/assets/img/finde-logo-azul2.png" width="380" class="img-fluid"></div>
 				
 				<div id="clock" class="mx-auto text-white" style="display:none;">
 					<ul class="list-unstyled">
@@ -60,14 +60,14 @@
 				</div>
 			</div>
 			<div class="col-lg-12 col-md-15 mx-auto">
-				<div class="card-deck my-4 text-center">
+				<div class="card-deck my-1 text-center">
 					<div class="col-md-5 bg-transparent mb-4 mx-auto">
 						<div class="card text-center shadow hover-shadow">
 								<div class="py-3 col-md-8 mx-auto">
 										<img src="/wp-content/themes/finde_wp/assets/img/icon-vj.png" class="img-fluid icon">
 								</div>
 								<div class="pb-1 text-white">
-									<h3><strong>Videojuegos</strong></h3>
+									<h3><strong>PRÓXIMA EDICIÓN VIDEOJUEGOS</strong></h3>
 									<p>Del 8 AL 11 DE OCTUBRE</p>
 									<div class="btn btn-outline-light btn-light os stretched-link mb-3" id="activo" style="display:none;"><a href="/videojuegos" title="Accedé a la Edición de Videojuegos">Accedé</a></div>
 								</div>
