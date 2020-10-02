@@ -23,7 +23,7 @@ get_template_part( 'layouts/header', 'vj' );
         <!--OPB-->
         <?php the_content();?>
 
-        <!--BP
+        <!--BP-->
         <section class="bg-white">
             <div class="container-fluid">
                 <div class="container">
@@ -37,8 +37,8 @@ get_template_part( 'layouts/header', 'vj' );
                     </div>
                 </div>
             </div>
-        </section>-->
-
+        </section>
+        
 
         <!--CATALOGO-->
         <section id="catalogo" class="bg-white py-5">
@@ -79,7 +79,7 @@ get_template_part( 'layouts/header', 'vj' );
         </section>
 
         <!--AGENDA-->
-        <section id="agenda-slick" class="bg-light py-5">
+        <section id="agenda" class="bg-light py-5">
             <div class="container">
                 <h1 class="mb-4"><strong>Agenda</strong> <a href="/en-vivo" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
                 <?php wp_archive_agenda('videojuegos'); ?>
@@ -94,12 +94,18 @@ get_template_part( 'layouts/header', 'vj' );
         </section>
 
         <!--LB-->
-        <section class="mx-auto d-none d-lg-block py-5 text-white" style="background:#222;">
+        <section class="mx-auto py-5 text-white" style="background:#222;">
             <div class="container mb-5">
                 <div class="row">
-                    <h1 class="col-12 mb-4"><strong>Titulo del juego</strong></h1>
-                    <p class="col-md-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-                    <iframe src="//emlabollita.com/finde/flappy-bird/" width="100%" height="620px" frameborder="0" align="center" scrolling="no"></iframe>
+                    <div class="col-15">
+                        <h1 class="mb-4"><strong>Titulo del juego</strong></h1>
+                    </div>
+                    <div class="col-md-9 mr-auto">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                    </div>
+                    <div class="col-15 text-center gamepad my-3 embed-responsive embed-responsive-16by9" style="background: #CCC;border-radius: 30px;">
+                        <iframe src="//emlabollita.com/finde/flappy-bird/" class="embed-responsive-item"  frameborder="0" scrolling="no" align="center"></iframe>
+                    </div>
                 </div>
             </div>
         </section>

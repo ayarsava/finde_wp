@@ -1203,39 +1203,37 @@ if ( ! function_exists( 'wp_archive_catalogovj_tiny' ) ) {
   }
 }
 
+if ( ! function_exists( 'wp_archive_catalogovj_bytag' ) ) {
+  function wp_archive_catalogovj_bytag($post_tag) {
+    $args = array(
+      'post_type'              => 'catalogo',
+      'posts_per_page'         => -1,
+      'post_status'            => 'publish',
+      'no_found_rows'          => true,
+      'tag'                    => $post_tag,
+    );
 
-/*** CATALOGO EDITORIAL ***/
-function wp_archive_catalogoed() {
-  $args = array(
-    'post_type'              => 'editoriales',
-    'posts_per_page'         => -1,
-    'post_status'            => 'publish',
-    'no_found_rows'          => true,
-  );
+    // The Query
+    $query_catalogo = new WP_Query( $args );
+    // The Loop
+    if ( $query_catalogo->have_posts() ) {
+      $term = get_term_by('slug', $post_tag, 'post_tag'); 
+      $tag_name = $term->name;
+      echo '<h3 class="mb-4"><strong>'.$tag_name.'</strong></h3>';
+      echo '<div class="slick ntflx mb-5">';
+      while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
 
-  // The Query
-  $query_catalogo = new WP_Query( $args );
-  // The Loop
-  if ( $query_catalogo->have_posts() ) {
-
-    while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
-
-        $productos = MB_Relationships_API::get_connected( [
-            'id'   => 'productoeditorial_to_editoriales',
-            'to' => get_the_ID(),
+        $estudios = MB_Relationships_API::get_connected( [
+          'id'   => 'catalogo_to_estudios',
+          'from' => get_the_ID(),
         ] );
-
+        
+        $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
         $url = rwmb_meta( 'mbox_url' );
-        $images = rwmb_meta( 'image_ed', array( 'size' => 'medium' ) );
-        $instagram = rwmb_meta( 'mbox_instagram' );
-        $twitter = rwmb_meta( 'mbox_twitter' );
-        $facebook = rwmb_meta( 'mbox_facebook' );
-        $libreria = rwmb_meta( 'mbox_libreria' );
-        $whatsapp = rwmb_meta( 'mbox_whatsapp' );
-
-
-        $terms = get_the_terms( $post->ID, 'rubro_ed' );
-        $dterms = get_the_terms( $post->ID, 'descuento_ed' );
+        $descargas = rwmb_meta( 'descarga_id' );
+        
+        $terms = get_the_terms( $post->ID, 'rubro' );
+        $dterms = get_the_terms( $post->ID, 'descuento' );
 
         echo '<div class="grid-item item mb-1"';
         if ($terms) {
@@ -1249,358 +1247,544 @@ function wp_archive_catalogoed() {
         echo '"';
         }
         echo '>';
-        // slick
-        if ($images) {
-        echo '<div class="galeria-slick">';
-        foreach ( $images as $image ) {
-            echo '<a href="' . get_the_permalink() .'"><img data-lazy="'. $image['url']. '"></a>';
-        }    
-        echo '</div>';
-        }
-        echo '<div class="grid-item-content card">';
         echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+        echo '<div class="grid-item-content card ">';
+        if ( has_post_thumbnail() ) {
+          echo '<img data-lazy="'.$src[0].'" class="img-fluid card-img-top">';
+        }
         echo '<div class="card-body">';
         echo '<h5 class="card-title">' . get_the_title() . '</h5>';
         if ( get_the_excerpt() ) {
-            echo '<div class="card-text">' . get_the_excerpt() .'</div>';
+          echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_excerpt() ), 8, '...' ) .'</div>';
         } else {
-            echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+          echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 8, '...' ) .'</div>';
         }
-        
         if ($terms) {
-            echo '<div class="rubro_ed">';
-            foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro_ed').'" class="badge bg-primary mt-1 os">'.$term->name.'</a></span>', ' ';}
-            echo '</div>';
-        }
-        if ($dterms) {
-            echo '<div class="descuento_ed">';
-            foreach( $dterms as $term ) { echo '<a href="'.get_term_link($term->slug, 'descuento_ed').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
-            echo '</div>';
-        }
-        if ($url || $instagram || $facebook || $twitter) {
-            echo '<div class="contacto mt-2">';
-            if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></i></a></li>';}
-            if ($libreria) { echo '<li class="list-inline-item"><a href="'. $libreria . '" target="_blank" class="os"><i class="fas fa-shopping-cart"></i></a></li>';}
-            if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
-            if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
-            if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
-            if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
-            echo '</div>';
-        }
-        
+        echo '<div class="rubro">';
+        foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
         echo '</div>';
-        
-        if ($productos) {
-            echo '<small class="card-footer text-muted text-sm lista">';
-            echo 'Productos u ofertas:<ul>'; foreach ( $productos as $producto ) {
-            echo '<li><span><strong>' .$producto->post_title.'</strong></span></li> ';
-            }
-            echo '</ul></small>';
+        }
+        if ($descargas) {
+        echo '<small class="descargas mt-2 d-block">';
+        foreach ( $descargas as $descarga ) {
+          echo '<a href="'.$descarga['d_url'].'" class="os btn btn-sm btn-outline-dark mr-1 mb-1 descarga" target="_blank"><span>' . $descarga['d_name'] .'</span></a>';
+        }
+        echo '</small>';
+        }
+        echo '</div>';
+        if ($estudios) {
+          echo '<small class="card-footer text-muted text-sm lista">';
+          echo 'Por '; foreach ( $estudios as $estudio ) {
+              echo '<span><a href="' . get_the_permalink($estudio) .'" rel="slidemark" class="os">' .$estudio->post_title.'</a></span> ';
+          }
+          echo '</small>';
         }
         echo '</div></div>';
-    endwhile;
-    wp_reset_postdata();
-  } else {
-    echo 'No hemos encontrado productos o servicios asociados al catálogo.';
+      endwhile;
+      echo '</div>';
+      wp_reset_postdata();
+    }
   }
+}
 
-  // Restore original Post Data
-  wp_reset_postdata();
+
+/*** CATALOGO EDITORIAL ***/
+if ( ! function_exists( 'wp_archive_destacadoed' ) ) {
+  function wp_archive_catalogoed() {
+    $args = array(
+      'post_type'              => 'editoriales',
+      'posts_per_page'         => -1,
+      'post_status'            => 'publish',
+      'no_found_rows'          => true,
+    );
+
+    // The Query
+    $query_catalogo = new WP_Query( $args );
+    // The Loop
+    if ( $query_catalogo->have_posts() ) {
+
+      while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
+
+          $productos = MB_Relationships_API::get_connected( [
+              'id'   => 'productoeditorial_to_editoriales',
+              'to' => get_the_ID(),
+          ] );
+
+          $url = rwmb_meta( 'mbox_url' );
+          $images = rwmb_meta( 'image_ed', array( 'size' => 'medium' ) );
+          $instagram = rwmb_meta( 'mbox_instagram' );
+          $twitter = rwmb_meta( 'mbox_twitter' );
+          $facebook = rwmb_meta( 'mbox_facebook' );
+          $libreria = rwmb_meta( 'mbox_libreria' );
+          $whatsapp = rwmb_meta( 'mbox_whatsapp' );
+
+
+          $terms = get_the_terms( $post->ID, 'rubro_ed' );
+          $dterms = get_the_terms( $post->ID, 'descuento_ed' );
+
+          echo '<div class="grid-item item mb-1"';
+          if ($terms) {
+          echo ' data-category="';
+          foreach( $terms as $term ) echo $term->slug. ' ';
+          echo '" ';
+          }
+          if ($terms) {
+          echo ' data-descuento="';
+          foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
+          echo '"';
+          }
+          echo '>';
+          // slick
+          if ($images) {
+          echo '<div class="galeria-slick">';
+          foreach ( $images as $image ) {
+              echo '<a href="' . get_the_permalink() .'"><img data-lazy="'. $image['url']. '"></a>';
+          }    
+          echo '</div>';
+          }
+          echo '<div class="grid-item-content card">';
+          echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+          echo '<div class="card-body">';
+          echo '<h5 class="card-title">' . get_the_title() . '</h5>';
+          if ( get_the_excerpt() ) {
+              echo '<div class="card-text">' . get_the_excerpt() .'</div>';
+          } else {
+              echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+          }
+          
+          if ($terms) {
+              echo '<div class="rubro_ed">';
+              foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro_ed').'" class="badge bg-primary mt-1 os">'.$term->name.'</a></span>', ' ';}
+              echo '</div>';
+          }
+          if ($dterms) {
+              echo '<div class="descuento_ed">';
+              foreach( $dterms as $term ) { echo '<a href="'.get_term_link($term->slug, 'descuento_ed').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
+              echo '</div>';
+          }
+          if ($url || $instagram || $facebook || $twitter) {
+              echo '<div class="contacto mt-2">';
+              if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></i></a></li>';}
+              if ($libreria) { echo '<li class="list-inline-item"><a href="'. $libreria . '" target="_blank" class="os"><i class="fas fa-shopping-cart"></i></a></li>';}
+              if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
+              if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
+              if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
+              if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
+              echo '</div>';
+          }
+          
+          echo '</div>';
+          
+          if ($productos) {
+              echo '<small class="card-footer text-muted text-sm lista">';
+              echo 'Productos u ofertas:<ul>'; foreach ( $productos as $producto ) {
+              echo '<li><span><strong>' .$producto->post_title.'</strong></span></li> ';
+              }
+              echo '</ul></small>';
+          }
+          echo '</div></div>';
+      endwhile;
+      wp_reset_postdata();
+    } else {
+      echo 'No hemos encontrado productos o servicios asociados al catálogo.';
+    }
+
+    // Restore original Post Data
+    wp_reset_postdata();
+  }
 }
 
 /*** CATALOGO MUSICA ***/
-function wp_archive_catalogomu() {
-    $term = get_term_by( 'slug', get_query_var('term'), get_query_var('taxonomy') );
-    $term_id = $term->term_id;
-    $taxonomy_name = 'rubro_mu';
-    $termchildren = get_term_children( $term_id, $taxonomy_name );
-                         
+if ( ! function_exists( 'wp_archive_catalogomu' ) ) {
+  function wp_archive_catalogomu() {
+      $term = get_term_by( 'slug', get_query_var('term'), get_query_var('taxonomy') );
+      $term_id = $term->term_id;
+      $taxonomy_name = 'rubro_mu';
+      $termchildren = get_term_children( $term_id, $taxonomy_name );
+                          
 
-    $args = array(
-        'post_type'              => 'music',
-        'posts_per_page'         => -1,
-        'post_status'            => 'publish',
-        'no_found_rows'          => true,
-        'tax_query' => array(
-        array(
-            'taxonomy' => 'rubro_mu',
-            'field' => 'term_id', 
-            'terms' => $term_id, /// Where term_id of Term 1 is "1".
-            'include_children' => true
-            )
-        )
-    );
+      $args = array(
+          'post_type'              => 'music',
+          'posts_per_page'         => -1,
+          'post_status'            => 'publish',
+          'no_found_rows'          => true,
+          'tax_query' => array(
+          array(
+              'taxonomy' => 'rubro_mu',
+              'field' => 'term_id', 
+              'terms' => $term_id, /// Where term_id of Term 1 is "1".
+              'include_children' => true
+              )
+          )
+      );
 
-  // The Query
-  $query_catalogo = new WP_Query( $args );
-  // The Loop
-  if ( $query_catalogo->have_posts() ) {
+    // The Query
+    $query_catalogo = new WP_Query( $args );
+    // The Loop
+    if ( $query_catalogo->have_posts() ) {
 
-    while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
+      while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
 
-        $url = rwmb_meta( 'mbox_url' );
-        $images = rwmb_meta( 'image_ed', array( 'size' => 'medium' ) );
-        $instagram = rwmb_meta( 'mbox_instagram' );
-        $twitter = rwmb_meta( 'mbox_twitter' );
-        $facebook = rwmb_meta( 'mbox_facebook' );
-        $libreria = rwmb_meta( 'mbox_libreria' );
-        $whatsapp = rwmb_meta( 'mbox_whatsapp' );
+          $url = rwmb_meta( 'mbox_url' );
+          $images = rwmb_meta( 'image_ed', array( 'size' => 'medium' ) );
+          $instagram = rwmb_meta( 'mbox_instagram' );
+          $twitter = rwmb_meta( 'mbox_twitter' );
+          $facebook = rwmb_meta( 'mbox_facebook' );
+          $libreria = rwmb_meta( 'mbox_libreria' );
+          $whatsapp = rwmb_meta( 'mbox_whatsapp' );
 
 
-        $terms = get_the_terms( $post->ID, 'rubro_mu' );
-        $dterms = get_the_terms( $post->ID, 'descuento_mu' );
+          $terms = get_the_terms( $post->ID, 'rubro_mu' );
+          $dterms = get_the_terms( $post->ID, 'descuento_mu' );
 
-        echo '<div class="grid-item item mb-1"';
-        if ($terms) {
-            echo ' data-category="';
-            foreach( $terms as $term ) echo $term->slug. ' ';
-            echo '" ';
-        }
-        if ($dterms) {
-            echo ' data-descuento="';
-            foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
-            echo '"';
-        }
-        echo '>';
-        // slick
-        if ($images) {
-            echo '<div class="galeria-slick">';
-            foreach ( $images as $image ) {
-                echo '<a href="' . get_the_permalink() .'"><img data-lazy="'. $image['url']. '"></a>';
-            }    
-            echo '</div>';
-        }
-        echo '<div class="grid-item-content card">';
-        echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
-        echo '<div class="card-body">';
-        echo '<h5 class="card-title">' . get_the_title() . '</h5>';
-        if ( get_the_excerpt() ) {
-            echo '<div class="card-text">' . get_the_excerpt() .'</div>';
-        } else {
-            echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
-        }
-        
-        if ($terms) {
-            echo '<div class="rubro_mu">';
-            foreach( $terms as $term ) { echo '<span><a href="'.get_term_link($term->slug, 'rubro_mu').'" class="badge bg-primary mt-1 os">'.$term->name.'</a></span>', ' ';}
-            echo '</div>';
-        }
-        if ($dterms) {
-            echo '<div class="descuento_mu">';
-            foreach( $dterms as $term ) { echo '<a href="'.get_term_link($term->slug, 'descuento_mu').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
-            echo '</div>';
-        }
-        if ($url || $instagram || $facebook || $twitter) {
-            echo '<div class="contacto mt-2">';
-            if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></a></li>';}
-            if ($libreria) { echo '<li class="list-inline-item"><a href="'. $libreria . '" target="_blank" class="os"><i class="fas fa-shopping-cart"></i></a></li>';}
-            if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
-            if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
-            if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
-            if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
-            echo '</div>';
-        }
-        
-        echo '</div><!--End .card-body-->';
-        
-        if ($productos) {
-            echo '<small class="card-footer text-muted text-sm lista">';
-            echo 'Productos u ofertas:<ul>'; foreach ( $productos as $producto ) {
-            echo '<li><span><strong>' .$producto->post_title.'</strong></span></li> ';
-            }
-            echo '</ul></small>';
-        }
-        echo '</div></div>';
-    endwhile;
+          echo '<div class="grid-item item mb-1"';
+          if ($terms) {
+              echo ' data-category="';
+              foreach( $terms as $term ) echo $term->slug. ' ';
+              echo '" ';
+          }
+          if ($dterms) {
+              echo ' data-descuento="';
+              foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
+              echo '"';
+          }
+          echo '>';
+          // slick
+          if ($images) {
+              echo '<div class="galeria-slick">';
+              foreach ( $images as $image ) {
+                  echo '<a href="' . get_the_permalink() .'"><img data-lazy="'. $image['url']. '"></a>';
+              }    
+              echo '</div>';
+          }
+          echo '<div class="grid-item-content card">';
+          echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+          echo '<div class="card-body">';
+          echo '<h5 class="card-title">' . get_the_title() . '</h5>';
+          if ( get_the_excerpt() ) {
+              echo '<div class="card-text">' . get_the_excerpt() .'</div>';
+          } else {
+              echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+          }
+          
+          if ($terms) {
+              echo '<div class="rubro_mu">';
+              foreach( $terms as $term ) { echo '<span><a href="'.get_term_link($term->slug, 'rubro_mu').'" class="badge bg-primary mt-1 os">'.$term->name.'</a></span>', ' ';}
+              echo '</div>';
+          }
+          if ($dterms) {
+              echo '<div class="descuento_mu">';
+              foreach( $dterms as $term ) { echo '<a href="'.get_term_link($term->slug, 'descuento_mu').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
+              echo '</div>';
+          }
+          if ($url || $instagram || $facebook || $twitter) {
+              echo '<div class="contacto mt-2">';
+              if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></a></li>';}
+              if ($libreria) { echo '<li class="list-inline-item"><a href="'. $libreria . '" target="_blank" class="os"><i class="fas fa-shopping-cart"></i></a></li>';}
+              if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
+              if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
+              if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
+              if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
+              echo '</div>';
+          }
+          
+          echo '</div><!--End .card-body-->';
+          
+          if ($productos) {
+              echo '<small class="card-footer text-muted text-sm lista">';
+              echo 'Productos u ofertas:<ul>'; foreach ( $productos as $producto ) {
+              echo '<li><span><strong>' .$producto->post_title.'</strong></span></li> ';
+              }
+              echo '</ul></small>';
+          }
+          echo '</div></div>';
+      endwhile;
+      wp_reset_postdata();
+    } else {
+      echo 'No hemos encontrado productos o servicios asociados al catálogo.';
+    }
+
+    // Restore original Post Data
     wp_reset_postdata();
-  } else {
-    echo 'No hemos encontrado productos o servicios asociados al catálogo.';
   }
-
-  // Restore original Post Data
-  wp_reset_postdata();
 }
 
 /*** JUEGO DESTACADO ***/
-function wp_archive_destacadovj() {
-  $args = array(
-    'post_type'              => 'catalogo',
-    'meta_query'=> array(
-        array(
-            'key'            => 'destacado_id', // this key will change!
-            'compare'        => '=',
-            'value'          => '1',
-            'type'           => 'BINARY',
-        )
-    ),
-    'order'                  => 'ASC',
-    'orderby'                => 'title',
-  );
+if ( ! function_exists( 'wp_archive_destacadovj' ) ) {
+  function wp_archive_destacadovj() {
+    $args = array(
+      'post_type'              => 'catalogo',
+      'meta_query'=> array(
+          array(
+              'key'            => 'destacado_id', // this key will change!
+              'compare'        => '=',
+              'value'          => '1',
+              'type'           => 'BINARY',
+          )
+      ),
+      'order'                  => 'ASC',
+      'orderby'                => 'title',
+    );
 
-  // The Query
-  $query_catalogo = new WP_Query( $args );
-  // The Loop
-  if ( $query_catalogo->have_posts() ) {
+    // The Query
+    $query_catalogo = new WP_Query( $args );
+    // The Loop
+    if ( $query_catalogo->have_posts() ) {
 
-    while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
-      $estudios = MB_Relationships_API::get_connected( [
-        'id'   => 'catalogo_to_estudios',
-        'from' => get_the_ID(),
-      ] );
-      
-      $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
-      $url = rwmb_meta( 'mbox_url' );
-      $descargas = rwmb_meta( 'descarga_id' );
-      
-      
-      $terms = get_the_terms( $post->ID, 'rubro' );
-      $dterms = get_the_terms( $post->ID, 'descuento' );
+      while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
+        $estudios = MB_Relationships_API::get_connected( [
+          'id'   => 'catalogo_to_estudios',
+          'from' => get_the_ID(),
+        ] );
+        
+        $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
+        $url = rwmb_meta( 'mbox_url' );
+        $descargas = rwmb_meta( 'descarga_id' );
+        
+        
+        $terms = get_the_terms( $post->ID, 'rubro' );
+        $dterms = get_the_terms( $post->ID, 'descuento' );
 
 
-      echo '<div class="carousel-item card">';
-        echo '<div class="row no-gutters">';
-          if ($src) {
-          echo '<div class="col-md-7">';
-          echo '<div class="bg-image h-100" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
-          }
-          echo '</div>';
-          echo '<div class="col-md-8 p-5" style="background:#CCC">';
-            echo '<div class="lead">JUEGO DEL DÍA</div>';
-            echo '<h1>' . get_the_title() . '</h1>';
-            if ( get_the_excerpt() ) {
-              echo '<div>' . get_the_excerpt() .'</div>';
-            } else {
-              echo '<div>' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+        echo '<div class="carousel-item card">';
+          echo '<div class="row no-gutters">';
+            if ($src) {
+            echo '<div class="col-md-7">';
+            echo '<div class="bg-image h-100" style="background-image: url('. $src[0] .');background-size:cover; background-position:center center;"></div>';
             }
-            echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+            echo '</div>';
+            echo '<div class="col-md-8 p-5" style="background:#CCC">';
+              echo '<div class="lead">JUEGO DEL DÍA</div>';
+              echo '<h1>' . get_the_title() . '</h1>';
+              if ( get_the_excerpt() ) {
+                echo '<div>' . get_the_excerpt() .'</div>';
+              } else {
+                echo '<div>' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+              }
+              echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+            echo '</div>';
           echo '</div>';
         echo '</div>';
-      echo '</div>';
 
-      
-    endwhile;
+        
+      endwhile;
+      wp_reset_postdata();
+    } else {
+      echo 'No hemos encontrado productos o servicios asociados al catálogo.';
+    }
+
+    // Restore original Post Data
     wp_reset_postdata();
-  } else {
-    echo 'No hemos encontrado productos o servicios asociados al catálogo.';
   }
-
-  // Restore original Post Data
-  wp_reset_postdata();
 }
 
 /*** EDITORIAL DESTACADO ***/
-function wp_archive_destacadoed() {
-  $args = array(
-    'post_type'              => 'editoriales',
-    'meta_query'=> array(
-        array(
-            'key'            => 'destacado_id', // this key will change!
-            'compare'        => '=',
-            'value'          => '1',
-            'type'           => 'BINARY',
-        )
-    ),
-    'order'                  => 'ASC',
-    'orderby'                => 'title',
-  );
+if ( ! function_exists( 'wp_archive_destacadoed' ) ) {
+  function wp_archive_destacadoed() {
+    $args = array(
+      'post_type'              => 'editoriales',
+      'meta_query'=> array(
+          array(
+              'key'            => 'destacado_id', // this key will change!
+              'compare'        => '=',
+              'value'          => '1',
+              'type'           => 'BINARY',
+          )
+      ),
+      'order'                  => 'ASC',
+      'orderby'                => 'title',
+    );
 
-  // The Query
-  $query_catalogo = new WP_Query( $args );
-  // The Loop
-  if ( $query_catalogo->have_posts() ) {
+    // The Query
+    $query_catalogo = new WP_Query( $args );
+    // The Loop
+    if ( $query_catalogo->have_posts() ) {
 
-    while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
-
-
-      $estudios = MB_Relationships_API::get_connected( [
-        'id'   => 'productoeditorial_to_editoriales',
-        'from' => get_the_ID(),
-      ] );
-      
-      $url = rwmb_meta( 'mbox_url' );
-      $descargas = rwmb_meta( 'descarga_id' );
-      
-      $images = rwmb_meta( 'image_ed', array( 'size' => 'large' ) );
-
-      $terms = get_the_terms( $post->ID, 'rubro_ed' );
-      $dterms = get_the_terms( $post->ID, 'descuento_ed' );
+      while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
 
 
-      echo '<div class="carousel-item card">';
-        echo '<div class="row no-gutters">';
-        if ($images) {
-        echo '<div class="col-md-7 galeria-slick" style="min-height:300px;">';
-            // slick
-            foreach ( $images as $image ) {
-            echo '<a href="#"><img src="', $image['url'], '"></a>';
-            }    
+        $estudios = MB_Relationships_API::get_connected( [
+          'id'   => 'productoeditorial_to_editoriales',
+          'from' => get_the_ID(),
+        ] );
+        
+        $url = rwmb_meta( 'mbox_url' );
+        $descargas = rwmb_meta( 'descarga_id' );
+        
+        $images = rwmb_meta( 'image_ed', array( 'size' => 'large' ) );
+
+        $terms = get_the_terms( $post->ID, 'rubro_ed' );
+        $dterms = get_the_terms( $post->ID, 'descuento_ed' );
+
+
+        echo '<div class="carousel-item card">';
+          echo '<div class="row no-gutters">';
+          if ($images) {
+          echo '<div class="col-md-7 galeria-slick" style="min-height:300px;">';
+              // slick
+              foreach ( $images as $image ) {
+              echo '<a href="#"><img src="', $image['url'], '"></a>';
+              }    
+          echo '</div>';
+          }
+            echo '<div class="col-md-8 p-5" style="background:#CCC">';
+              echo '<div class="lead">EDITORIAL DEL DÍA</div>';
+              echo '<h1>' . get_the_title() . '</h1>';
+              if ( get_the_excerpt() ) {
+                echo '<div>' . get_the_excerpt() .'</div>';
+              } else {
+                echo '<div>' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+              }
+              echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+            echo '</div>';
+          echo '</div>';
         echo '</div>';
-        }
-          echo '<div class="col-md-8 p-5" style="background:#CCC">';
-            echo '<div class="lead">EDITORIAL DEL DÍA</div>';
-            echo '<h1>' . get_the_title() . '</h1>';
-            if ( get_the_excerpt() ) {
-              echo '<div>' . get_the_excerpt() .'</div>';
-            } else {
-              echo '<div>' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
-            }
-            echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+
+        
+      endwhile;
+      wp_reset_postdata();
+    } else {
+      echo 'No hemos encontrado productos o servicios asociados al catálogo.';
+    }
+
+    // Restore original Post Data
+    wp_reset_postdata();
+  }
+}
+
+/*** AGENDA ***/
+if ( ! function_exists( 'wp_archive_agenda' ) ) {
+  function wp_archive_agenda($post_category) {
+
+    $args = array(
+        'post_type'             => 'agenda',
+        'posts_per_page'        => -1,
+        'category_name'         => $post_category,
+        'meta_query'            => array(
+            'fecha_clause'      => array(
+                'key'           => 'fecha_id',
+            ),
+            /*'destacado_clause'  => array(
+                'key'           => 'destacado_id',
+            ), */
+        ),
+        'orderby'               => array( 
+            //'destacado_clause'  => 'DESC',
+            'fecha_clause'      => 'ASC',
+        ),
+    );
+
+    // The Query
+    $query_agenda = new WP_Query( $args );
+
+    if ( $query_agenda->have_posts() ) { 
+      echo '<div class="slick agenda slider-nav">';
+      /* Start the Loop */
+      $count = 1;
+      while ( $query_agenda->have_posts() ) : $query_agenda->the_post();
+
+          /*
+              * Include the Post-Type-specific template for the content.
+              * If you want to override this in a child theme, then include a file
+              * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+              */
+          get_template_part( 'template-parts/content', get_post_type() );
+
+      endwhile;
+      echo '</div>';
+    } else {
+      get_template_part( 'template-parts/content', 'none' );    
+    }
+  }
+}
+
+/*** AGENDA DESTACADO***/
+if ( ! function_exists( 'wp_archive_agenda_destacado' ) ) {
+  function wp_archive_agenda_destacado($post_category) {
+
+    $args = array(
+        'post_type'             => 'agenda',
+        'posts_per_page'        => -1,
+        'category_name'         => $post_category,
+        'meta_query' => array(
+          'relation' => 'AND',
+          array(
+            'fecha_clause'      => array(
+                'key'           => 'fecha_id',
+            ),
+            'destacado_clause'  => array(
+                'key'           => 'destacado_id',
+                'value'         => 1,
+            )
+          )
+        ),
+        'orderby'               => array( 
+            'destacado_clause'  => 'DESC',
+            'fecha_clause'      => 'ASC',
+        ),
+    );
+
+    // The Query
+    $query_agenda = new WP_Query( $args );
+
+    if ( $query_agenda->have_posts() ) { 
+      echo '<div id="agenda-destacada" class="slick slider-nav">';
+      /* Start the Loop */
+      $count = 1;
+      while ( $query_agenda->have_posts() ) : $query_agenda->the_post();
+
+      /* grab the url for the full size featured image */
+      $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+      $fecha = rwmb_meta( 'fecha_id' ); 
+      $destacado = rwmb_meta( 'destacado_id' );
+      echo '<div class="item mb-4 ';
+        if ($destacado == 1) { 
+          echo 'destacado';
+        };
+        echo '"';
+        echo 'data-target="'. date('d-m', $fecha).'">';
+        if ($destacado == 1) { 
+          echo '<div class="ribbon ribbon-top-left"><span>DESTACADO</span></div>'; 
+        } 
+        echo '<div class="card h-100">';
+          if ($featured_img_url) { 
+            echo '<div class="img-wrapper img-fluid card-img-top" style="background-image: url('. esc_url($featured_img_url) .');" background-size:cover;background-position: center center; height:160px;position:relative;">';
+            echo '</div>';
+          } 
+          
+          $post_tags = get_the_tags();
+          if ( $post_tags ) {
+            echo '<div class="tags">';
+              foreach( $post_tags as $tag ) {
+              echo '<span>' .$tag->name . '</span>'; 
+              }
+            echo '</div>';
+          }
+          
+          echo '<div class="card-body">';
+            echo '<a href="'. get_permalink() .'" class="stretched-link"></a>';
+            echo '<div class="row">';
+              echo '<div class="col-md-5">';
+                echo '<div class="fecha"><span class="dia">'.date('d-m', $fecha).'</span><span class="hora">'. date('H:i', $fecha).'hs</span></div>';
+              echo '</div>';
+              echo '<div class="col-md-10">';
+                echo the_title( '<h5 class="card-title">', '</h5>' );
+                if ( get_the_excerpt() ) {
+                  echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_excerpt() ), 18, '...' ) .'</div>';
+                } else {
+                  echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+                }
+              echo '</div>';
+            echo '</div>';
           echo '</div>';
         echo '</div>';
       echo '</div>';
 
-      
-    endwhile;
-    wp_reset_postdata();
-  } else {
-    echo 'No hemos encontrado productos o servicios asociados al catálogo.';
-  }
-
-  // Restore original Post Data
-  wp_reset_postdata();
-}
-
-/*** AGENDA ***/
-function wp_archive_agenda($post_category) {
-
-  $args = array(
-      'post_type'             => 'agenda',
-      'posts_per_page'        => -1,
-      'category_name'         => $post_category,
-      'meta_query'            => array(
-          'fecha_clause'      => array(
-              'key'           => 'fecha_id',
-          ),
-          /*'destacado_clause'  => array(
-              'key'           => 'destacado_id',
-          ), */
-      ),
-      'orderby'               => array( 
-          //'destacado_clause'  => 'DESC',
-          'fecha_clause'      => 'ASC',
-      ),
-  );
-
-  // The Query
-  $query_agenda = new WP_Query( $args );
-
-  if ( $query_agenda->have_posts() ) { 
-    echo '<div class="slick agenda slider-nav">';
-    /* Start the Loop */
-    $count = 1;
-    while ( $query_agenda->have_posts() ) : $query_agenda->the_post();
-
-        /*
-            * Include the Post-Type-specific template for the content.
-            * If you want to override this in a child theme, then include a file
-            * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-            */
-        get_template_part( 'template-parts/content', get_post_type() );
-
-    endwhile;
-    echo '</div>';
-  } else {
-    get_template_part( 'template-parts/content', 'none' );    
+      endwhile;
+      echo '</div>';
+    } else {
+      get_template_part( 'template-parts/content', 'none' );    
+    }
   }
 }
 

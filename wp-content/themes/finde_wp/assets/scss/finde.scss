@@ -468,6 +468,59 @@ a.badge.os {
     }
   }
 }
+
+.ribbon {
+  width: 92px;
+  height: 92px;
+  overflow: hidden;
+  position: absolute;
+  &::before,
+  &::after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+    display: block;
+    border: 2px solid #2980b9;
+  }
+  span {
+    position: absolute;
+    display: block;
+    width: 170px;
+    padding: 7px 0;
+    background-color: #01ca46;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    color: #fff;
+    font: 700 18px/1 'Lato', sans-serif;
+    text-shadow: 0 1px 1px rgba(0,0,0,.2);
+    text-transform: uppercase;
+    text-align: center;
+  }
+  /* top left*/
+  &.ribbon-top-left {
+    top: -1px;
+    left: 0px;
+  }
+  &.ribbon-top-left::before,
+  &.ribbon-top-left::after {
+    border-top-color: transparent;
+    border-left-color: transparent;
+  }
+  &.ribbon-top-left::before {
+    top: 0;
+    left: 88px;
+  }
+  &.ribbon-top-left::after {
+    bottom: 0;
+    left: 0;
+  }
+  &.ribbon-top-left span {
+    right: -30px;
+    top: 24px;
+    transform: rotate(-45deg);
+    font-size: .75rem;
+    z-index: 2;
+  }
+}
 .slick {
   opacity: 0;
   visibility: hidden;
@@ -480,7 +533,6 @@ a.badge.os {
   opacity: 1;    
   height:auto;
 }
-
 .slick.ntflx,
 .slick.agenda {
   &.slick-slider {
@@ -518,60 +570,8 @@ a.badge.os {
             }
           }
         }
-        .ribbon {
-          width: 92px;
-          height: 92px;
-          overflow: hidden;
-          position: absolute;
-          &::before,
-          &::after {
-            position: absolute;
-            z-index: -1;
-            content: '';
-            display: block;
-            border: 2px solid #2980b9;
-          }
-          span {
-            position: absolute;
-            display: block;
-            width: 170px;
-            padding: 7px 0;
-            background-color: #01ca46;
-            box-shadow: 0 5px 10px rgba(0,0,0,.1);
-            color: #fff;
-            font: 700 18px/1 'Lato', sans-serif;
-            text-shadow: 0 1px 1px rgba(0,0,0,.2);
-            text-transform: uppercase;
-            text-align: center;
-          }
-          /* top left*/
-          &.ribbon-top-left {
-            top: -1px;
-            left: 0px;
-          }
-          &.ribbon-top-left::before,
-          &.ribbon-top-left::after {
-            border-top-color: transparent;
-            border-left-color: transparent;
-          }
-          &.ribbon-top-left::before {
-            top: 0;
-            left: 88px;
-          }
-          &.ribbon-top-left::after {
-            bottom: 0;
-            left: 0;
-          }
-          &.ribbon-top-left span {
-            right: -30px;
-            top: 24px;
-            transform: rotate(-45deg);
-            font-size: .75rem;
-            z-index: 2;
-          }
-        }
       }
-    } 
+    }
     button.slick-next,
     button.slick-prev {
       display: block;
@@ -785,8 +785,72 @@ a[class^="hvr-"] {
       text-decoration: none!important;
     }
 }
+
+/*** AGENDA LISTADO***/
+.listado-agenda {
+  span.dia {
+    font-size: 3rem;
+    display: block;
+    text-align: left;
+    line-height: 1;
+    font-weight: 700;
+  }
+  span.hora {
+    font-size: 1.6rem;
+    display: block;
+    text-align: left;
+  }
+  .img-wrapper {
+    background-size:cover;
+    background-position: center center; 
+    height:150px;
+    border-left: solid 5px #222;
+  }
+  .etiquetas .badge {
+    font-size: 0.7rem;
+    font-weight: 400;
+    padding: 5px;
+  }
+}
+#agenda-destacada {
+  .slick-track .item {
+    position:relative;
+  }
+  .slick-slide {
+    padding-right: 20px;
+  }
+  .slick-slide:last-child {
+    padding-right: 0;
+  }
+  .img-wrapper {
+    height: 250px!important;
+  }
+  .destacado .tags {
+    position: absolute;
+    right: 0;
+  }
+
+  .tags {
+    position: absolute;
+    background: #009aae;
+    right: 0px;
+    top:9px;
+    padding: 2px 6px;
+    color: #F1F1F1;
+    font-size: .75rem;
+    span {
+      &:after {
+        content: " | ";
+      }
+      &:last-child:after {
+        content: "";
+      }
+    }
+  }
+}
+
 /*** AGENDA HOME ***/
-#agenda {
+.single-agenda {
   .bg-image {
     height: 140px;
   }
@@ -847,7 +911,7 @@ a[class^="hvr-"] {
     .card-text {
       font-size:.9rem;
     }
-    /* common */
+    
     .ribbon {
       width: 120px;
       height: 120px;
@@ -874,7 +938,7 @@ a[class^="hvr-"] {
         text-transform: uppercase;
         text-align: center;
       }
-      /* top left*/
+      
       &.ribbon-top-left {
         top: -1px;
         left: 9px;

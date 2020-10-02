@@ -60,13 +60,21 @@ $('.slick.ntflx').slick({
     {
       breakpoint: 1024,
       settings: {
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        infinite: true,
+      }
+    },
+    {
+      breakpoint: 991,
+      settings: {
         slidesToShow: 4,
         slidesToScroll: 1,
         infinite: true,
       }
     },
     {
-      breakpoint: 600,
+      breakpoint: 768,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2
@@ -84,6 +92,7 @@ $('.slick.ntflx').slick({
     // instead of a settings object
   ]
 });
+
 
 
 var day_0_vj = $('[data-target="08-10"]');
@@ -127,7 +136,15 @@ $('.slick.agenda').slick({
       }
     },
     {
-      breakpoint: 600,
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: true,
+      }
+    },
+    {
+      breakpoint: 768,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2
@@ -153,6 +170,15 @@ $('#external-buttons a').on('click', function(e){
   var targetSlide = $(this).data('target');
   $('.slick.agenda').slick('slickGoTo', targetSlide );
 });//click()
+
+$('#agenda-destacada').slick({
+  infinite: false,
+  speed: 300,
+  slidesToScroll: 1,
+  slidesToShow: 2,
+  lazyLoad: 'ondemand',
+  //initialSlide: slide,
+});
 
 // Filtro de catalogo
 // set up variables
