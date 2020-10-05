@@ -261,6 +261,9 @@ footer {
   .carousel-inner {
     .carousel-item {
       min-height: 500px;
+      @media (max-width: 767.98px) {
+        min-height: 250px;
+      }
       background-size:cover;
       background-position:center center;
       .carousel-caption {
@@ -989,6 +992,23 @@ a[class^="hvr-"] {
     width:100%;
   }
 }
+#slide-principal {
+  video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
 
 /*** AGENDA HOME ***/
 .single-agenda {

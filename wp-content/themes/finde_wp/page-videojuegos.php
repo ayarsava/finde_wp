@@ -15,10 +15,10 @@ get_template_part( 'layouts/header', 'vj' );
 ?>
 
     <div id="content" class="home-vj">
+        
         <section id="slide-principal">
             <?php get_template_part( 'template-parts/content', 'slide' ); ?>
         </section>
-
 
         <!--OPB-->
         <?php the_content();?>

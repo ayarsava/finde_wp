@@ -645,6 +645,12 @@ function mbox_register_meta_boxes( $meta_boxes ){
         'type' => 'url',
         'std'  => '',
       ),
+      array(
+        'name'             => 'Video',
+        'id'               => "{$prefix}video",
+        'type'             => 'video',
+      ),
+      
     )
   );
 
@@ -1028,17 +1034,45 @@ function wp_showSlides_fullbg() {
       $the_query->the_post();
       $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
       $url = rwmb_meta( 'mbox_url' );
-        
+      $videos = rwmb_meta( 'mbox_video', array( 'limit' => 1 ) );
+      $video = reset( $videos );
+      ?>
+<?php
+      if ($video) { 
+        echo '<div class="carousel-item">';
+          echo '<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" >';
+            echo '<source src="';
+            echo $video['src'];
+            echo '" type="video/mp4">';
+            echo '</source>';
+          echo '</video>';
+          echo '<div class="container h-100" style="z-index: 2;">';
+            echo '<div class="d-flex h-100 text-center align-items-center">';
+              echo '<div class="carousel-caption text-left">';
+                echo '<div class="info">';
+                  echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1>';
+                  echo '<div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
+                echo '</div>';
+              echo '</div>';
+            echo '</div>';
+          echo '</div>';
+        echo '</div>';
+      } else {
         if ( has_post_thumbnail() ) {
           echo '<div class="carousel-item" style="background-image: url('. $src[0] .')">';
         } else { 
           echo '<div class="carousel-item" style="background:#009aae">';
         }
-        echo '<div class="container">';
-        echo '<div class="carousel-caption text-left">';
-        echo '<div class="info">';
-        echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1><div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
-        echo '</div></div></div></div>';
+            echo '<div class="container">';
+              echo '<div class="carousel-caption text-left">';
+                echo '<div class="info">';
+                  echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1>';
+                  echo '<div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
+                echo '</div>';
+              echo '</div>';
+            echo '</div>';
+          echo '</div>';
+      }
     }
     /* Restore original Post Data */
     wp_reset_postdata();
