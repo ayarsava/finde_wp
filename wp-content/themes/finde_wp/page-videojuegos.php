@@ -45,11 +45,9 @@ get_template_part( 'layouts/header', 'vj' );
             <div class="container">
                 <h1 class="mb-5"><strong>Juegos</strong> <a href="/catalogo" title="Catalogo de videojuegos" class="btn btn-outline-primary"><i class="fas fa-gamepad"></i> Ver todos los juegos </a></h1>
                 
-                
                     <?php wp_archive_catalogovj_tiny('rapidos-y-furiosos') ?>
                     <?php wp_archive_catalogovj_tiny('concentracion-y-destreza') ?>
                     <?php wp_archive_catalogovj_tiny('grandes-aventuras') ?>
-                
                 
                 <div class="row">
                     <div class="col-15">

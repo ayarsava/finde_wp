@@ -25,7 +25,7 @@ get_header();
 
 	<div class="container">
   		<div class="row">
-      		<div class="<?php if (is_page( 'en-vivo' )) { 
+      		<div class="<?php if (is_page( 'en-vivo' ) || is_page( 'gamejam' )) { 
       			echo 'col-md-15';
       		} else { 
       			echo 'col-md-11';
@@ -44,8 +44,13 @@ get_header();
 
 					</main><!-- #main -->
       			</div><!-- #primary -->
-    		</div><!-- .col-12 .col-md-8 -->
-    	</div>
+			</div><!-- .col-15 .col-md-8 -->
+		
+		</div>
+	
+		<?php if (is_page( 'gamejam' )) { 
+			get_template_part('layouts/block-gamejam');
+		} ?>
 
 <?php
 if (has_category( 'Editorial' )) {

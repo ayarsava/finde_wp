@@ -563,7 +563,59 @@ function custom_post_type_music() {
 }
 add_action( 'init', 'custom_post_type_music', 0 );
 
-
+/*** CPT BANNER ***/
+function custom_post_type_banner() {
+  // Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Banners', 'Post Type General Name', 'finde-plugin' ),
+        'singular_name'       => _x( 'Banner', 'Post Type Singular Name', 'finde-plugin' ),
+        'menu_name'           => __( 'Banners', 'finde-plugin' ),
+        'parent_item_colon'   => __( 'Banner padre', 'finde-plugin' ),
+        'all_items'           => __( 'Todos los Banners', 'finde-plugin' ),
+        'view_item'           => __( 'Ver Banner', 'finde-plugin' ),
+        'add_new_item'        => __( 'Agregar nuevo Banner', 'finde-plugin' ),
+        'add_new'             => __( 'Agregar nuevo', 'finde-plugin' ),
+        'edit_item'           => __( 'Editar Banner', 'finde-plugin' ),
+        'update_item'         => __( 'Actualizar Banner', 'finde-plugin' ),
+        'search_items'        => __( 'Buscar Banner', 'finde-plugin' ),
+        'not_found'           => __( 'No encontrado', 'finde-plugin' ),
+        'not_found_in_trash'  => __( 'No encontrado en la papelera', 'finde-plugin' ),
+    );
+     
+  // Set other options for Custom Post Type
+     
+    $args = array(
+        'label'               => __( 'banner', 'finde-plugin' ),
+        'description'         => __( 'Banners', 'finde-plugin' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        // You can associate this CPT with a taxonomy or custom taxonomy. 
+        'taxonomies'  => array( 'category'),
+        /* A hierarchical CPT is like Pages and can have
+        * Parent and child items. A non-hierarchical CPT
+        * is like Posts.
+        */ 
+        'hierarchical'        => true,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest'        => true,
+    );
+     
+    // Registering your Custom Post Type
+    register_post_type( 'banner', $args );
+ 
+}
+add_action( 'init', 'custom_post_type_banner', 0 );
 
 /*** META BOX ***/
 add_filter( 'rwmb_meta_boxes', 'mbox_register_meta_boxes' );
@@ -824,8 +876,8 @@ function mbox_register_meta_boxes( $meta_boxes ){
     )
   );
 
-    # meta_box para producto editorial
-    $meta_boxes[] = array(
+  # meta_box para producto editorial
+  $meta_boxes[] = array(
     'id'         => 'mb_finde_productoeditorial',
     'title'      => __( 'Campos adicionales', 'mbox' ),
     'post_types' => 'productoeditorial',
@@ -843,10 +895,10 @@ function mbox_register_meta_boxes( $meta_boxes ){
             'std'  => '',
         ),
     )
-);
+  );
 
-    # meta_box para musica
-    $meta_boxes[] = array(
+  # meta_box para musica
+  $meta_boxes[] = array(
     'id'         => 'mb_finde_musica',
     'title'      => __( 'Campos adicionales', 'mbox' ),
     'post_types' => 'music',
@@ -855,76 +907,107 @@ function mbox_register_meta_boxes( $meta_boxes ){
     'autosave'   => true,
     'fields'     => array(
       array(
-          'name' => 'Destacado',
-          'id'   => 'destacado_id',
-          'type' => 'checkbox',
-          'std'  => 0, // 0 or 1
+        'name' => 'Destacado',
+        'id'   => 'destacado_id',
+        'type' => 'checkbox',
+        'std'  => 0, // 0 or 1
       ),
       array(
-            'id'               => 'image_ed',
-            'name'             => 'Imágenes adicionales',
-            'type'             => 'image_advanced',
+        'id'               => 'image_ed',
+        'name'             => 'Imágenes adicionales',
+        'type'             => 'image_advanced',
 
-            // Delete image from Media Library when remove it from post meta?
-            // Note: it might affect other posts if you use same image for multiple posts
-            'force_delete'     => false,
+        // Delete image from Media Library when remove it from post meta?
+        // Note: it might affect other posts if you use same image for multiple posts
+        'force_delete'     => false,
 
-            // Maximum image uploads.
-            'max_file_uploads' => 5,
+        // Maximum image uploads.
+        'max_file_uploads' => 5,
 
-            // Do not show how many images uploaded/remaining.
-            'max_status'       => 'false',
+        // Do not show how many images uploaded/remaining.
+        'max_status'       => 'false',
 
-            // Image size that displays in the edit page. Possible sizes small,medium,large,original
-            'image_size'       => 'thumbnail',
-        ),
-        array(
-            'name'        => 'Dirección postal',
-            'label_description' => 'Dirección postal',
-            'id'          => 'address',
-            'desc'        => 'Ingrese la dirección postal',
-            'type'        => 'text',
+        // Image size that displays in the edit page. Possible sizes small,medium,large,original
+        'image_size'       => 'thumbnail',
+      ),
+      array(
+        'name'        => 'Dirección postal',
+        'label_description' => 'Dirección postal',
+        'id'          => 'address',
+        'desc'        => 'Ingrese la dirección postal',
+        'type'        => 'text',
 
-            // Placeholder
-            'placeholder' => 'Dirección, Ciudad, Provincia de Buenos Aires',
-        ),
-        //  URL
-        array(
-            'name' => __( 'Sitio web', 'mbox' ),
-            'id'   => "{$prefix}url",
-            'desc' => __( 'Ingrese la url del sitio oficial de la editorial', 'mbox' ),
-            'type' => 'url',
-            'std'  => '',
-        ),
-        //  Instagram
-        array(
-            'name' => __( 'Instagram', 'mbox' ),
-            'id'   => "{$prefix}instagram",
-            'type' => 'url',
-        ),
-        //  Facebook
-        array(
-            'name' => __( 'Facebook', 'mbox' ),
-            'id'   => "{$prefix}facebook",
-            'type' => 'url',
-        ),
-        //  Twitter
-        array(
-            'name' => __( 'Twitter', 'mbox' ),
-            'id'   => "{$prefix}twitter",
-            'type' => 'url',
-        ),
-        //  Whatsapp
-        array(
-            'name' => __( 'Whatsapp', 'mbox' ),
-            'id'   => "{$prefix}whatsapp",
-            'type' => 'number',
-        ),
-
-
+        // Placeholder
+        'placeholder' => 'Dirección, Ciudad, Provincia de Buenos Aires',
+      ),
+      //  URL
+      array(
+          'name' => __( 'Sitio web', 'mbox' ),
+          'id'   => "{$prefix}url",
+          'desc' => __( 'Ingrese la url del sitio oficial de la editorial', 'mbox' ),
+          'type' => 'url',
+          'std'  => '',
+      ),
+      //  Instagram
+      array(
+          'name' => __( 'Instagram', 'mbox' ),
+          'id'   => "{$prefix}instagram",
+          'type' => 'url',
+      ),
+      //  Facebook
+      array(
+          'name' => __( 'Facebook', 'mbox' ),
+          'id'   => "{$prefix}facebook",
+          'type' => 'url',
+      ),
+      //  Twitter
+      array(
+          'name' => __( 'Twitter', 'mbox' ),
+          'id'   => "{$prefix}twitter",
+          'type' => 'url',
+      ),
+      //  Whatsapp
+      array(
+          'name' => __( 'Whatsapp', 'mbox' ),
+          'id'   => "{$prefix}whatsapp",
+          'type' => 'number',
+      ),
     )
   );
-    
+
+  // metas para banners
+  $meta_boxes[] = array(
+    // Meta box id, UNIQUE per meta box. Optional since 4.1.5
+    'id'         => 'mb_banner',
+    // Meta box title - Will appear at the drag and drop handle bar. Required.
+    'title'      => __( 'Campos adicionales', 'mbox' ),
+    // Post types, accept custom post types as well - DEFAULT is 'post'. Can be array (multiple post types) or string (1 post type). Optional.
+    'post_types' => 'banner',
+    // Where the meta box appear: normal (default), advanced, side. Optional.
+    'context'    => 'normal',
+    // Order of meta box: high (default), low. Optional.
+    'priority'   => 'low',
+    // Auto save: true, false (default). Optional.
+    'autosave'   => true,
+    // List of meta fields
+    'fields'     => array(
+      //  Imagen principal
+      array(
+        'name'             => 'Imagen desktop',
+        'id'               => "{$prefix}imagen_desktop",
+        'type'             => 'image',
+        'force_delete'     => false,
+      ),
+      //  Imagen mobile
+      array(
+        'name'             => 'Imagen mobile',
+        'id'               => "{$prefix}imagen_mobile",
+        'type'             => 'image',
+        'force_delete'     => false,
+      ),
+    )
+  );
+
   return $meta_boxes;
 }
 
@@ -1879,6 +1962,95 @@ if ( ! function_exists( 'wp_archive_vivo' ) ) {
 
     $args = array(
         'post_type'             => 'vivo',
+        'posts_per_page'        => -1,
+        'category_name'         => $post_category,
+        'meta_query' => array(
+          'relation' => 'AND',
+          array(
+            'fecha_clause'      => array(
+                'key'           => 'fecha_id',
+            ),
+            'destacado_clause'  => array(
+                'key'           => 'destacado_id',
+                'value'         => 1,
+            )
+          )
+        ),
+        'orderby'               => array( 
+            'destacado_clause'  => 'DESC',
+            'fecha_clause'      => 'ASC',
+        ),
+    );
+
+    // The Query
+    $query_agenda = new WP_Query( $args );
+
+    if ( $query_agenda->have_posts() ) { 
+      echo '<div id="agenda-destacada" class="slick slider-nav">';
+      /* Start the Loop */
+      $count = 1;
+      while ( $query_agenda->have_posts() ) : $query_agenda->the_post();
+
+      /* grab the url for the full size featured image */
+      $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+      $fecha = rwmb_meta( 'fecha_id' ); 
+      $destacado = rwmb_meta( 'destacado_id' );
+      echo '<div class="item">';
+        echo '<div class="mb-4 ';
+          if ($destacado == 1) { 
+            echo 'destacado';
+          };
+          echo '"';
+          echo 'data-target="'. date('d-m', $fecha).'">';
+          echo '<div class="card h-100">';
+            if ($featured_img_url) { 
+              echo '<div class="img-wrapper img-fluid card-img-top" style="background-image: url('. esc_url($featured_img_url) .');" background-size:cover;background-position: center center; height:160px;position:relative;">';
+              echo '</div>';
+            } 
+            
+            $post_tags = get_the_tags();
+            if ( $post_tags ) {
+              echo '<div class="tags">';
+                foreach( $post_tags as $tag ) {
+                echo '<span>' .$tag->name . '</span>'; 
+                }
+              echo '</div>';
+            }
+            
+            echo '<div class="card-body">';
+              echo '<a href="'. get_permalink() .'" class="stretched-link"></a>';
+              echo '<div class="row">';
+                echo '<div class="col-md-5">';
+                  echo '<div class="fecha"><span class="dia">'.date('d-m', $fecha).'</span><span class="hora">'. date('H:i', $fecha).'hs</span></div>';
+                echo '</div>';
+                echo '<div class="col-md-10">';
+                  echo the_title( '<h5 class="card-title">', '</h5>' );
+                  if ( get_the_excerpt() ) {
+                    echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_excerpt() ), 18, '...' ) .'</div>';
+                  } else {
+                    echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+                  }
+                echo '</div>';
+              echo '</div>';
+            echo '</div>';
+          echo '</div>';
+        echo '</div>';
+      echo '</div>';
+
+      endwhile;
+      echo '</div>';
+    } else {
+      get_template_part( 'template-parts/content', 'none' );    
+    }
+  }
+}
+
+/*** EN VIVO ***/
+if ( ! function_exists( 'wp_archive_banners' ) ) {
+  function wp_archive_banners($post_category) {
+
+    $args = array(
+        'post_type'             => 'banners',
         'posts_per_page'        => -1,
         'category_name'         => $post_category,
         'meta_query' => array(

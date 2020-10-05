@@ -92,6 +92,10 @@
 							<a class="nav-link" href="/en-vivo">En vivo</a>
 						</li>
 						<li class="nav-item">
+							<a class="nav-link" href="/gamejam">Game Jam</a>
+						</li>
+						
+						<li class="nav-item">
 							<a class="nav-link" href="/editorial" style="color: #ff677d!important">Edición Editorial</a>
 						</li>
 						<li class="nav-item">

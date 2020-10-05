@@ -885,43 +885,53 @@ a[class^=hvr-]:hover {
 }
 
 #agenda-destacada .slick-track,
-#agenda-por-dia .slick-track {
+#agenda-por-dia .slick-track,
+#gamejam_videos .slick-track {
   display: table !important;
 }
 #agenda-destacada .slick-track .item,
-#agenda-por-dia .slick-track .item {
+#agenda-por-dia .slick-track .item,
+#gamejam_videos .slick-track .item {
   position: relative;
 }
 #agenda-destacada .img-wrapper,
-#agenda-por-dia .img-wrapper {
+#agenda-por-dia .img-wrapper,
+#gamejam_videos .img-wrapper {
   height: 250px !important;
 }
 #agenda-destacada .item,
-#agenda-por-dia .item {
+#agenda-por-dia .item,
+#gamejam_videos .item {
   background: transparent;
 }
 #agenda-destacada .item .destacado,
-#agenda-por-dia .item .destacado {
+#agenda-por-dia .item .destacado,
+#gamejam_videos .item .destacado {
   margin: 2%;
   position: relative;
 }
 #agenda-destacada .item .destacado .card .img-wrapper,
-#agenda-por-dia .item .destacado .card .img-wrapper {
+#agenda-por-dia .item .destacado .card .img-wrapper,
+#gamejam_videos .item .destacado .card .img-wrapper {
   border-left: 0;
 }
 #agenda-destacada .item .destacado .card .tags,
-#agenda-por-dia .item .destacado .card .tags {
+#agenda-por-dia .item .destacado .card .tags,
+#gamejam_videos .item .destacado .card .tags {
   position: absolute;
   right: 0;
 }
 #agenda-destacada .item .destacado .card .card-body,
-#agenda-por-dia .item .destacado .card .card-body {
+#agenda-por-dia .item .destacado .card .card-body,
+#gamejam_videos .item .destacado .card .card-body {
   min-height: 10rem;
 }
 #agenda-destacada button.slick-next,
 #agenda-destacada button.slick-prev,
 #agenda-por-dia button.slick-next,
-#agenda-por-dia button.slick-prev {
+#agenda-por-dia button.slick-prev,
+#gamejam_videos button.slick-next,
+#gamejam_videos button.slick-prev {
   display: block;
   width: 3rem;
   height: 3rem;
@@ -934,42 +944,51 @@ a[class^=hvr-]:hover {
 #agenda-destacada button.slick-next.slick-disabled,
 #agenda-destacada button.slick-prev.slick-disabled,
 #agenda-por-dia button.slick-next.slick-disabled,
-#agenda-por-dia button.slick-prev.slick-disabled {
+#agenda-por-dia button.slick-prev.slick-disabled,
+#gamejam_videos button.slick-next.slick-disabled,
+#gamejam_videos button.slick-prev.slick-disabled {
   opacity: 0;
 }
 #agenda-destacada button.slick-next:before,
 #agenda-destacada button.slick-prev:before,
 #agenda-por-dia button.slick-next:before,
-#agenda-por-dia button.slick-prev:before {
+#agenda-por-dia button.slick-prev:before,
+#gamejam_videos button.slick-next:before,
+#gamejam_videos button.slick-prev:before {
   font-family: inherit;
   line-height: 2.3rem;
   color: #009aae;
 }
 #agenda-destacada button.slick-next,
-#agenda-por-dia button.slick-next {
+#agenda-por-dia button.slick-next,
+#gamejam_videos button.slick-next {
   top: 50%;
   right: -23px;
 }
 @media (max-width: 767px) {
   #agenda-destacada button.slick-next,
-#agenda-por-dia button.slick-next {
+#agenda-por-dia button.slick-next,
+#gamejam_videos button.slick-next {
     right: -5px;
   }
 }
 #agenda-destacada button.slick-prev,
-#agenda-por-dia button.slick-prev {
+#agenda-por-dia button.slick-prev,
+#gamejam_videos button.slick-prev {
   font-family: inherit;
   top: 50%;
   left: -23px;
 }
 @media (max-width: 767px) {
   #agenda-destacada button.slick-prev,
-#agenda-por-dia button.slick-prev {
+#agenda-por-dia button.slick-prev,
+#gamejam_videos button.slick-prev {
     left: -5px;
   }
 }
 #agenda-destacada .tags,
-#agenda-por-dia .tags {
+#agenda-por-dia .tags,
+#gamejam_videos .tags {
   position: absolute;
   background: #009aae;
   right: 0px;
@@ -979,11 +998,13 @@ a[class^=hvr-]:hover {
   font-size: 0.75rem;
 }
 #agenda-destacada .tags span:after,
-#agenda-por-dia .tags span:after {
+#agenda-por-dia .tags span:after,
+#gamejam_videos .tags span:after {
   content: " | ";
 }
 #agenda-destacada .tags span:last-child:after,
-#agenda-por-dia .tags span:last-child:after {
+#agenda-por-dia .tags span:last-child:after,
+#gamejam_videos .tags span:last-child:after {
   content: "";
 }
 
@@ -1059,6 +1080,19 @@ a[class^=hvr-]:hover {
 .pasadia.slick-slider .slick-track .slick-slide {
   background: transparent;
   margin-bottom: 0;
+}
+
+#gamejam_videos .item {
+  padding: 10px;
+}
+
+.page-gamejam p {
+  width: 75%;
+}
+@media (max-width: 991px) {
+  .page-gamejam p {
+    width: 100%;
+  }
 }
 
 /*** AGENDA HOME ***/
@@ -1573,8 +1607,6 @@ input[type=radio] + label {
 /* GUTEMBERG */
 .wp-block-group__inner-container {
   max-width: 100%;
-  padding-right: 10px;
-  padding-left: 10px;
   margin-right: auto;
   margin-left: auto;
   padding-bottom: 3rem;

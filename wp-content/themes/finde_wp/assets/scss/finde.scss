@@ -813,7 +813,8 @@ a[class^="hvr-"] {
   }
 }
 #agenda-destacada,
-#agenda-por-dia {
+#agenda-por-dia,
+#gamejam_videos {
   .slick-track {
     display: table !important;
   }
@@ -977,7 +978,17 @@ a[class^="hvr-"] {
       margin-bottom:0;
   }
 }
-
+#gamejam_videos {
+  .item {
+    padding:10px;
+  }
+}
+.page-gamejam p {
+  width:75%;
+  @media (max-width: 991px) {
+    width:100%;
+  }
+}
 
 /*** AGENDA HOME ***/
 .single-agenda {
@@ -1492,8 +1503,6 @@ a[class^="hvr-"] {
 /* GUTEMBERG */
 .wp-block-group__inner-container {
   max-width: 100%;
-  padding-right: 10px;
-  padding-left: 10px;
   margin-right: auto;
   margin-left: auto;
   padding-bottom: 3rem;
