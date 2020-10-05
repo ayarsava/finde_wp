@@ -94,13 +94,6 @@
 						<li class="nav-item">
 							<a class="nav-link" href="/gamejam">Game Jam</a>
 						</li>
-						
-						<li class="nav-item">
-							<a class="nav-link" href="/editorial" style="color: #ff677d!important">Edición Editorial</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/musica" style="color: #793d97!important">Edición Música</a>
-						</li>
 			    	</ul>
 			    	<div class="d-flex bd-highlight">
 					  	<div class="bd-highlight">
