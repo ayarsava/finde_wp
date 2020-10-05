@@ -812,23 +812,72 @@ a[class^="hvr-"] {
     padding: 5px;
   }
 }
-#agenda-destacada {
+#agenda-destacada,
+#agenda-por-dia {
+  .slick-track {
+    display: table !important;
+  }
   .slick-track .item {
     position:relative;
-  }
-  .slick-slide {
-    padding-right: 20px;
-  }
-  .slick-slide:last-child {
-    padding-right: 0;
   }
   .img-wrapper {
     height: 250px!important;
   }
-  .destacado .tags {
-    position: absolute;
-    right: 0;
+  .item {
+    background: transparent;
+    .destacado {
+      margin: 2%;
+      position: relative;
+      .card {
+        .img-wrapper {
+          border-left: 0;
+        }
+        .tags {
+          position: absolute;
+          right: 0;
+        }
+        .card-body {
+          min-height: 10rem;
+        }
+
+      }
+    }
   }
+  
+  button.slick-next,
+    button.slick-prev {
+      display: block;
+      width: 3rem;
+      height: 3rem;
+      line-height: 1.5rem;
+      background: #FFF;
+      border-radius:50%;
+      border: solid 5px $videojuegos;
+      color: $videojuegos;
+      &.slick-disabled {
+        opacity: 0;
+      }
+      &:before {
+        font-family: inherit;
+        line-height: 2.3rem;
+        color: $videojuegos;
+      }
+    }
+    button.slick-next {
+      top: 50%;
+      right: -23px;
+      @media (max-width: 767px) { 
+        right: -5px;
+      }
+    }
+    button.slick-prev {
+      font-family: inherit;
+      top: 50%;
+      left: -23px;
+      @media (max-width: 767px) { 
+        left: -5px;
+      }
+    }
 
   .tags {
     position: absolute;
@@ -848,6 +897,87 @@ a[class^="hvr-"] {
     }
   }
 }
+#agenda-por-dia {
+  &.slick-slider .slick-track .slick-slide {
+    background: transparent;
+    .evento {
+      border-bottom: solid 1px #F1F1F1;
+      &:last-child {
+        border-bottom: 0;
+      }
+      &:hover {
+        .card-title {
+          color: $videojuegos;
+        }
+      }
+    }
+    .img-wrapper {
+      height: 150px!important;
+      position:relative;
+    }
+    @media (max-width: 767.98px) {
+      .fecha {
+        position: absolute;
+        top: 24px;
+        left:10px;
+        background: white;
+        padding: 10px;
+        text-align: center;
+        width:auto;
+        z-index:2;
+        span.dia {
+          display: block;
+          font-size: 1.2rem;
+          font-weight: bold;
+          border-bottom: solid 1px #222;
+          padding-bottom: 5px;
+        }
+        span.hora {
+          display: block;
+          font-size: 1rem;
+        }
+      }
+      .card-title {
+        margin-top:15px;
+      }
+    }
+    @media (max-width: 991px) {
+      .fecha {
+        span.dia {
+          font-size: 1.7rem;
+        }
+        span.hora {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+.pasadia {
+  width: 100%;
+  margin-top:30px;
+  @media (min-width: 767.98px) {
+    width: 300px;
+    margin-top:0px;
+  }
+  display: inline-block;
+  background: #FFF;
+  border-radius: 5px;
+  padding: 20px 20px;
+  .slick-prev, .slick-next {
+    &:before {
+      font-family: inherit;
+      color:#222;
+    }
+  }
+  
+    
+  &.slick-slider .slick-track .slick-slide {
+      background: transparent;
+      margin-bottom:0;
+  }
+}
+
 
 /*** AGENDA HOME ***/
 .single-agenda {

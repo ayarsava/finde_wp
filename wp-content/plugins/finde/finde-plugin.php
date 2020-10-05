@@ -1737,43 +1737,42 @@ if ( ! function_exists( 'wp_archive_agenda_destacado' ) ) {
       $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
       $fecha = rwmb_meta( 'fecha_id' ); 
       $destacado = rwmb_meta( 'destacado_id' );
-      echo '<div class="item mb-4 ';
-        if ($destacado == 1) { 
-          echo 'destacado';
-        };
-        echo '"';
-        echo 'data-target="'. date('d-m', $fecha).'">';
-        if ($destacado == 1) { 
-          echo '<div class="ribbon ribbon-top-left"><span>DESTACADO</span></div>'; 
-        } 
-        echo '<div class="card h-100">';
-          if ($featured_img_url) { 
-            echo '<div class="img-wrapper img-fluid card-img-top" style="background-image: url('. esc_url($featured_img_url) .');" background-size:cover;background-position: center center; height:160px;position:relative;">';
-            echo '</div>';
-          } 
-          
-          $post_tags = get_the_tags();
-          if ( $post_tags ) {
-            echo '<div class="tags">';
-              foreach( $post_tags as $tag ) {
-              echo '<span>' .$tag->name . '</span>'; 
-              }
-            echo '</div>';
-          }
-          
-          echo '<div class="card-body">';
-            echo '<a href="'. get_permalink() .'" class="stretched-link"></a>';
-            echo '<div class="row">';
-              echo '<div class="col-md-5">';
-                echo '<div class="fecha"><span class="dia">'.date('d-m', $fecha).'</span><span class="hora">'. date('H:i', $fecha).'hs</span></div>';
+      echo '<div class="item">';
+        echo '<div class="mb-4 ';
+          if ($destacado == 1) { 
+            echo 'destacado';
+          };
+          echo '"';
+          echo 'data-target="'. date('d-m', $fecha).'">';
+          echo '<div class="card h-100">';
+            if ($featured_img_url) { 
+              echo '<div class="img-wrapper img-fluid card-img-top" style="background-image: url('. esc_url($featured_img_url) .');" background-size:cover;background-position: center center; height:160px;position:relative;">';
               echo '</div>';
-              echo '<div class="col-md-10">';
-                echo the_title( '<h5 class="card-title">', '</h5>' );
-                if ( get_the_excerpt() ) {
-                  echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_excerpt() ), 18, '...' ) .'</div>';
-                } else {
-                  echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+            } 
+            
+            $post_tags = get_the_tags();
+            if ( $post_tags ) {
+              echo '<div class="tags">';
+                foreach( $post_tags as $tag ) {
+                echo '<span>' .$tag->name . '</span>'; 
                 }
+              echo '</div>';
+            }
+            
+            echo '<div class="card-body">';
+              echo '<a href="'. get_permalink() .'" class="stretched-link"></a>';
+              echo '<div class="row">';
+                echo '<div class="col-md-5">';
+                  echo '<div class="fecha"><span class="dia">'.date('d-m', $fecha).'</span><span class="hora">'. date('H:i', $fecha).'hs</span></div>';
+                echo '</div>';
+                echo '<div class="col-md-10">';
+                  echo the_title( '<h5 class="card-title">', '</h5>' );
+                  if ( get_the_excerpt() ) {
+                    echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_excerpt() ), 18, '...' ) .'</div>';
+                  } else {
+                    echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+                  }
+                echo '</div>';
               echo '</div>';
             echo '</div>';
           echo '</div>';
@@ -1788,6 +1787,91 @@ if ( ! function_exists( 'wp_archive_agenda_destacado' ) ) {
   }
 }
 
+/*** AGENDA POR DÍA, POR CATEGORIA***/
+if ( ! function_exists( 'wp_archive_agenda_por_dia' )) {
+  function wp_archive_agenda_por_dia($post_category) {
+    $the_query = new WP_Query([
+      'post_type'              => 'agenda',
+      'category_name'          => $post_category,
+      'posts_per_page'         => - 1,
+      'meta_query'             => array(
+          'fecha_clause'       => array(
+              'key'            => 'fecha_id',
+          ),
+      ),
+      'orderby'               => array( 
+          'fecha_clause'      => 'ASC',
+      ),
+    ]);
+
+    // We are creating new multidimensional array
+    $todos_los_eventos = [];
+
+    while ( $the_query->have_posts() ) : $the_query->the_post();
+        $fecha = rwmb_meta( 'fecha_id' ); 
+        $fecha_evento = date('l d-m', $fecha);
+        
+        $todos_los_eventos[ $fecha_evento ][] = $the_query->post;
+    endwhile;
+    wp_reset_query();
+
+    // And to print this:
+    
+    echo '<h2 class="font-weight-bold d-inline-block mr-3"><i class="fas fa-calendar-alt"></i>   Programación completa </h2><div class="pasadia">';
+    foreach ( $todos_los_eventos as $fecha_evento => $eventos ) :
+      echo '<h3>'.$fecha_evento.'</h3>';
+    endforeach;
+    echo '</div><hr>';
+    echo '<div id="agenda-por-dia" class="">';
+    foreach ( $todos_los_eventos as $fecha_evento => $eventos ) :
+      
+        echo '<div class="row">';
+            foreach ( $eventos as $evento ) :
+              $excerpt = get_the_excerpt($evento->ID);
+              $featured_img_url = get_the_post_thumbnail_url($evento->ID,'full'); 
+              $excerpt = get_the_excerpt($evento->ID);      
+              echo '<div class="col-15 evento">';
+                  echo '<div class="row py-4 position-relative">';
+                      echo '<a href="'. get_permalink($evento->ID).'" class="stretched-link"></a>';
+                      echo '<div class="col-md-3 fecha">';
+                          echo '<span class="dia">'.date('d-m', get_post_field('fecha_id',$evento->ID)).'</span>';
+                          echo '<span class="hora">'.date('H:i', get_post_field('fecha_id',$evento->ID)).'hs</span>';
+                      echo '</div>';
+
+                      if ($featured_img_url) { 
+                          echo '<div class="col-md-3 img-wrapper img-fluid" style="background-image: url('. esc_url($featured_img_url) .');">';
+                          if ($destacado == 1) { echo '<div class="ribbon ribbon-top-left"><span>DESTACADO</span></div>'; }
+                          echo '</div>';
+                      }
+                      
+                      echo '<div class="col-md-9 pl-md-4 data">';
+                          if ($featured_img_url) { 
+                            echo '<h4 class="card-title font-weight-bold">'.$evento->post_title.'</h4>';
+                          } else {
+                            echo '<h2 class="card-title font-weight-bold">'.$evento->post_title.'</h2>';
+                          }
+                          if ( $excerpt ) {
+                          echo '<div class="card-text mb-2">' . $excerpt .'</div>';
+                          } else {
+                          echo '<div class="card-text mb-2">' . wp_trim_words( wp_strip_all_tags( $excerpt ), 18, '...' ) .'</div>';
+                          }
+                          $post_tags = get_the_tags($evento->ID);
+                          if ( $post_tags ) {
+                              echo '<div class="etiquetas">';
+                              foreach( $post_tags as $tag ) {
+                              echo '<span class="badge badge-primary mr-2">' .$tag->name . '</span>'; 
+                              }
+                              echo '</div>';
+                          }
+                      echo '</div>';
+                  echo '</div>';
+              echo '</div><!-- fin-de-item -->';
+            endforeach;
+        echo '</div>';
+    endforeach;
+    echo '</div>';
+  }
+}
 
 /*** AGREGAR SEARCH FORM AL MENU ***/
 add_filter('wp_nav_menu_items','add_search_box_to_nav_menu', 10, 2);

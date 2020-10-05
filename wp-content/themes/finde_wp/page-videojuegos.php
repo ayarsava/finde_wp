@@ -94,16 +94,10 @@ get_template_part( 'layouts/header', 'vj' );
         </section>
 
         <!--LB-->
-        <section class="mx-auto py-5 text-white" style="background:#222;">
-            <div class="container mb-5">
+        <section class="mx-auto pt-5 pb-4 text-white" style="background:#222;">
+            <div class="container">
                 <div class="row">
-                    <div class="col-15">
-                        <h1 class="mb-4"><strong>Titulo del juego</strong></h1>
-                    </div>
-                    <div class="col-md-9 mr-auto">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
-                    </div>
-                    <div class="col-15 text-center gamepad my-3 embed-responsive embed-responsive-16by9" style="background: #CCC;border-radius: 30px;">
+                    <div class="col-15 text-center gamepad my-3 embed-responsive embed-responsive-16by9">
                         <iframe src="//emlabollita.com/finde/flappy-bird/" class="embed-responsive-item"  frameborder="0" scrolling="no" align="center"></iframe>
                     </div>
                 </div>

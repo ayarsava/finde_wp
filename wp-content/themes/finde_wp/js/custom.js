@@ -95,30 +95,7 @@ $('.slick.ntflx').slick({
 
 
 
-var day_0_vj = $('[data-target="08-10"]');
-var day_1_vj = $('[data-target="09-10"]');
-var day_2_vj = $('[data-target="10-10"]');
-var day_3_vj = $('[data-target="11-10"]');
 
-const d = new Date();
-var day = d.getDay();
-console.log(d);
-var slide;
-if (day == 1) {
-  slide = 0;
-}else if (day == 2) {
-  slide = 1;
-}else if (day == 3) {
-  slide = 2;
-}else if (day == 4) {
-  slide = 3;
-}else if (day == 5) {
-  slide = 4;
-}else if (day == 6) {
-  slide = 5;
-}else{
-  slide = 0;
-}
 $('.slick.agenda').slick({
   infinite: false,
   speed: 300,
@@ -163,21 +140,35 @@ $('.slick.agenda').slick({
   ]
 });
 
-$('#external-buttons a').on('click', function(e){
-  e.preventDefault();
-  $('#external-buttons a.active').removeClass('active');
-  $(this).addClass('active');
-  var targetSlide = $(this).data('target');
-  $('.slick.agenda').slick('slickGoTo', targetSlide );
-});//click()
+
 
 $('#agenda-destacada').slick({
   infinite: false,
   speed: 300,
   slidesToScroll: 1,
   slidesToShow: 2,
-  lazyLoad: 'ondemand',
   //initialSlide: slide,
+});
+
+var slide;
+
+$('.pasadia').slick({
+  asNavFor: '#agenda-por-dia',
+  dots: false,
+  infinite: false,
+  speed: 300,
+});
+$('#agenda-por-dia').slick({
+  dots: true,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 1,
+  adaptiveHeight: true,
+  dots:false,
+  arrows: false,
+  fade: true,
+  initialSlide: slide,
+  asNavFor: '.pasadia',
 });
 
 // Filtro de catalogo
