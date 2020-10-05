@@ -34,13 +34,14 @@
 		<section id="sponsors" class="bg-white">
 			<div class="container py-3">
 				<div class="row">
-					<div class="col-md-5 mb-3">
+					<div class="col-md-7 mb-3">
                         <div class="card h-100">
                             <div class="card-header border-bottom"><strong>Organizan</strong></div>
                             <div class="card-body text-center">
+
+                                <span><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/gamejam/logo-gpba.png" class="img-fluid mx-2 mb-3" width="150"></span>
                                 <span><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/fundav.png" class="img-fluid mx-2 mb-3" width="90"></span>
                                 <span><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/pana.png" class="img-fluid mx-2 mb-3" width="50"></span>
-                                <span><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/juegosargentinos.png" class="img-fluid mx-2 mb-3" width="80"></span>
                             </div>
                         </div>
                     </div>
@@ -48,12 +49,12 @@
                         <div class="card h-100">
                             <div class="card-header border-bottom"><strong>Acompañan</strong></div>
                             <div class="card-body text-center">
-                                <span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/juegosargentinos.png" class="img-fluid mx-2 my-3" width="80"></span>
+                                <span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/gamejam/logo-bp.png" class="img-fluid mx-2 my-3" width="190"></span>
                                 <span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/image-campus.png" class="img-fluid mx-2 my-3" width="80"></span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5 mb-3">
+                    <div class="col-md-3 mb-3">
                         <div class="card h-100">
                             <div class="card-header border-bottom"><strong>Mentoreo técnico</strong></div>
                             <div class="card-body text-center">
