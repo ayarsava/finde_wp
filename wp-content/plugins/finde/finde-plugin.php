@@ -1882,7 +1882,6 @@ function add_search_box_to_nav_menu( $items, $args ) {
     return $items;
 }
 
-
 /*** AGREGO EVITAR ERRORES DE MBOX POR SI SE DESACTIVA EL PLUGIN ***/
 if ( ! function_exists( 'rwmb_the_value' ) ) {
     function rwmb_the_value( $key, $args = '', $post_id = null, $echo = true ) {
