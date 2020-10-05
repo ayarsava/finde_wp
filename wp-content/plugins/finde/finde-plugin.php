@@ -1873,6 +1873,95 @@ if ( ! function_exists( 'wp_archive_agenda_por_dia' )) {
   }
 }
 
+/*** EN VIVO ***/
+if ( ! function_exists( 'wp_archive_vivo' ) ) {
+  function wp_archive_vivo($post_category) {
+
+    $args = array(
+        'post_type'             => 'vivo',
+        'posts_per_page'        => -1,
+        'category_name'         => $post_category,
+        'meta_query' => array(
+          'relation' => 'AND',
+          array(
+            'fecha_clause'      => array(
+                'key'           => 'fecha_id',
+            ),
+            'destacado_clause'  => array(
+                'key'           => 'destacado_id',
+                'value'         => 1,
+            )
+          )
+        ),
+        'orderby'               => array( 
+            'destacado_clause'  => 'DESC',
+            'fecha_clause'      => 'ASC',
+        ),
+    );
+
+    // The Query
+    $query_agenda = new WP_Query( $args );
+
+    if ( $query_agenda->have_posts() ) { 
+      echo '<div id="agenda-destacada" class="slick slider-nav">';
+      /* Start the Loop */
+      $count = 1;
+      while ( $query_agenda->have_posts() ) : $query_agenda->the_post();
+
+      /* grab the url for the full size featured image */
+      $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+      $fecha = rwmb_meta( 'fecha_id' ); 
+      $destacado = rwmb_meta( 'destacado_id' );
+      echo '<div class="item">';
+        echo '<div class="mb-4 ';
+          if ($destacado == 1) { 
+            echo 'destacado';
+          };
+          echo '"';
+          echo 'data-target="'. date('d-m', $fecha).'">';
+          echo '<div class="card h-100">';
+            if ($featured_img_url) { 
+              echo '<div class="img-wrapper img-fluid card-img-top" style="background-image: url('. esc_url($featured_img_url) .');" background-size:cover;background-position: center center; height:160px;position:relative;">';
+              echo '</div>';
+            } 
+            
+            $post_tags = get_the_tags();
+            if ( $post_tags ) {
+              echo '<div class="tags">';
+                foreach( $post_tags as $tag ) {
+                echo '<span>' .$tag->name . '</span>'; 
+                }
+              echo '</div>';
+            }
+            
+            echo '<div class="card-body">';
+              echo '<a href="'. get_permalink() .'" class="stretched-link"></a>';
+              echo '<div class="row">';
+                echo '<div class="col-md-5">';
+                  echo '<div class="fecha"><span class="dia">'.date('d-m', $fecha).'</span><span class="hora">'. date('H:i', $fecha).'hs</span></div>';
+                echo '</div>';
+                echo '<div class="col-md-10">';
+                  echo the_title( '<h5 class="card-title">', '</h5>' );
+                  if ( get_the_excerpt() ) {
+                    echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_excerpt() ), 18, '...' ) .'</div>';
+                  } else {
+                    echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+                  }
+                echo '</div>';
+              echo '</div>';
+            echo '</div>';
+          echo '</div>';
+        echo '</div>';
+      echo '</div>';
+
+      endwhile;
+      echo '</div>';
+    } else {
+      get_template_part( 'template-parts/content', 'none' );    
+    }
+  }
+}
+
 /*** AGREGAR SEARCH FORM AL MENU ***/
 add_filter('wp_nav_menu_items','add_search_box_to_nav_menu', 10, 2);
 function add_search_box_to_nav_menu( $items, $args ) {
