@@ -91,6 +91,9 @@
 						<li class="nav-item">
 							<a class="nav-link" href="/en-vivo">En vivo</a>
 						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/sumate">¡Sumate!</a>
+						</li>
 			    	</ul>
 			    	<div class="d-flex bd-highlight">
 					  	<div class="bd-highlight">

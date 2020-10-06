@@ -19,15 +19,15 @@
 					<div class="col-lg-15 py-2 mb-3"><strong>Acompañan</strong></div>
 					<div class="col-lg-15 text-center">
 						<div class="container">
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/adva.png" class="img-fluid mx-3 mb-3" width="120"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/fundav.png" class="img-fluid mx-3 mb-3" width="90"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/pana.png" class="img-fluid mx-3 mb-3" width="50"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/woman-in-games.png" class="img-fluid mx-3 mb-3" width="40"></span> 
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/unpaz.png" class="img-fluid mx-3 mb-3" width="90"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/press-over.png" class="img-fluid mx-3 mb-3" width="60"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/planeta-guru.png" class="img-fluid mx-3 mb-3" width="50"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/juegosargentinos.png" class="img-fluid mx-3 mb-3" width="100"></span>
 							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/image-campus.png" class="img-fluid mx-3 mb-3" width="80"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/juegosargentinos.png" class="img-fluid mx-3 mb-3" width="80"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/planeta-guru.png" class="img-fluid mx-3 mb-3" width="50"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/press-over.png" class="img-fluid mx-3 mb-3" width="60"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/unpaz.png" class="img-fluid mx-3 mb-3" width="90"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/woman-in-games.png" class="img-fluid mx-3 mb-3" width="40"></span> 
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/pana.png" class="img-fluid mx-3 mb-3" width="50"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/fundav.png" class="img-fluid mx-3 mb-3" width="90"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/adva.png" class="img-fluid mx-3 mb-3" width="120"></span>
 						</div>
 					</div>
 				</div>

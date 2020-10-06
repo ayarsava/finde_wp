@@ -275,15 +275,15 @@ footer {
         .info {
           background:#FFF;
           padding:1rem;
-          color: #7b7b7b;
+          color: #333333;
           h1 {
             font-size: 2.4rem;
-            font-weight: bold;
+            font-weight: 400;
             @media (max-width: 767.98px) {
                 font-size: 1.3rem;
             }
             a {
-              color: #7b7b7b;
+              color: #333333;
             &:hover {
                 text-decoration: none;
               }
@@ -490,7 +490,7 @@ a.badge.os {
     display: block;
     width: 170px;
     padding: 7px 0;
-    background-color: #01ca46;
+    background-color: #4fce7a;
     box-shadow: 0 5px 10px rgba(0,0,0,.1);
     color: #fff;
     font: 700 18px/1 'Lato', sans-serif;
@@ -510,10 +510,10 @@ a.badge.os {
   }
   &.ribbon-top-left::before {
     top: 0;
-    left: 88px;
+    left: 73px;
   }
   &.ribbon-top-left::after {
-    bottom: 0;
+    bottom: 14px;
     left: 0;
   }
   &.ribbon-top-left span {
@@ -583,15 +583,15 @@ a.badge.os {
       line-height: 1.5rem;
       background: #FFF;
       border-radius:50%;
-      border: solid 5px $videojuegos;
-      color: $videojuegos;
+      border: solid 1px #222;
+      color: #222;
       &.slick-disabled {
         opacity: 0;
       }
       &:before {
         font-family: inherit;
         line-height: 2.3rem;
-        color: $videojuegos;
+        color: #222;
       }
     }
     button.slick-next {
@@ -856,15 +856,15 @@ a[class^="hvr-"] {
       line-height: 1.5rem;
       background: #FFF;
       border-radius:50%;
-      border: solid 5px $videojuegos;
-      color: $videojuegos;
+      border: solid 1px #222;
+      color: #222;
       &.slick-disabled {
         opacity: 0;
       }
       &:before {
         font-family: inherit;
         line-height: 2.3rem;
-        color: $videojuegos;
+        color: #222;
       }
     }
     button.slick-next {

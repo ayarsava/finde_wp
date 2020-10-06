@@ -300,11 +300,11 @@ footer img.logo-cultura {
 #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info {
   background: #FFF;
   padding: 1rem;
-  color: #7b7b7b;
+  color: #333333;
 }
 #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info h1 {
   font-size: 2.4rem;
-  font-weight: bold;
+  font-weight: 400;
 }
 @media (max-width: 767.98px) {
   #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info h1 {
@@ -312,7 +312,7 @@ footer img.logo-cultura {
   }
 }
 #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info h1 a {
-  color: #7b7b7b;
+  color: #333333;
 }
 #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info h1 a:hover {
   text-decoration: none;
@@ -550,7 +550,7 @@ a.badge.os {
   display: block;
   width: 170px;
   padding: 7px 0;
-  background-color: #01ca46;
+  background-color: #4fce7a;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   color: #fff;
   font: 700 18px/1 "Lato", sans-serif;
@@ -568,10 +568,10 @@ a.badge.os {
 }
 .ribbon.ribbon-top-left::before {
   top: 0;
-  left: 88px;
+  left: 73px;
 }
 .ribbon.ribbon-top-left::after {
-  bottom: 0;
+  bottom: 14px;
   left: 0;
 }
 .ribbon.ribbon-top-left span {
@@ -648,8 +648,8 @@ a.badge.os {
   line-height: 1.5rem;
   background: #FFF;
   border-radius: 50%;
-  border: solid 5px #009aae;
-  color: #009aae;
+  border: solid 1px #222;
+  color: #222;
 }
 .slick.ntflx.slick-slider button.slick-next.slick-disabled,
 .slick.ntflx.slick-slider button.slick-prev.slick-disabled,
@@ -663,7 +663,7 @@ a.badge.os {
 .slick.agenda.slick-slider button.slick-prev:before {
   font-family: inherit;
   line-height: 2.3rem;
-  color: #009aae;
+  color: #222;
 }
 .slick.ntflx.slick-slider button.slick-next,
 .slick.agenda.slick-slider button.slick-next {
@@ -943,8 +943,8 @@ a[class^=hvr-]:hover {
   line-height: 1.5rem;
   background: #FFF;
   border-radius: 50%;
-  border: solid 5px #009aae;
-  color: #009aae;
+  border: solid 1px #222;
+  color: #222;
 }
 #agenda-destacada button.slick-next.slick-disabled,
 #agenda-destacada button.slick-prev.slick-disabled,
@@ -962,7 +962,7 @@ a[class^=hvr-]:hover {
 #gamejam_videos button.slick-prev:before {
   font-family: inherit;
   line-height: 2.3rem;
-  color: #009aae;
+  color: #222;
 }
 #agenda-destacada button.slick-next,
 #agenda-por-dia button.slick-next,

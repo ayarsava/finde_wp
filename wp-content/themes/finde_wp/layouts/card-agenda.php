@@ -25,7 +25,7 @@
 
                 if ($featured_img_url) { 
                     echo '<div class="col-md-3 img-wrapper img-fluid" style="background-image: url('. esc_url($featured_img_url) .');">';
-                    if ($destacado == 1) { echo '<div class="ribbon ribbon-top-left"><span>DESTACADO</span></div>'; }
+                    if ($destacado == 1) { echo '<div class="ribbon ribbon-top-left"><span></span></div>'; }
                     echo '</div>';
                 }
                 

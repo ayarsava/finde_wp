@@ -30,8 +30,8 @@ get_template_part( 'layouts/header', 'vj' );
                     <div class="row">
                         <div class="col">
                             <a href="https://www.bancoprovincia.com.ar/cuentadni/index?url=cdniIndividuos" target="_blank" title="Enlace al sitio web del Banco Provincia">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-banco-provincia.gif" class="img-fluid d-none d-sm-block" alt="Banco Provincia">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-banco-provincia_m.gif" class="mx-auto img-fluid d-block d-sm-none" alt="Banco Provincia">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-bp-large.gif" class="img-fluid d-none d-sm-block" alt="Banco Provincia">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-bp-small.gif" class="mx-auto img-fluid d-block d-sm-none" alt="Banco Provincia">
                             </a>
                         </div>
                     </div>
@@ -61,14 +61,14 @@ get_template_part( 'layouts/header', 'vj' );
         </section>
 
         <!--GJ-->
-        <section class="bg-white">
+        <section class="bg-white pb-5">
             <div class="container-fluid">
                 <div class="container">
-                    <div class="row pb-4">
+                    <div class="row">
                         <div class="col">
-                            <a href="#" target="_blank" title="Enlace al sitio web del Banco Provincia">
-                                <img src="https://picsum.photos/seed/picsum/1120/157" class="img-fluid d-none d-sm-block" alt="Banco Provincia">
-                                <img src="https://picsum.photos/seed/picsum/354/120" class="mx-auto img-fluid d-block d-sm-none" alt="Banco Provincia">
+                            <a href="/gamejam" title="Game Jam">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-game-jam-desktop.gif" class="img-fluid d-none d-sm-block" alt="Game Jam">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-game-jam-mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="Game Jam">
                             </a>
                         </div>
                     </div>

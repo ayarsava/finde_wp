@@ -56,14 +56,7 @@
 			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde_vj_logo.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
 			        </a>
 			    </div>
-			    <div class="header-dates col-lg-6 col-md-5 col-10">
-			    	<ul class="list-unstyled text-light pt-3">
-			    		<li><strong>Videojuegos > Jue 30.04 al Dom 03.05</strong></li>
-						<li>Editorial > Jue 07 al Dom 10.05</li>
-						<li>Música > Jue 14 al Dom 17.05</li>
-					</ul>
-			    </div>
-			    <div class="col-md-7 d-none d-md-block pt-4 text-right">
+			    <div class="col-md-7 d-none d-md-block pt-4 text-right ml-auto">
 				    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-cultura-gobierno-blanco.png" class="img-fluid ml-auto" width="340">
 				</div>
 			</div>
@@ -93,6 +86,9 @@
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="/gamejam">Game Jam</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/sumate">¡Sumate!</a>
 						</li>
 			    	</ul>
 			    	<div class="d-flex bd-highlight">
