@@ -60,6 +60,21 @@ get_template_part( 'layouts/header', 'vj' );
             </div>
         </section>
 
+        <!--AGENDA-->
+        <section id="agenda" class="bg-light py-5">
+            <div class="container">
+                <h1 class="mb-4"><strong>Agenda</strong> <a href="/en-vivo" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
+                <?php wp_archive_agenda('videojuegos'); ?>
+                <div class="row">
+                    <div class="col-15">
+                        <div class="border-top mt-3 py-3">
+                            <a href="/agenda-videojuegos"><strong>+ Ver agenda completa</strong></a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- #main -->
+        </section>
+
         <!--GJ-->
         <section class="bg-white pb-5">
             <div class="container-fluid">
@@ -74,21 +89,6 @@ get_template_part( 'layouts/header', 'vj' );
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!--AGENDA-->
-        <section id="agenda" class="bg-light py-5">
-            <div class="container">
-                <h1 class="mb-4"><strong>Agenda</strong> <a href="/en-vivo" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
-                <?php wp_archive_agenda('videojuegos'); ?>
-                <div class="row">
-                    <div class="col-15">
-                        <div class="border-top mt-3 py-3">
-                            <a href="/agenda-videojuegos"><strong>+ Ver agenda completa</strong></a>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- #main -->
         </section>
 
         <!--LB-->

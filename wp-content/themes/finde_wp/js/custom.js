@@ -93,8 +93,13 @@ $('.slick.ntflx').slick({
   ]
 });
 
-
-
+$('.slick.fullmedia').slick({
+  infinite: true,
+  speed: 300,
+  slidesToScroll: 1,
+  slidesToShow: 1,
+  lazyLoad: 'ondemand'
+});
 
 $('.slick.agenda').slick({
   infinite: false,
@@ -140,8 +145,6 @@ $('.slick.agenda').slick({
   ]
 });
 
-
-
 $('#agenda-destacada').slick({
   infinite: false,
   speed: 300,
@@ -151,7 +154,6 @@ $('#agenda-destacada').slick({
 });
 
 var slide;
-
 $('.pasadia').slick({
   asNavFor: '#agenda-por-dia',
   dots: false,

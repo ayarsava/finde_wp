@@ -17,7 +17,6 @@ $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 560
 $url = rwmb_meta( 'mbox_url' );
 $descargas = rwmb_meta( 'descarga_id' );
 
-
 $terms = get_the_terms( $post->ID, 'rubro' );
 $dterms = get_the_terms( $post->ID, 'descuento' );
 

@@ -18,11 +18,11 @@ $estudios = MB_Relationships_API::get_connected( [
 			
 			$src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
 			$url = rwmb_meta( 'mbox_url' );
-					$descargas = rwmb_meta( 'descarga_id' );
+			$descargas = rwmb_meta( 'descarga_id' );
 			
 			$terms = get_the_terms( $post->ID, 'rubro' );
 			$dterms = get_the_terms( $post->ID, 'descuento' );
-
+			$media = rwmb_meta( $post->ID, 'oembed' );
 ?>
 
 	<div class="container">
@@ -36,11 +36,39 @@ $estudios = MB_Relationships_API::get_connected( [
 						the_post();
 						?>
 							<div class="row no-gutters">
-								<?php if ($featured_img_url) { 
-									echo '<div class="col-md-7">';
-									the_post_thumbnail('full', array('class' => 'img-fluid'));
+								<?php 
+								$images = rwmb_meta( 'image_vj', array( 'size' => 'medium' ) );
+									
+								echo '<div class="col-md-7">';
+									echo '<div class="slick fullmedia">';
+											
+										if ($featured_img_url) { 
+											echo '<div>';
+											the_post_thumbnail('full', array('class' => 'img-fluid'));
+											echo '</div>';
+										}
+										if ($images) {
+											// slick
+											foreach ( $images as $image ) {
+												echo '<div>';
+												echo '<img src="', $image['url'], '">';
+												echo '</div>';
+											}    
+										}
+										$url = get_post_meta( get_the_ID(), 'oembed', true );
+										$embed = wp_oembed_get( $url, $args );
+										if ( ! $embed ) {
+											$embed = $GLOBALS['wp_embed']->shortcode( $args, $url );
+										}
+										if ( $embed ) {
+											echo '<div>';
+											echo $embed;
+											echo '</div>';
+										}
+
 									echo '</div>';
-								} ?>
+								echo '</div>';
+								?>
 								
 								<div class="<?php if ($featured_img_url) { echo 'col-md-8'; } ?>">
 									<div class="card-body">
@@ -51,7 +79,6 @@ $estudios = MB_Relationships_API::get_connected( [
 										foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
 										echo '</div>';
 										}
-										
 										the_title( '<h1 class="card-title">', '</h1>' );
 										
 										if ($estudios) {

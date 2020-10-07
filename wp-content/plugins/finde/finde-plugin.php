@@ -693,6 +693,32 @@ function mbox_register_meta_boxes( $meta_boxes ){
           // Is field cloneable?
           'clone' => true,
       ),
+      array(
+        'id'               => 'image_vj',
+        'name'             => 'Imágenes adicionales',
+        'type'             => 'image_advanced',
+
+        // Delete image from Media Library when remove it from post meta?
+        // Note: it might affect other posts if you use same image for multiple posts
+        'force_delete'     => false,
+
+        // Maximum image uploads.
+        'max_file_uploads' => 5,
+
+        // Do not show how many images uploaded/remaining.
+        'max_status'       => 'false',
+
+        // Image size that displays in the edit page. Possible sizes small,medium,large,original
+        'image_size'       => 'thumbnail',
+      ),
+      array(
+        'id'    => 'oembed',
+        'name'  => 'oEmbed(s)',
+        'type'  => 'oembed',
+    
+        // Input size
+        'size'  => 30,
+      ),
 
     )
   );
@@ -1176,9 +1202,9 @@ function wp_archive_catalogovj() {
       $url = rwmb_meta( 'mbox_url' );
       $descargas = rwmb_meta( 'descarga_id' );
       
-      
       $terms = get_the_terms( $post->ID, 'rubro' );
       $dterms = get_the_terms( $post->ID, 'descuento' );
+      
 
       echo '<div class="grid-item item mb-1"';
       if ($terms) {
@@ -1198,6 +1224,7 @@ function wp_archive_catalogovj() {
         echo get_the_post_thumbnail( $post_id, 'small', array( 'class' => 'img-fluid card-img-top' ) );
       }
       echo '<div class="card-body">';
+     
       echo '<h5 class="card-title">' . get_the_title() . '</h5>';
       if ( get_the_excerpt() ) {
         echo '<div class="card-text">' . get_the_excerpt() .'</div>';
@@ -1923,10 +1950,19 @@ if ( ! function_exists( 'wp_archive_agenda_por_dia' )) {
 
     // We are creating new multidimensional array
     $todos_los_eventos = [];
+    $days_dias = array(
+	    'Monday'=>'Lunes',
+	    'Tuesday'=>'Martes',
+	    'Wednesday'=>'Miércoles',
+	    'Thursday'=>'Jueves',
+	    'Friday'=>'Viernes',
+	    'Saturday'=>'Sábado',
+	    'Sunday'=>'Domingo'
+    );
 
     while ( $the_query->have_posts() ) : $the_query->the_post();
         $fecha = rwmb_meta( 'fecha_id' ); 
-        $fecha_evento = date('l d-m', $fecha);
+        $fecha_evento = $days_dias[date('l',$fecha)].' '.date('d-m', $fecha);
         
         $todos_los_eventos[ $fecha_evento ][] = $the_query->post;
     endwhile;
@@ -1934,7 +1970,8 @@ if ( ! function_exists( 'wp_archive_agenda_por_dia' )) {
 
     // And to print this:
     
-    echo '<h2 class="font-weight-bold d-inline-block mr-3"><i class="fas fa-calendar-alt"></i>   Programación completa </h2><div class="pasadia">';
+    echo '<h2 class="font-weight-bold d-inline-block mr-3"><i class="fas fa-calendar-alt"></i>   Programación completa </h2>';
+    echo '<div class="pasadia mx-auto">';
     foreach ( $todos_los_eventos as $fecha_evento => $eventos ) :
       echo '<h3>'.$fecha_evento.'</h3>';
     endforeach;

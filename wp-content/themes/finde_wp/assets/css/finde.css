@@ -831,6 +831,25 @@ a.badge.os {
   height: 550px;
 }
 
+.slick.fullmedia {
+  min-height: 500px !important;
+}
+.slick.fullmedia .slick-track .slick-slide {
+  height: 500px;
+  width: 100%;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  z-index: 999;
+  opacity: 1;
+  background: #222;
+}
+.slick.fullmedia .slick-track .slick-slide img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 .hvr-icon-forward {
   display: inline-block;
   vertical-align: middle;
@@ -1066,8 +1085,7 @@ a[class^=hvr-]:hover {
 
 .pasadia {
   width: 100%;
-  margin-top: 30px;
-  display: inline-block;
+  display: block;
   background: #FFF;
   border-radius: 5px;
   padding: 20px 20px;
