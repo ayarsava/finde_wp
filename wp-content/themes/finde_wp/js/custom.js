@@ -98,7 +98,7 @@ $('.slick.fullmedia').slick({
   speed: 300,
   slidesToScroll: 1,
   slidesToShow: 1,
-  lazyLoad: 'ondemand'
+  lazyLoad: 'ondemand',
 });
 
 $('.slick.agenda').slick({

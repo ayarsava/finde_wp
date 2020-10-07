@@ -41,7 +41,16 @@ $estudios = MB_Relationships_API::get_connected( [
 									
 								echo '<div class="col-md-7">';
 									echo '<div class="slick fullmedia">';
-											
+										$url = get_post_meta( get_the_ID(), 'oembed', true );
+										$embed = wp_oembed_get( $url, $args );
+										if ( ! $embed ) {
+											$embed = $GLOBALS['wp_embed']->shortcode( $args, $url );
+										}
+										if ( $embed ) {
+											echo '<div>';
+											echo $embed;
+											echo '</div>';
+										}
 										if ($featured_img_url) { 
 											echo '<div>';
 											the_post_thumbnail('full', array('class' => 'img-fluid'));
@@ -55,16 +64,7 @@ $estudios = MB_Relationships_API::get_connected( [
 												echo '</div>';
 											}    
 										}
-										$url = get_post_meta( get_the_ID(), 'oembed', true );
-										$embed = wp_oembed_get( $url, $args );
-										if ( ! $embed ) {
-											$embed = $GLOBALS['wp_embed']->shortcode( $args, $url );
-										}
-										if ( $embed ) {
-											echo '<div>';
-											echo $embed;
-											echo '</div>';
-										}
+										
 
 									echo '</div>';
 								echo '</div>';
