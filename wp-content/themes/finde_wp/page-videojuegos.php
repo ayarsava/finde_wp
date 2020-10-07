@@ -24,7 +24,7 @@ get_template_part( 'layouts/header', 'vj' );
         <?php the_content();?>
 
         <!--BP-->
-        <section class="bg-white">
+        <section class="bg-white pt-5">
             <div class="container-fluid">
                 <div class="container">
                     <div class="row">
@@ -76,7 +76,7 @@ get_template_part( 'layouts/header', 'vj' );
         </section>
 
         <!--GJ-->
-        <section class="bg-white pb-5">
+        <section class="bg-white py-5">
             <div class="container-fluid">
                 <div class="container">
                     <div class="row">

@@ -1219,10 +1219,27 @@ function wp_archive_catalogovj() {
       }
       echo '>';
       echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
-      echo '<div class="grid-item-content card">';
-      if ( has_post_thumbnail() ) {
-        echo get_the_post_thumbnail( $post_id, 'small', array( 'class' => 'img-fluid card-img-top' ) );
-      }
+      
+      echo '<div class="slick fullmedia">';
+        $url = get_post_meta( get_the_ID(), 'oembed', true );
+        $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'small');  
+        if ($featured_img_url) { 
+          echo '<div>';
+          the_post_thumbnail('medium', array('class' => 'img-fluid'));
+          echo '</div>';
+        }
+        $images = rwmb_meta( 'image_vj', array( 'size' => 'medium' ) );
+        if ($images) {
+          // slick
+          foreach ( $images as $image ) {
+            echo '<div>';
+            echo '<img data-lazy="'. $image['url']. '">';
+            echo '</div>';
+          }    
+        }
+      echo '</div>';
+
+      echo '<div class="grid-item-content card h-100">';
       echo '<div class="card-body">';
      
       echo '<h5 class="card-title">' . get_the_title() . '</h5>';
@@ -1882,7 +1899,7 @@ if ( ! function_exists( 'wp_archive_agenda_destacado' ) ) {
       $fecha = rwmb_meta( 'fecha_id' ); 
       $destacado = rwmb_meta( 'destacado_id' );
       echo '<div class="item">';
-        echo '<div class="mb-4 ';
+        echo '<div class="mb-md-4 mb-1 ';
           if ($destacado == 1) { 
             echo 'destacado';
           };
@@ -1970,7 +1987,7 @@ if ( ! function_exists( 'wp_archive_agenda_por_dia' )) {
 
     // And to print this:
     
-    echo '<h2 class="font-weight-bold d-inline-block mr-3"><i class="fas fa-calendar-alt"></i>   Programación completa </h2>';
+    echo '<h2 class="font-weight-bold d-inline-block mr-3 titulo"><i class="fas fa-calendar-alt"></i>   Programación completa </h2>';
     echo '<div class="pasadia mx-auto">';
     foreach ( $todos_los_eventos as $fecha_evento => $eventos ) :
       echo '<h3>'.$fecha_evento.'</h3>';

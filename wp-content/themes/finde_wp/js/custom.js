@@ -151,6 +151,15 @@ $('#agenda-destacada').slick({
   slidesToScroll: 1,
   slidesToShow: 2,
   //initialSlide: slide,
+  responsive: [
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    },
+  ]
 });
 
 var slide;

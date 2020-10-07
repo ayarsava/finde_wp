@@ -98,9 +98,8 @@
 							<a class="nav-link" href="/">Próximas ediciones</a>
 						</li>-->
 			    	</ul>
-			    	<div class="d-flex bd-highlight">
-					  	<div class="bd-highlight">
-
+			    	<div class="d-flex">
+					  	<div class="buscador">
 						    <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
 								<label>
 									<span class="screen-reader-text">Buscar:</span>
@@ -109,7 +108,7 @@
 								<button type="submit" class="search-submit"><span class="fa fa-search"></span></button>
 							</form>
 						</div>
-					  	<div class="bd-highlight redes ml-2">
+					  	<div class="redes ml-2">
 					  		<a href="https://www.instagram.com/buenosairescultura/" target="_blank"><i class="ml-1 fab fa-instagram"></i></a>
 					    	<a href="https://twitter.com/ba_cultura" target="_blank"><i class="ml-1 fab fa-twitter"></i></a>
 					    	<a href="https://www.facebook.com/buenosairescultura" target="_blank"><i class="ml-1 fab fa-facebook"></i></a>
