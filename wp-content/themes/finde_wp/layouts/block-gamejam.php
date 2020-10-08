@@ -10,7 +10,7 @@
  */
 
 ?>
-        <div class="row">
+        <!--<div class="row">
             <div id="gamejam_videos" class="col-15 gamejam mb-5">
                 <div class="item embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item" src="//www.youtube.com/embed/oJwDxiINKZc?rel=0" allowfullscreen></iframe>
@@ -28,7 +28,7 @@
                     <iframe class="embed-responsive-item" src="//www.youtube.com/embed/oJwDxiINKZc?rel=0" allowfullscreen></iframe>
                 </div>
             </div>
-        </div>
+        </div>-->
 
         </div>
 		<section id="sponsors" class="bg-white">

@@ -211,17 +211,47 @@ h1 {
 }
 
 /*** header ***/
+header.main-header {
+  position: relative;
+}
 header.main-header .logo-wrapper {
   min-height: 120px;
 }
 header.main-header .logo-wrapper a.main-logo {
   position: absolute;
-  left: -76px;
+  left: -60px;
   bottom: 0;
 }
-@media (max-width: 577px) {
+@media (min-width: 1200px) {
   header.main-header .logo-wrapper a.main-logo {
-    left: -65px;
+    left: -71px;
+  }
+  header.main-header .logo-wrapper a.main-logo img.navbar-brand-img {
+    width: 212px;
+  }
+}
+@media (max-width: 991px) {
+  header.main-header .logo-wrapper a.main-logo {
+    left: -76px;
+  }
+  header.main-header .logo-wrapper a.main-logo img.navbar-brand-img {
+    width: 227px;
+  }
+}
+@media (max-width: 767px) {
+  header.main-header .logo-wrapper a.main-logo {
+    left: -76px;
+  }
+  header.main-header .logo-wrapper a.main-logo img.navbar-brand-img {
+    width: 227px;
+  }
+}
+@media (max-width: 601px) {
+  header.main-header .logo-wrapper a.main-logo {
+    left: -60px;
+  }
+  header.main-header .logo-wrapper a.main-logo img.navbar-brand-img {
+    width: 187px;
   }
 }
 header.main-header .header-dates {
@@ -237,13 +267,25 @@ header.main-header .header-dates {
   header.main-header .menu-wrapper {
     position: absolute;
     right: 0px;
-    top: 100px;
+    top: 72px;
     z-index: 11;
     box-shadow: -2px 7px 22px #22222230;
   }
 }
-header.main-header .menu-wrapper nav.navbar .navbar-collapse ul.navbar-nav li:first-child a {
-  padding-left: 0;
+header.main-header .menu-wrapper nav.navbar {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+@media (min-width: 992px) {
+  header.main-header .menu-wrapper nav.navbar .navbar-collapse ul.navbar-nav li:first-child a {
+    padding-left: 0;
+  }
+}
+@media (max-width: 991px) {
+  header.main-header .menu-wrapper nav.navbar .navbar-collapse ul#main-menu li.menu-item {
+    padding-left: 0px;
+    padding-bottom: 5px;
+  }
 }
 header.main-header .menu-wrapper nav.navbar .navbar-collapse a.nav-link.active {
   font-weight: bold;
@@ -343,6 +385,77 @@ footer img.logo-cultura {
   text-decoration: none;
 }
 
+ul#main-menu li.menu-item {
+  display: inline-block;
+  padding-right: 0.4rem;
+  padding-left: 0.4rem;
+}
+ul#main-menu li.menu-item:first-child {
+  padding-left: 0;
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  header.main-header {
+    z-index: 2;
+  }
+  header.main-header .logo-wrapper {
+    min-height: 100px;
+    z-index: 1;
+  }
+  header.main-header .logo-wrapper a.main-logo {
+    left: -60px;
+  }
+  header.main-header .menu-wrapper {
+    top: 52px;
+    box-shadow: none;
+  }
+  header.main-header .menu-wrapper nav {
+    background: #000;
+    border: 0px;
+    margin-right: auto !important;
+  }
+  header.main-header .menu-wrapper nav button.btn-link {
+    color: #FFF;
+  }
+  header.main-header .menu-wrapper nav ul#main-menu li.menu-item {
+    padding: 5px 0;
+  }
+  header.main-header .menu-wrapper nav ul#main-menu li.menu-item a {
+    padding: 5px 0;
+    color: #FFF;
+  }
+  header.main-header .menu-wrapper .buscador {
+    display: none !important;
+  }
+
+  section#slide-principal {
+    position: relative;
+    background: #000;
+    height: calc(100vh - 100px);
+    margin-top: 0px;
+    z-index: 1;
+  }
+  section#slide-principal .carousel .carousel-inner .carousel-item {
+    height: calc(100vh - 100px);
+  }
+  section#slide-principal .carousel .carousel-inner .carousel-item .carousel-caption {
+    left: 0;
+    bottom: 60px;
+    width: 80%;
+  }
+  section#slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info {
+    background: #000;
+    color: #FFF;
+  }
+  section#slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info h1 a {
+    color: #FFF;
+  }
+
+  .wp-block-group__inner-container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
 /*** catalogo isotope ***/
 #container {
   display: none;
@@ -1752,6 +1865,10 @@ input[type=radio] + label {
 @media (min-width: 1200px) {
   .wp-block-group__inner-container {
     max-width: 1140px;
+  }
+
+  #game-time {
+    display: block !important;
   }
 }
 

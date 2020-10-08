@@ -67,7 +67,7 @@ get_template_part( 'layouts/header', 'vj' );
                 <?php wp_archive_agenda('videojuegos'); ?>
                 <div class="row">
                     <div class="col-15">
-                        <div class="border-top mt-3 py-3">
+                        <div class="border-top mt-3 pt-3">
                             <a href="/agenda-videojuegos"><strong>+ Ver agenda completa</strong></a>
                         </div>
                     </div>
@@ -92,11 +92,11 @@ get_template_part( 'layouts/header', 'vj' );
         </section>
 
         <!--LB-->
-        <section class="mx-auto pt-5 pb-4 text-white" style="background:#222;">
+        <section id="game-time" class="d-none mx-auto pt-5 pb-4 text-white" style="background:#222;">
             <div class="container">
                 <div class="row">
                     <div class="col-15 text-center gamepad my-3 embed-responsive embed-responsive-16by9">
-                        <iframe src="//emlabollita.com/finde/flappy-bird/" class="embed-responsive-item"  frameborder="0" scrolling="no" align="center"></iframe>
+                        <iframe src="https://emlabollita.com/space/" class="embed-responsive-item"  frameborder="0" scrolling="no" align="center"></iframe>
                     </div>
                 </div>
             </div>

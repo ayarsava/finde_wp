@@ -50,54 +50,32 @@
   	<header class="main-header bg-primary">
   		<div class="container">
 	  		<div class="row position-relative">
-		  		<div class="logo-wrapper col-lg-2 col-md-3 col-5">
-			        <!-- Brand -->
+		  		<div class="logo-wrapper col-lg-2 col-md-3 col-8">
 			        <a class="main-logo mt-3" href="/">
 			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde_mu_logo.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
 			        </a>
 			    </div>
-			    <div class="header-dates col-lg-6 col-md-5 col-10">
-			    	<ul class="list-unstyled text-light pt-3">
-			    		<li>Videojuegos > Jue 30.04 al Dom 03.05</li>
-						<li>Editorial > Jue 07 al Dom 10.05</li>
-						<li><strong>Música > Jue 14 al Dom 17.05</strong></li>
-					</ul>
-			    </div>
-			    <div class="col-md-7 d-none d-md-block pt-4 text-right">
+			    <div class="col-md-7 d-none d-md-block pt-4 text-right ml-auto">
 				    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-cultura-gobierno-blanco.png" class="img-fluid ml-auto" width="340">
 				</div>
 			</div>
 		</div>
 		<div class="menu-wrapper bg-light">
 			<nav class="navbar navbar-expand-lg container">
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerVJ" aria-controls="navbarTogglerVJ" aria-expanded="false" aria-label="Toggle navigation">
-			    <span class="navbar-toggler-icon"></span>
-				</button>
-				<button class="btn btn-link d-lg-none p-0 ml-3" type="button" data-toggle="collapse" data-target="#navbarTogglerVJ" aria-controls="navbarTogglerVJ" aria-expanded="false" aria-label="Toggle docs navigation"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button>
+				<button class="btn btn-link d-lg-none p-0 ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerVJ" aria-controls="navbarTogglerVJ" aria-expanded="false" aria-label="Toggle docs navigation"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button>
 				<div class="collapse navbar-collapse" id="navbarTogglerVJ">
-					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-						<li class="nav-item">
-							<a class="nav-link active" href="/musica">Inicio</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/que-es">Qué es</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/musica/#categorias">Comprar</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/musica/#agenda">Agenda</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/en-vivo">En vivo</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/sumate">¡Sumate!</a>
-						</li>
-			    	</ul>
-			    	<div class="d-flex bd-highlight">
-					  	<div class="bd-highlight">
-
+					<?php
+					wp_nav_menu(
+						array(
+						'menu'			 => 'musica',
+						'container'      => 'ul',
+						'menu_id'        => 'main-menu',
+						'menu_class'	 => 'navbar-nav site-menu-light main-menu mr-auto d-lg-block',
+						)
+					);
+					?>
+			    	<div class="navbar-sec d-md-flex">
+					  	<div class="buscador mr-1 mb-2 mb-md-0">
 						    <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
 								<label>
 									<span class="screen-reader-text">Buscar:</span>
@@ -106,11 +84,11 @@
 								<button type="submit" class="search-submit"><span class="fa fa-search"></span></button>
 							</form>
 						</div>
-					  	<div class="bd-highlight redes ml-2">
-					  		<a href="https://www.instagram.com/buenosairescultura/" target="_blank"><i class="ml-1 fab fa-instagram"></i></a>
-					    	<a href="https://twitter.com/ba_cultura" target="_blank"><i class="ml-1 fab fa-twitter"></i></a>
-					    	<a href="https://www.facebook.com/buenosairescultura" target="_blank"><i class="ml-1 fab fa-facebook"></i></a>
-					    	<a href="https://www.youtube.com/channel/UC9oKeEOrfIrPCCLmfBuEWLw" target="_blank"><i class="ml-1 fab fa-youtube"></i></a>
+					  	<div class="redes">
+					  		<a href="https://www.instagram.com/buenosairescultura/" target="_blank"><i class="mr-1 fab fa-instagram"></i></a>
+					    	<a href="https://twitter.com/ba_cultura" target="_blank"><i class="mr-1 fab fa-twitter"></i></a>
+					    	<a href="https://www.facebook.com/buenosairescultura" target="_blank"><i class="mr-1 fab fa-facebook"></i></a>
+					    	<a href="https://www.youtube.com/channel/UC9oKeEOrfIrPCCLmfBuEWLw" target="_blank"><i class="mr-1 fab fa-youtube"></i></a>
 					    </div>
 					</div>
 				</div>

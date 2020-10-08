@@ -46,14 +46,13 @@
 
   </head>
   <body <?php body_class(); ?>>
-  	<?php wp_body_open(); ?>
+	<?php wp_body_open(); ?>
   	<header class="main-header bg-primary">
   		<div class="container">
 	  		<div class="row position-relative">
-		  		<div class="logo-wrapper col-lg-2 col-md-3 col-5">
-			        <!-- Brand -->
+		  		<div class="logo-wrapper col-lg-2 col-md-3 col-8">
 			        <a class="main-logo mt-3" href="/">
-			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde_vj_logo2.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
+			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde_vj_logo.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
 			        </a>
 			    </div>
 			    <div class="col-md-7 d-none d-md-block pt-4 text-right ml-auto">
@@ -65,29 +64,16 @@
 			<nav class="navbar navbar-expand-lg container">
 				<button class="btn btn-link d-lg-none p-0 ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerVJ" aria-controls="navbarTogglerVJ" aria-expanded="false" aria-label="Toggle docs navigation"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button>
 				<div class="collapse navbar-collapse" id="navbarTogglerVJ">
-					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-						<li class="nav-item">
-							<a class="nav-link active" href="/videojuegos/#finde-vj">Inicio</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/que-es">Qué es</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/videojuegos/#catalogo">Juegos</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/videojuegos/#agenda">Agenda</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/en-vivo">En vivo</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/gamejam">Game Jam</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/sumate">¡Sumate!</a>
-						</li>
-			    	</ul>
+					<?php
+					wp_nav_menu(
+						array(
+						'menu'			 => 'videojuegos',
+						'container'      => 'ul',
+						'menu_id'        => 'main-menu',
+						'menu_class'	 => 'navbar-nav site-menu-light main-menu mr-auto d-lg-block',
+						)
+					);
+					?>
 			    	<div class="navbar-sec d-md-flex">
 					  	<div class="buscador mr-1 mb-2 mb-md-0">
 						    <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
