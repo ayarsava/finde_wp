@@ -10,25 +10,37 @@
  */
 
 ?>
-        <!--<div class="row">
+        <div class="row">
             <div id="gamejam_videos" class="col-15 gamejam mb-5">
                 <div class="item embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/oJwDxiINKZc?rel=0" allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/kh0ojaZ27JQ?rel=0" allowfullscreen></iframe>
                 </div>
                 <div class="item embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/oJwDxiINKZc?rel=0" allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/iDtNHEXc_vw?rel=0" allowfullscreen></iframe>
                 </div>
                 <div class="item embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/oJwDxiINKZc?rel=0" allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/0oyqFrZ9EnA?rel=0" allowfullscreen></iframe>
                 </div>
                 <div class="item embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/oJwDxiINKZc?rel=0" allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/eNTuK9v4o7Y?rel=0" allowfullscreen></iframe>
                 </div>
                 <div class="item embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/oJwDxiINKZc?rel=0" allowfullscreen></iframe>
+                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/-Ioa7sX0B9w?rel=0" allowfullscreen></iframe>
+                </div>
+
+                <div class="item embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/-bxKi20vmYw?rel=0" allowfullscreen></iframe>
+                </div>
+
+                <div class="item embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/igH0tfsEwJg?rel=0" allowfullscreen></iframe>
+                </div>
+
+                <div class="item embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/Vg0xZgJhUfY?rel=0" allowfullscreen></iframe>
                 </div>
             </div>
-        </div>-->
+        </div>
 
         </div>
 		<section id="sponsors" class="bg-white">

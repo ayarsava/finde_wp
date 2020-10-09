@@ -92,15 +92,42 @@ get_template_part( 'layouts/header', 'vj' );
         </section>
 
         <!--LB-->
-        <section id="game-time" class="d-none mx-auto pt-5 pb-4 text-white" style="background:#222;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-15 text-center gamepad my-3 embed-responsive embed-responsive-16by9">
-                        <iframe src="https://emlabollita.com/space/" class="embed-responsive-item"  frameborder="0" scrolling="no" align="center"></iframe>
+        <?php
+        $date_now = date("Y-m-d"); // this format is string comparable
+
+        if ($date_now == '2020-10-10') {
+            echo '<section id="game-time" class="d-none mx-auto pt-5 pb-4 text-white" style="background:#222;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-15 text-center gamepad my-3 embed-responsive embed-responsive-16by9">
+                            <iframe src="https://emlabollita.com/space/" class="embed-responsive-item"  frameborder="0" scrolling="no" align="center"></iframe>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>';
+        } else if ($date_now == '2020-10-11') {
+            echo '<section id="game-time" class="d-none mx-auto pt-5 pb-4 text-white" style="background:#222;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-15 text-center gamepad my-3 embed-responsive embed-responsive-16by9">
+                            <iframe src="https://emlabollita.com/flappy/" class="embed-responsive-item"  frameborder="0" scrolling="no" align="center"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>';
+        } else {
+            echo '<section id="game-time" class="d-none mx-auto pt-5 pb-4 text-white" style="background:#222;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-15 text-center gamepad my-3 embed-responsive embed-responsive-16by9">
+                            <iframe src="https://emlabollita.com/space/" class="embed-responsive-item"  frameborder="0" scrolling="no" align="center"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>';
+        }
+        ?>
+        
 
 
 
