@@ -100,7 +100,7 @@ get_template_part( 'layouts/header', 'vj' );
                 <div class="container">
                     <div class="row">
                         <div class="col-15 text-center gamepad my-3 embed-responsive embed-responsive-16by9">
-                            <iframe src="https://emlabollita.com/space/" class="embed-responsive-item"  frameborder="0" scrolling="no" align="center"></iframe>
+                            <iframe src="https://emlabollita.com/flappy/" class="embed-responsive-item"  frameborder="0" scrolling="no" align="center"></iframe>
                         </div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@ get_template_part( 'layouts/header', 'vj' );
                 <div class="container">
                     <div class="row">
                         <div class="col-15 text-center gamepad my-3 embed-responsive embed-responsive-16by9">
-                            <iframe src="https://emlabollita.com/flappy/" class="embed-responsive-item"  frameborder="0" scrolling="no" align="center"></iframe>
+                            <iframe src="https://www.emlabollita.com/game/" class="embed-responsive-item"  frameborder="0" scrolling="no" align="center"></iframe>
                         </div>
                     </div>
                 </div>
