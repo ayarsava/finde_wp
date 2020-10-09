@@ -810,9 +810,9 @@ function mbox_register_meta_boxes( $meta_boxes ){
         'save_format' => 'Y-m-d H:i:s',
       ),
       array(
-        'name' => __( 'Video', 'mbox' ),
-        'id'   => "{$prefix}video",
-        'desc' => __( 'Ingrese el enlace corto de Youtube', 'mbox' ),
+        'name' => __( 'Enlace', 'mbox' ),
+        'id'   => "enlace",
+        'desc' => __( 'Ingrese el enlace', 'mbox' ),
         'type' => 'url',
         'std'  => '',
       ),
@@ -1201,7 +1201,7 @@ function wp_archive_catalogovj() {
       $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
       $url = rwmb_meta( 'mbox_url' );
       $descargas = rwmb_meta( 'descarga_id' );
-      
+      $video = rwmb_meta( 'mbox_video' ); 
       $terms = get_the_terms( $post->ID, 'rubro' );
       $dterms = get_the_terms( $post->ID, 'descuento' );
       

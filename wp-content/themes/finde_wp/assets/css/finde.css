@@ -1871,5 +1871,17 @@ input[type=radio] + label {
     display: block !important;
   }
 }
+#agenda .fecha .dia {
+  font-size: 2rem;
+  text-align: left;
+  line-height: 1;
+  font-weight: 700;
+}
+#agenda .fecha .hora {
+  font-size: 1.5rem;
+  text-align: left;
+  line-height: 1;
+  font-weight: 300;
+}
 
 /*# sourceMappingURL=finde.css.map */

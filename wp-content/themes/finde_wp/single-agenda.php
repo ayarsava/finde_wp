@@ -9,6 +9,7 @@
 
 $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
 $fecha = rwmb_meta( 'fecha_id' ); 
+$enlace = rwmb_meta( 'enlace' ); 
 
 if (has_category( 'Editorial' )) {
   get_template_part( 'layouts/header', 'ed' ); 
@@ -49,9 +50,14 @@ get_header();
 							        }
 							      echo '</div>';
 							    }
-							    ?>
+								?>
+								<div class="fecha">
+									<span class="dia"><?php echo date('d-m', $fecha); ?> </span> - 
+									<span class="hora"><?php echo date('H:i', $fecha); ?>hs</span>
+								</div>
 						        <ul class="list-unstyled">
-									<li><?php echo date('d-m\, H:i', $fecha); ?>hs</li>
+
+									<li></li>
 								</ul>
 						      	<?php
 								the_title( '<h1 class="card-title">', '</h1>' );
@@ -59,7 +65,12 @@ get_header();
 									echo '<div class="lead">'. get_the_excerpt() .'</div>';
 								}
 						        ?>
-						        <p class="card-text"><?php the_content(); ?></p>
+								<p class="card-text"><?php the_content(); ?></p>
+								<?php 
+								if ( $enlace ) {
+									echo '<a href="'.$enlace.'" title="Ver actividad"><img src="/wp-content/themes/finde_wp/assets/img/ver-actividad.png" width="100"></a>';
+								}
+								?>
 						      </div>
 						    </div>
 						  </div>
