@@ -18,7 +18,7 @@ $destacado = rwmb_meta( 'destacado_id' );
 ?>
 <div class="item mb-4<?php if ($destacado == 1) { echo ' destacado'; } ?>" data-target="<?php echo date('d-m', $fecha); ?>">
   <?php if ($destacado == 1) { echo '<div class="ribbon ribbon-top-left"><span></span></div>'; } ?>
-  <div class="card h-100">
+  <div class="card h-100 w-100">
     <?php if ($featured_img_url) { 
     echo '<div class="img-wrapper img-fluid card-img-top" style="background-image: url('. esc_url($featured_img_url) .'); background-size:cover;background-position: center center; height:160px;position:relative;">';
     echo '<div class="fecha"><span class="dia">'.date('d-m', $fecha).'</span><span class="hora">'. date('H:i', $fecha).'hs</span></div>';

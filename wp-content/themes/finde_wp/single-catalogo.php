@@ -103,7 +103,7 @@ $estudios = MB_Relationships_API::get_connected( [
 									</div>
 								</div>
 							</div>
-<?
+					<?
 					endwhile; // End of the loop.
 					?>
 

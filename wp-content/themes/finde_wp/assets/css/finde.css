@@ -570,6 +570,46 @@ ul#main-menu li.menu-item:first-child {
   width: 38%;
 }
 
+.post-type-archive-disenio,
+.disenio {
+  /* 2 columns wide */
+}
+.post-type-archive-disenio .grid-sizer,
+.post-type-archive-disenio .grid-item,
+.disenio .grid-sizer,
+.disenio .grid-item {
+  width: 25%;
+  padding: 8px;
+}
+@media (min-width: 320px) and (max-width: 479px) {
+  .post-type-archive-disenio .grid-sizer,
+.post-type-archive-disenio .grid-item,
+.disenio .grid-sizer,
+.disenio .grid-item {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .post-type-archive-disenio .grid-sizer,
+.post-type-archive-disenio .grid-item,
+.disenio .grid-sizer,
+.disenio .grid-item {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+  .post-type-archive-disenio .grid-sizer,
+.post-type-archive-disenio .grid-item,
+.disenio .grid-sizer,
+.disenio .grid-item {
+    width: 25%;
+  }
+}
+.post-type-archive-disenio .grid-item--width2,
+.disenio .grid-item--width2 {
+  width: 38%;
+}
+
 #catalogo .item h5.card-title {
   margin-bottom: 0.5rem;
 }
@@ -895,9 +935,10 @@ a.badge.os {
   background: linear-gradient(45deg, white 0%, #e9e9e9 100%);
 }
 .slick-slider .slick-track .slick-slide img {
-  height: 100%;
+  height: auto;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  max-width: 588px;
 }
 
 .galeria-slick .slick-track .slick-slide {
@@ -969,6 +1010,21 @@ a.badge.os {
 }
 .profile-slick .slick-track .slick-slide {
   height: 550px;
+}
+.profile-slick .slick-track .slick-slide img {
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+  max-width: 588px;
+}
+
+.archive-disenio .galeria-slick .slick-track .slick-slide {
+  height: 208px;
+}
+@media (max-width: 991px) {
+  .archive-disenio .galeria-slick .slick-track .slick-slide {
+    height: 224px;
+  }
 }
 
 .post-type-archive-catalogo div#form-ui ul {
@@ -1761,6 +1817,13 @@ input[type=radio] + label {
   border-bottom: solid 3px #793d97;
 }
 
+.archive-disenio ul#form-ui {
+  background: #eaeaea;
+  padding: 40px;
+  margin-bottom: 0;
+  border-bottom: solid 3px #793d97;
+}
+
 .flex-equal > * {
   -ms-flex: 1;
   flex: 1;
@@ -1882,6 +1945,10 @@ input[type=radio] + label {
   text-align: left;
   line-height: 1;
   font-weight: 300;
+}
+
+.medio_digital {
+  display: block;
 }
 
 /*# sourceMappingURL=finde.css.map */

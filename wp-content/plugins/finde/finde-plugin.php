@@ -174,6 +174,62 @@ function wporg_register_taxonomy_descuento_mu() {
 add_action('init', 'wporg_register_taxonomy_descuento_mu');
 
 
+function wporg_register_taxonomy_rubro_di() {
+  $labels = [
+    'name'              => _x('Rubros', 'taxonomy general name'),
+    'singular_name'     => _x('Rubro', 'taxonomy singular name'),
+    'search_items'      => __('Buscar rubros'),
+    'all_items'         => __('Todos los rubros'),
+    'parent_item'       => __('Rubro padre'),
+    'parent_item_colon' => __('Rubro padre:'),
+    'edit_item'         => __('Editar Rubro'),
+    'update_item'       => __('Actualizar Rubro'),
+    'add_new_item'      => __('Agregar nuevo Rubro'),
+    'new_item_name'     => __('Nuevo nombre de rubro'),
+    'menu_name'         => __('Rubro'),
+  ];
+  $args = [
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    //'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => array( 'slug' => 'rubro_di', 'with_front' => false ),
+  ];
+  register_taxonomy('rubro_di', ['disenio'], $args);
+}
+add_action('init', 'wporg_register_taxonomy_rubro_di');
+
+
+function wporg_register_taxonomy_descuento_di() {
+  $labels = [
+    'name'              => _x('Descuentos', 'taxonomy general name'),
+    'singular_name'     => _x('Descuento', 'taxonomy singular name'),
+    'search_items'      => __('Buscar descuentos'),
+    'all_items'         => __('Todos los descuentos'),
+    'parent_item'       => __('Descuento padre'),
+    'parent_item_colon' => __('Descuento padre:'),
+    'edit_item'         => __('Editar Descuento'),
+    'update_item'       => __('Actualizar Descuento'),
+    'add_new_item'      => __('Agregar nuevo Descuento'),
+    'new_item_name'     => __('Nuevo nombre de descuento'),
+    'menu_name'         => __('Descuento'),
+  ];
+  $args = [
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => array( 'slug' => 'descuento_di', 'with_front' => false ),
+  ];
+  register_taxonomy('descuento_di', ['disenio'], $args);
+}
+add_action('init', 'wporg_register_taxonomy_descuento_di');
+
+
 /*** HOME - SLIDER***/
 
 function slider_init() {
@@ -562,6 +618,65 @@ function custom_post_type_music() {
  
 }
 add_action( 'init', 'custom_post_type_music', 0 );
+
+
+/*** CPT DISEÑO ***/
+function custom_post_type_disenio() {
+  // Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Diseño', 'Post Type General Name', 'finde-plugin' ),
+        'singular_name'       => _x( 'Diseño', 'Post Type Singular Name', 'finde-plugin' ),
+        'menu_name'           => __( 'Diseño', 'finde-plugin' ),
+        'parent_item_colon'   => __( 'Diseño padre', 'finde-plugin' ),
+        'all_items'           => __( 'Todos los registros de  Diseño', 'finde-plugin' ),
+        'view_item'           => __( 'Ver Diseño', 'finde-plugin' ),
+        'add_new_item'        => __( 'Agregar nueva registro de Diseño', 'finde-plugin' ),
+        'add_new'             => __( 'Agregar nuevo', 'finde-plugin' ),
+        'edit_item'           => __( 'Editar Registro de diseño', 'finde-plugin' ),
+        'update_item'         => __( 'Actualizar registro de Diseño', 'finde-plugin' ),
+        'search_items'        => __( 'Buscar registros de Diseño', 'finde-plugin' ),
+        'not_found'           => __( 'No encontrado', 'finde-plugin' ),
+        'not_found_in_trash'  => __( 'No encontrado en la papelera', 'finde-plugin' ),
+    );
+     
+  // Set other options for Custom Post Type
+     
+    $args = array(
+        'label'               => __( 'disenio', 'finde-plugin' ),
+        'description'         => __( 'Diseño', 'finde-plugin' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields', ),
+        // You can associate this CPT with a taxonomy or custom taxonomy. 
+        'taxonomies'  => array( 'post_tag', 'rubro_di', 'descuento_di'),
+        /* A hierarchical CPT is like Pages and can have
+        * Parent and child items. A non-hierarchical CPT
+        * is like Posts.
+        */ 
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 16,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest'        => true,
+        'menu_icon'           => 'dashicons-format-audio',
+
+        'timestamp'  => true,
+ 
+    );
+     
+    // Registering your Custom Post Type
+    register_post_type( 'disenio', $args );
+ 
+}
+add_action( 'init', 'custom_post_type_disenio', 0 );
 
 /*** CPT BANNER ***/
 function custom_post_type_banner() {
@@ -1007,6 +1122,146 @@ function mbox_register_meta_boxes( $meta_boxes ){
     )
   );
 
+  # meta_box para disenio
+  $meta_boxes[] = array(
+    'id'         => 'mb_finde_disenio',
+    'title'      => __( 'Campos adicionales', 'mbox' ),
+    'post_types' => 'disenio',
+    'context'    => 'normal',
+    'priority'   => 'low',
+    'autosave'   => true,
+    'fields'     => array(
+      array(
+        'name' => 'Destacado',
+        'id'   => 'destacado_id',
+        'type' => 'checkbox',
+        'std'  => 0, // 0 or 1
+      ),
+      array(
+        'id'               => 'image_di',
+        'name'             => 'Imágenes adicionales',
+        'type'             => 'image_advanced',
+
+        // Delete image from Media Library when remove it from post meta?
+        // Note: it might affect other posts if you use same image for multiple posts
+        'force_delete'     => false,
+
+        // Maximum image uploads.
+        'max_file_uploads' => 5,
+
+        // Do not show how many images uploaded/remaining.
+        'max_status'       => 'false',
+
+        // Image size that displays in the edit page. Possible sizes small,medium,large,original
+        'image_size'       => 'thumbnail',
+      ),
+      array(
+        'name'        => 'Ciudad',
+        //'label_description' => 'Ciudad',
+        'id'          => 'address',
+        //'desc'        => 'Ingrese la ciudad',
+        'type'        => 'text',
+
+        // Placeholder
+        //'placeholder' => 'Dirección, Ciudad, Provincia de Buenos Aires',
+      ),
+      //  URL
+      array(
+          'name' => __( 'Sitio web', 'mbox' ),
+          'id'   => "{$prefix}url",
+          'desc' => __( 'Ingrese la url del sitio oficial de la editorial', 'mbox' ),
+          'type' => 'url',
+          'std'  => '',
+      ),
+      //  Instagram
+      array(
+          'name' => __( 'Instagram', 'mbox' ),
+          'id'   => "{$prefix}instagram",
+          'type' => 'url',
+      ),
+      //  Facebook
+      array(
+          'name' => __( 'Facebook', 'mbox' ),
+          'id'   => "{$prefix}facebook",
+          'type' => 'url',
+      ),
+      // Youtube
+      array(
+        'name' => __( 'Youtube', 'mbox' ),
+        'id'   => "{$prefix}youtube",
+        'type' => 'url',
+      ),
+      //  Twitter
+      array(
+          'name' => __( 'Twitter', 'mbox' ),
+          'id'   => "{$prefix}twitter",
+          'type' => 'url',
+      ),
+      //  Pinterest
+      array(
+        'name' => __( 'Pinterest', 'mbox' ),
+        'id'   => "{$prefix}pinterest",
+        'type' => 'url',
+      ),
+      //  Tiktok
+      array(
+        'name' => __( 'TikTok', 'mbox' ),
+        'id'   => "{$prefix}tiktok",
+        'type' => 'url',
+      ),
+      array(
+        'name'    => 'Medios digitales',
+        'id'      => "{$prefix}medios",
+        'type'    => 'checkbox_list',
+        // Options of checkboxes, in format 'value' => 'Label'
+        'options' => array(
+            'debito'          => 'Tarjeta de débito',
+            'credito'         => 'Tarjeta de crédito',
+            'cuentadni'       => 'Cuenta DNI',
+            'mercadopago'     => 'Mercado Pago',
+            'transferencia'   => 'Transferencia',
+            'paypal'          => 'PayPal',
+            'otros'            => 'Otros',
+        ),
+        // Display options in a single row?
+        'inline' => true,
+        // Display "Select All / None" button?
+        'select_all_none' => true,
+      ),
+      array(
+        'name' => __( 'Tienda virtual de productos y servicios', 'mbox' ),
+        'id'   => "{$prefix}tienda",
+        'desc' => __( 'Ingrese la url del sitio oficial de la editorial', 'mbox' ),
+        'placeholder' => __( 'La url debe empezar con http:// o https://', 'mbox' ),
+        'type' => 'url',
+        'size'  => 50,
+    ),
+      array(
+        'name'        => 'Medios de envíos',
+        'label_description' => 'Indique los distintos tipos de envíos que utiliza',
+        'id'          => 'envios',
+        'type'        => 'text',
+        // Input size
+        'size'        => 50,
+      ),
+      //  Whatsapp
+      array(
+          'name' => __( 'Whatsapp', 'mbox' ),
+          'id'   => "{$prefix}whatsapp",
+          'type' => 'number',
+      ),
+      // oembed
+      array(
+        'id'    => 'oembed',
+        'name'  => 'oEmbed(s)',
+        'type'  => 'oembed',
+    
+        // Input size
+        'size'  => 30,
+      ),
+    )
+  );
+
   // metas para banners
   $meta_boxes[] = array(
     // Meta box id, UNIQUE per meta box. Optional since 4.1.5
@@ -1043,6 +1298,72 @@ function mbox_register_meta_boxes( $meta_boxes ){
   return $meta_boxes;
 }
 
+/*** HOME - CREAR SLIDESHOW - POR TAG***/
+if ( ! function_exists( 'wp_showSlides_fullbg_portag' ) ) {
+  function wp_showSlides_fullbg_portag($post_category) {
+    global $post;
+    
+    // the query
+    $the_query = new WP_Query( array( 
+      'post_type'           => 'slide', 
+      'posts_per_page'         => -1,
+      'post_status'            => 'publish',
+      'no_found_rows'          => true,
+      'category_name'          => $post_category,
+    ) );
+    // The Loop
+    if ( $the_query->have_posts() ) {
+      while ( $the_query->have_posts() ) {
+        $the_query->the_post();
+        $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
+        $url = rwmb_meta( 'mbox_url' );
+        $videos = rwmb_meta( 'mbox_video', array( 'limit' => 1 ) );
+        $video = reset( $videos );
+        ?>
+        <?php
+        if ($video) { 
+          echo '<div class="carousel-item">';
+            echo '<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" >';
+              echo '<source src="';
+              echo $video['src'];
+              echo '" type="video/mp4">';
+              echo '</source>';
+            echo '</video>';
+            echo '<div class="container h-100" style="z-index: 2;">';
+              echo '<div class="d-flex h-100 text-center align-items-center">';
+                echo '<div class="carousel-caption text-left">';
+                  echo '<div class="info">';
+                    echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1>';
+                    echo '<div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
+                  echo '</div>';
+                echo '</div>';
+              echo '</div>';
+            echo '</div>';
+          echo '</div>';
+        } else {
+        if ( has_post_thumbnail() ) {
+          echo '<div class="carousel-item" style="background-image: url('. $src[0] .')">';
+        } else { 
+          echo '<div class="carousel-item" style="background:#009aae">';
+        }
+            echo '<div class="container">';
+              echo '<div class="carousel-caption text-left">';
+                echo '<div class="info">';
+                  echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1>';
+                  echo '<div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
+                echo '</div>';
+              echo '</div>';
+            echo '</div>';
+          echo '</div>';
+        }
+      }
+      /* Restore original Post Data */
+      wp_reset_postdata();
+      } else {
+      echo 'No hemos encontrado Info.';
+    };
+  }
+}
 
 /*** HOME - CREAR SLIDESHOW - VJ***/
 function wp_showSlides_fullbg() {
@@ -1658,6 +1979,115 @@ if ( ! function_exists( 'wp_archive_catalogomu' ) ) {
               }
               echo '</ul></small>';
           }
+          echo '</div></div>';
+      endwhile;
+      wp_reset_postdata();
+    } else {
+      echo 'No hemos encontrado productos o servicios asociados al catálogo.';
+    }
+
+    // Restore original Post Data
+    wp_reset_postdata();
+  }
+}
+
+/*** CATALOGO DISENIO ***/
+if ( ! function_exists( 'wp_archive_catalogodi' ) ) {
+  function wp_archive_catalogodi() {
+      $term = get_term_by( 'slug', get_query_var('term'), get_query_var('taxonomy') );
+      $term_id = $term->term_id;
+      $taxonomy_name = 'rubro_di';
+      $termchildren = get_term_children( $term_id, $taxonomy_name );
+                          
+
+      $args = array(
+          'post_type'              => 'disenio',
+          'posts_per_page'         => -1,
+          'post_status'            => 'publish',
+          'no_found_rows'          => true,
+          'tax_query' => array(
+          array(
+              'taxonomy' => 'rubro_di',
+              'field' => 'term_id', 
+              'terms' => $term_id, /// Where term_id of Term 1 is "1".
+              'include_children' => true
+              )
+          )
+      );
+
+    // The Query
+    $query_catalogodi = new WP_Query( $args );
+    // The Loop
+    if ( $query_catalogodi->have_posts() ) {
+
+      while ( $query_catalogodi->have_posts() ) : $query_catalogodi->the_post();
+
+          $url = rwmb_meta( 'mbox_url' );
+          $images = rwmb_meta( 'image_di', array( 'size' => 'medium' ) );
+          $instagram = rwmb_meta( 'mbox_instagram' );
+          $twitter = rwmb_meta( 'mbox_twitter' );
+          $facebook = rwmb_meta( 'mbox_facebook' );
+          $libreria = rwmb_meta( 'mbox_libreria' );
+          $whatsapp = rwmb_meta( 'mbox_whatsapp' );
+
+
+          $terms = get_the_terms( $post->ID, 'rubro_di' );
+          $dterms = get_the_terms( $post->ID, 'descuento_di' );
+
+          echo '<div class="grid-item item mb-1"';
+          if ($terms) {
+              echo ' data-category="';
+              foreach( $terms as $term ) echo $term->slug. ' ';
+              echo '" ';
+          }
+          if ($dterms) {
+              echo ' data-descuento="';
+              foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
+              echo '"';
+          }
+          echo '>';
+          // slick
+          if ($images) {
+              echo '<div class="galeria-slick">';
+              foreach ( $images as $image ) {
+                  echo '<a href="' . get_the_permalink() .'"><img data-lazy="'. $image['url']. '"></a>';
+              }    
+              echo '</div>';
+          }
+          echo '<div class="grid-item-content card">';
+          echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+          echo '<div class="card-body">';
+          echo '<h5 class="card-title">' . get_the_title() . '</h5>';
+          if ( get_the_excerpt() ) {
+              echo '<div class="card-text">' . get_the_excerpt() .'</div>';
+          } else {
+              echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+          }
+          
+          if ($terms) {
+              echo '<div class="rubro_di">';
+              foreach( $terms as $term ) { echo '<span><a href="'.get_term_link($term->slug, 'rubro_di').'" class="badge bg-primary mt-1 os">'.$term->name.'</a></span>', ' ';}
+              echo '</div>';
+          }
+          if ($dterms) {
+              echo '<div class="descuento_di">';
+              foreach( $dterms as $term ) { echo '<a href="'.get_term_link($term->slug, 'descuento_di').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
+              echo '</div>';
+          }
+          if ($url || $instagram || $facebook || $twitter) {
+              echo '<div class="contacto mt-2">';
+              if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></a></li>';}
+              if ($libreria) { echo '<li class="list-inline-item"><a href="'. $libreria . '" target="_blank" class="os"><i class="fas fa-shopping-cart"></i></a></li>';}
+              if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
+              if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
+              if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
+              if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
+              echo '</div>';
+          }
+          
+          echo '</div><!--End .card-body-->';
+          
+          
           echo '</div></div>';
       endwhile;
       wp_reset_postdata();
