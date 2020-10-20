@@ -17,6 +17,8 @@ if (has_category( 'Editorial' )) {
   get_template_part( 'layouts/header', 'vj' ); 
 } elseif (has_category( 'Música' )) {
   get_template_part( 'layouts/header', 'mu' ); 
+} elseif (has_category( 'Diseño' )) {
+  get_template_part( 'layouts/header', 'di' ); 
 } else {
 get_header();
 }
@@ -68,7 +70,7 @@ get_header();
 								<p class="card-text"><?php the_content(); ?></p>
 								<?php 
 								if ( $enlace ) {
-									echo '<a href="'.$enlace.'" title="Ver actividad"><img src="/wp-content/themes/finde_wp/assets/img/ver-actividad.png" width="100"></a>';
+									echo '<div class="d-block mt-4"></div><a href="'.$enlace.'" class="boton-3d" title="Ir a tienda virtual" target="_blank">Ver actividad</a></div>';
 								}
 								?>
 						      </div>
@@ -90,6 +92,8 @@ if (has_category( 'Editorial' )) {
   get_template_part( 'layouts/footer', 'vj' ); 
 } elseif (has_category( 'Música' )) {
   get_template_part( 'layouts/footer', 'mu' ); 
+} elseif (has_category( 'Diseño' )) {
+  get_template_part( 'layouts/footer', 'di' ); 
 } else {
 get_footer();
 }

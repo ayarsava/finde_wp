@@ -33,13 +33,9 @@ get_template_part( 'layouts/header', 'di' );
 
 
 ?>
-<?php
-while ( have_posts() ) :
-    the_post();
-?>
 <div id="content">
 <div id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
-    <header class="branding-header pt-3 bg-editorial <?php if ($featured_img_url) { echo 'tengo-background'; } ?>">
+    <header class="branding-header pt-3 bg-diseno <?php if ($featured_img_url) { echo 'tengo-background'; } ?>">
         <div class="container pb-5">
             <div class="col-lg-8 col-md-12 mx-auto py-4">
                 <?php
@@ -47,21 +43,21 @@ while ( have_posts() ) :
                 ?>
                 <ul class="list-unstyled text-light">
                     <?php 
-                        if ($address) { echo '<li>'. $address .'</li>';}
+                        if ($address) { echo '<li><i class="fas fa-map-marker-alt"></i>  '. $address .'</li>';}
                     ?>
                 </ul>
 
                 <ul class="list-unstyled list-inline text-center h4">
                     <?php
                         if ($url || $instagram || $facebook || $youtube || $twitter || $pinterest || $tiktok) {
-                            echo '<div class="contacto mt-2">';
+                            echo '<div class="contacto mt-2 text-white">';
                             if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></a></li>';}
                             if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
                             if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
-                            if ($youtube) { echo '<li class="list-inline-item"><a href="'. $youtube . '" target="_blank" class="os"><i class="fas fa-shopping-cart"></i></a></li>';}
+                            if ($youtube) { echo '<li class="list-inline-item"><a href="'. $youtube . '" target="_blank" class="os"><i class="fab fa-youtube"></i></a></li>';}
                             if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
-                            if ($pinterest) { echo '<li class="list-inline-item"><a href="'. $pinterest . '" target="_blank" class="os"><i class="fas fa-shopping-cart"></i></a></li>';}
-                            if ($tiktok) { echo '<li class="list-inline-item"><a href="'. $tiktok . '" target="_blank" class="os"><i class="fas fa-shopping-cart"></i></a></li>';}
+                            if ($pinterest) { echo '<li class="list-inline-item"><a href="'. $pinterest . '" target="_blank" class="os"><i class="fab fa-pinterest"></i></a></li>';}
+                            if ($tiktok) { echo '<li class="list-inline-item"><a href="'. $tiktok . '" target="_blank" class="os"><i class="fab fa-tiktok"></i></a></li>';}
                             
                             
                             if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
@@ -114,25 +110,25 @@ while ( have_posts() ) :
                         echo '<div class="medios-de-pago">';
                         foreach ( $medios as $medio ) {
                             if ($medio == 'debito') :
-                                echo '<span class="medio_digital '.$medio.'">Tarjeta de débito</span>';
+                                echo '<span class="medio_digital '.$medio.'"><i class="fas fa-credit-card"></i> Tarjeta de débito</span>';
                             endif;
                             if ($medio == 'credito') :
-                                echo '<span class="medio_digital '.$medio.'">Tarjeta de crédito</span>';
+                                echo '<span class="medio_digital '.$medio.'"><i class="far fa-credit-card"></i> Tarjeta de crédito</span>';
                             endif;
                             if ($medio == 'cuentadni') :
-                                echo '<span class="medio_digital '.$medio.'">Cuenta DNI</span>';
+                                echo '<span class="medio_digital '.$medio.'"><i class="fas fa-money-check"></i> Cuenta DNI</span>';
                             endif;
                             if ($medio == 'mercadopago') :
-                                echo '<span class="medio_digital '.$medio.'">Mercado Pago</span>';
+                                echo '<span class="medio_digital '.$medio.'"><i class="fas fa-money-bill-wave"></i> Mercado Pago</span>';
                             endif;
                             if ($medio == 'transferencia') :
-                                echo '<span class="medio_digital '.$medio.'">Transferencia</span>';
+                                echo '<span class="medio_digital '.$medio.'"><i class="fas fa-money-check-alt"></i> Transferencia</span>';
                             endif;
                             if ($medio == 'paypal') :
-                                echo '<span class="medio_digital '.$medio.'">Paypal</span>';
+                                echo '<span class="medio_digital '.$medio.'"><i class="fab fa-cc-paypal"></i> Paypal</span>';
                             endif;
                             if ($medio == 'otros') :
-                                echo '<span class="medio_digital '.$medio.'">Otros</span>';
+                                echo '<span class="medio_digital '.$medio.'"><i class="fas fa-wallet"></i> Otros</span>';
                             endif;
                         }
                         echo '</div>';
@@ -140,12 +136,12 @@ while ( have_posts() ) :
 
                     $envios = rwmb_meta( 'envios' );
                     if ($envios) {
-                        echo '<p>'.$envios.'</p>';
+                        echo '<p class="mt-3"><i class="fas fa-truck"></i> '.$envios.'</p>';
                     }
 
                     $tienda = rwmb_meta( 'mbox_tienda' );
                     if ($tienda) {
-                        echo '<a href="'.$tienda.'" class="boton-3d" title="Ir a tienda virtual" target="_blank">Ir a Tienda virtual</a>';
+                        echo '<div class="d-block mt-4"></div><a href="'.$tienda.'" class="boton-3d" title="Ir a tienda virtual" target="_blank">Ir a Tienda virtual</a></div>';
                     }
                 ?>
             </div>
@@ -157,16 +153,13 @@ while ( have_posts() ) :
                     $embed = $GLOBALS['wp_embed']->shortcode( $args, $url );
                 }
                 if ( $embed ) {
-                    echo '<div class="col-md-15 mt-3">';
+                    echo '<div class="row"><div class="col-md-15 mt-3">';
                     echo $embed;
-                    echo '</div>';
+                    echo '</div></div>';
                 }
             ?>
         </div>
     </div><!-- .container -->
 </div><!-- #post-<?php the_ID(); ?> -->
-<?
-endwhile; // End of the loop.
-?>
 
 <?php get_template_part( 'layouts/footer', 'di' ); 

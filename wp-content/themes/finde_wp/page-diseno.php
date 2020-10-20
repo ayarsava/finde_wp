@@ -53,41 +53,43 @@ get_template_part( 'layouts/header', 'di' );
             </div>
         </section>
 
-
         <!--ENTRADA AL CATALOGO DE MÚSICA-->
-        <section id="tienda" class="opb-music text-center bg-light py-5" style="background: #f5f5f4;">
+        <section id="tienda" class="text-center bg-light pt-5">
             <div class="container text-left">
-                <h2 class="extra-grande font-weight-bold py-3">Tienda</h2>
+                <div class="row">
+                    <div class="col-4">
+                        <h2 class="extra-grande font-weight-bold py-3">Tienda</h2>
+                    </div>
+                    <div class="col-11 col-md-7">
+                        <p class="h5 py-4" style="line-height:1.4">Descubrí tiendas, productos y servicios de todas las ramas del diseño. Descrubrí el diseño Bonaerense en Finde</p>
+                    </div>
+                </div>
+                
             </div>
-            <div class="d-md-flex flex-md-equal w-100">
-                <div class="py-5 px-3 text-center overflow-hidden position-relative" style="background: #38ccfe;">
-                    <a href="/rubro_di/moda/?post_type=disenio" class="stretched-link"></a>
-                    <div class="py-5">
-                        <h4 class="display-5 font-weight-bold">Moda</h4>
+            <div class="d-md-flex flex-md-equal w-100 sectores">
+                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 " style="background: #F812D2;">
+                    <div class="pt-5 pb-4">
+                        <h4 class="display-5 font-weight-bold text-white"><a href="/rubro_di/moda/?post_type=disenio" class="stretched-link text-white">Moda</a></h4>
                     </div>
                 </div>
-                <div class="py-5 px-3 text-center overflow-hidden position-relative" style="background: #f0456e;">
-                    <a href="/rubro_di/muebles-y-objetos/?post_type=disenio" class="stretched-link"></a>
-                    <div class="py-5">
-                        <h4 class="display-5 font-weight-bold">Muebles, objetos y otros</h4>
+                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100" style="background:#3A3335;">
+                    <div class="pt-5 pb-4">
+                        <h4 class="display-5 font-weight-bold text-white"><a href="/rubro_di/muebles-y-objetos/?post_type=disenio" class="stretched-link text-white">Muebles, objetos y otros</a></h4>
                     </div>
                 </div>
-                <div class="py-5 px-3 text-center overflow-hidden position-relative" style="background: #01d79e;">
-                    <a href="/rubro_di/servicios-de-diseno/?post_type=disenio" class="stretched-link"></a>
-                    <div class="py-5">
-                        <h4 class="display-5 font-weight-bold">Servicios de diseño</h4>
+                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100" style="background: #F0544F;">
+                    <div class="pt-5 pb-4">
+                        <h4 class="display-5 font-weight-bold text-white"><a href="/rubro_di/servicios-de-diseno/?post_type=disenio" class="stretched-link text-white">Servicios de diseño</a></h4>
                     </div>
                 </div>
-                <div class="py-5 px-3 text-center overflow-hidden position-relative" style="background: #fefe7a;">
-                    <a href="/rubro_di/ilustracion-y-piezas-graficas/?post_type=disenio" class="stretched-link"></a>
-                    <div class="py-5">
-                        <h4 class="display-5 font-weight-bold">Ilustración y piezas gráficas</h4>
+                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 text-dark" style="background: #FDF0D5;">
+                    <div class="pt-5 pb-4">
+                        <h4 class="display-5 font-weight-bold"><a href="/rubro_di/ilustracion-y-piezas-graficas/?post_type=disenio" class="stretched-link text-dark">Ilustración y piezas gráficas</a></h4>
                     </div>
                 </div>
-                <div class="py-5 px-3 text-center overflow-hidden position-relative" style="background: #a39e8d;">
-                    <a href="/rubro_di/artesanias/?post_type=disenio" class="stretched-link"></a>
-                    <div class="py-5">
-                        <h4 class="display-5 font-weight-bold">Artesanías</h4>
+                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 text-dark" style="background: #C6D8D3;">
+                    <div class="pt-5 pb-4">
+                        <h4 class="display-5 font-weight-bold"><a href="/rubro_di/artesanias/?post_type=disenio" class="stretched-link text-dark">Artesanías</a></h4>
                     </div>
                 </div>
             </div>
@@ -109,61 +111,24 @@ get_template_part( 'layouts/header', 'di' );
             </div><!-- #main -->
         </section>
 
-
-
-        <!--BANNERS-->
-        <section class="bg-dark">
+        <!--BP-->
+        <section class="bg-white py-5">
             <div class="container-fluid">
-                <div class="container banner-slick">
-
-
-                    <div class="item" style="background:white!important;">
-                        <a href="https://instagram.com/laferiadelamusica?igshid=1s7wzxtot7mln" target="_blank" title="Enlace al sitio web de La feria de la Música">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Feria_De_La_Musica_Infinito.gif" class="img-fluid d-none d-sm-block" alt="La feria de la Música">
-                        </a>
-                        <a href="https://instagram.com/laferiadelamusica?igshid=1s7wzxtot7mln" target="_blank" title="Enlace al sitio web de La feria de la Música">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Feria_De_La_Musica_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="La feria de la Música">
-                        </a>
-                    </div>
-                    
-                    <div class="item" style="background:white!important;">
-                        <a href="http://aatia.com.ar/" target="_blank" title="Enlace al sitio web de AATIA">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_AATIA.gif" class="img-fluid d-none d-sm-block" alt="AATIA">
-                        </a>
-                        <a href="http://aatia.com.ar/" target="_blank" title="Enlace al sitio web de AATIA">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_AATIA_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="AATIA">
-                        </a>
-                    </div>
-
-                    <div class="item" style="background:white!important;">
-                        <a href="http://www.caimavi.org.ar/" target="_blank" title="Enlace al sitio web de CAIMAVI">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Caimavi.png" class="img-fluid d-none d-sm-block" alt="CAIMAVI">
-                        </a>
-                        <a href="http://www.caimavi.org.ar/" target="_blank" title="Enlace al sitio web de CAIMAVI">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Caimavi_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="CAIMAVI">
-                        </a>
-                    </div>
-
-                    <div class="item" style="background:white!important;">
-                        <a href="https://www.instagram.com/cafimoficial/" target="_blank" title="Enlace al sitio web de CAFIM">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Cafim.gif" class="img-fluid d-none d-sm-block" alt="CAFIM">
-                        </a>
-                        <a href="https://www.instagram.com/cafimoficial/" target="_blank" title="Enlace al sitio web de CAFIM">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Cafim_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="CAFIM">
-                        </a>
-                    </div>
-
-                    <div class="item" style="background:white!important;">
-                        <a href="https://asiar.musica.ar/" target="_blank" title="Enlace al sitio web de ASIAr">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_ASIAr.png" class="img-fluid d-none d-sm-block" alt="ASIAr">
-                        </a>
-                        <a href="https://asiar.musica.ar/" target="_blank" title="Enlace al sitio web de ASIAr">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_ASIAr_Mobile.png" class="mx-auto img-fluid d-block d-sm-none" alt="ASIAr">
-                        </a>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://www.tronadores.com/Tour_360/Inicio/" target="_blank" title="Enlace a la muestra virtual de CCK">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-bp-large.gif" class="img-fluid d-none d-sm-block" alt="Banco Provincia">
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-bp-small.gif" class="mx-auto img-fluid d-block d-sm-none" alt="Banco Provincia">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!--BANNERS-->
+        <?php wp_archive_banners('diseno');?>
 
 
 <?php 

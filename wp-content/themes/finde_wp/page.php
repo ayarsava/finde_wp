@@ -18,6 +18,8 @@ if (has_category( 'Editorial' )) {
   get_template_part( 'layouts/header', 'vj' ); 
 } elseif (has_category( 'Música' )) {
   get_template_part( 'layouts/header', 'mu' ); 
+} elseif (has_category( 'Diseño' )) {
+  get_template_part( 'layouts/header', 'di' ); 
 } else {
 get_header();
 }
@@ -59,6 +61,8 @@ if (has_category( 'Editorial' )) {
   get_template_part( 'layouts/footer', 'vj' ); 
 } elseif (has_category( 'Música' )) {
   get_template_part( 'layouts/footer', 'mu' ); 
+} elseif (has_category( 'Diseño' )) {
+  get_template_part( 'layouts/footer', 'di' ); 
 } else {
 get_footer();
 }

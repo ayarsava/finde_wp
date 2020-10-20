@@ -144,7 +144,7 @@ add_action( 'widgets_init', 'finde_wp_widgets_init' );
  * Enqueue scripts and styles.
  */
 function finde_wp_scripts() {
-  	wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.9.0/css/all.css' );
+  	wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.14.0/css/all.css' );
 	wp_enqueue_style( 'finde_wp-style', get_template_directory_uri() . '/assets/css/styles.css', array(), _S_VERSION );
 	wp_enqueue_style( 'slick', get_template_directory_uri() . '/assets/css/slick/slick.css', array(), _S_VERSION );
 	wp_enqueue_style( 'slick-theme', get_template_directory_uri() . '/assets/css/slick/slick-theme.css', array(), _S_VERSION );
@@ -214,7 +214,7 @@ add_filter( 'body_class', 'add_slug_body_class' );
 
 function finde_filter_search($query) {
 	if (!$query->is_admin && $query->is_search) {
-		$query->set('post_type', array('page', 'catalogo', 'agenda'));
+		$query->set('post_type', array('page', 'catalogo', 'agenda', 'estudio', 'editoriales', 'productoeditorial', 'music', 'disenio', 'experiencias'));
 	}
 	return $query;
 }
@@ -235,6 +235,18 @@ function add_taxonomies_to_pages() {
  register_taxonomy_for_object_type( 'category', 'page' );
  }
 add_action( 'init', 'add_taxonomies_to_pages' );
+
+add_filter('body_class','add_category_to_single');
+  function add_category_to_single($classes) {
+	global $post;
+	foreach((get_the_category($post->ID)) as $category) {
+	// add category slug to the $classes array
+	$classes[] = $category->category_nicename;
+	}
+    // return the $classes array
+    return $classes;
+  }
+
 
 /**
  * Implement the Custom Header feature.

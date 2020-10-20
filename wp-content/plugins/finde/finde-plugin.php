@@ -678,6 +678,65 @@ function custom_post_type_disenio() {
 }
 add_action( 'init', 'custom_post_type_disenio', 0 );
 
+
+/*** CPT EXPERIENCIAS ***/
+function custom_post_type_experiencia() {
+  // Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Experiencias', 'Post Type General Name', 'finde-plugin' ),
+        'singular_name'       => _x( 'Experiencia', 'Post Type Singular Name', 'finde-plugin' ),
+        'menu_name'           => __( 'Experiencias', 'finde-plugin' ),
+        'parent_item_colon'   => __( 'Experiencia padre', 'finde-plugin' ),
+        'all_items'           => __( 'Todos las Experiencias', 'finde-plugin' ),
+        'view_item'           => __( 'Ver Experiencias', 'finde-plugin' ),
+        'add_new_item'        => __( 'Agregar nueva Experiencia', 'finde-plugin' ),
+        'add_new'             => __( 'Agregar nueva', 'finde-plugin' ),
+        'edit_item'           => __( 'Editar Experiencia', 'finde-plugin' ),
+        'update_item'         => __( 'Actualizar registro de Experiencias', 'finde-plugin' ),
+        'search_items'        => __( 'Buscar registros de Experiencias', 'finde-plugin' ),
+        'not_found'           => __( 'No encontrado', 'finde-plugin' ),
+        'not_found_in_trash'  => __( 'No encontrado en la papelera', 'finde-plugin' ),
+    );
+     
+  // Set other options for Custom Post Type
+     
+    $args = array(
+        'label'               => __( 'experiencia', 'finde-plugin' ),
+        'description'         => __( 'Experiencias', 'finde-plugin' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields', ),
+        // You can associate this CPT with a taxonomy or custom taxonomy. 
+        'taxonomies'  => array( 'post_tag'),
+        /* A hierarchical CPT is like Pages and can have
+        * Parent and child items. A non-hierarchical CPT
+        * is like Posts.
+        */ 
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 16,
+        'can_export'          => true,
+        'has_archive'         => true,
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest'        => true,
+        'menu_icon'           => 'dashicons-visibility',
+
+        'timestamp'  => true,
+ 
+    );
+     
+    // Registering your Custom Post Type
+    register_post_type( 'experiencia', $args );
+ 
+}
+add_action( 'init', 'custom_post_type_experiencia', 0 );
+
 /*** CPT BANNER ***/
 function custom_post_type_banner() {
   // Set UI labels for Custom Post Type
@@ -698,7 +757,6 @@ function custom_post_type_banner() {
     );
      
   // Set other options for Custom Post Type
-     
     $args = array(
         'label'               => __( 'banner', 'finde-plugin' ),
         'description'         => __( 'Banners', 'finde-plugin' ),
@@ -728,7 +786,6 @@ function custom_post_type_banner() {
      
     // Registering your Custom Post Type
     register_post_type( 'banner', $args );
- 
 }
 add_action( 'init', 'custom_post_type_banner', 0 );
 
@@ -1292,6 +1349,14 @@ function mbox_register_meta_boxes( $meta_boxes ){
         'type'             => 'image',
         'force_delete'     => false,
       ),
+      array(
+        'name' => __( 'Enlace', 'mbox' ),
+        'id'   => "{$prefix}url",
+        'desc' => __( 'Ingrese la url del sitio a donde desea enlazar el banner', 'mbox' ),
+        'placeholder' => __( 'La url debe empezar con http:// o https://', 'mbox' ),
+        'type' => 'url',
+        'size'  => 50,
+      ),
     )
   );
 
@@ -1768,7 +1833,6 @@ if ( ! function_exists( 'wp_archive_catalogovj_bytag' ) ) {
     }
   }
 }
-
 
 /*** CATALOGO EDITORIAL ***/
 if ( ! function_exists( 'wp_archive_destacadoed' ) ) {
@@ -2568,86 +2632,36 @@ if ( ! function_exists( 'wp_archive_banners' ) ) {
   function wp_archive_banners($post_category) {
 
     $args = array(
-        'post_type'             => 'banners',
+        'post_type'             => 'banner',
         'posts_per_page'        => -1,
         'category_name'         => $post_category,
-        'meta_query' => array(
-          'relation' => 'AND',
-          array(
-            'fecha_clause'      => array(
-                'key'           => 'fecha_id',
-            ),
-            'destacado_clause'  => array(
-                'key'           => 'destacado_id',
-                'value'         => 1,
-            )
-          )
-        ),
-        'orderby'               => array( 
-            'destacado_clause'  => 'DESC',
-            'fecha_clause'      => 'ASC',
-        ),
     );
 
     // The Query
-    $query_agenda = new WP_Query( $args );
-
-    if ( $query_agenda->have_posts() ) { 
-      echo '<div id="agenda-destacada" class="slick slider-nav">';
-      /* Start the Loop */
-      $count = 1;
-      while ( $query_agenda->have_posts() ) : $query_agenda->the_post();
-
+    $query_banners = new WP_Query( $args );
+    
+    
+    if ( $query_banners->have_posts() ) { 
+      echo '<div class="container banner-slick">';
+      while ( $query_banners->have_posts() ) : $query_banners->the_post();
       /* grab the url for the full size featured image */
-      $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
-      $fecha = rwmb_meta( 'fecha_id' ); 
-      $destacado = rwmb_meta( 'destacado_id' );
-      echo '<div class="item">';
-        echo '<div class="mb-4 ';
-          if ($destacado == 1) { 
-            echo 'destacado';
-          };
-          echo '"';
-          echo 'data-target="'. date('d-m', $fecha).'">';
-          echo '<div class="card h-100">';
-            if ($featured_img_url) { 
-              echo '<div class="img-wrapper img-fluid card-img-top" style="background-image: url('. esc_url($featured_img_url) .');" background-size:cover;background-position: center center; height:160px;position:relative;">';
-              echo '</div>';
-            } 
-            
-            $post_tags = get_the_tags();
-            if ( $post_tags ) {
-              echo '<div class="tags">';
-                foreach( $post_tags as $tag ) {
-                echo '<span>' .$tag->name . '</span>'; 
-                }
-              echo '</div>';
-            }
-            
-            echo '<div class="card-body">';
-              echo '<a href="'. get_permalink() .'" class="stretched-link"></a>';
-              echo '<div class="row">';
-                echo '<div class="col-md-5">';
-                  echo '<div class="fecha"><span class="dia">'.date('d-m', $fecha).'</span><span class="hora">'. date('H:i', $fecha).'hs</span></div>';
-                echo '</div>';
-                echo '<div class="col-md-10">';
-                  echo the_title( '<h5 class="card-title">', '</h5>' );
-                  if ( get_the_excerpt() ) {
-                    echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_excerpt() ), 18, '...' ) .'</div>';
-                  } else {
-                    echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
-                  }
-                echo '</div>';
-              echo '</div>';
-            echo '</div>';
-          echo '</div>';
-        echo '</div>';
-      echo '</div>';
+      $enlace = rwmb_meta( 'mbox_url' );
+      $img_desktop = rwmb_meta( 'mbox_imagen_desktop', array( 'size' => 'large' ) );
+      $img_mobile = rwmb_meta( 'mbox_imagen_mobile', array( 'size' => 'large' ) );
 
+      echo '<div class="item" style="background:white!important;">';
+        echo '<a href="'.$enlace.'" target="_blank" title="'.get_the_title().'">';
+        foreach ( $img_desktop as $image_desktop ) {
+          echo '<img src="', $image_desktop['url'], '" class="img-fluid d-none d-sm-block" alt="'.get_the_title().'">';
+        }
+        echo '<a href="'.$enlace.'" target="_blank" title="'.get_the_title().'">';
+        foreach ( $img_mobile as $image_mobile ) {
+          echo '<img src="', $image_mobile['url'], '" class="mx-auto img-fluid d-block d-sm-none" alt="'.get_the_title().'">';
+        }
+        echo '</a>';
+      echo '</div>';
       endwhile;
       echo '</div>';
-    } else {
-      get_template_part( 'template-parts/content', 'none' );    
     }
   }
 }
