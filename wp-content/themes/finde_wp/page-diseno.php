@@ -131,14 +131,14 @@ get_template_part( 'layouts/header', 'di' );
                     <div class="col-md-6">
                         <div class="row h-100">
                             <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/diseno-desafio.jpg')">
-                                <a href="/diseno/desafio" title="Enlace a la muestra virtual de CCK" class="stretched-link"></a>
+                                <a href="/diseno/desafio" title="Enlace a la convocatoria" class="stretched-link"></a>
                                 <div class="titulos">
                                     <h5>Desafío Afiche</h5>
                                     <p>Participá</p>
                                 </div>
                             </div>
                             <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/diseno-etnografia.jpg')">
-                                <a href="/diseno/etnografia" title="Enlace a la muestra virtual de CCK" class="stretched-link"></a>
+                                <a href="/diseno/etnografia" title="Enlace a la convocatoria" class="stretched-link"></a>
                                 <div class="titulos">
                                     <h5>Etnografía de los objetos</h5>
                                     <p>Convocatoria</p>
