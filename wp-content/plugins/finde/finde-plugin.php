@@ -2393,7 +2393,7 @@ if ( ! function_exists( 'wp_archive_agenda_destacado' ) ) {
       $fecha = rwmb_meta( 'fecha_id' ); 
       $destacado = rwmb_meta( 'destacado_id' );
       echo '<div class="item">';
-        echo '<div class="mb-md-4 mb-1 ';
+        echo '<div class="mb-md-4 mb-1 w-100 ';
           if ($destacado == 1) { 
             echo 'destacado';
           };
@@ -2642,24 +2642,30 @@ if ( ! function_exists( 'wp_archive_banners' ) ) {
     
     
     if ( $query_banners->have_posts() ) { 
-      echo '<div class="container banner-slick">';
+      echo '<div class="container banner-slick py-5">';
       while ( $query_banners->have_posts() ) : $query_banners->the_post();
       /* grab the url for the full size featured image */
       $enlace = rwmb_meta( 'mbox_url' );
       $img_desktop = rwmb_meta( 'mbox_imagen_desktop', array( 'size' => 'large' ) );
       $img_mobile = rwmb_meta( 'mbox_imagen_mobile', array( 'size' => 'large' ) );
 
+      if ($img_desktop || $img_mobile) {
       echo '<div class="item" style="background:white!important;">';
-        echo '<a href="'.$enlace.'" target="_blank" title="'.get_the_title().'">';
-        foreach ( $img_desktop as $image_desktop ) {
-          echo '<img src="', $image_desktop['url'], '" class="img-fluid d-none d-sm-block" alt="'.get_the_title().'">';
+        if ($img_desktop) {
+          echo '<a href="'.$enlace.'" target="_blank" title="'.get_the_title().'">';
+          foreach ( $img_desktop as $image_desktop ) {
+            echo '<img src="', $image_desktop['url'], '" class="img-fluid d-none d-sm-block" alt="'.get_the_title().'">';
+          }
         }
-        echo '<a href="'.$enlace.'" target="_blank" title="'.get_the_title().'">';
-        foreach ( $img_mobile as $image_mobile ) {
-          echo '<img src="', $image_mobile['url'], '" class="mx-auto img-fluid d-block d-sm-none" alt="'.get_the_title().'">';
+        if ($img_mobile) {
+          echo '<a href="'.$enlace.'" target="_blank" title="'.get_the_title().'">';
+          foreach ( $img_mobile as $image_mobile ) {
+            echo '<img src="', $image_mobile['url'], '" class="mx-auto img-fluid d-block d-sm-none" alt="'.get_the_title().'">';
+          }
+          echo '</a>';
         }
-        echo '</a>';
       echo '</div>';
+      }
       endwhile;
       echo '</div>';
     }

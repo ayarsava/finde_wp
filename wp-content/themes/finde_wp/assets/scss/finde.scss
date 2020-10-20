@@ -1967,3 +1967,44 @@ a[class^="hvr-"] {
     max-width: 100%;
   }
 }
+section.cck {
+  position:relative;
+  .full-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom left, #f812d24d, #222222);
+      opacity: .8; 
+    }
+    
+  }
+  .cck-frontend {
+    height: 400px;
+  }
+  .h-50 {
+    min-height: 200px;
+  }
+  .titulos {
+    position: absolute;
+    bottom: 15px;
+    left:30px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px #222;
+    h5 {
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+    h4 {
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+  }
+}

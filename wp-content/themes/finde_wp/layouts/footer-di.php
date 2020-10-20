@@ -12,6 +12,7 @@
 ?>
 
 	</div><!-- #content -->
+	<!--
 	<?php if ( is_page( 'diseno' ) ) {?>
 		<section id="sponsors" class="bg-white">
 			<div class="container py-3">
@@ -33,8 +34,7 @@
 				</div>
 			</div>
 		</section>
-
-	<?php } ?>
+	<?php } ?>-->
 	
 	<footer class="site-footer py-5 bg-primary">
     	<div class="container">

@@ -111,16 +111,39 @@ get_template_part( 'layouts/header', 'di' );
             </div><!-- #main -->
         </section>
 
-        <!--BP-->
-        <section class="bg-white py-5">
+        <!--CCK-->
+        <section class="bg-white cck">
             <div class="container-fluid">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <a href="https://www.tronadores.com/Tour_360/Inicio/" target="_blank" title="Enlace a la muestra virtual de CCK">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-bp-large.gif" class="img-fluid d-none d-sm-block" alt="Banco Provincia">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-bp-small.gif" class="mx-auto img-fluid d-block d-sm-none" alt="Banco Provincia">
-                            </a>
+                <div class="row">
+                    <div class="col-md-9 full-img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/diseno-cck.jpg')">
+                        <!--<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" >
+                            <source src="" type="video/mp4"></source>
+                        </video>-->
+                        <a href="/diseno/matrices" title="Enlace a la muestra virtual de CCK" class="stretched-link">
+                            <div class="cck-frontend position-relative">
+                                <div class="titulos">
+                                    <h4>Matrices: Mujeres del diseño</h4>
+                                    <p>Recorrido virtual</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row h-100">
+                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/diseno-desafio.jpg')">
+                                <a href="/diseno/desafio" title="Enlace a la muestra virtual de CCK" class="stretched-link"></a>
+                                <div class="titulos">
+                                    <h5>Desafío Afiche</h5>
+                                    <p>Participá</p>
+                                </div>
+                            </div>
+                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/diseno-etnografia.jpg')">
+                                <a href="/diseno/etnografia" title="Enlace a la muestra virtual de CCK" class="stretched-link"></a>
+                                <div class="titulos">
+                                    <h5>Etnografía de los objetos</h5>
+                                    <p>Convocatoria</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
