@@ -24,16 +24,17 @@ if (has_category( 'Editorial' )) {
 get_header();
 }
 ?>
+<style>
+	.entry-content > :not(.alignfull) {
+		width: 60%;
+		margin-left: auto;
+		margin-right: auto;
+	}
 
-	<div class="container">
-  		<div class="row">
-      		<div class="<?php if (is_page( 'en-vivo' ) || is_page( 'gamejam' )) { 
-      			echo 'col-md-15';
-      		} else { 
-      			echo 'col-md-11';
-      		} ?>">
+</style>
+
       			<div id="primary" class="content-area">
-        			<main id="main" class="site-main my-5">
+        			<main id="main" class="site-main">
 
 					<?php
 					while ( have_posts() ) :
@@ -46,9 +47,6 @@ get_header();
 
 					</main><!-- #main -->
       			</div><!-- #primary -->
-			</div><!-- .col-15 .col-md-8 -->
-		
-		</div>
 	
 		<?php if (is_page( 'gamejam' )) { 
 			get_template_part('layouts/block-gamejam');

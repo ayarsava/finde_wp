@@ -37,13 +37,13 @@ $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' 
 				if ($term->slug == 'moda' ) {
 					echo '<h1 class="page-title">Moda</h1><div class="lead mb-2">Indumentaria, Textil, Accesorios</div>';
 				} elseif ($term->slug == 'muebles-y-objetos' ) {
-					echo '<h1 class="page-title">Muebles y objetos</h1><div class="lead mb-2">Muebles, objetos y otros</div>';
+					echo '<h1 class="page-title">Muebles objetos y juguetes</h1>';
 				} elseif ($term->slug == 'servicios-de-diseno' ) {
 					echo '<h1 class="page-title">Servicios de diseño</h1><div class="lead mb-2">Diseño Gráfico Y Comunicación visual, Diseño Industrial, Diseño de Servicios y/o experiencias, Diseño en entornos digitales (UX, Web, etc.), Investigación y desarrollo</div>';
 				} elseif ($term->slug == 'ilustracion-y-piezas-graficas' ) {
 					echo '<h1 class="page-title">Ilustración y piezas gráficas</h1>';
 				} elseif ($term->slug == 'artesanias' ) {
-					echo '<h1 class="page-title">Artesanías</h1><div class="lead mb-2">Textil, Cerámica, Metal, Vidrio, Madera, Cuero</div>';
+					echo '<h1 class="page-title">Artesanías (Sector invitado)</h1><div class="lead mb-2">Textil, Cerámica, Metal, Vidrio, Madera, Cuero</div>';
 				} else {
 					the_archive_title( '<h1 class="page-title">', '</h1>' );
 					the_archive_description( '<div class="archive-description">', '</div>' );
