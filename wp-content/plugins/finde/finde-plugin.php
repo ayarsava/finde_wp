@@ -2086,15 +2086,18 @@ if ( ! function_exists( 'wp_archive_catalogodi' ) ) {
 
       while ( $query_catalogodi->have_posts() ) : $query_catalogodi->the_post();
 
-          $url = rwmb_meta( 'mbox_url' );
           $images = rwmb_meta( 'image_di', array( 'size' => 'medium' ) );
+          $address = rwmb_meta( 'address' );
+          $url = rwmb_meta( 'mbox_url' );
           $instagram = rwmb_meta( 'mbox_instagram' );
           $twitter = rwmb_meta( 'mbox_twitter' );
           $facebook = rwmb_meta( 'mbox_facebook' );
-          $libreria = rwmb_meta( 'mbox_libreria' );
+          $youtube = rwmb_meta( 'mbox_youtube' );
+          $pinterest = rwmb_meta( 'mbox_pinterest' );
+          $tiktok = rwmb_meta( 'mbox_tiktok' );
           $whatsapp = rwmb_meta( 'mbox_whatsapp' );
 
-
+          $medios = rwmb_meta('mbox_medios');
           $terms = get_the_terms( $post->ID, 'rubro_di' );
           $dterms = get_the_terms( $post->ID, 'descuento_di' );
 
@@ -2112,42 +2115,87 @@ if ( ! function_exists( 'wp_archive_catalogodi' ) ) {
           echo '>';
           // slick
           if ($images) {
-              echo '<div class="galeria-slick">';
+              echo '<div class="galeria-slick" style="border: 1px solid rgba(0, 0, 0, 0.125); border-bottom:0;">';
               foreach ( $images as $image ) {
                   echo '<a href="' . get_the_permalink() .'"><img data-lazy="'. $image['url']. '"></a>';
               }    
               echo '</div>';
           }
-          echo '<div class="grid-item-content card">';
+          echo '<div class="grid-item-content card" style="border-radius: 0 0 0.25rem 0.25rem;border-top: 0;">';
           echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
           echo '<div class="card-body">';
           echo '<h5 class="card-title">' . get_the_title() . '</h5>';
-          if ( get_the_excerpt() ) {
+          if ( has_excerpt() ) {
               echo '<div class="card-text">' . get_the_excerpt() .'</div>';
           } else {
-              echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+              echo '<div class="card-text">' . wp_trim_words( get_the_content(), 45, '...' ) .'</div>';
           }
           
           if ($terms) {
               echo '<div class="rubro_di">';
-              foreach( $terms as $term ) { echo '<span><a href="'.get_term_link($term->slug, 'rubro_di').'" class="badge bg-primary mt-1 os">'.$term->name.'</a></span>', ' ';}
+              foreach( $terms as $term ) { echo '<span class="badge badge-dark mt-1 os p-1">'.$term->name.'</span>', ' ';}
               echo '</div>';
           }
           if ($dterms) {
               echo '<div class="descuento_di">';
-              foreach( $dterms as $term ) { echo '<a href="'.get_term_link($term->slug, 'descuento_di').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
+              foreach( $dterms as $term ) { echo '<span class="badge badge-dark mt-1 os p-1">'.$term->name.'</span>', ' ';}
               echo '</div>';
           }
-          if ($url || $instagram || $facebook || $twitter) {
-              echo '<div class="contacto mt-2">';
-              if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></a></li>';}
-              if ($libreria) { echo '<li class="list-inline-item"><a href="'. $libreria . '" target="_blank" class="os"><i class="fas fa-shopping-cart"></i></a></li>';}
-              if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
-              if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
-              if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
-              if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
+          if ($medios) {
+              echo '<div class="medios-de-pago d-block position-relative mt-1">';
+              foreach ( $medios as $medio ) {
+                  if ($medio == 'debito') :
+                      echo '<span class="medio_digital tool-tip d-inline mr-2 '.$medio.'" data-toggle="tooltip" data-placement="top" title="Tarjeta de débito"><i class="fas fa-credit-card"></i></span>';
+                  endif;
+                  if ($medio == 'credito') :
+                      echo '<span class="medio_digital tool-tip d-inline mr-2 '.$medio.'" data-toggle="tooltip" data-placement="top" title="Tarjeta de crédito"><i class="far fa-credit-card"></i></span>';
+                  endif;
+                  if ($medio == 'cuentadni') :
+                      echo '<span class="medio_digital tool-tip d-inline mr-2 '.$medio.'" data-toggle="tooltip" data-placement="top" title="Cuenta DNI"><i class="fas fa-money-check"></i></span>';
+                  endif;
+                  if ($medio == 'mercadopago') :
+                      echo '<span class="medio_digital tool-tip d-inline mr-2 '.$medio.'" data-toggle="tooltip" data-placement="top" title="Mercado Pago"><i class="fas fa-money-bill-wave"></i></span>';
+                  endif;
+                  if ($medio == 'transferencia') :
+                      echo '<span class="medio_digital tool-tip d-inline mr-2 '.$medio.'" data-toggle="tooltip" data-placement="top" title="Transferencia"><i class="fas fa-money-check-alt"></i></span>';
+                  endif;
+                  if ($medio == 'paypal') :
+                      echo '<span class="medio_digital tool-tip d-inline mr-2 '.$medio.'" data-toggle="tooltip" data-placement="top" title="Paypal"><i class="fab fa-cc-paypal"></i></span>';
+                  endif;
+                  if ($medio == 'otros') :
+                      echo '<span class="medio_digital tool-tip d-inline mr-2 '.$medio.'" data-toggle="tooltip" data-placement="top" title="Otros"><i class="fas fa-wallet"></i></span>';
+                  endif;
+              }
               echo '</div>';
           }
+
+          $envios = rwmb_meta( 'envios' );
+          if ($envios) {
+              echo '<div class="mt-1 mr-2 tool-tip d-inline" data-toggle="tooltip" data-placement="top" title="'.$envios.'"><i class="fas fa-truck"></i></div>';
+          }
+
+          $tienda = rwmb_meta( 'mbox_tienda' );
+          if ($tienda) {
+              echo '<div class="d-inline mt-1"><a href="'.$tienda.'" class="tool-tip" data-toggle="tooltip" data-placement="top" title="Ir a tienda virtual" target="_blank"><i class="fas fa-shopping-cart"></i></a></div>';
+          }
+
+          if ($url || $instagram || $facebook || $youtube || $twitter || $pinterest || $tiktok) {
+            echo '<ul class="contacto list-unstyled mt-1 mb-1">';
+            if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></a></li>';}
+            if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
+            if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
+            if ($youtube) { echo '<li class="list-inline-item"><a href="'. $youtube . '" target="_blank" class="os"><i class="fab fa-youtube"></i></a></li>';}
+            if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
+            if ($pinterest) { echo '<li class="list-inline-item"><a href="'. $pinterest . '" target="_blank" class="os"><i class="fab fa-pinterest"></i></a></li>';}
+            if ($tiktok) { echo '<li class="list-inline-item"><a href="'. $tiktok . '" target="_blank" class="os"><i class="fab fa-tiktok"></i></a></li>';}
+            
+            
+            if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
+              
+            echo '</ul>';
+          }
+
+            
           
           echo '</div><!--End .card-body-->';
           

@@ -57,10 +57,10 @@ get_template_part( 'layouts/header', 'di' );
         <section id="tienda" class="text-center bg-light pt-5">
             <div class="container text-left">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-sm-4">
                         <h2 class="extra-grande font-weight-bold py-3">Tienda</h2>
                     </div>
-                    <div class="col-11 col-md-7">
+                    <div class="col-sm-11 col-md-7">
                         <p class="h5 py-4" style="line-height:1.4">Descubrí tiendas, productos y servicios de todas las ramas del diseño. Descrubrí el diseño Bonaerense en Finde</p>
                     </div>
                 </div>
@@ -69,27 +69,27 @@ get_template_part( 'layouts/header', 'di' );
             <div class="d-md-flex flex-md-equal w-100 sectores">
                 <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 " style="background: #F812D2;">
                     <div class="pt-5 pb-4">
-                        <h4 class="display-5 font-weight-bold text-white"><a href="/rubro_di/moda/?post_type=disenio" class="stretched-link text-white">Moda</a></h4>
+                        <h4 class="display-5 text-white"><a href="/rubro_di/moda/?post_type=disenio" class="stretched-link text-white">Moda</a></h4>
                     </div>
                 </div>
                 <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100" style="background:#3A3335;">
                     <div class="pt-5 pb-4">
-                        <h4 class="display-5 font-weight-bold text-white"><a href="/rubro_di/muebles-y-objetos/?post_type=disenio" class="stretched-link text-white">Muebles, objetos y otros</a></h4>
-                    </div>
-                </div>
-                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100" style="background: #F0544F;">
-                    <div class="pt-5 pb-4">
-                        <h4 class="display-5 font-weight-bold text-white"><a href="/rubro_di/servicios-de-diseno/?post_type=disenio" class="stretched-link text-white">Servicios de diseño</a></h4>
+                        <h4 class="display-5 text-white"><a href="/rubro_di/muebles-y-objetos/?post_type=disenio" class="stretched-link text-white">Muebles, objetos y juguetes</a></h4>
                     </div>
                 </div>
                 <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 text-dark" style="background: #FDF0D5;">
                     <div class="pt-5 pb-4">
-                        <h4 class="display-5 font-weight-bold"><a href="/rubro_di/ilustracion-y-piezas-graficas/?post_type=disenio" class="stretched-link text-dark">Ilustración y piezas gráficas</a></h4>
+                        <h4 class="display-5"><a href="/rubro_di/ilustracion-y-piezas-graficas/?post_type=disenio" class="stretched-link text-dark">Ilustración y piezas gráficas</a></h4>
                     </div>
                 </div>
                 <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 text-dark" style="background: #C6D8D3;">
                     <div class="pt-5 pb-4">
-                        <h4 class="display-5 font-weight-bold"><a href="/rubro_di/artesanias/?post_type=disenio" class="stretched-link text-dark">Artesanías</a></h4>
+                        <h4 class="display-5"><a href="/rubro_di/artesanias/?post_type=disenio" class="stretched-link text-dark">Artesanías<br>(sector invitado)</a></h4>
+                    </div>
+                </div>
+                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100" style="background: #F0544F;">
+                    <div class="pt-5 pb-4">
+                        <h4 class="display-5 text-white"><a href="/rubro_di/servicios-de-diseno/?post_type=disenio" class="stretched-link text-white">Servicios de diseño</a></h4>
                     </div>
                 </div>
             </div>
@@ -115,18 +115,17 @@ get_template_part( 'layouts/header', 'di' );
         <section class="bg-white cck">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-9 full-img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/diseno-cck.jpg')">
-                        <!--<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" >
-                            <source src="" type="video/mp4"></source>
-                        </video>-->
-                        <a href="/diseno/matrices" title="Enlace a la muestra virtual de CCK" class="stretched-link">
-                            <div class="cck-frontend position-relative">
-                                <div class="titulos">
-                                    <h4>Matrices: Mujeres del diseño</h4>
-                                    <p>Recorrido virtual</p>
-                                </div>
+                    <div class="col-md-9 full-img">
+                        <a href="/diseno/matrices" title="Enlace a la muestra virtual de CCK" class="stretched-link"></a>
+                        <video poster="<?php echo get_template_directory_uri(); ?>/assets/img/diseno-cck.jpg" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" >
+                            <source src="<?php echo get_template_directory_uri(); ?>/assets/img/cck.mp4" type="video/mp4"></source>
+                        </video>
+                        <div class="cck-frontend">
+                            <div class="titulos">
+                                <h4>Matrices: Mujeres del diseño</h4>
+                                <p>Recorrido virtual</p>
                             </div>
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <div class="row h-100">

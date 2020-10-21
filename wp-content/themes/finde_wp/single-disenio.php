@@ -35,39 +35,48 @@ get_template_part( 'layouts/header', 'di' );
 ?>
 <div id="content">
 <div id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
-    <header class="branding-header pt-3 bg-diseno <?php if ($featured_img_url) { echo 'tengo-background'; } ?>">
-        <div class="container pb-5">
-            <div class="col-lg-8 col-md-12 mx-auto py-4">
-                <?php
-                the_title( '<h1 class="entry-title extra-grande text-white">', '</h1>' );
-                ?>
-                <ul class="list-unstyled text-light">
-                    <?php 
-                        if ($address) { echo '<li><i class="fas fa-map-marker-alt"></i>  '. $address .'</li>';}
-                    ?>
-                </ul>
-
-                <ul class="list-unstyled list-inline text-center h4">
+    <header class="branding-header bg-light text-dark pt-3 <?php if ($featured_img_url) { echo 'tengo-background'; } ?>">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12 mx-auto pt-4">
                     <?php
-                        if ($url || $instagram || $facebook || $youtube || $twitter || $pinterest || $tiktok) {
-                            echo '<div class="contacto mt-2 text-white">';
-                            if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></a></li>';}
-                            if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
-                            if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
-                            if ($youtube) { echo '<li class="list-inline-item"><a href="'. $youtube . '" target="_blank" class="os"><i class="fab fa-youtube"></i></a></li>';}
-                            if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
-                            if ($pinterest) { echo '<li class="list-inline-item"><a href="'. $pinterest . '" target="_blank" class="os"><i class="fab fa-pinterest"></i></a></li>';}
-                            if ($tiktok) { echo '<li class="list-inline-item"><a href="'. $tiktok . '" target="_blank" class="os"><i class="fab fa-tiktok"></i></a></li>';}
-                            
-                            
-                            if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
-                        }
-                        
+                    the_title( '<h1 class="entry-title extra-grande">', '</h1>' );
                     ?>
-                </ul>
+                    <ul class="list-unstyled text-drk">
+                        <?php 
+                            if ($address) { echo '<li><i class="fas fa-map-marker-alt"></i>  '. $address .'</li>';}
+                        ?>
+                    </ul>
+
+                    <ul class="list-unstyled list-inline text-center h4">
+                        <?php
+                            if ($url || $instagram || $facebook || $youtube || $twitter || $pinterest || $tiktok) {
+                                echo '<div class="contacto mt-2 text-white">';
+                                if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></a></li>';}
+                                if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
+                                if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
+                                if ($youtube) { echo '<li class="list-inline-item"><a href="'. $youtube . '" target="_blank" class="os"><i class="fab fa-youtube"></i></a></li>';}
+                                if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
+                                if ($pinterest) { echo '<li class="list-inline-item"><a href="'. $pinterest . '" target="_blank" class="os"><i class="fab fa-pinterest"></i></a></li>';}
+                                if ($tiktok) { echo '<li class="list-inline-item"><a href="'. $tiktok . '" target="_blank" class="os"><i class="fab fa-tiktok"></i></a></li>';}
+                                
+                                
+                                if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
+                            }
+                            
+                        ?>
+                    </ul>
+                </div>
             </div>
+            <?php if ( has_post_thumbnail() ) {
+                echo '<div class="mt-3 row position-relative"><div class="col mx-auto my-5 border-bottom">';
+                echo '<div class="mini-profile-img">';
+                echo get_the_post_thumbnail( $post_id, 'small', array( 'class' => 'img-fluid img-profile' ) );
+                echo '</div></div></div>';
+            }?>
         </div>
     </header><!-- .entry-header -->
+    
     
     <div class="container py-5">
         <div class="row">
@@ -76,11 +85,6 @@ get_template_part( 'layouts/header', 'di' );
                     
                 echo '<div class="col-md-7">';
                     echo '<div class="slick fullmedia">';                       
-                        if ($featured_img_url) { 
-                            echo '<div>';
-                            the_post_thumbnail('full', array('class' => 'img-fluid'));
-                            echo '</div>';
-                        }
                         if ($images) {
                             // slick
                             foreach ( $images as $image ) {
