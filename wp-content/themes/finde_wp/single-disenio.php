@@ -25,8 +25,8 @@ get_template_part( 'layouts/header', 'di' );
             $whatsapp = rwmb_meta( 'mbox_whatsapp' );
             $images = rwmb_meta( 'image_ed', array( 'size' => 'large' ) );
             
-			$terms = get_the_terms( $post->ID, 'rubro' );
-			$dterms = get_the_terms( $post->ID, 'descuento' );
+			$terms = get_the_terms( $post->ID, 'rubro_di' );
+			$dterms = get_the_terms( $post->ID, 'descuento_di' );
             $media = rwmb_meta( $post->ID, 'oembed' );
 
             $medios = rwmb_meta($post->ID,  'mbox_medios');
@@ -99,10 +99,15 @@ get_template_part( 'layouts/header', 'di' );
                         
             <div class="col-md-8">
                 <?php
+                    if ($dterms) {
+                        echo '<div class="rubro mb-2">';
+                            foreach( $dterms as $dterm ) { echo '<a href="'.get_term_link($dterm->slug, 'descuento_di').'" class="badge badge-dark mt-1 os">'.$dterm->name.'</a></span>', ' ';}
+                        echo '</div>';
+                    }
                     if ($terms) {
-                    echo '<div class="rubro mb-2">';
-                        foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
-                    echo '</div>';
+                        echo '<div class="rubro mb-2">';
+                            foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro_di').'" class="badge badge-secondary text-white mt-1 os">'.$term->name.'</a></span>', ' ';}
+                        echo '</div>';
                     }
                     if( has_excerpt() ){
                         echo '<div class="mt-2 lead">'. get_the_excerpt() .'</div>';
