@@ -2212,6 +2212,147 @@ if ( ! function_exists( 'wp_archive_catalogodi' ) ) {
   }
 }
 
+/*** CATALOGO DISENIO X RUBRO ***/
+if ( ! function_exists( 'wp_archive_catalogodixrubro' ) ) {
+  function wp_archive_catalogodixrubro($rubro) {
+      $args = array(
+          'post_type'              => 'disenio',
+          'posts_per_page'         => -1,
+          'post_status'            => 'publish',
+          'no_found_rows'          => true,
+          'tax_query' => array(
+          array(
+              'taxonomy' => 'rubro_di',
+              'field' => 'slug', 
+              'terms' => $rubro, /// Where term_id of Term 1 is "1".
+              'include_children' => true
+              )
+          )
+      );
+
+    // The Query
+    $query_catalogodixrubro = new WP_Query( $args );
+    // The Loop
+    if ( $query_catalogodixrubro->have_posts() ) {
+      $term = get_term_by('slug', $rubro, 'rubro_di'); 
+      $tag_name = $term->name;
+      echo '<h3 class="mb-4"><strong>'.$tag_name.'</strong>  <a href="/rubro_di/'.$rubro.'/?post_type=disenio" style="font-size: .9rem;line-height:1rem;" class="btn btn-outline-primary">Ver todos</a></h3>';
+      echo '<div class="slick tienda mb-5">';
+
+      while ( $query_catalogodixrubro->have_posts() ) : $query_catalogodixrubro->the_post();
+
+          $images = rwmb_meta( 'image_di', array( 'size' => 'medium' ) );
+          $address = rwmb_meta( 'address' );
+          $url = rwmb_meta( 'mbox_url' );
+          $instagram = rwmb_meta( 'mbox_instagram' );
+          $twitter = rwmb_meta( 'mbox_twitter' );
+          $facebook = rwmb_meta( 'mbox_facebook' );
+          $youtube = rwmb_meta( 'mbox_youtube' );
+          $pinterest = rwmb_meta( 'mbox_pinterest' );
+          $tiktok = rwmb_meta( 'mbox_tiktok' );
+          $whatsapp = rwmb_meta( 'mbox_whatsapp' );
+
+          $medios = rwmb_meta('mbox_medios');
+          $terms = get_the_terms( $post->ID, 'rubro_di' );
+          $dterms = get_the_terms( $post->ID, 'descuento_di' );
+          $post_id = get_the_ID();
+
+          echo '<div class="grid-item item mb-1"';
+          if ($terms) {
+              echo ' data-category="';
+              foreach( $terms as $term ) echo $term->slug. ' ';
+              echo '" ';
+          }
+          if ($dterms) {
+              echo ' data-descuento="';
+              foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
+              echo '"';
+          }
+          echo '>';
+          // slick
+          $images = rwmb_meta( 'image_di', array( 'size' => 'medium', 'limit' => 1 ) );
+          $image = reset( $images );
+          echo '<div class="grid-item-content card w-100" style="border-radius: 0 0 0.25rem 0.25rem;border-top: 0;">';
+          echo '<div class="img-wrapper" style="background-image:url('.$image['url'].');"></div>';
+          echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+          echo '<div class="card-body">';
+          echo '<h5 class="card-title">' . get_the_title() . '</h5>';
+          if ( has_excerpt() ) {
+              echo '<div class="card-text">' . get_the_excerpt() .'</div>';
+          } else {
+              echo '<div class="card-text">' . wp_trim_words( get_the_content(), 45, '...' ) .'</div>';
+          }
+          if ($dterms) {
+              echo '<div class="descuento_di">';
+              foreach( $dterms as $term ) { echo '<span class="badge badge-dark mt-1 os p-1">'.$term->name.'</span>', ' ';}
+              echo '</div>';
+          }
+          if ($medios) {
+              echo '<div class="medios-de-pago d-block position-relative mt-1">';
+              foreach ( $medios as $medio ) {
+                  if ($medio == 'debito') :
+                      echo '<span class="medio_digital tool-tip d-inline mr-2 '.$medio.'" data-toggle="tooltip" data-placement="top" title="Tarjeta de débito"><i class="fas fa-credit-card"></i></span>';
+                  endif;
+                  if ($medio == 'credito') :
+                      echo '<span class="medio_digital tool-tip d-inline mr-2 '.$medio.'" data-toggle="tooltip" data-placement="top" title="Tarjeta de crédito"><i class="far fa-credit-card"></i></span>';
+                  endif;
+                  if ($medio == 'cuentadni') :
+                      echo '<span class="medio_digital tool-tip d-inline mr-2 '.$medio.'" data-toggle="tooltip" data-placement="top" title="Cuenta DNI"><i class="fas fa-money-check"></i></span>';
+                  endif;
+                  if ($medio == 'mercadopago') :
+                      echo '<span class="medio_digital tool-tip d-inline mr-2 '.$medio.'" data-toggle="tooltip" data-placement="top" title="Mercado Pago"><i class="fas fa-money-bill-wave"></i></span>';
+                  endif;
+                  if ($medio == 'transferencia') :
+                      echo '<span class="medio_digital tool-tip d-inline mr-2 '.$medio.'" data-toggle="tooltip" data-placement="top" title="Transferencia"><i class="fas fa-money-check-alt"></i></span>';
+                  endif;
+                  if ($medio == 'paypal') :
+                      echo '<span class="medio_digital tool-tip d-inline mr-2 '.$medio.'" data-toggle="tooltip" data-placement="top" title="Paypal"><i class="fab fa-cc-paypal"></i></span>';
+                  endif;
+                  if ($medio == 'otros') :
+                      echo '<span class="medio_digital tool-tip d-inline mr-2 '.$medio.'" data-toggle="tooltip" data-placement="top" title="Otros"><i class="fas fa-wallet"></i></span>';
+                  endif;
+              }
+              echo '</div>';
+          }
+
+          $envios = rwmb_meta( 'envios' );
+          if ($envios) {
+              echo '<div class="mt-1 mr-2 tool-tip d-inline" data-toggle="tooltip" data-placement="top" title="'.$envios.'"><i class="fas fa-truck"></i></div>';
+          }
+
+          $tienda = rwmb_meta( 'mbox_tienda' );
+          if ($tienda) {
+              echo '<div class="d-inline mt-1"><a href="'.$tienda.'" class="tool-tip" data-toggle="tooltip" data-placement="top" title="Ir a tienda virtual" target="_blank"><i class="fas fa-shopping-cart"></i></a></div>';
+          }
+
+          if ($url || $instagram || $facebook || $youtube || $twitter || $pinterest || $tiktok) {
+            echo '<ul class="contacto list-unstyled mt-1 mb-1">';
+            if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></a></li>';}
+            if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
+            if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
+            if ($youtube) { echo '<li class="list-inline-item"><a href="'. $youtube . '" target="_blank" class="os"><i class="fab fa-youtube"></i></a></li>';}
+            if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
+            if ($pinterest) { echo '<li class="list-inline-item"><a href="'. $pinterest . '" target="_blank" class="os"><i class="fab fa-pinterest"></i></a></li>';}
+            if ($tiktok) { echo '<li class="list-inline-item"><a href="'. $tiktok . '" target="_blank" class="os"><i class="fab fa-tiktok"></i></a></li>';}
+            
+            
+            if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
+              
+            echo '</ul>';
+          }
+ 
+          echo '</div><!--End .card-body-->';
+          echo '</div></div>';
+      endwhile;
+      echo '</div>';
+      wp_reset_postdata();
+    } 
+
+    // Restore original Post Data
+    wp_reset_postdata();
+  }
+}
+
 /*** JUEGO DESTACADO ***/
 if ( ! function_exists( 'wp_archive_destacadovj' ) ) {
   function wp_archive_destacadovj() {

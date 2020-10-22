@@ -56,41 +56,35 @@ get_template_part( 'layouts/header', 'di' );
         <!--ENTRADA AL CATALOGO DE MÚSICA-->
         <section id="tienda" class="text-center bg-light pt-5">
             <div class="container text-left">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <h2 class="extra-grande font-weight-bold py-3">Tienda</h2>
-                    </div>
-                    <div class="col-sm-11 col-md-7">
-                        <p class="h5 py-4" style="line-height:1.4">Descubrí tiendas, productos y servicios de todas las ramas del diseño. Descrubrí el diseño Bonaerense en Finde</p>
-                    </div>
-                </div>
-                
+                <h2 class="extra-grande font-weight-bold pb-3">Tienda</h2>
             </div>
             <div class="d-md-flex flex-md-equal w-100 sectores">
-                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 " style="background: #F812D2;">
+                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 " style="background: #ef476f;">
                     <div class="pt-5 pb-4">
-                        <h4 class="display-5 text-white"><a href="/rubro_di/moda/?post_type=disenio" class="stretched-link text-white">Moda</a></h4>
+                        <h4 style="font-weight: 600 !important;" class="display-5 text-white"><a href="/rubro_di/moda/?post_type=disenio" class="stretched-link text-white">Moda</a></h4>
                     </div>
                 </div>
-                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100" style="background:#3A3335;">
+                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100" style="background:#f98510;">
                     <div class="pt-5 pb-4">
-                        <h4 class="display-5 text-white"><a href="/rubro_di/muebles-y-objetos/?post_type=disenio" class="stretched-link text-white">Muebles, objetos y juguetes</a></h4>
+                        <h4 style="font-weight: 600 !important;" class="display-5 text-white"><a href="/rubro_di/muebles-y-objetos/?post_type=disenio" class="stretched-link text-white">Muebles<br>Objetos<br>Juguetes</a></h4>
                     </div>
                 </div>
-                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 text-dark" style="background: #FDF0D5;">
+                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 text-dark" style="background: #05c793;">
                     <div class="pt-5 pb-4">
-                        <h4 class="display-5"><a href="/rubro_di/ilustracion-y-piezas-graficas/?post_type=disenio" class="stretched-link text-dark">Ilustración y piezas gráficas</a></h4>
+                        <h4 style="font-weight: 600 !important;" class="display-5 text-white"><a href="/rubro_di/ilustracion-y-piezas-graficas/?post_type=disenio" class="stretched-link  text-white">Ilustración<br>Piezas gráficas</a></h4>
                     </div>
                 </div>
-                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 text-dark" style="background: #C6D8D3;">
+                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100" style="background: #118ab2;">
                     <div class="pt-5 pb-4">
-                        <h4 class="display-5"><a href="/rubro_di/artesanias/?post_type=disenio" class="stretched-link text-dark">Artesanías<br>(sector invitado)</a></h4>
+                        <h4 style="font-weight: 600 !important;" class="display-5 text-white"><a href="/rubro_di/servicios-de-diseno/?post_type=disenio" class="stretched-link text-white">Servicios de diseño</a></h4>
                     </div>
+                    <div class="caption">Catálogo</div>
                 </div>
-                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100" style="background: #F0544F;">
+                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 text-dark" style="background: #c2c6a9;">
                     <div class="pt-5 pb-4">
-                        <h4 class="display-5 text-white"><a href="/rubro_di/servicios-de-diseno/?post_type=disenio" class="stretched-link text-white">Servicios de diseño</a></h4>
+                        <h4 style="font-weight: 600 !important;" class="display-5"><a href="/rubro_di/artesanias/?post_type=disenio" class="stretched-link text-dark">Artesanías</a></h4>
                     </div>
+                    <div class="caption">Sector invitado</div>
                 </div>
             </div>
         </section>
@@ -139,7 +133,7 @@ get_template_part( 'layouts/header', 'di' );
                             <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/diseno-etnografia.jpg')">
                                 <a href="/diseno/etnografia" title="Enlace a la convocatoria" class="stretched-link"></a>
                                 <div class="titulos">
-                                    <h5>Etnografía de los objetos</h5>
+                                    <h5>15 cosas de uso diario esenciales en tu cuarentena</h5>
                                     <p>Convocatoria</p>
                                 </div>
                             </div>

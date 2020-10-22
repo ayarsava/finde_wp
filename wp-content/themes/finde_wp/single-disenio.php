@@ -83,7 +83,7 @@ get_template_part( 'layouts/header', 'di' );
             <?php
                 $images = rwmb_meta( 'image_di', array( 'size' => 'medium' ) );
                     
-                echo '<div class="col-md-7">';
+                echo '<div class="col-md-7 mb-2">';
                     echo '<div class="slick fullmedia">';                       
                         if ($images) {
                             // slick
@@ -104,19 +104,19 @@ get_template_part( 'layouts/header', 'di' );
                     }
                     echo '<div class="mt-2 d-block">' . get_the_content().'</div>';
                     if ($dterms) {
-                        echo '<div class="rubro mb-2">';
+                        echo '<div class="rubro mb-1">';
                             foreach( $dterms as $dterm ) { echo '<a href="'.get_term_link($dterm->slug, 'descuento_di').'" class="badge badge-dark mt-1 os">'.$dterm->name.'</a></span>', ' ';}
                         echo '</div>';
                     }
                     if ($terms) {
-                        echo '<div class="rubro mb-2">';
+                        echo '<div class="rubro mb-1">';
                             foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro_di').'" class="badge badge-secondary text-white mt-1 os">'.$term->name.'</a></span>', ' ';}
                         echo '</div>';
                     }
                     
                     $medios = rwmb_meta( 'mbox_medios' );
                     if ($medios) {
-                        echo '<div class="medios-de-pago">';
+                        echo '<div class="medios-de-pago mt-4">';
                         foreach ( $medios as $medio ) {
                             if ($medio == 'debito') :
                                 echo '<span class="medio_digital '.$medio.'"><i class="fas fa-credit-card"></i> Tarjeta de débito</span>';
@@ -162,7 +162,7 @@ get_template_part( 'layouts/header', 'di' );
                     $embed = $GLOBALS['wp_embed']->shortcode( $args, $url );
                 }
                 if ( $embed ) {
-                    echo '<div class="row"><div class="col-md-15 mt-3">';
+                    echo '<div class="row"><div class="col-md-15 mt-4">';
                     echo $embed;
                     echo '</div></div>';
                 }
