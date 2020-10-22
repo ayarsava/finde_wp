@@ -41,9 +41,9 @@ $destacado = rwmb_meta( 'destacado_id' );
       the_title( '<h5 class="card-title">', '</h5>' );
       ?>
       <?php if ( get_the_excerpt() ) {
-        echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_excerpt() ), 18, '...' ) .'</div>';
+        echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_excerpt() ), 25, '...' ) .'</div>';
       } else {
-        echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+        echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 25, '...' ) .'</div>';
       }
       ?>
       

@@ -46,7 +46,7 @@
 			      <ul class="list-unstyled text-white">
 			      	<li><a href="/" class="text-light">Finde</a></li>
 			      	<li><a href="/diseno/#tienda" class="text-light">Tienda</a></li>
-			      	<li><a href="/diseno/#agenda-slick" class="text-light">Agenda</a></li>
+			      	<li><a href="/agenda-diseno/" class="text-light">Agenda</a></li>
 			      	<li><a href="/preguntas-frecuentes/" class="text-light">Preguntas frecuentes</a></li>
 			      </ul>
 			    </div>
