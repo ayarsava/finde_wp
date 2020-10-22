@@ -43,7 +43,7 @@ $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' 
 				} elseif ($term->slug == 'ilustracion-y-piezas-graficas' ) {
 					echo '<h1 class="page-title">Ilustración y piezas gráficas</h1>';
 				} elseif ($term->slug == 'artesanias' ) {
-					echo '<h1 class="page-title">Artesanías (Sector invitado)</h1><div class="lead mb-2">Textil, Cerámica, Metal, Vidrio, Madera, Cuero</div>';
+					echo '<h1 class="page-title">Artesanías</h1><div class="lead mb-2">Textil, Cerámica, Metal, Vidrio, Madera, Cuero</div>';
 				} else {
 					the_archive_title( '<h1 class="page-title">', '</h1>' );
 					the_archive_description( '<div class="archive-description">', '</div>' );
