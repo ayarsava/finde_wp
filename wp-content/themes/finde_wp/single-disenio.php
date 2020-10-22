@@ -99,6 +99,11 @@ get_template_part( 'layouts/header', 'di' );
                         
             <div class="col-md-8">
                 <?php
+                    if ($terms) {
+                        echo '<div class="rubro mb-1">';
+                            foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro_di').'" class="badge badge-secondary text-white mt-1 os">'.$term->name.'</a></span>', ' ';}
+                        echo '</div>';
+                    }
                     if( has_excerpt() ){
                         echo '<div class="mt-2 lead">'. get_the_excerpt() .'</div>';
                     }
@@ -106,11 +111,6 @@ get_template_part( 'layouts/header', 'di' );
                     if ($dterms) {
                         echo '<div class="rubro mb-1">';
                             foreach( $dterms as $dterm ) { echo '<a href="'.get_term_link($dterm->slug, 'descuento_di').'" class="badge badge-dark mt-1 os">'.$dterm->name.'</a></span>', ' ';}
-                        echo '</div>';
-                    }
-                    if ($terms) {
-                        echo '<div class="rubro mb-1">';
-                            foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro_di').'" class="badge badge-secondary text-white mt-1 os">'.$term->name.'</a></span>', ' ';}
                         echo '</div>';
                     }
                     

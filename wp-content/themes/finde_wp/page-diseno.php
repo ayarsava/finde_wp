@@ -56,7 +56,7 @@ get_template_part( 'layouts/header', 'di' );
         <!--ENTRADA AL CATALOGO DE MÚSICA-->
         <section id="tienda" class="text-center bg-light pt-5">
             <div class="container text-left">
-                <h2 class="extra-grande font-weight-bold pb-3">Tienda</h2>
+                <h2 class="extra-grande font-weight-bold pb-3">Tienda  <a href="/diseno/tienda"  class="btn btn-outline-primary"> <i class="fas fa-store"></i> Ver todos</a></h2>
             </div>
             <div class="d-md-flex flex-md-equal w-100 sectores">
                 <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 " style="background: #ef476f;">
