@@ -2661,6 +2661,7 @@ if ( ! function_exists( 'wp_archive_agenda_por_dia' )) {
     );
 
     while ( $the_query->have_posts() ) : $the_query->the_post();
+
         $fecha = rwmb_meta( 'fecha_id' ); 
         $fecha_evento = $days_dias[date('l',$fecha)].' '.date('d-m', $fecha);
         
@@ -2683,7 +2684,8 @@ if ( ! function_exists( 'wp_archive_agenda_por_dia' )) {
             foreach ( $eventos as $evento ) :
               $excerpt = get_the_excerpt($evento->ID);
               $featured_img_url = get_the_post_thumbnail_url($evento->ID,'full'); 
-              $excerpt = get_the_excerpt($evento->ID);      
+              $excerpt = get_the_excerpt($evento->ID);  
+                              
               echo '<div class="col-15 evento">';
                   echo '<div class="row py-4 position-relative">';
                       echo '<a href="'. get_permalink($evento->ID).'" class="stretched-link"></a>';
@@ -2691,7 +2693,8 @@ if ( ! function_exists( 'wp_archive_agenda_por_dia' )) {
                           echo '<span class="dia">'.date('d-m', get_post_field('fecha_id',$evento->ID)).'</span>';
                           echo '<span class="hora">'.date('H:i', get_post_field('fecha_id',$evento->ID)).'hs</span>';
                       echo '</div>';
-
+                      
+    
                       if ($featured_img_url) { 
                           echo '<div class="col-md-3 img-wrapper img-fluid" style="background-image: url('. esc_url($featured_img_url) .');">';
                           if ($destacado == 1) { echo '<div class="ribbon ribbon-top-left"><span>DESTACADO</span></div>'; }

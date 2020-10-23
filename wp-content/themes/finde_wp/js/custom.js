@@ -205,12 +205,28 @@ $('#agenda-destacada').slick({
   ]
 });
 
-var slide;
+var today = new Date();
+$dd = today.getDate();
+$mm = today.getMonth()+1; //January is 0!
+$dm = $dd + '-' + $mm;
+console.log($dm);
+if ($dm == '22-10') {
+  var slide = 0;
+} else if ($dm == '23-10') {
+  var slide = 1;
+} else if ($dm == '24-10') {
+  var slide = 2;
+} else if ($dm == '25-10') {
+  var slide = 3;
+} else {
+  var slide = 0;
+}
 $('.pasadia').slick({
   asNavFor: '#agenda-por-dia',
   dots: false,
   infinite: false,
   speed: 300,
+  initialSlide: slide,
 });
 $('#agenda-por-dia').slick({
   dots: true,
@@ -221,8 +237,29 @@ $('#agenda-por-dia').slick({
   dots:false,
   arrows: false,
   fade: true,
-  initialSlide: slide,
+  focusOnSelect: true,
   asNavFor: '.pasadia',
+  initialSlide: slide,
+  centerMode: true
+});
+// function event,slick and index
+// version 1.5+ uses slick-current stead of slick-active
+$('#agenda-por-dia').on('afterChange', function(event,slick,i){
+  $('.pasadia .slick-slide').removeClass('slick-current');
+  $('.pasadia .slick-slide').eq(i).addClass('slick-current');    				 
+});
+
+// remember document ready on this
+$('.pasadia .slick-slide').eq(0).addClass('slick-current');	
+
+
+$('.autoplay').slick({
+  slidesToShow: 3,
+  centerMode: true,
+  variableWidth: true,
+  slidesToScroll: 3,
+  autoplay: true,
+  autoplaySpeed: 2000,
 });
 
 if ($('#gamejam_videos').length) {

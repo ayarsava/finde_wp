@@ -798,6 +798,17 @@ a.badge.os {
   content: "";
 }
 
+.star {
+  font-size: 1.2rem;
+  z-index: 2;
+  padding-left: 8px;
+  padding-top: 3px;
+  position: absolute;
+}
+.star .fa-certificate:before {
+  text-shadow: -2px -2px 0px #FFF;
+}
+
 .ribbon {
   width: 92px;
   height: 92px;
@@ -1413,6 +1424,19 @@ a[class^=hvr-]:hover {
 #gamejam_videos .item .destacado {
   margin: 2%;
   position: relative;
+}
+#agenda-destacada .item .destacado .card .star,
+#agenda-por-dia .item .destacado .card .star,
+#gamejam_videos .item .destacado .card .star {
+  font-size: 2rem;
+  z-index: 2;
+  padding-left: 8px;
+  position: absolute;
+}
+#agenda-destacada .item .destacado .card .star .fa-certificate:before,
+#agenda-por-dia .item .destacado .card .star .fa-certificate:before,
+#gamejam_videos .item .destacado .card .star .fa-certificate:before {
+  text-shadow: 2px 2px 0px #FFF;
 }
 #agenda-destacada .item .destacado .card .img-wrapper,
 #agenda-por-dia .item .destacado .card .img-wrapper,
@@ -2306,5 +2330,28 @@ section.cck .titulos h4 {
   z-index: 2;
   position: relative;
 }
+
+.autoplay.slick-slider .slick-track .slick-list {
+  margin-left: -10px;
+}
+.autoplay.slick-slider .slick-track .slick-slide {
+  margin-left: 10px;
+  background: transparent !important;
+  width: auto;
+}
+.autoplay.slick-slider .slick-track .slick-slide img {
+  padding: 10px;
+  max-height: 100px;
+  height: auto;
+  width: auto;
+  max-width: 270px;
+}
+
+/*.page-en-vivo {
+  .entry-content > *:not(.alignfull)  {
+    width: 65%;
+    margin-right: auto;
+  }
+}*/
 
 /*# sourceMappingURL=finde.css.map */

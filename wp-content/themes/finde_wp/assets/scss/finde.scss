@@ -707,7 +707,16 @@ a.badge.os {
     }
   }
 }
-
+.star {
+  font-size: 1.2rem;
+  z-index: 2;
+  padding-left: 8px;
+  padding-top: 3px;
+  position: absolute;
+  .fa-certificate:before {
+    text-shadow: -2px -2px 0px #FFF;
+  }
+}
 .ribbon {
   width: 92px;
   height: 92px;
@@ -1290,6 +1299,15 @@ a[class^="hvr-"] {
       margin: 2%;
       position: relative;
       .card {
+        .star {
+          font-size: 2rem;
+          z-index: 2;
+          padding-left: 8px;
+          position: absolute;
+          .fa-certificate:before {
+            text-shadow: 2px 2px 0px #FFF;
+          }
+        }
         .img-wrapper {
           border-left: 0;
         }
@@ -2162,3 +2180,27 @@ section.cck {
   z-index:2;
   position: relative;
 }
+.autoplay.slick-slider .slick-track {
+  .slick-list {
+    margin-left:-10px;
+  }
+  .slick-slide {
+    margin-left:10px;
+    background:transparent!important;
+    width: auto;
+    img {
+      padding:10px;
+      max-height: 100px;
+      height: auto;
+      width:auto;
+      max-width:270px;
+    }
+  }
+}
+
+/*.page-en-vivo {
+  .entry-content > *:not(.alignfull)  {
+    width: 65%;
+    margin-right: auto;
+  }
+}*/
