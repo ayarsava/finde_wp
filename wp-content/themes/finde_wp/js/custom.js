@@ -210,14 +210,12 @@ $dd = today.getDate();
 $mm = today.getMonth()+1; //January is 0!
 $dm = $dd + '-' + $mm;
 console.log($dm);
-if ($dm == '22-10') {
+if ($dm == '23-10') {
   var slide = 0;
-} else if ($dm == '23-10') {
-  var slide = 1;
 } else if ($dm == '24-10') {
-  var slide = 2;
+  var slide = 1;
 } else if ($dm == '25-10') {
-  var slide = 3;
+  var slide = 2;
 } else {
   var slide = 0;
 }
