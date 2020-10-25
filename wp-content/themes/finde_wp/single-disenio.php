@@ -150,23 +150,24 @@ get_template_part( 'layouts/header', 'di' );
 
                     $tienda = rwmb_meta( 'mbox_tienda' );
                     if ($tienda) {
-                        echo '<div class="d-block mt-4">><a href="'.$tienda.'" class="boton-3d" title="Ir a tienda virtual" target="_blank">Ir a Tienda virtual</a></div>';
+                        echo '<div class="d-block mt-4"><a href="'.$tienda.'" class="boton-3d" title="Ir a tienda virtual" target="_blank">Ir a Tienda virtual</a></div>';
                     }
                 ?>
             </div>
+        </div>
             
-            <?php
-                $url = get_post_meta( get_the_ID(), 'oembed', true );
-                $embed = wp_oembed_get( $url, $args );
-                if ( ! $embed ) {
-                    $embed = $GLOBALS['wp_embed']->shortcode( $args, $url );
-                }
-                if ( $embed ) {
-                    echo '<div class="row"><div class="col-md-15 mt-4">';
-                    echo $embed;
-                    echo '</div></div>';
-                }
-            ?>
+        <?php
+            $url = get_post_meta( get_the_ID(), 'oembed', true );
+            $embed = wp_oembed_get( $url, $args );
+            if ( ! $embed ) {
+                $embed = $GLOBALS['wp_embed']->shortcode( $args, $url );
+            }
+            if ( $embed ) {
+                echo '<div class="row"><div class="col-md-15 mt-4">';
+                echo $embed;
+                echo '</div></div>';
+            }
+        ?>
         </div>
     </div><!-- .container -->
 </div><!-- #post-<?php the_ID(); ?> -->
