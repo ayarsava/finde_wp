@@ -1826,6 +1826,11 @@ a[class^=hvr-]:hover {
   font-size: 4rem;
   font-weight: bold;
 }
+@media (max-width: 767.98px) {
+  .branding-header h1.entry-title.extra-grande {
+    font-size: 2rem;
+  }
+}
 .branding-header .mini-profile-img {
   position: absolute;
   left: calc(50% - 3rem);
