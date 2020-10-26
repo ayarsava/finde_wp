@@ -1683,6 +1683,9 @@ a[class^="hvr-"] {
   h1.entry-title.extra-grande {
     font-size: 4rem;
     font-weight: bold;
+    @media (max-width: 767.98px) {
+      font-size: 2rem;
+    }
   }
   .mini-profile-img {
     position: absolute;
