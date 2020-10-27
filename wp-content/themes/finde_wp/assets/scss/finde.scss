@@ -2,8 +2,8 @@
 $videojuegos: #009aae;
 [class*="videojuegos"],
 [class*="catalogo"] {
-  .videojuegos .bg-primary,
-  .videojuegos .btn-primary,
+  .bg-primary,
+  .btn-primary,
   .descuento_ed .badge-primary,
   #agenda .tags,
   .branding-header {
@@ -16,6 +16,12 @@ $videojuegos: #009aae;
           color: lighten($videojuegos, 40%);
         }
       }
+    }
+  }
+  .bg-videojuegos {
+    background: $videojuegos;
+    &.menu-wrapper {
+      background: darken($videojuegos, 5%);
     }
   }
   .bg-videojuegos a,
@@ -47,14 +53,36 @@ $videojuegos: #009aae;
   .item:hover .card-title {
     color:$videojuegos;
   }
+  .slick.agenda.slick-slider .slick-list .slick-track .slick-slide .card .tags {
+    background:$videojuegos
+  }
+  .slick.fullmedia .slick-track .slick-slide {
+    background: linear-gradient(45deg, white 0%, #e9e9e9 100%);
+  }
+  .boton-3d {
+    box-shadow: -3px 3px $videojuegos, -2px 2px $videojuegos, -1px 1px $videojuegos;
+    border: 1px solid $videojuegos;
+    &:hover {
+      background: lighten($videojuegos, 10%);
+      color: #FFF;
+    }
+  }
+  .badge-primary {
+    background-color: $videojuegos;
+  }
+  .evento:hover h4 {
+    color: $videojuegos!important;
+  }
+  nav.navbar .dropdown .dropdown-menu {
+    background-color: darken($videojuegos, 5%)!important;
+  }
 }
-
 
 /*** EDitorial Custom ***/
 $editorial: #ff677d;
 [class*="editorial"] {
-  .editorial .bg-primary,
-  .editorial .btn-primary,
+  .bg-primary,
+  .btn-primary,
   .descuento_ed .badge-primary,
   #agenda .tags,
   .branding-header {
@@ -89,13 +117,36 @@ $editorial: #ff677d;
   .item:hover .card-title {
     color:$editorial;
   }
+  .slick.agenda.slick-slider .slick-list .slick-track .slick-slide .card .tags {
+    background:$editorial
+  }
+  .slick.fullmedia .slick-track .slick-slide {
+    background: linear-gradient(45deg, white 0%, #e9e9e9 100%);
+  }
+  .boton-3d {
+    box-shadow: -3px 3px $editorial, -2px 2px $editorial, -1px 1px $editorial;
+    border: 1px solid $editorial;
+    &:hover {
+      background: lighten($editorial, 10%);
+      color: #FFF;
+    }
+  }
+  .badge-primary {
+    background-color: $editorial;
+  }
+  .evento:hover h4 {
+    color: $editorial!important;
+  }
+  nav.navbar .dropdown .dropdown-menu {
+    background-color: darken($editorial, 5%)!important;
+  }
 }
 
 /*** Musica Custom ***/
 $music: #793d97;
 [class*="music"] {
-  .music .bg-primary,
-  .music .btn-primary,
+  .bg-primary,
+  .btn-primary,
   .descuento_ed .badge-primary,
   #agenda .tags,
   .branding-header {
@@ -134,6 +185,29 @@ $music: #793d97;
   .item:hover .card-title {
     color:$music;
   }
+  .slick.agenda.slick-slider .slick-list .slick-track .slick-slide .card .tags {
+    background:$music
+  }
+  .slick.fullmedia .slick-track .slick-slide {
+    background: linear-gradient(45deg, white 0%, #e9e9e9 100%);
+  }
+  .boton-3d {
+    box-shadow: -3px 3px $music, -2px 2px $music, -1px 1px $music;
+    border: 1px solid $music;
+    &:hover {
+      background: lighten($music, 10%);
+      color: #FFF;
+    }
+  }
+  .badge-primary {
+    background-color: $music;
+  }
+  .evento:hover h4 {
+    color: $music!important;
+  }
+  nav.navbar .dropdown .dropdown-menu {
+    background-color: darken($music, 5%)!important;
+  }
 }
 
 /*** Diseño Custom ***/
@@ -143,11 +217,11 @@ $disenio: #f812d2;
   a {
     color: $disenio;
     &:hover {
-      color: #darken($disenio, 10%);
+      color: darken($disenio, 10%);
     }
   }
-  .disenio .bg-primary,
-  .disenio .btn-primary,
+  .bg-primary,
+  .btn-primary,
   .descuento_ed .badge-primary,
   #agenda .tags {
     background: $disenio!important;
@@ -209,6 +283,9 @@ $disenio: #f812d2;
   .evento:hover h4 {
     color: $disenio!important;
   }
+  nav.navbar .dropdown .dropdown-menu {
+    background-color: darken($disenio, 5%)!important;
+  }
 }
 
 /*** Audiovisual Custom ***/
@@ -217,7 +294,7 @@ $audiovisual: #1d2643;
   a {
     color: $audiovisual;
     &:hover {
-      color: #darken($audiovisual, 10%);
+      color: darken($audiovisual, 10%);
     }
   }
   .bg-primary,
@@ -284,6 +361,9 @@ $audiovisual: #1d2643;
   nav.navbar .dropdown .dropdown-menu {
     background-color: darken($audiovisual, 5%)!important;
   }
+}
+header.main-header.bg-primary {
+  background: #009AAE !important;
 }
 
 
@@ -518,6 +598,10 @@ header.main-header {
     border-bottom: solid 1px #ffffff38;
     border-top: solid 1px #ffffff38;
     border-right: 0;
+    &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: #FFF;
+      opacity: .8; /* Firefox */
+    }
   }
   button.search-submit {
     background: transparent;
@@ -527,7 +611,7 @@ header.main-header {
     border-left:0;
     border-radius: 0 4px 4px 0;
     padding: 4px 10px;
-    color: #747474;
+    color:rgb(255 255 255 / 80%);
     margin-left: -3px;
   }
 }
