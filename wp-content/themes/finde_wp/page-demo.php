@@ -11,7 +11,7 @@
  * @package Finde_WP
  */
 
-get_template_part( 'layouts/header', 'di' ); 
+get_template_part( 'layouts/header', 'au' ); 
 ?>
 <div class="bg-dark" style="background-color:#111!important;">
 <div class="container py-5">
@@ -19,4 +19,4 @@ get_template_part( 'layouts/header', 'di' );
 </div>
 
 <?php 
-get_template_part( 'layouts/footer', 'di' ); 
+get_template_part( 'layouts/footer', 'au' ); 
