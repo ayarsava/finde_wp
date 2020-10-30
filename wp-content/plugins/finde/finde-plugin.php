@@ -230,6 +230,140 @@ function wporg_register_taxonomy_descuento_di() {
 add_action('init', 'wporg_register_taxonomy_descuento_di');
 
 
+/*** Taxonomias para Territorio | Recursos ***/
+function wporg_register_taxonomy_recurso() {
+  $labels = [
+    'name'              => _x('Tipos de recursos', 'taxonomy general name'),
+    'singular_name'     => _x('Tipo de recurso', 'taxonomy singular name'),
+    'search_items'      => __('Buscar recursos'),
+    'all_items'         => __('Todos los recursos'),
+    'parent_item'       => __('Tipo padre'),
+    'parent_item_colon' => __('Tipo padre:'),
+    'edit_item'         => __('Editar Tipo'),
+    'update_item'       => __('Actualizar Tipo'),
+    'add_new_item'      => __('Agregar nuevo Tipo'),
+    'new_item_name'     => __('Nuevo nombre de recurso'),
+    'menu_name'         => __('Tipo de recurso'),
+  ];
+  $args = [
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+  ];
+  register_taxonomy('recurso', ['experiencias'], $args);
+}
+add_action('init', 'wporg_register_taxonomy_recurso');
+
+/*** Taxonomias para Territorio | Area ***/
+function wporg_register_taxonomy_area() {
+  $labels = [
+    'name'              => _x('Áreas', 'taxonomy general name'),
+    'singular_name'     => _x('Área', 'taxonomy singular name'),
+    'search_items'      => __('Buscar áreas'),
+    'all_items'         => __('Todas las áreas'),
+    'parent_item'       => __('Área padre'),
+    'parent_item_colon' => __('Área padre:'),
+    'edit_item'         => __('Editar área'),
+    'update_item'       => __('Actualizar área'),
+    'add_new_item'      => __('Agregar nueva área'),
+    'new_item_name'     => __('Nuevo nombre de área '),
+    'menu_name'         => __('Área'),
+  ];
+  $args = [
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => array( 'slug' => 'area', 'with_front' => false ),
+  ];
+  register_taxonomy('area', ['experiencias'], $args);
+}
+add_action('init', 'wporg_register_taxonomy_area');
+
+/*** Taxonomias para Territorio | Hacedor ***/
+function wporg_register_taxonomy_hacedor() {
+  $labels = [
+    'name'              => _x('Hacedores', 'taxonomy general name'),
+    'singular_name'     => _x('Hacedor', 'taxonomy singular name'),
+    'search_items'      => __('Buscar hacedores'),
+    'all_items'         => __('Todas las hacedores'),
+    'parent_item'       => __('Hacedor padre'),
+    'parent_item_colon' => __('Hacedor padre:'),
+    'edit_item'         => __('Editar hacedor'),
+    'update_item'       => __('Actualizar hacedor'),
+    'add_new_item'      => __('Agregar nueva hacedor'),
+    'new_item_name'     => __('Nuevo nombre de hacedor '),
+    'menu_name'         => __('Presentador/Funcionario'),
+  ];
+  $args = [
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => array( 'slug' => 'hacedor', 'with_front' => false ),
+  ];
+  register_taxonomy('hacedor', ['experiencias'], $args);
+}
+add_action('init', 'wporg_register_taxonomy_hacedor');
+
+/*** Taxonomias para Territorio | Partido ***/
+function wporg_register_taxonomy_partido() {
+  $labels = [
+    'name'              => _x('Partidos', 'taxonomy general name'),
+    'singular_name'     => _x('Partido', 'taxonomy singular name'),
+    'search_items'      => __('Buscar partidos'),
+    'all_items'         => __('Todos los partidos'),
+    'edit_item'         => __('Editar partido'),
+    'update_item'       => __('Actualizar partido'),
+    'add_new_item'      => __('Agregar nueva partido'),
+    'new_item_name'     => __('Nuevo partido '),
+    'menu_name'         => __('Partido'),
+  ];
+  $args = [
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => array( 'slug' => 'partido', 'with_front' => true ),
+  ];
+  register_taxonomy('partido', ['experiencias'], $args);
+}
+add_action('init', 'wporg_register_taxonomy_partido');
+
+/*** Taxonomias para Territorio | Ciudad ***/
+function wporg_register_taxonomy_ciudad() {
+  $labels = [
+    'name'              => _x('Ciudades', 'taxonomy general name'),
+    'singular_name'     => _x('Ciudad', 'taxonomy singular name'),
+    'search_items'      => __('Buscar ciudades'),
+    'all_items'         => __('Todas las ciudades'),
+    'edit_item'         => __('Editar ciudad'),
+    'update_item'       => __('Actualizar ciudad'),
+    'add_new_item'      => __('Agregar nueva ciudad'),
+    'new_item_name'     => __('Nuevo ciudad '),
+    'menu_name'         => __('Localidad/Ciudad'),
+  ];
+  $args = [
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => array( 'slug' => 'ciudad', 'with_front' => true ),
+  ];
+  register_taxonomy('ciudad', ['experiencias'], $args);
+}
+add_action('init', 'wporg_register_taxonomy_ciudad');
+
+
 /*** HOME - SLIDER***/
 
 function slider_init() {
@@ -385,7 +519,6 @@ function custom_post_type_estudio() {
  
 }
 add_action( 'init', 'custom_post_type_estudio', 0 );
-
 
 
 /*** CPT AGENDA ***/
@@ -640,7 +773,6 @@ function custom_post_type_disenio() {
     );
      
   // Set other options for Custom Post Type
-     
     $args = array(
         'label'               => __( 'disenio', 'finde-plugin' ),
         'description'         => __( 'Diseño', 'finde-plugin' ),
@@ -679,30 +811,29 @@ function custom_post_type_disenio() {
 add_action( 'init', 'custom_post_type_disenio', 0 );
 
 
-/*** CPT EXPERIENCIAS ***/
-function custom_post_type_experiencia() {
+/*** CPT TERRITORIO ***/
+function custom_post_type_experiencias() {
   // Set UI labels for Custom Post Type
     $labels = array(
-        'name'                => _x( 'Experiencias', 'Post Type General Name', 'finde-plugin' ),
-        'singular_name'       => _x( 'Experiencia', 'Post Type Singular Name', 'finde-plugin' ),
-        'menu_name'           => __( 'Experiencias', 'finde-plugin' ),
-        'parent_item_colon'   => __( 'Experiencia padre', 'finde-plugin' ),
-        'all_items'           => __( 'Todos las Experiencias', 'finde-plugin' ),
-        'view_item'           => __( 'Ver Experiencias', 'finde-plugin' ),
-        'add_new_item'        => __( 'Agregar nueva Experiencia', 'finde-plugin' ),
-        'add_new'             => __( 'Agregar nueva', 'finde-plugin' ),
-        'edit_item'           => __( 'Editar Experiencia', 'finde-plugin' ),
-        'update_item'         => __( 'Actualizar registro de Experiencias', 'finde-plugin' ),
-        'search_items'        => __( 'Buscar registros de Experiencias', 'finde-plugin' ),
+        'name'                => _x( 'Territorio', 'Post Type General Name', 'finde-plugin' ),
+        'singular_name'       => _x( 'Territorio', 'Post Type Singular Name', 'finde-plugin' ),
+        'menu_name'           => __( 'Territorio', 'finde-plugin' ),
+        'parent_item_colon'   => __( 'Territorio padre', 'finde-plugin' ),
+        'all_items'           => __( 'Todos los registros de  Territorio', 'finde-plugin' ),
+        'view_item'           => __( 'Ver Territorio', 'finde-plugin' ),
+        'add_new_item'        => __( 'Agregar nueva registro de Territorio', 'finde-plugin' ),
+        'add_new'             => __( 'Agregar nuevo', 'finde-plugin' ),
+        'edit_item'           => __( 'Editar Registro de territorio', 'finde-plugin' ),
+        'update_item'         => __( 'Actualizar registro de Territorio', 'finde-plugin' ),
+        'search_items'        => __( 'Buscar registros de Territorio', 'finde-plugin' ),
         'not_found'           => __( 'No encontrado', 'finde-plugin' ),
         'not_found_in_trash'  => __( 'No encontrado en la papelera', 'finde-plugin' ),
     );
      
   // Set other options for Custom Post Type
-     
     $args = array(
-        'label'               => __( 'experiencia', 'finde-plugin' ),
-        'description'         => __( 'Experiencias', 'finde-plugin' ),
+        'label'               => __( 'experiencias', 'finde-plugin' ),
+        'description'         => __( 'Territorio', 'finde-plugin' ),
         'labels'              => $labels,
         // Features this CPT supports in Post Editor
         'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields', ),
@@ -712,7 +843,7 @@ function custom_post_type_experiencia() {
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.
         */ 
-        'hierarchical'        => false,
+        'hierarchical'        => true,
         'public'              => true,
         'show_ui'             => true,
         'show_in_menu'        => true,
@@ -720,22 +851,23 @@ function custom_post_type_experiencia() {
         'show_in_admin_bar'   => true,
         'menu_position'       => 16,
         'can_export'          => true,
-        'has_archive'         => true,
+        'has_archive'         => false,
         'exclude_from_search' => false,
         'publicly_queryable'  => true,
         'capability_type'     => 'post',
         'show_in_rest'        => true,
-        'menu_icon'           => 'dashicons-visibility',
+        'menu_icon'           => 'dashicons-format-audio',
 
         'timestamp'  => true,
  
     );
      
     // Registering your Custom Post Type
-    register_post_type( 'experiencia', $args );
+    register_post_type( 'experiencias', $args );
  
 }
-add_action( 'init', 'custom_post_type_experiencia', 0 );
+add_action( 'init', 'custom_post_type_experiencias', 0 );
+
 
 /*** CPT BANNER ***/
 function custom_post_type_banner() {
@@ -1306,6 +1438,101 @@ function mbox_register_meta_boxes( $meta_boxes ){
           'name' => __( 'Whatsapp', 'mbox' ),
           'id'   => "{$prefix}whatsapp",
           'type' => 'number',
+      ),
+      // oembed
+      array(
+        'id'    => 'oembed',
+        'name'  => 'oEmbed(s)',
+        'type'  => 'oembed',
+    
+        // Input size
+        'size'  => 30,
+      ),
+    )
+  );
+
+  # meta_box para territorio
+  $meta_boxes[] = array(
+    'id'         => 'mb_finde_territorio',
+    'title'      => __( 'Campos adicionales', 'mbox' ),
+    'post_types' => 'experiencias',
+    'context'    => 'normal',
+    'priority'   => 'low',
+    'autosave'   => true,
+    'fields'     => array(
+      array(
+        'name' => 'Destacado',
+        'id'   => 'destacado_id',
+        'type' => 'checkbox',
+        'std'  => 0, // 0 or 1
+      ),
+      array(
+        'id'               => 'image_te',
+        'name'             => 'Imágenes adicionales',
+        'type'             => 'image_advanced',
+
+        // Delete image from Media Library when remove it from post meta?
+        // Note: it might affect other posts if you use same image for multiple posts
+        'force_delete'     => false,
+
+        // Maximum image uploads.
+        'max_file_uploads' => 5,
+
+        // Do not show how many images uploaded/remaining.
+        'max_status'       => 'false',
+
+        // Image size that displays in the edit page. Possible sizes small,medium,large,original
+        'image_size'       => 'thumbnail',
+      ),
+      //  URL
+      array(
+          'name' => __( 'Sitio web del proyecto', 'mbox' ),
+          'id'   => "{$prefix}url",
+          'desc' => __( 'Ingrese la url del sitio del proyecto', 'mbox' ),
+          'type' => 'url',
+          'clone' => true,
+      ),
+      //  Instagram
+      array(
+          'name' => __( 'Instagram', 'mbox' ),
+          'id'   => "{$prefix}instagram",
+          'type' => 'url',
+      ),
+      //  Facebook
+      array(
+          'name' => __( 'Facebook', 'mbox' ),
+          'id'   => "{$prefix}facebook",
+          'type' => 'url',
+      ),
+      // Youtube
+      array(
+        'name' => __( 'Youtube', 'mbox' ),
+        'id'   => "{$prefix}youtube",
+        'type' => 'url',
+      ),
+      //  Twitter
+      array(
+          'name' => __( 'Twitter', 'mbox' ),
+          'id'   => "{$prefix}twitter",
+          'type' => 'url',
+      ),
+      //  Pinterest
+      array(
+        'name' => __( 'Pinterest', 'mbox' ),
+        'id'   => "{$prefix}pinterest",
+        'type' => 'url',
+      ),
+      //  Tiktok
+      array(
+        'name' => __( 'TikTok', 'mbox' ),
+        'id'   => "{$prefix}tiktok",
+        'type' => 'url',
+      ),
+      //  Whatsapp
+      array(
+          'name' => __( 'Correo electrónico', 'mbox' ),
+          'id'   => "{$prefix}email",
+          'type' => 'email',
       ),
       // oembed
       array(
@@ -2819,7 +3046,7 @@ if ( ! function_exists( 'wp_archive_vivo' ) ) {
   }
 }
 
-/*** EN VIVO ***/
+/*** BANNERS ***/
 if ( ! function_exists( 'wp_archive_banners' ) ) {
   function wp_archive_banners($post_category) {
 
@@ -2860,6 +3087,49 @@ if ( ! function_exists( 'wp_archive_banners' ) ) {
       }
       endwhile;
       echo '</div>';
+    }
+  }
+}
+
+/*** LISTAS POR TAXONOMIA TERRITORIO ***/
+if ( ! function_exists( 'wp_archive_experiencias_x_recurso' ) ) {
+  function wp_archive_experiencias_x_recurso($recurso, $area) {
+    $args = array(
+      'post_type'              => 'experiencias',
+      'posts_per_page'         => -1,
+      'post_status'            => 'publish',
+      'no_found_rows'          => true,
+      'tax_query' => array(
+        'relation' => 'AND',
+        array(
+          'taxonomy'               => 'recurso',
+          'field'                  => 'slug',
+          'terms'                  => $recurso,
+        ),
+        array(
+          'taxonomy'               => 'area',
+          'field'                  => 'slug',
+          'terms'                  => $area,
+        ),
+      )
+    );
+
+    // The Query
+    $query_catalogo = new WP_Query( $args );
+    // The Loop
+    if ( $query_catalogo->have_posts() ) {
+      $term = get_term_by('slug', $recurso, 'recurso'); 
+      $tag_name = $term->name;
+      while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
+        if($recurso == 'conferencias') {
+          get_template_part( 'layouts/card', 'conferencias' ); 
+        } else {
+          get_template_part( 'layouts/card', 'experiencias' ); 
+        }
+        
+      endwhile;
+      echo '</div>';
+      wp_reset_postdata();
     }
   }
 }

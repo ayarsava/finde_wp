@@ -45,7 +45,7 @@
 
 
   </head>
-  <body <?php body_class(); ?>>
+  <body <?php body_class('territorio gestion-cultural-independiente'); ?>>
 	<?php wp_body_open(); ?>
   	<header class="main-header bg-primary">
   		<div class="container">
@@ -60,6 +60,40 @@
 				</div>
 			</div>
 		</div>
+		<div class="menu-wrapper bg-territorio">
+			<nav class="navbar navbar-expand-lg container">
+				<button class="btn btn-link d-lg-none p-0 ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerVJ" aria-controls="navbarTogglerVJ" aria-expanded="false" aria-label="Toggle docs navigation"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button>
+				<div class="collapse navbar-collapse" id="navbarTogglerVJ">
+					<?php
+					wp_nav_menu(
+						array(
+						'menu'			 => 'territorio-independiente',
+						'container'      => 'ul',
+						'menu_id'        => 'main-menu',
+						'menu_class'	 => 'navbar-nav site-menu-light main-menu d-lg-block',
+						)
+					);
+                    ?>
+			    	<div class="navbar-sec d-md-flex my-2 my-lg-0 ml-auto">
+					  	<div class="buscador mr-1 my-2 mb-md-0">
+						    <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
+								<label>
+									<span class="screen-reader-text">Buscar:</span>
+									<input type="search" class="search-field" placeholder="Buscar" value="" name="s">
+								</label>
+								<button type="submit" class="search-submit"><span class="fa fa-search"></span></button>
+							</form>
+						</div>
+					  	<div class="redes">
+					  		<a href="https://www.instagram.com/buenosairescultura/" target="_blank"><i class="mr-1 fab fa-instagram"></i></a>
+					    	<a href="https://twitter.com/ba_cultura" target="_blank"><i class="mr-1 fab fa-twitter"></i></a>
+					    	<a href="https://www.facebook.com/buenosairescultura" target="_blank"><i class="mr-1 fab fa-facebook"></i></a>
+					    	<a href="https://www.youtube.com/channel/UC9oKeEOrfIrPCCLmfBuEWLw" target="_blank"><i class="mr-1 fab fa-youtube"></i></a>
+					    </div>
+					</div>
+				</div>
+	   		</nav>
+	   	</div>
 	</header>
 
 
