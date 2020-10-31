@@ -1212,6 +1212,15 @@ a.badge.os {
 .slick.x2.slick-slider .slick-list {
   padding: 0px 50px 0 0 !important;
 }
+@media (max-width: 767px) {
+  .slick.ntflx.slick-slider .slick-list,
+.slick.agenda.slick-slider .slick-list,
+.slick.x4.slick-slider .slick-list,
+.slick.x3.slick-slider .slick-list,
+.slick.x2.slick-slider .slick-list {
+    padding: 0 !important;
+  }
+}
 .slick.ntflx.slick-slider .slick-list .slick-track .slick-slide,
 .slick.agenda.slick-slider .slick-list .slick-track .slick-slide,
 .slick.x4.slick-slider .slick-list .slick-track .slick-slide,
@@ -1620,6 +1629,15 @@ a.badge.os {
   object-fit: cover;
 }
 
+.slick.sl-galeria {
+  min-height: 370px !important;
+}
+.slick.sl-galeria .slick-track .slick-slide {
+  width: auto !important;
+  height: 370px;
+  max-width: 550px;
+  background: #000;
+}
 #container .slick.fullmedia {
   min-height: 208px !important;
 }
@@ -1635,6 +1653,12 @@ a.badge.os {
 .slick.tienda.slick-slider .slick-list,
 .slick.x3.slick-slider .slick-list {
   padding: 0px 50px 0 0 !important;
+}
+@media (max-width: 767px) {
+  .slick.tienda.slick-slider .slick-list,
+.slick.x3.slick-slider .slick-list {
+    padding: 0 !important;
+  }
 }
 .slick.tienda.slick-slider .slick-list .slick-track .slick-slide,
 .slick.x3.slick-slider .slick-list .slick-track .slick-slide {
@@ -2784,6 +2808,18 @@ section.cck .titulos h4 {
   background-position: center center;
   background-repeat: no-repeat;
   border: solid 1px #CCC;
+}
+
+.tengo-background:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: black;
+  background: linear-gradient(38deg, black 0%, black 25%, rgba(0, 212, 255, 0) 100%);
+  opacity: 0.5;
 }
 
 /*# sourceMappingURL=finde.css.map */

@@ -144,6 +144,16 @@ $('.slick.fullmedia').slick({
   lazyLoad: 'ondemand',
 });
 
+$('.slick.por3').slick({
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 4,
+  centerMode: true,
+  variableWidth: true
+});
+
+
 $('.slick.agenda').slick({
   infinite: false,
   speed: 300,
@@ -252,6 +262,7 @@ $('.pasadia .slick-slide').eq(0).addClass('slick-current');
 
 $('.slick.x2').slick({
   slidesToShow: 2,
+  slidesToScroll: 1,
   responsive: [
     {
       breakpoint: 1024,
@@ -263,15 +274,15 @@ $('.slick.x2').slick({
     {
       breakpoint: 991,
       settings: {
-        slidesToShow: 4,
+        slidesToShow: 1,
         slidesToScroll: 1,
       }
     },
     {
       breakpoint: 768,
       settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
+        slidesToShow: 1,
+        slidesToScroll: 1
       }
     },
     {
@@ -291,14 +302,12 @@ $('.slick.x3').slick({
   speed: 300,
   slidesToScroll: 1,
   slidesToShow: 3,
-  lazyLoad: 'ondemand',
   responsive: [
     {
       breakpoint: 1024,
       settings: {
         slidesToShow: 3,
         slidesToScroll: 1,
-        infinite: true,
       }
     },
     {
@@ -306,7 +315,6 @@ $('.slick.x3').slick({
       settings: {
         slidesToShow: 4,
         slidesToScroll: 1,
-        infinite: true,
       }
     },
     {
@@ -332,7 +340,7 @@ $('.slick.x3').slick({
 $('.slick.x4').slick({
   speed: 300,
   slidesToScroll: 1,
-  slidesToShow: 4,
+  slidesToShow: 1,
   lazyLoad: 'ondemand',
   responsive: [
     {
@@ -370,6 +378,48 @@ $('.slick.x4').slick({
     // instead of a settings object
   ]
 });
+
+$('.slick.sl-galeria').slick({
+  speed: 300,
+  slidesToScroll: 1,
+  slidesToShow: 3,
+  lazyLoad: 'ondemand',
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: false,
+      }
+    },
+    {
+      breakpoint: 991,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: false,
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: false,
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: false,
+      }
+    }
+  ]
+});
+
 
 $('.autoplay').slick({
   slidesToShow: 3,
@@ -529,13 +579,15 @@ var $quicksearch = $('#search').keyup(debounce(function() {
 
 
   //CAPTURO FUENTE Y ASIGNO AUTOPLAY
-  $('iframe[src*="youtube"]').wrap(
-    "<div class='embed-responsive embed-responsive-16by9'></div>"
-    ).addClass("embed-responsive-item");
+/*
+$('iframe[src*="youtube"]').wrap(
+"<div class='embed-responsive embed-responsive-16by9'></div>"
+).addClass("embed-responsive-item");
 
-  $('iframe[src*="twitch.tv"]').wrap(
-  "<div class='embed-responsive embed-responsive-16by9'></div>"
-  ).addClass("embed-responsive-item");
+$('iframe[src*="twitch.tv"]').wrap(
+"<div class='embed-responsive embed-responsive-16by9'></div>"
+).addClass("embed-responsive-item");
+*/
 
 //SLICK
 $(document).ready(function() {

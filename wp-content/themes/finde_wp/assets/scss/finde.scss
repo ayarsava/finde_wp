@@ -1107,6 +1107,9 @@ a.badge.os {
   &.slick-slider {
     .slick-list {
       padding: 0px 50px 0 0 !important;
+      @media (max-width: 767px) {
+        padding: 0 !important;
+      }
       .slick-track .slick-slide {
         display: flex;
         position:relative;
@@ -1177,6 +1180,7 @@ a.badge.os {
     }
   }
 }
+
 .slick.x2.slick-slider {
     .slick-slide {
       margin: 0 10px;
@@ -1283,6 +1287,9 @@ a.badge.os {
       height: 224px;
     }
   } 
+}
+.slick.sl-galeria {
+  
 }
 .cta-galeria {
     position: absolute;
@@ -1440,6 +1447,19 @@ a.badge.os {
     } 
   }
 }
+.slick.sl-galeria {
+  min-height:370px!important;
+  .slick-track {
+    .slick-slide {
+      width: auto!important;
+      height: 370px;
+      max-width: 550px;
+      background:#000;
+      img {
+      }
+    } 
+  }
+}
 #container {
   .slick.fullmedia {
     min-height:208px!important;
@@ -1456,6 +1476,9 @@ a.badge.os {
   &.slick-slider {
     .slick-list {
       padding: 0px 50px 0 0 !important;
+      @media (max-width: 767px) {
+        padding: 0 !important;
+      }
       .slick-track .slick-slide {
         display: flex;
         position:relative;
@@ -2543,4 +2566,15 @@ section.cck {
   background-position: center center;
   background-repeat: no-repeat;
   border: solid 1px #CCC;
+}
+.tengo-background:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgb(0,0,0);
+  background: linear-gradient(38deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(0,212,255,0) 100%);
+  opacity: 0.5;
 }

@@ -12,8 +12,8 @@
 ?>
 
 <?php
-        echo '<div class="grid-item item mb-1">';
-        echo '<div class="grid-item-content card w-100">';
+        echo '<div class="mb-1">';
+        echo '<div class="card w-100">';
         $hacedores = get_the_terms( $post->ID, 'hacedor' );
         $partidos = get_the_terms( $post->ID, 'partido' );
 
@@ -23,7 +23,7 @@
             $embed = $GLOBALS['wp_embed']->shortcode( $args, $url );
         }
         if ( $embed ) {
-            echo '<div class="">';
+            echo '<div class="embed-responsive embed-responsive-16by9">';
             echo $embed;
             echo '</div>';
         }

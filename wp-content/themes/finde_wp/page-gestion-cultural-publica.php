@@ -48,7 +48,7 @@ get_template_part( 'layouts/header', 'te-pu' );
                             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
                     </div>
                     <div class="col-md-6">
-                        <div class="wrap p-5">
+                        <div class="wrap pt-5 px-sm-5">
                             <h3>Introducción</h3>
                             <h4>Territorios Unidos</h4>
                             <p class="mt-5">Augusto Costa, Ministro de Producción, Ciencia e Innovación de la Provinicia de Buenos Aires abre Finde Territorios.</p>
@@ -60,7 +60,7 @@ get_template_part( 'layouts/header', 'te-pu' );
         </section>
 
         <!--ATLAS DE EXPERIENCIAS-->
-        <section class="bg-white py-5">
+        <section class="bg-white py-2 py-sm-5">
             <div class="container">
                 <h3 class="mb-4"><strong>Atlas de experiencias</strong></h3>
                 <div class="lead">
@@ -74,7 +74,7 @@ get_template_part( 'layouts/header', 'te-pu' );
         </section>
 
         <!--CONFERENCIAS-->
-        <section class="bg-white py-5">
+        <section class="bg-white py-2 py-sm-5">
             <div class="container">
                 <h3 class="mb-4"><strong>Conferencias</strong></h3>
                 <div class="lead">
@@ -114,7 +114,7 @@ get_template_part( 'layouts/header', 'te-pu' );
         </section>
 
         <!--CAPACITACIONES-->
-        <section class="bg-white py-5">
+        <section class="bg-white py-2 py-sm-5">
             <div class="container">
                 <h3 class="mb-4"><strong>Capacitaciones</strong></h3>
                 <div class="lead">

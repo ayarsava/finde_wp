@@ -15,8 +15,8 @@
 $partidos = get_the_terms( $post->ID, 'partido' );
 $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
     
-    echo '<div class="grid-item item mb-1">';
-    echo '<div class="grid-item-content card w-100">';
+    echo '<div class="mb-1">';
+    echo '<div class="card w-100">';
     echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
     if ($featured_img_url) { 
         echo '<div class="img-wrapper">';
