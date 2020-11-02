@@ -53,46 +53,65 @@ get_template_part( 'layouts/header', 'au' );
             </div>
         </section>
 
-        <!--ENTRADA AL CATALOGO DE MÚSICA-->
+        <!--CONVERSACIONES-->
         <section id="tienda" class="text-center bg-light pt-5">
             <div class="container text-left">
-                <h2 class="extra-grande font-weight-bold pb-3">Tienda  <a href="/diseno/tienda"  class="btn btn-outline-primary"> <i class="fas fa-store"></i> Ver todos</a></h2>
+                <h2 class="extra-grande font-weight-bold">Conversaciones</h2>
+                <div class="lead">Encuentros de creadorxs audiovisuales</div>
             </div>
-            <div class="d-md-flex flex-md-equal w-100 sectores">
-                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 " style="background: #ef476f;">
-                    <div class="pt-5 pb-4">
-                        <h4 style="font-weight: 600 !important;" class="display-5 text-white"><a href="/rubro_di/moda/?post_type=disenio" class="stretched-link text-white">Moda</a></h4>
-                    </div>
+            <div class="container-fluid">
+                <div class="slick-custom my-5" data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
+                    <?php wp_archive_experiencias_x_recurso('conferencias', 'gestion-cultural-independiente') ?>
                 </div>
-                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100" style="background:#f98510;">
-                    <div class="pt-5 pb-4">
-                        <h4 style="font-weight: 600 !important;" class="display-5 text-white"><a href="/rubro_di/muebles-y-objetos/?post_type=disenio" class="stretched-link text-white">Muebles<br>Objetos<br>Juguetes</a></h4>
+            </div>
+        </section>
+
+        <!--PROYECCIONES-->
+        <section class="bg-white cck">
+            <div class="container text-left">
+                <h2 class="extra-grande font-weight-bold">Proyecciones</h2>
+                <div class="lead">Series interactivas, 360, youtubers y cortos</div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-9 full-img">
+                        <a href="/diseno/matrices" title="Enlace a la muestra virtual de CCK" class="stretched-link"></a>
+                        <video poster="<?php echo get_template_directory_uri(); ?>/assets/img/diseno-cck.jpg" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" >
+                            <source src="<?php echo get_template_directory_uri(); ?>/assets/img/cck.mp4" type="video/mp4"></source>
+                        </video>
+                        <div class="cck-frontend">
+                            <div class="titulos">
+                                <h4>Cine</h4>
+                                <p>Selección curada por festivales</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 text-dark" style="background: #05c793;">
-                    <div class="pt-5 pb-4">
-                        <h4 style="font-weight: 600 !important;" class="display-5 text-white"><a href="/rubro_di/ilustracion-y-piezas-graficas/?post_type=disenio" class="stretched-link  text-white">Ilustración<br>Piezas gráficas</a></h4>
+                    <div class="col-md-6">
+                        <div class="row h-100">
+                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/diseno-desafio.jpg')">
+                                <a href="/diseno/desafio" title="Enlace a la convocatoria" class="stretched-link"></a>
+                                <div class="titulos">
+                                    <h5>Series</h5>
+                                    <p>Originales, interactivas , inmersivas</p>
+                                </div>
+                            </div>
+                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/diseno-etnografia.jpg')">
+                                <a href="/diseno/etnografia" title="Enlace a la convocatoria" class="stretched-link"></a>
+                                <div class="titulos">
+                                    <h5>Youtube</h5>
+                                    <p>Nuevas narrativas</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100" style="background: #118ab2;">
-                    <div class="pt-5 pb-4">
-                        <h4 style="font-weight: 600 !important;" class="display-5 text-white"><a href="/rubro_di/servicios-de-diseno/?post_type=disenio" class="stretched-link text-white">Servicios de diseño</a></h4>
-                    </div>
-                    <div class="caption">Catálogo</div>
-                </div>
-                <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 text-dark" style="background: #c2c6a9;">
-                    <div class="pt-5 pb-4">
-                        <h4 style="font-weight: 600 !important;" class="display-5"><a href="/rubro_di/artesanias/?post_type=disenio" class="stretched-link text-dark">Artesanías</a></h4>
-                    </div>
-                    <div class="caption">Sector invitado</div>
                 </div>
             </div>
         </section>
 
         <!--AGENDA-->
-        <section id="agenda-slick" class="bg-light py-5">
+        <section id="agenda-slick" class="bg-white py-5">
             <div class="container">
-                <h1 class="mb-4"><strong>Agenda</strong> <a href="/en-vivo" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
+                <h1 class="mb-4"><strong>Cartelera</strong> <a href="/en-vivo" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
                 
                 <?php wp_archive_agenda('audiovisual'); ?>
                 <div class="row">
@@ -105,43 +124,48 @@ get_template_part( 'layouts/header', 'au' );
             </div><!-- #main -->
         </section>
 
-        <!--CCK-->
-        <section class="bg-white cck">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-9 full-img">
-                        <a href="/diseno/matrices" title="Enlace a la muestra virtual de CCK" class="stretched-link"></a>
-                        <video poster="<?php echo get_template_directory_uri(); ?>/assets/img/diseno-cck.jpg" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" >
-                            <source src="<?php echo get_template_directory_uri(); ?>/assets/img/cck.mp4" type="video/mp4"></source>
-                        </video>
-                        <div class="cck-frontend">
-                            <div class="titulos">
-                                <h4>Matrices: Mujeres del diseño</h4>
-                                <p>Recorrido virtual</p>
-                            </div>
+        <!--ESTRENO EXCLUSIVO-->
+        <section class="bg-light py-5">
+            <div class="container">
+                <div class="row mt-5" style="background:#e2e2e2;">
+                    <div class="col-md-6">
+                        <div class="wrap pt-5 px-sm-5">
+                            <h3>Introducción</h3>
+                            <h4>Territorios Unidos</h4>
+                            <p class="mt-5">Augusto Costa, Ministro de Producción, Ciencia e Innovación de la Provinicia de Buenos Aires abre Finde Territorios.</p>
+                            <p class="">Un espacio de encuentro para gestores culturales públicos de los 135 municipios bonaerenses.</p>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="row h-100">
-                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/diseno-desafio.jpg')">
-                                <a href="/diseno/desafio" title="Enlace a la convocatoria" class="stretched-link"></a>
-                                <div class="titulos">
-                                    <h5>Desafío Afiche</h5>
-                                    <p>Participá</p>
-                                </div>
-                            </div>
-                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/diseno-etnografia.jpg')">
-                                <a href="/diseno/etnografia" title="Enlace a la convocatoria" class="stretched-link"></a>
-                                <div class="titulos">
-                                    <h5>15 cosas de uso diario esenciales en tu cuarentena</h5>
-                                    <p>Convocatoria</p>
-                                </div>
-                            </div>
+                    <div class="col-md-9">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OYTyE12K_mA?rel=0" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!--ESTRENO DIGITAL-->
+        <section class="bg-white py-5">
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-md-9">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OYTyE12K_mA?rel=0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="wrap pt-5 px-sm-5">
+                            <h3>Introducción</h3>
+                            <h4>Territorios Unidos</h4>
+                            <p class="mt-5">Augusto Costa, Ministro de Producción, Ciencia e Innovación de la Provinicia de Buenos Aires abre Finde Territorios.</p>
+                            <p class="">Un espacio de encuentro para gestores culturales públicos de los 135 municipios bonaerenses.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
         <!--BANNERS-->
         <?php wp_archive_banners('audiosivual');?>
