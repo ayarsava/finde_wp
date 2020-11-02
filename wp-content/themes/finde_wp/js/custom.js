@@ -420,7 +420,6 @@ $('.slick.sl-galeria').slick({
   ]
 });
 
-
 $('.autoplay').slick({
   slidesToShow: 3,
   centerMode: true,

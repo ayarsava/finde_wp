@@ -346,73 +346,73 @@
 
 /*** Audiovisual Custom ***/
 [class*=audiovisual] a {
-  color: #1d2643;
+  color: #fe0142;
 }
 [class*=audiovisual] a:hover {
-  color: #0e121f;
+  color: #cb0135;
 }
 [class*=audiovisual] .bg-primary,
 [class*=audiovisual] .btn-primary,
 [class*=audiovisual] .descuento_au .badge-primary,
 [class*=audiovisual] #agenda .tags {
-  background: #1d2643 !important;
-  border-color: #1d2643;
+  background: #fe0142 !important;
+  border-color: #fe0142;
   color: #FFF !important;
 }
 [class*=audiovisual] .bg-audiovisual {
-  background: #1d2643;
+  background: #fe0142;
 }
 [class*=audiovisual] .bg-audiovisual.menu-wrapper {
-  background: #151c31;
+  background: #e5013b;
 }
 [class*=audiovisual] .bg-audiovisual a,
 [class*=audiovisual] .badge-dark {
   color: #FFF !important;
 }
 [class*=audiovisual] .btn-outline-primary {
-  color: #1d2643;
-  border-color: #1d2643;
+  color: #fe0142;
+  border-color: #fe0142;
 }
 [class*=audiovisual] .btn-outline-primary:hover {
   color: #fff;
-  background-color: #1d2643;
-  border-color: #1d2643;
+  background-color: #fe0142;
+  border-color: #fe0142;
 }
 [class*=audiovisual] .btn-outline-light {
   color: #FFF;
 }
 [class*=audiovisual] .text-primary {
-  color: #1d2643 !important;
+  color: #fe0142 !important;
 }
 [class*=audiovisual] .bg-gradient-primary {
-  background: -o-linear-gradient(40deg, #1d2643 0, #06080e 100%) !important;
-  background: linear-gradient(50deg, #1d2643 0, #06080e 100%) !important;
+  background: -o-linear-gradient(40deg, #fe0142 0, #b2012e 100%) !important;
+  background: linear-gradient(50deg, #fe0142 0, #b2012e 100%) !important;
 }
 [class*=audiovisual] .item:hover .card-title {
-  color: #1d2643;
+  color: #fe0142;
 }
 [class*=audiovisual] .slick.agenda.slick-slider .slick-list .slick-track .slick-slide .card .tags {
-  background: #1d2643;
+  background: #fe0142;
 }
 [class*=audiovisual] .slick.fullmedia .slick-track .slick-slide {
   background: linear-gradient(45deg, white 0%, #e9e9e9 100%);
 }
 [class*=audiovisual] .boton-3d {
-  box-shadow: -3px 3px #1d2643, -2px 2px #1d2643, -1px 1px #1d2643;
-  border: 1px solid #1d2643;
+  box-shadow: -3px 3px #fe0142, -2px 2px #fe0142, -1px 1px #fe0142;
+  border: 1px solid #fe0142;
 }
 [class*=audiovisual] .boton-3d:hover {
-  background: #2c3a67;
+  background: #fe3468;
   color: #FFF;
 }
 [class*=audiovisual] .badge-primary {
-  background-color: #1d2643;
+  background-color: #fe0142;
 }
 [class*=audiovisual] .evento:hover h4 {
-  color: #1d2643 !important;
+  color: #fe0142 !important;
 }
 [class*=audiovisual] nav.navbar .dropdown .dropdown-menu {
-  background-color: #151c31 !important;
+  background-color: #e5013b !important;
 }
 
 /*** Territorio Custom ***/

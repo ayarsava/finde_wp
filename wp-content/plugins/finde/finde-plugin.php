@@ -230,6 +230,122 @@ function wporg_register_taxonomy_descuento_di() {
 add_action('init', 'wporg_register_taxonomy_descuento_di');
 
 
+/*** Taxonomias para Audiovisual | Sección ***/
+function wporg_register_taxonomy_seccion() {
+  $labels = [
+    'name'              => _x('Sección', 'taxonomy general name'),
+    'singular_name'     => _x('Sección', 'taxonomy singular name'),
+    'search_items'      => __('Buscar secciones'),
+    'all_items'         => __('Todas las secciones'),
+    'parent_item'       => __('Sección padre'),
+    'parent_item_colon' => __('Sección padre:'),
+    'edit_item'         => __('Editar secciones'),
+    'update_item'       => __('Actualizar secciones'),
+    'add_new_item'      => __('Agregar nueva sección'),
+    'new_item_name'     => __('Nuevo nombre de sección '),
+    'menu_name'         => __('Sección'),
+  ];
+  $args = [
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => array( 'slug' => 'seccion', 'with_front' => false ),
+  ];
+  register_taxonomy('seccion', ['audiovisual'], $args);
+}
+add_action('init', 'wporg_register_taxonomy_seccion');
+
+
+/*** Taxonomias para Audiovisual | Tipo ***/
+function wporg_register_taxonomy_tipo_au() {
+  $labels = [
+    'name'              => _x('Tipo', 'taxonomy general name'),
+    'singular_name'     => _x('Tipo', 'taxonomy singular name'),
+    'search_items'      => __('Buscar tipos'),
+    'all_items'         => __('Todos los tipos'),
+    'parent_item'       => __('Tipo padre'),
+    'parent_item_colon' => __('Tipo padre:'),
+    'edit_item'         => __('Editar tipos'),
+    'update_item'       => __('Actualizar tipos'),
+    'add_new_item'      => __('Agregar nuevo tipo'),
+    'new_item_name'     => __('Nuevo nombre de tipo '),
+    'menu_name'         => __('Tipo'),
+  ];
+  $args = [
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => array( 'slug' => 'tipo_au', 'with_front' => false ),
+  ];
+  register_taxonomy('tipo_au', ['audiovisual'], $args);
+}
+add_action('init', 'wporg_register_taxonomy_tipo_au');
+
+
+/*** Taxonomias para Audiovisual | Género ***/
+function wporg_register_taxonomy_genero_au() {
+  $labels = [
+    'name'              => _x('Género', 'taxonomy general name'),
+    'singular_name'     => _x('Género', 'taxonomy singular name'),
+    'search_items'      => __('Buscar géneros'),
+    'all_items'         => __('Todos los géneros'),
+    'parent_item'       => __('Género padre'),
+    'parent_item_colon' => __('Género padre:'),
+    'edit_item'         => __('Editar géneros'),
+    'update_item'       => __('Actualizar géneros'),
+    'add_new_item'      => __('Agregar nuevo género'),
+    'new_item_name'     => __('Nuevo nombre de género '),
+    'menu_name'         => __('Género'),
+  ];
+  $args = [
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => array( 'slug' => 'genero_au', 'with_front' => false ),
+  ];
+  register_taxonomy('genero_au', ['audiovisual'], $args);
+}
+add_action('init', 'wporg_register_taxonomy_genero_au');
+
+
+/*** Taxonomias para Audiovisual | Calificación ***/
+function wporg_register_taxonomy_calificacion_au() {
+  $labels = [
+    'name'              => _x('Calificación', 'taxonomy general name'),
+    'singular_name'     => _x('Calificación', 'taxonomy singular name'),
+    'search_items'      => __('Buscar calificación'),
+    'all_items'         => __('Todas las calificaciones'),
+    'parent_item'       => __('Calificación padre'),
+    'parent_item_colon' => __('Calificación padre:'),
+    'edit_item'         => __('Editar calificación'),
+    'update_item'       => __('Actualizar calificación'),
+    'add_new_item'      => __('Agregar nueva calificación'),
+    'new_item_name'     => __('Nueva calificación '),
+    'menu_name'         => __('Calificación'),
+  ];
+  $args = [
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => array( 'slug' => 'calificacion_au', 'with_front' => false ),
+  ];
+  register_taxonomy('calificacion_au', ['audiovisual'], $args);
+}
+add_action('init', 'wporg_register_taxonomy_calificacion_au');
+
+
 /*** Taxonomias para Territorio | Recursos ***/
 function wporg_register_taxonomy_recurso() {
   $labels = [
@@ -809,6 +925,65 @@ function custom_post_type_disenio() {
  
 }
 add_action( 'init', 'custom_post_type_disenio', 0 );
+
+
+/*** CPT DISEÑO ***/
+function custom_post_type_audiovisual() {
+  // Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Audiovisual', 'Post Type General Name', 'finde-plugin' ),
+        'singular_name'       => _x( 'Audiovisual', 'Post Type Singular Name', 'finde-plugin' ),
+        'menu_name'           => __( 'Audiovisual', 'finde-plugin' ),
+        'parent_item_colon'   => __( 'Audiovisual padre', 'finde-plugin' ),
+        'all_items'           => __( 'Todos los registros de  Audiovisual', 'finde-plugin' ),
+        'view_item'           => __( 'Ver Audiovisual', 'finde-plugin' ),
+        'add_new_item'        => __( 'Agregar nuevo registro de Audiovisual', 'finde-plugin' ),
+        'add_new'             => __( 'Agregar nuevo', 'finde-plugin' ),
+        'edit_item'           => __( 'Editar Registro de diseño', 'finde-plugin' ),
+        'update_item'         => __( 'Actualizar registro de Audiovisual', 'finde-plugin' ),
+        'search_items'        => __( 'Buscar registros de Audiovisual', 'finde-plugin' ),
+        'not_found'           => __( 'No encontrado', 'finde-plugin' ),
+        'not_found_in_trash'  => __( 'No encontrado en la papelera', 'finde-plugin' ),
+    );
+     
+  // Set other options for Custom Post Type
+    $args = array(
+        'label'               => __( 'audiovisual', 'finde-plugin' ),
+        'description'         => __( 'Audiovisual', 'finde-plugin' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields', ),
+        // You can associate this CPT with a taxonomy or custom taxonomy. 
+        'taxonomies'  => array( 'post_tag',),
+        /* A hierarchical CPT is like Pages and can have
+        * Parent and child items. A non-hierarchical CPT
+        * is like Posts.
+        */ 
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 16,
+        'can_export'          => true,
+        'rewrite'             => array( 'slug' => 'catalogo-audiovisual' ),
+        'has_archive'         => 'catalogo-audiovisual',
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest'        => true,
+        'menu_icon'           => 'dashicons-format-video',
+
+        'timestamp'  => true,
+ 
+    );
+     
+    // Registering your Custom Post Type
+    register_post_type( 'audiovisual', $args );
+ 
+}
+add_action( 'init', 'custom_post_type_audiovisual', 0 );
 
 
 /*** CPT TERRITORIO ***/
@@ -1450,6 +1625,139 @@ function mbox_register_meta_boxes( $meta_boxes ){
       ),
     )
   );
+
+  # meta_box para audiovisual
+  $meta_boxes[] = array(
+    'id'         => 'mb_finde_audiovisual',
+    'title'      => __( 'Campos adicionales', 'mbox' ),
+    'post_types' => 'audiovisual',
+    'context'    => 'normal',
+    'priority'   => 'low',
+    'autosave'   => true,
+    'fields'     => array(
+      array(
+        'name' => 'Destacado',
+        'id'   => 'destacado_id',
+        'type' => 'checkbox',
+        'std'  => 0, // 0 or 1
+      ),
+      //  YOutbe Vimeo
+      array(
+        'id'    => 'youtubevimeo',
+        'name'  => 'Contenido TouTube / Vimeo',
+        'type'  => 'oembed',
+        'desc'  => 'Ingrese la url del contenido a ser presentado desde YouTube o Vimeo',
+        // Input size
+        'size'  => 50,
+      ),
+      //  URL de Contar
+      array(
+        'name' => __( 'ContAR/CineAr', 'mbox' ),
+        'id'   => "{$prefix}contar",
+        'desc' => __( 'Ingrese la url de ContAR/CineAr donde se presentará el contenido', 'mbox' ),
+        'type' => 'url',
+      ),
+      array(
+        'id'               => 'image_contar',
+        'name'             => 'Imagen para contenido en ContAR/CineAr',
+        'type'             => 'image_advanced',
+
+        // Delete image from Media Library when remove it from post meta?
+        // Note: it might affect other posts if you use same image for multiple posts
+        'force_delete'     => false,
+
+        // Maximum image uploads.
+        'max_file_uploads' => 1,
+
+        // Do not show how many images uploaded/remaining.
+        'max_status'       => 'false',
+
+        // Image size that displays in the edit page. Possible sizes small,medium,large,original
+        'image_size'       => 'thumbnail',
+      ),
+      array(
+        'name'        => 'Aclaración',
+        'id'          => "{$prefix}aclaracion",
+        'type'        => 'text',
+        'desc'        => 'Línea optativa para explicar que se va a redirigir a Contar, Cinear u otro',
+      ),
+      array(
+        'name'        => 'Dirección',
+        'id'          => "{$prefix}direccion",
+        'type'        => 'text',
+      ),
+      array(
+        'name'        => 'Producción',
+        'id'          => "{$prefix}produccion",
+        'type'        => 'text',
+      ),
+      array(
+        'name'        => 'Guión',
+        'id'          => "{$prefix}guion",
+        'type'        => 'text',
+      ),
+      array(
+        'name'        => 'Año',
+        'id'          => "{$prefix}ano",
+        'type'        => 'text',
+      ),
+      array(
+        'name'        => 'Elenco',
+        'id'          => "{$prefix}elenco",
+        'type'        => 'text',
+      ),
+      array(
+        'name'        => 'Productora',
+        'id'          => "{$prefix}productora",
+        'type'        => 'text',
+      ),
+      array(
+        'name'        => 'Contenido presentado por',
+        'id'          => "{$prefix}presentado-por",
+        'type'        => 'text',
+      ),
+      //  Descripción
+      array(
+        'name'    => 'Descripción',
+        'id'      => "{$prefix}descripcion",
+        'type'    => 'wysiwyg',
+    
+        // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
+        'raw'     => false,
+    
+        // Editor settings, see https://codex.wordpress.org/Function_Reference/wp_editor
+        'options' => array(
+            'textarea_rows' => 4,
+            'teeny'         => true,
+        ),
+      ),
+      //  Selección
+      array(
+        'name'    => 'Selección',
+        'id'      => "{$prefix}seleccion",
+        'type'    => 'wysiwyg',
+    
+        // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
+        'raw'     => false,
+    
+        // Editor settings, see https://codex.wordpress.org/Function_Reference/wp_editor
+        'options' => array(
+            'textarea_rows' => 4,
+            'teeny'         => true,
+        ),
+      ),
+      //  Trailer
+      array(
+        'id'    => 'trailer',
+        'name'  => 'Trailer',
+        'type'  => 'oembed',
+    
+        // Input size
+        'size'  => 30,
+      ),
+    )
+  );
+
 
   # meta_box para territorio
   $meta_boxes[] = array(
