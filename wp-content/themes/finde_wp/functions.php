@@ -146,7 +146,7 @@ add_action( 'widgets_init', 'finde_wp_widgets_init' );
 function finde_wp_scripts() {
   	wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/releases/v5.14.0/css/all.css' );
 	wp_enqueue_style( 'finde_wp-style', get_template_directory_uri() . '/assets/css/styles.css', array(), _S_VERSION );
-	wp_enqueue_style( 'slick', get_template_directory_uri() . '/assets/css/slick/slick.css', array(), _S_VERSION );
+	wp_enqueue_style( 'slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css', array(), _S_VERSION );
 	wp_enqueue_style( 'slick-theme', get_template_directory_uri() . '/assets/css/slick/slick-theme.css', array(), _S_VERSION );
 	wp_enqueue_style( 'finde_custom', get_template_directory_uri() . '/assets/css/finde.css', array(), '2.1' );
 	
@@ -158,7 +158,7 @@ function finde_wp_scripts() {
     wp_enqueue_script( 'boostrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js', array(), _S_VERSION );
     wp_enqueue_script( 'isotope', get_template_directory_uri() . '/js/isotope.pkgd.min.js', array(), _S_VERSION );
     wp_enqueue_script( 'imagesloaded', get_template_directory_uri() . '/js/imagesloaded.pkgd.min.js', array(), _S_VERSION );
-    wp_enqueue_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array(), _S_VERSION );
+    wp_enqueue_script( 'slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array());
 
 	wp_enqueue_script( 'finde_wp-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), _S_VERSION, true );
 

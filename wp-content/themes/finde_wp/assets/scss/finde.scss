@@ -370,7 +370,7 @@ $audiovisual: #fe0142;
 }
 
 /*** Territorio Custom ***/
-$territorio: #e95b38;
+$territorio: #943668;
 [class*="territorio"] {
   a {
     color: $territorio;
@@ -1179,9 +1179,65 @@ a.badge.os {
       }
     }
   }
+  &.slick-slider {
+    &.slick-dotted.slick-slider {
+      margin-bottom: 0;
+    }
+  
+    .slick-dots {
+      bottom:15px;
+      li {
+        margin:0;
+        button {
+          width: 5px;
+          &:before {
+            color: #FFF;
+            opacity: .5;
+            font-size: 8px;
+          }
+        }
+      &.slick-active {
+          button {
+            &:before {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+    .slick-prev {
+      left: 15px;
+      z-index: 1;
+      text-shadow: 1px 1px 4px #22222278;
+    }
+    .slick-next {
+      right: 15px;
+      z-index: 1;
+      text-shadow: 1px 1px 4px #22222278;
+    }
+    .slick-track {
+      display: flex;
+    }
+    .slick-track .slick-slide {
+      display: flex;
+      height: auto;
+      align-items: center;
+      justify-content: center;
+      position:relative;
+      background: rgb(204,204,204);
+      background: linear-gradient(45deg, rgb(255, 255, 255) 0%, rgb(233, 233, 233) 10%);
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        max-width: 588px;
+      }
+    }
+  }
 }
 
-.slick.x2.slick-slider {
+.slick.x2.slick-slider,
+.slick-custom.slick-slider {
     .slick-slide {
       margin: 0 10px;
     }
@@ -1189,6 +1245,40 @@ a.badge.os {
     .slick-list {
       margin: 0 -10px;
       padding: 0px!important;
+    }
+    button.slick-next,
+    button.slick-prev {
+      display: block;
+      width: 3rem;
+      height: 3rem;
+      line-height: 1.5rem;
+      background: #FFF;
+      border-radius:50%;
+      border: solid 1px #222;
+      color: #222;
+      &.slick-disabled {
+        opacity: 0;
+      }
+      &:before {
+        font-family: inherit;
+        line-height: 2.3rem;
+        color: #222;
+      }
+    }
+    button.slick-next {
+      top: 50%;
+      right: -23px;
+      @media (max-width: 767px) { 
+        right: -5px;
+      }
+    }
+    button.slick-prev {
+      font-family: inherit;
+      top: 50%;
+      left: -23px;
+      @media (max-width: 767px) { 
+        left: -5px;
+      }
     }
 }
 .slick.agenda .card {
@@ -1216,62 +1306,18 @@ a.badge.os {
     padding:15px 10px 0 0;
   }
 }
-
-.slick-slider {
-  &.slick-dotted.slick-slider {
-    margin-bottom: 0;
-  }
-
-  .slick-dots {
-    bottom:15px;
-    li {
-      margin:0;
-      button {
-        width: 5px;
-        &:before {
-          color: #FFF;
-          opacity: .5;
-          font-size: 8px;
-        }
-      }
-    &.slick-active {
-        button {
-          &:before {
-            opacity: 1;
-          }
-        }
-      }
-    }
-  }
-  .slick-prev {
-    left: 15px;
-    z-index: 1;
-    text-shadow: 1px 1px 4px #22222278;
-  }
-  .slick-next {
-    right: 15px;
-    z-index: 1;
-    text-shadow: 1px 1px 4px #22222278;
-  }
-  .slick-track {
-    display: flex;
-  }
-  .slick-track .slick-slide {
-    display: flex;
-    height: auto;
-    align-items: center;
-    justify-content: center;
-    position:relative;
-    background: rgb(204,204,204);
-    background: linear-gradient(45deg, rgb(255, 255, 255) 0%, rgb(233, 233, 233) 10%);
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      max-width: 588px;
-    }
-  }
+.slick-prev {
+  left: 15px;
+  z-index: 1;
+  text-shadow: 1px 1px 4px #22222278;
 }
+.slick-next {
+  right: 15px;
+  z-index: 1;
+  text-shadow: 1px 1px 4px #22222278;
+}
+
+
 .galeria-slick {
   .slick-track .slick-slide {
     height: 354px;
@@ -1288,8 +1334,23 @@ a.badge.os {
     }
   } 
 }
-.slick.sl-galeria {
-  
+.sl-galeria {
+  &.slick-dotted.slick-slider {
+    margin-bottom:0px;
+  }
+  .slick-slide {
+    max-height: 370px;
+    overflow: hidden;
+  }
+  .slick-dots {
+    bottom: 0px;
+    li {
+      width:10px;
+      button:before {
+        text-shadow: 1px 1px 0px #FFF;
+      }
+    }
+  }
 }
 .cta-galeria {
     position: absolute;
@@ -1448,11 +1509,11 @@ a.badge.os {
   }
 }
 .slick.sl-galeria {
-  min-height:370px!important;
+  min-height:330px!important;
   .slick-track {
     .slick-slide {
       width: auto!important;
-      height: 370px;
+      height: 330px;
       max-width: 550px;
       background:#000;
       img {
@@ -2577,4 +2638,12 @@ section.cck {
   background: rgb(0,0,0);
   background: linear-gradient(38deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(0,212,255,0) 100%);
   opacity: 0.5;
+}
+.participa {
+  background-size: contain;
+  background-position: right center;
+  background-repeat: no-repeat;
+  @media (max-width:787px) {
+    background-image: none!important;
+  }
 }

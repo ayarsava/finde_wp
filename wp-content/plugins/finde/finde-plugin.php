@@ -1842,6 +1842,12 @@ function mbox_register_meta_boxes( $meta_boxes ){
           'id'   => "{$prefix}email",
           'type' => 'email',
       ),
+      array(
+        'name'        => 'Cargo del funcionario',
+        'id'          => "{$prefix}cargo",
+        'type'        => 'text',
+        'desc'        => 'Sólo cuando corresponda',
+      ),
       // oembed
       array(
         'id'    => 'oembed',

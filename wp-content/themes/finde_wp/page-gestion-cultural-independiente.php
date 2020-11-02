@@ -62,7 +62,7 @@ get_template_part( 'layouts/header', 'te-in' );
         </section>
 
         <!--ATLAS DE EXPERIENCIAS-->
-        <section class="bg-white py-5">
+        <section class="bg-white py-2 py-sm-5">
             <div class="container">
                 <h3 class="mb-4"><strong>Atlas de experiencias</strong></h3>
                 <div class="lead">
@@ -76,39 +76,15 @@ get_template_part( 'layouts/header', 'te-in' );
         </section>
 
         <!--CONFERENCIAS-->
-        <section class="bg-white py-5">
-            <div class="container">
-                <h3 class="mb-4"><strong>Conferencias</strong></h3>
-                <div class="lead">
-                    Gestores culturales públicos de otras provincias nos comparten casos de gestión que produjeron un impacto en sus territorios.
-                </div>
-                <div class="slick x4 my-5">
-                    <div class="text-center d-block">
-                        <span class="profile-face mx-auto mb-3" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/territorio/cara.png');"></span>
-                        <h4>Peki Torres</h4>
-                        <p class="h5">San Juan</p>
-                    </div>
-                    <div class="text-center d-block">
-                        <div class="profile-face mx-auto mb-3" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/territorio/cara.png');"></div>
-                        <h4>Peki Torres</h4>
-                        <p class="h5">San Juan</p>
-                    </div>
-                    <div class="text-center d-block">
-                        <div class="profile-face mx-auto mb-3" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/territorio/cara.png');"></div>
-                        <h4>Peki Torres</h4>
-                        <p class="h5">San Juan</p>
-                    </div>
-                    <div class="text-center d-block">
-                        <div class="profile-face mx-auto mb-3" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/territorio/cara.png');"></div>
-                        <h4>Peki Torres</h4>
-                        <p class="h5">San Juan</p>
-                    </div>
-                </div>
-            </div>
+        <section class="py-2 py-sm-5">
         
             <div class="container-fluid bg-light py-2">
                 <div class="container">
-                    <div class="slick x2 my-5">
+                    <h3 class="mb-4"><strong>Conversaciones</strong></h3>
+                    <div class="lead mb-4">
+                        Gestores culturales públicos de otras provincias nos comparten casos de gestión que produjeron un impacto en sus territorios.
+                    </div>
+                    <div class="slick-custom my-5" data-slick='{"slidesToShow": 2, "slidesToScroll": 1}'>
                         <?php wp_archive_experiencias_x_recurso('conferencias', 'gestion-cultural-independiente') ?>
                     </div>
                 </div>
@@ -116,7 +92,7 @@ get_template_part( 'layouts/header', 'te-in' );
         </section>
 
         <!--CAPACITACIONES-->
-        <section class="bg-white py-5">
+        <section class="bg-white py-2 py-sm-5">
             <div class="container">
                 <h3 class="mb-4"><strong>Capacitaciones</strong></h3>
                 <div class="lead">
@@ -129,18 +105,16 @@ get_template_part( 'layouts/header', 'te-in' );
         </section>
 
         <!--PARTICIPA-->
-        <section class="bg-light py-5">
+        <section class="bg-light py-5 participa" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/territorio/bk-territorio-01.png');">
             <div class="container">
                 <div class="row">
                     <h3 class="col-12 mb-4 text-primary"><strong>Participá</strong></h3>
                     <div class="lead col-md-7">
-                    ¿Trabajás en cultura de alguno de los 135 municipios de la provincia de Buenos Aires? ¿Querés compartir experiencias de gestión? ¿Generar lazos y aprendizajes con otros territorios? Te estamos esperando. Hacé <a href="#" target="_blank">click acá</a>.
+                    ¿Trabajás en cultura de alguno de los 135 municipios de la provincia de Buenos Aires? ¿Querés compartir experiencias de gestión? ¿Generar lazos y aprendizajes con otros territorios? Te estamos esperando. Hacé <a href="/participa" target="_blank">click acá</a>.
                     </div>
                 </div>
             </div>
         </section>
-
-
 
         <!--BANNERS-->
         <?php wp_archive_banners('gestion-cultural-independiente');?>

@@ -153,13 +153,13 @@ $('.slick.por3').slick({
   variableWidth: true
 });
 
-
 $('.slick.agenda').slick({
   infinite: false,
   speed: 300,
   slidesToScroll: 1,
   slidesToShow: 4,
   lazyLoad: 'ondemand',
+  swipeToSlide: true,
   //initialSlide: slide,
   responsive: [
     {
@@ -215,218 +215,240 @@ $('#agenda-destacada').slick({
   ]
 });
 
-var today = new Date();
-$dd = today.getDate();
-$mm = today.getMonth()+1; //January is 0!
-$dm = $dd + '-' + $mm;
-console.log($dm);
-if ($dm == '23-10') {
-  var slide = 0;
-} else if ($dm == '24-10') {
-  var slide = 1;
-} else if ($dm == '25-10') {
-  var slide = 2;
-} else {
-  var slide = 0;
-}
-$('.pasadia').slick({
-  asNavFor: '#agenda-por-dia',
-  dots: false,
-  infinite: false,
-  speed: 300,
-  initialSlide: slide,
-});
-$('#agenda-por-dia').slick({
-  dots: true,
-  infinite: false,
-  speed: 300,
-  slidesToShow: 1,
-  adaptiveHeight: true,
-  dots:false,
-  arrows: false,
-  fade: true,
-  focusOnSelect: true,
-  asNavFor: '.pasadia',
-  initialSlide: slide,
-  centerMode: true
-});
-// function event,slick and index
-// version 1.5+ uses slick-current stead of slick-active
-$('#agenda-por-dia').on('afterChange', function(event,slick,i){
-  $('.pasadia .slick-slide').removeClass('slick-current');
-  $('.pasadia .slick-slide').eq(i).addClass('slick-current');    				 
+$( document ).ready(function() {
+  var today = new Date();
+  $dd = today.getDate();
+  $mm = today.getMonth()+1; //January is 0!
+  $dm = $dd + '-' + $mm;
+  console.log($dm);
+  if ($dm == '23-10') {
+    var slide = 0;
+  } else if ($dm == '24-10') {
+    var slide = 1;
+  } else if ($dm == '25-10') {
+    var slide = 2;
+  } else {
+    var slide = 0;
+  }
+  $('.pasadia').slick({
+    asNavFor: '#agenda-por-dia',
+    dots: false,
+    infinite: false,
+    speed: 300,
+    initialSlide: slide,
+  });
+  $('#agenda-por-dia').slick({
+    dots: true,
+    infinite: false,
+    speed: 300,
+    slidesToShow: 1,
+    adaptiveHeight: true,
+    dots:false,
+    arrows: false,
+    fade: true,
+    focusOnSelect: true,
+    asNavFor: '.pasadia',
+    initialSlide: slide,
+    centerMode: true
+  });
+  // function event,slick and index
+  // version 1.5+ uses slick-current stead of slick-active
+  $('#agenda-por-dia').on('afterChange', function(event,slick,i){
+    $('.pasadia .slick-slide').removeClass('slick-current');
+    $('.pasadia .slick-slide').eq(i).addClass('slick-current');    				 
+  });
+
+  // remember document ready on this
+  $('.pasadia .slick-slide').eq(0).addClass('slick-current');	
 });
 
-// remember document ready on this
-$('.pasadia .slick-slide').eq(0).addClass('slick-current');	
+$( document ).ready(function() {
+  $('.slick-custom').slick({
+    swipeToSlide:true,
+    infinite:false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+  $('.slick.x2').slick({
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    swipeToSlide:true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
+  });
 
-$('.slick.x2').slick({
-  slidesToShow: 2,
-  slidesToScroll: 1,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
+  $('.slick.x3').slick({
+    speed: 300,
+    slidesToScroll: 1,
+    slidesToShow: 3,
+    swipeToSlide:true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
       }
-    },
-    {
-      breakpoint: 991,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      }
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]
-});
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
+  });
 
-$('.slick.x3').slick({
-  speed: 300,
-  slidesToScroll: 1,
-  slidesToShow: 3,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
+  $('.slick.x4').slick({
+    speed: 300,
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    swipeToSlide:true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+        }
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
       }
-    },
-    {
-      breakpoint: 991,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 1,
-      }
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]
-});
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
+  });
 
-$('.slick.x4').slick({
-  speed: 300,
-  slidesToScroll: 1,
-  slidesToShow: 1,
-  lazyLoad: 'ondemand',
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        infinite: true,
+  $('.sl-galeria').slick({
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    centerMode: true,
+    variableWidth: true,
+    lazyLoad: 'ondemand',
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: false,
+        }
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: false,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: false,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: false,
+        }
       }
-    },
-    {
-      breakpoint: 991,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        infinite: true,
-      }
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]
-});
+    ]
+  });
 
-$('.slick.sl-galeria').slick({
-  speed: 300,
-  slidesToScroll: 1,
-  slidesToShow: 3,
-  lazyLoad: 'ondemand',
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        infinite: false,
-      }
-    },
-    {
-      breakpoint: 991,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: false,
-      }
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: false,
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: false,
-      }
-    }
-  ]
-});
-
-$('.autoplay').slick({
-  slidesToShow: 3,
-  centerMode: true,
-  variableWidth: true,
-  slidesToScroll: 3,
-  autoplay: true,
-  autoplaySpeed: 2000,
+  $('.autoplay').slick({
+    slidesToShow: 3,
+    centerMode: true,
+    variableWidth: true,
+    slidesToScroll: 3,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  });
 });
 
 if ($('#gamejam_videos').length) {
