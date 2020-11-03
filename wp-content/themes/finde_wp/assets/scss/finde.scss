@@ -1373,6 +1373,9 @@ a.badge.os {
     img {
       min-height: 370px;
     }
+    &:focus {
+      outline: none;
+    }
   }
   .slick-dots {
     bottom: 0px;

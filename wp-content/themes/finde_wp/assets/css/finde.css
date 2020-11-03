@@ -1607,6 +1607,9 @@ a.badge.os {
 .sl-galeria .slick-slide img {
   min-height: 370px;
 }
+.sl-galeria .slick-slide:focus {
+  outline: none;
+}
 .sl-galeria .slick-dots {
   bottom: 0px;
 }
