@@ -19,6 +19,8 @@ if (has_category( 'Editorial' )) {
   get_template_part( 'layouts/header', 'mu' ); 
 } elseif (has_category( 'Diseño' )) {
   get_template_part( 'layouts/header', 'di' ); 
+} elseif (has_category( 'Audiovisual' )) {
+	get_template_part( 'layouts/header', 'au' ); 
 } else {
 get_header();
 }
@@ -74,7 +76,16 @@ get_header();
 								}
 								?>
 						      </div>
-						    </div>
+							</div>
+							
+							<?php 
+							$url = get_post_meta( get_the_ID(), 'audiovisual', true );
+							$contenido_audiovisual = wp_oembed_get( $url, $args );
+							if ( $contenido_audiovisual ) {
+								echo '<div class="col-15 pt-5 video">';
+								echo $contenido_audiovisual;
+								echo '</div>';
+							} ?>
 						  </div>
 <?
 					endwhile; // End of the loop.
@@ -94,6 +105,8 @@ if (has_category( 'Editorial' )) {
   get_template_part( 'layouts/footer', 'mu' ); 
 } elseif (has_category( 'Diseño' )) {
   get_template_part( 'layouts/footer', 'di' ); 
+} elseif (has_category( 'Aduiovisual' )) {
+	get_template_part( 'layouts/footer', 'au' ); 
 } else {
 get_footer();
 }

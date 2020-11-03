@@ -8,25 +8,6 @@
  */
 
 get_template_part( 'layouts/header', 'au' );
-			
-            $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
-            $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
-			$url = rwmb_meta( 'mbox_url' );
-            $descargas = rwmb_meta( 'descarga_id' );
-            
-            $address = rwmb_meta( 'address' );
-            $url = rwmb_meta( 'mbox_url' );
-            $instagram = rwmb_meta( 'mbox_instagram' );
-            $twitter = rwmb_meta( 'mbox_twitter' );
-            $facebook = rwmb_meta( 'mbox_facebook' );
-            $youtube = rwmb_meta( 'mbox_youtube' );
-            $pinterest = rwmb_meta( 'mbox_pinterest' );
-            $tiktok = rwmb_meta( 'mbox_tiktok' );
-            $whatsapp = rwmb_meta( 'mbox_whatsapp' );
-            
-			$terms = get_the_terms( $post->ID, 'rubro_di' );
-			$dterms = get_the_terms( $post->ID, 'descuento_di' );
-            
 
     $youtubevimeo = rwmb_meta( $post->ID, 'youtubevimeo' );
     $contar = rwmb_meta('mbox_contar');

@@ -1295,6 +1295,15 @@ function mbox_register_meta_boxes( $meta_boxes ){
         'type' => 'url',
         'std'  => '',
       ),
+      // oembed
+      array(
+        'id'    => 'audiovisual',
+        'name'  => 'Contenido audiovisual',
+        'type'  => 'oembed',
+    
+        // Input size
+        'size'  => 30,
+      ),
 
     )
   );

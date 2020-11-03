@@ -221,12 +221,14 @@ $( document ).ready(function() {
   $mm = today.getMonth()+1; //January is 0!
   $dm = $dd + '-' + $mm;
   console.log($dm);
-  if ($dm == '23-10') {
+  if ($dm == '05-11') {
     var slide = 0;
-  } else if ($dm == '24-10') {
+  } else if ($dm == '06-11') {
     var slide = 1;
-  } else if ($dm == '25-10') {
+  } else if ($dm == '07-11') {
     var slide = 2;
+  } else if ($dm == '08-11') {
+    var slide = 3;
   } else {
     var slide = 0;
   }
@@ -600,7 +602,7 @@ var $quicksearch = $('#search').keyup(debounce(function() {
 
 
   //CAPTURO FUENTE Y ASIGNO AUTOPLAY
-if($(".fullmedia, .trailer")[0]){
+if($(".fullmedia, .trailer, .video")[0]){
   $('iframe[src*="youtube"]').wrap(
   "<div class='embed-responsive embed-responsive-16by9'></div>"
   ).addClass("embed-responsive-item");
