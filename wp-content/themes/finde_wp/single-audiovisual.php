@@ -23,153 +23,167 @@ get_template_part( 'layouts/header', 'au' );
             $pinterest = rwmb_meta( 'mbox_pinterest' );
             $tiktok = rwmb_meta( 'mbox_tiktok' );
             $whatsapp = rwmb_meta( 'mbox_whatsapp' );
-            $images = rwmb_meta( 'image_ed', array( 'size' => 'large' ) );
             
 			$terms = get_the_terms( $post->ID, 'rubro_di' );
 			$dterms = get_the_terms( $post->ID, 'descuento_di' );
-            $media = rwmb_meta( $post->ID, 'oembed' );
+            
 
-            $medios = rwmb_meta($post->ID,  'mbox_medios');
-
-
+    $youtubevimeo = rwmb_meta( $post->ID, 'youtubevimeo' );
+    $contar = rwmb_meta('mbox_contar');
+    $aclaracion = rwmb_meta('mbox_aclaracion');
+    $image_contar = rwmb_meta( 'image_contar', array( 'limit' => 1, 'size' => 'full' ) );
+    $image = reset( $image_contar );
+    $tipo_au = get_the_terms( $post->ID, 'tipo_au' );
+    $genero_au = get_the_terms( $post->ID, 'genero_au' );
+    $calificacion_au = get_the_terms( $post->ID, 'calificacion_au' );
+    $afiche = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+    $presentado_por = rwmb_meta('mbox_presentado-por');
+    $seleccion = rwmb_meta('mbox_seleccion');
+    $descripcion = rwmb_meta('mbox_descripcion');
+    
+    $productora = rwmb_meta('mbox_productora');
+    $direccion = rwmb_meta('mbox_direccion');
+    $produccion = rwmb_meta('mbox_produccion');
+    $guion = rwmb_meta('mbox_guion');
+    $ano = rwmb_meta('mbox_ano');
+    $elenco = rwmb_meta('mbox_elenco');
 ?>
 <div id="content">
-<div id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
-    <header class="branding-header bg-light text-dark pt-3 <?php if ($featured_img_url) { echo 'tengo-background'; } ?>">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-12 mx-auto pt-4">
+    <div id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
+        <?php 
+        $url = get_post_meta( get_the_ID(), 'youtubevimeo', true );
+        $embed = wp_oembed_get( $url, $args );
+        if ( $embed ) {
+            echo '<header class="movie-container text-light py-3" style="background:#000;"><div class="container">';
+            echo $embed;
+            echo '</div></header>';
+        } else if ($contar) {
+            echo '<header class="movie-container contar text-light py-3"';
+            if ($image_contar) { 
+                echo ' style="background-image: url('.$image['url'].'">';
+                echo '<a href="'.$contar.'" target="_blank" class="goto-contar"><i class="fas fa-play-circle"></i></a>';
+                echo '</header>';
+            } else {
+                echo '></header>';
+            }
+        } else {
+            echo '<header class="movie-container text-light py-3" style="background:#000;">
+            <div class="container">No hemos encontrado contenido para ser mostrado</div></header>';
+        }
+        if ($contar) {
+            if ($aclaracion) {
+                echo '<!--Aclaración de redirección-->';
+                echo '<div class="aclaracion" style="background:#F1F1F1; font-size:.8rem;"><div class="container py-3">';
+                echo $aclaracion;
+                echo '</div></div>';
+            } else {
+                echo '<!--Aclaración de redirección-->';
+                echo '<div class="aclaracion" style="background:#F1F1F1; font-size:.8rem;"><div class="container py-3">Al dar play, serás redirigido al sitio web de Cont.ar. Si no sos miembro, registrate, lleva 2 minutos, es gratis y vas a poder ver cientos de series y películas.</div></div>';
+            }
+        } ?>
+        <section class="bg-white">
+            <div class="container py-4">
+                <?php the_title( '<h1 class="entry-title extra-grande">', '</h1>' ); ?>
+                <div class="etiquetas">
+                    <span class="mr-3"><i class="far fa-clock"></i> Duración: [agregar duración]</span>
+                    <span class="mr-3"><i class="fas fa-film"></i> 
                     <?php
-                    the_title( '<h1 class="entry-title extra-grande">', '</h1>' );
+                    if ($tipo_au) {
+                        foreach($tipo_au as $tipo) {
+                        $tipo_autring[] = $tipo->name;
+                        }
+                        $list = implode(', ', $tipo_autring);
+                        echo rtrim($list,',');
+                    }
+                    ?></span>
+                    <span class="mr-3"><i class="fas fa-eye"></i> 
+                    <?php
+                    if ($genero_au) {
+                        foreach($genero_au as $genero) {
+                        $genero_autring[] = $genero->name;
+                        }
+                        $list = implode(', ', $genero_autring);
+                        echo rtrim($list,',');
+                    }
+                    ?></span>
+                    <span class="mr-3"><i class="far fa-hand-paper"></i> 
+                    <?php
+                    if ($calificacion_au) {
+                        foreach($calificacion_au as $calificacion) {
+                        $calificacion_autring[] = $calificacion->name;
+                        }
+                        $list = implode(', ', $calificacion_autring);
+                        echo rtrim($list,',');
+                    }
+                    ?></span>
+                </div>
+                <div class="lead py-4">
+                    <?php 
+                    echo get_the_content();
                     ?>
-                    <ul class="list-unstyled text-drk">
-                        <?php 
-                            if ($address) { echo '<li><i class="fas fa-map-marker-alt"></i>  '. $address .'</li>';}
-                        ?>
-                    </ul>
-
-                    <ul class="list-unstyled list-inline text-center h4">
-                        <?php
-                            if ($url || $instagram || $facebook || $youtube || $twitter || $pinterest || $tiktok) {
-                                echo '<div class="contacto mt-2 text-white">';
-                                if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></a></li>';}
-                                if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
-                                if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
-                                if ($youtube) { echo '<li class="list-inline-item"><a href="'. $youtube . '" target="_blank" class="os"><i class="fab fa-youtube"></i></a></li>';}
-                                if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
-                                if ($pinterest) { echo '<li class="list-inline-item"><a href="'. $pinterest . '" target="_blank" class="os"><i class="fab fa-pinterest"></i></a></li>';}
-                                if ($tiktok) { echo '<li class="list-inline-item"><a href="'. $tiktok . '" target="_blank" class="os"><i class="fab fa-tiktok"></i></a></li>';}
-                                
-                                
-                                if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
-                            }
-                            
-                        ?>
-                    </ul>
                 </div>
             </div>
-            <?php if ( has_post_thumbnail() ) {
-                echo '<div class="mt-3 row position-relative"><div class="col mx-auto my-5 border-bottom">';
-                echo '<div class="mini-profile-img">';
-                echo get_the_post_thumbnail( $post_id, 'small', array( 'class' => 'img-fluid img-profile' ) );
-                echo '</div></div></div>';
-            }?>
-        </div>
-    </header><!-- .entry-header -->
-    
-    
-    <div class="container py-5">
-        <div class="row">
-            <?php
-                $images = rwmb_meta( 'image_di', array( 'size' => 'medium' ) );
-                    
-                echo '<div class="col-md-7 mb-2">';
-                    echo '<div class="slick fullmedia">';                       
-                        if ($images) {
-                            // slick
-                            foreach ( $images as $image ) {
-                                echo '<div>';
-                                echo '<img src="', $image['url'], '">';
-                                echo '</div>';
-                            }    
+        </section>
+        <section class="container-fluid no-gutters ficha">
+            <div class="row">
+                <div class="col-md-5 p-4 bg-black text-light">
+                    <div class="titulo">Este contenido es presentado por</div>
+                    <p><?php echo $presentado_por;?></p>
+                </div>
+                <div class="col-md-5 p-4 bg-light">
+                    <div class="titulo">Descripción</div>
+                    <p><?php echo $descripcion;?></p>
+                </div>
+                <div class="col-md-5 p-4 bg-black text-light">
+                    <div class="titulo">Selección</div>
+                    <p><?php echo $seleccion;?></p>
+                </div>
+                <div class="col-md-5 p-4 bg-light">
+                    <div class="titulo">Afiche</div>
+                    <img src="<?php echo $afiche;?>" class="img-fluid px-4">
+                </div>
+                <div class="col-md-5 p-4 bg-black text-light">
+                <? if ($productora || $direccion || $produccion || $guion || $ano || $elenco) {?>
+                    <div class="titulo">Ficha técnica</div>
+                    <ul class="list-unstyled ficha-tecnica text-light">
+                        <? 
+                        if ($productora) {
+                            echo '<li><strong>Productora:</strong> '.$productora.'</li>';
                         }
-                    echo '</div>';
-                echo '</div>';
-            ?>
-                        
-            <div class="col-md-8">
-                <?php
-                    if ($terms) {
-                        echo '<div class="rubro mb-1">';
-                            foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro_di').'" class="badge badge-secondary text-white mt-1 os">'.$term->name.'</a></span>', ' ';}
-                        echo '</div>';
-                    }
-                    if( has_excerpt() ){
-                        echo '<div class="mt-2 lead">'. get_the_excerpt() .'</div>';
-                    }
-                    echo '<div class="mt-2 d-block">' . get_the_content().'</div>';
-                    if ($dterms) {
-                        echo '<div class="rubro mb-1">';
-                            foreach( $dterms as $dterm ) { echo '<a href="'.get_term_link($dterm->slug, 'descuento_di').'" class="badge badge-dark mt-1 os">'.$dterm->name.'</a></span>', ' ';}
-                        echo '</div>';
-                    }
-                    
-                    $medios = rwmb_meta( 'mbox_medios' );
-                    if ($medios) {
-                        echo '<div class="medios-de-pago mt-4">';
-                        foreach ( $medios as $medio ) {
-                            if ($medio == 'debito') :
-                                echo '<span class="medio_digital '.$medio.'"><i class="fas fa-credit-card"></i> Tarjeta de débito</span>';
-                            endif;
-                            if ($medio == 'credito') :
-                                echo '<span class="medio_digital '.$medio.'"><i class="far fa-credit-card"></i> Tarjeta de crédito</span>';
-                            endif;
-                            if ($medio == 'cuentadni') :
-                                echo '<span class="medio_digital '.$medio.'"><i class="fas fa-money-check"></i> Cuenta DNI</span>';
-                            endif;
-                            if ($medio == 'mercadopago') :
-                                echo '<span class="medio_digital '.$medio.'"><i class="fas fa-money-bill-wave"></i> Mercado Pago</span>';
-                            endif;
-                            if ($medio == 'transferencia') :
-                                echo '<span class="medio_digital '.$medio.'"><i class="fas fa-money-check-alt"></i> Transferencia</span>';
-                            endif;
-                            if ($medio == 'paypal') :
-                                echo '<span class="medio_digital '.$medio.'"><i class="fab fa-cc-paypal"></i> Paypal</span>';
-                            endif;
-                            if ($medio == 'otros') :
-                                echo '<span class="medio_digital '.$medio.'"><i class="fas fa-wallet"></i> Otros</span>';
-                            endif;
+                        if ($direccion) {
+                            echo '<li><strong>Dirección:</strong> '.$direccion.'</li>';
                         }
+                        if ($produccion) {
+                            echo '<li><strong>Producción:</strong> '.$produccion.'</li>';
+                        }
+                        if ($guion) {
+                            echo '<li><strong>Guión:</strong> '.$guion.'</li>';
+                        }
+                        if ($ano) {
+                            echo '<li><strong>Año:</strong> '.$ano.'</li>';
+                        }
+                        if ($elenco) {
+                            echo '<li><strong>Elenco:</strong> '.$elenco.'</li>';
+                        }
+                        ?>
+                    </ul>
+                <?php } ?>
+                </div>
+                <div class="col-md-5 p-4 bg-light trailer">
+                    <div class="titulo">Trailer</div>
+                    <?php 
+                    $url = get_post_meta( get_the_ID(), 'trailer', true );
+                    $trailer = wp_oembed_get( $url, $args );
+                    if ( $trailer ) {
+                        echo '<div>';
+                        echo $trailer;
                         echo '</div>';
                     }
-
-                    $envios = rwmb_meta( 'envios' );
-                    if ($envios) {
-                        echo '<p class="mt-3"><i class="fas fa-truck"></i> '.$envios.'</p>';
-                    }
-
-                    $tienda = rwmb_meta( 'mbox_tienda' );
-                    if ($tienda) {
-                        echo '<div class="d-block mt-4"><a href="'.$tienda.'" class="boton-3d" title="Ir a tienda virtual" target="_blank">Ir a Tienda virtual</a></div>';
-                    }
-                ?>
+                    ?>
+                </div>
             </div>
-        </div>
-            
-        <?php
-            $url = get_post_meta( get_the_ID(), 'oembed', true );
-            $embed = wp_oembed_get( $url, $args );
-            if ( ! $embed ) {
-                $embed = $GLOBALS['wp_embed']->shortcode( $args, $url );
-            }
-            if ( $embed ) {
-                echo '<div class="row"><div class="col-md-15 mt-4">';
-                echo $embed;
-                echo '</div></div>';
-            }
-        ?>
-        </div>
-    </div><!-- .container -->
-</div><!-- #post-<?php the_ID(); ?> -->
+        </section>
+
+    </div><!-- #post-<?php the_ID(); ?> -->
 
 <?php get_template_part( 'layouts/footer', 'au' ); 

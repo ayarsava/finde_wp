@@ -939,7 +939,7 @@ function custom_post_type_audiovisual() {
         'view_item'           => __( 'Ver Audiovisual', 'finde-plugin' ),
         'add_new_item'        => __( 'Agregar nuevo registro de Audiovisual', 'finde-plugin' ),
         'add_new'             => __( 'Agregar nuevo', 'finde-plugin' ),
-        'edit_item'           => __( 'Editar Registro de diseño', 'finde-plugin' ),
+        'edit_item'           => __( 'Editar Registro audiovisual', 'finde-plugin' ),
         'update_item'         => __( 'Actualizar registro de Audiovisual', 'finde-plugin' ),
         'search_items'        => __( 'Buscar registros de Audiovisual', 'finde-plugin' ),
         'not_found'           => __( 'No encontrado', 'finde-plugin' ),
@@ -1026,7 +1026,7 @@ function custom_post_type_experiencias() {
         'show_in_admin_bar'   => true,
         'menu_position'       => 16,
         'can_export'          => true,
-        'has_archive'         => false,
+        'has_archive'         => true,
         'exclude_from_search' => false,
         'publicly_queryable'  => true,
         'capability_type'     => 'post',
@@ -3389,6 +3389,7 @@ if ( ! function_exists( 'wp_archive_banners' ) ) {
           foreach ( $img_desktop as $image_desktop ) {
             echo '<img src="', $image_desktop['url'], '" class="img-fluid d-none d-sm-block" alt="'.get_the_title().'">';
           }
+          echo '</a>';
         }
         if ($img_mobile) {
           echo '<a href="'.$enlace.'" target="_blank" title="'.get_the_title().'">';

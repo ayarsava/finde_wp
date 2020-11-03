@@ -45,7 +45,7 @@
     	<div class="container">
 			<div class="row my-5">
 			    <div class="col-lg-2 col-md-3 col-5">
-			      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_finde_footer-di.png" class="img-fluid mb-5">
+			      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_finde_footer-au.png" class="img-fluid mb-5">
 			    </div>
 			    <div class="col-lg-6 col-md-5">
 			      <ul class="list-unstyled text-white">

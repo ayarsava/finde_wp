@@ -600,15 +600,15 @@ var $quicksearch = $('#search').keyup(debounce(function() {
 
 
   //CAPTURO FUENTE Y ASIGNO AUTOPLAY
-/*
-$('iframe[src*="youtube"]').wrap(
-"<div class='embed-responsive embed-responsive-16by9'></div>"
-).addClass("embed-responsive-item");
+if($(".fullmedia, .trailer")[0]){
+  $('iframe[src*="youtube"]').wrap(
+  "<div class='embed-responsive embed-responsive-16by9'></div>"
+  ).addClass("embed-responsive-item");
 
-$('iframe[src*="twitch.tv"]').wrap(
-"<div class='embed-responsive embed-responsive-16by9'></div>"
-).addClass("embed-responsive-item");
-*/
+  $('iframe[src*="twitch.tv"]').wrap(
+  "<div class='embed-responsive embed-responsive-16by9'></div>"
+  ).addClass("embed-responsive-item");
+}
 
 //SLICK
 $(document).ready(function() {

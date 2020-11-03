@@ -56,9 +56,6 @@ $videojuegos: #009aae;
   .slick.agenda.slick-slider .slick-list .slick-track .slick-slide .card .tags {
     background:$videojuegos
   }
-  .slick.fullmedia .slick-track .slick-slide {
-    background: linear-gradient(45deg, white 0%, #e9e9e9 100%);
-  }
   .boton-3d {
     box-shadow: -3px 3px $videojuegos, -2px 2px $videojuegos, -1px 1px $videojuegos;
     border: 1px solid $videojuegos;
@@ -1321,10 +1318,29 @@ a.badge.os {
 .galeria-slick {
   .slick-track .slick-slide {
     height: 354px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
     @media (max-width: 991px) {
       height: 224px;
     }
   } 
+  &.slick-dotted.slick-slider {
+    margin-bottom:0px;
+  }
+  .slick-dots {
+    bottom:15px;
+    li {
+      width:10px;
+      button,
+      button:before {
+        width: 10px;
+        text-shadow: 1px 1px 1px #FFF;
+      }
+    }
+  }
 }
 .archive-music .galeria-slick {
   .slick-track .slick-slide {
@@ -2532,7 +2548,7 @@ a[class^="hvr-"] {
 
 .banner-slick {
   &.slick-slider .slick-track .slick-slide img {
-    max-width: 100%;
+    width: 100%;
   }
 }
 section.cck {
@@ -2645,5 +2661,53 @@ section.cck {
   background-repeat: no-repeat;
   @media (max-width:787px) {
     background-image: none!important;
+  }
+}
+.movie-container.contar {
+  background:#000;
+  min-height:500px;
+  background-size:cover;
+  background-repeat:no-repeat;
+  position: relative;
+  background-position: center center;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.33) 62%, rgba(0, 0, 0, 0.78) 100%);
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.33) 62%, rgba(0, 0, 0, 0.78) 100%);
+    background: linear-gradient(left to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.33) 62%, rgba(0, 0, 0, 0.78) 100%);
+    opacity: .9; 
+    z-index: 3;
+  }
+  .goto-contar {
+    position: absolute;
+    width:100px;
+    height: 100px;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    z-index: 9;
+    i {
+      font-size:100px;
+    }
+  }
+}
+.bg-black {
+  background-color: #000;
+}
+.ficha {
+  .titulo {
+    font-size: .9rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom:.7rem;
+  }
+  ul.ficha-tecnica {
+    li {
+      margin-bottom:.4rem;
+    }
   }
 }

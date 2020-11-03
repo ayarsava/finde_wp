@@ -52,7 +52,7 @@
 	  		<div class="row position-relative">
 		  		<div class="logo-wrapper col-lg-2 col-md-3 col-8">
 			        <a class="main-logo mt-3" href="/">
-			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde_diseno_logo.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
+			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde_au_logo.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
 			        </a>
 			    </div>
 			    <div class="col-md-7 d-none d-md-block pt-4 text-right ml-auto">

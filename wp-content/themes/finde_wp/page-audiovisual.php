@@ -61,42 +61,37 @@ get_template_part( 'layouts/header', 'au' );
             </div>
             <div class="container-fluid">
                 <div class="slick-custom my-5" data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
-                    <?php wp_archive_experiencias_x_recurso('conferencias', 'gestion-cultural-independiente') ?>
+                    <?php wp_archive_agenda_destacado('audiovisual') ?>
                 </div>
             </div>
         </section>
 
         <!--PROYECCIONES-->
-        <section class="bg-white cck">
-            <div class="container text-left">
+        <section class="cck pt-5" style="background:#000;">
+            <div class="container text-left" style="color:#F1F1F1;">
                 <h2 class="extra-grande font-weight-bold">Proyecciones</h2>
-                <div class="lead">Series interactivas, 360, youtubers y cortos</div>
+                <div class="lead mb-4">Series interactivas, 360, youtubers y cortos</div>
             </div>
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-9 full-img">
-                        <a href="/diseno/matrices" title="Enlace a la muestra virtual de CCK" class="stretched-link"></a>
-                        <video poster="<?php echo get_template_directory_uri(); ?>/assets/img/diseno-cck.jpg" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" >
-                            <source src="<?php echo get_template_directory_uri(); ?>/assets/img/cck.mp4" type="video/mp4"></source>
-                        </video>
-                        <div class="cck-frontend">
-                            <div class="titulos">
-                                <h4>Cine</h4>
-                                <p>Selección curada por festivales</p>
-                            </div>
+                <div class="row h-100">
+                    <div class="col-md-9 full-img position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-cine.jpg'); min-height:500px;">
+                        <a href="/catalogo-audiovisual/seccion/cine/" title="Cine. Selección curada por festivales" class="stretched-link"></a>
+                        <div class="titulos">
+                            <h4>Cine</h4>
+                            <p>Selección curada por festivales</p>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="row h-100">
-                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/diseno-desafio.jpg')">
-                                <a href="/diseno/desafio" title="Enlace a la convocatoria" class="stretched-link"></a>
+                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-series.jpg')">
+                                <a href="/catalogo-audiovisual/seccion/series/" title="Series. Originales, interactivas , inmersivas" class="stretched-link"></a>
                                 <div class="titulos">
                                     <h5>Series</h5>
                                     <p>Originales, interactivas , inmersivas</p>
                                 </div>
                             </div>
-                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/diseno-etnografia.jpg')">
-                                <a href="/diseno/etnografia" title="Enlace a la convocatoria" class="stretched-link"></a>
+                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-youtube.jpg')">
+                                <a href="/catalogo-audiovisual/seccion/youtube/" title="Youtube. Nuevas narrativas" class="stretched-link"></a>
                                 <div class="titulos">
                                     <h5>Youtube</h5>
                                     <p>Nuevas narrativas</p>
@@ -117,7 +112,7 @@ get_template_part( 'layouts/header', 'au' );
                 <div class="row">
                     <div class="col-15">
                         <div class="border-top mt-3 py-3">
-                            <a href="/agenda-diseno"><strong>+ Ver agenda completa</strong></a>
+                            <a href="/agenda-audiovisual"><strong>+ Ver agenda completa</strong></a>
                         </div>
                     </div>
                 </div>
@@ -125,20 +120,20 @@ get_template_part( 'layouts/header', 'au' );
         </section>
 
         <!--ESTRENO EXCLUSIVO-->
-        <section class="bg-light py-5">
+        <section class="bg-light py-5" style="background:#e2e2e2;">
             <div class="container">
-                <div class="row mt-5" style="background:#e2e2e2;">
+                <div class="row mt-5">
                     <div class="col-md-6">
-                        <div class="wrap pt-5 px-sm-5">
-                            <h3>Introducción</h3>
-                            <h4>Territorios Unidos</h4>
-                            <p class="mt-5">Augusto Costa, Ministro de Producción, Ciencia e Innovación de la Provinicia de Buenos Aires abre Finde Territorios.</p>
-                            <p class="">Un espacio de encuentro para gestores culturales públicos de los 135 municipios bonaerenses.</p>
+                        <div class="wrap pt-5 pr-sm-5">
+                            <h5>ESTRENO EXCLUSIVO</h5>
+                            <h2>PUNTO DE QUIEBRE</h2>
+                            <p class="mt-5">En exclusiva, no te pierdas el estreno de la primera serie 360 de Argentina y la charla con su director, etc.</p>
+                            <a href="#" class="btn btn-outline-primary badge-pill px-5 mt-3">Ver  <i class="fas fa-play"></i></a>
                         </div>
                     </div>
                     <div class="col-md-9">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OYTyE12K_mA?rel=0" allowfullscreen></iframe>
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/xumjLk5xMas?rel=0" allowfullscreen style="border:solid 3px #FFF; border-radius:3px;padding:1px"></iframe>
                         </div>
                     </div>
                 </div>
@@ -146,20 +141,20 @@ get_template_part( 'layouts/header', 'au' );
         </section>
 
         <!--ESTRENO DIGITAL-->
-        <section class="bg-white py-5">
+        <section class="py-5 bg-primary text-light">
             <div class="container">
                 <div class="row mt-5">
                     <div class="col-md-9">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OYTyE12K_mA?rel=0" allowfullscreen></iframe>
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OX1ZXj2Qqt0?rel=0" allowfullscreen style="border:solid 3px #FFF; border-radius:3px;padding:1px"></iframe>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="wrap pt-5 px-sm-5">
-                            <h3>Introducción</h3>
-                            <h4>Territorios Unidos</h4>
-                            <p class="mt-5">Augusto Costa, Ministro de Producción, Ciencia e Innovación de la Provinicia de Buenos Aires abre Finde Territorios.</p>
-                            <p class="">Un espacio de encuentro para gestores culturales públicos de los 135 municipios bonaerenses.</p>
+                            <h5>ESTRENO DIGITAL</h5>
+                            <h2>LAVA</h2>
+                            <p class="mt-5">En exclusiva, no te pierdas el estreno de Lava, de Ayar Blasco y la charla con su director, etc.</p>
+                            <a href="#" class="btn btn-outline-light badge-pill px-5 mt-3">Ver  <i class="fas fa-play"></i></a>
                         </div>
                     </div>
                 </div>
@@ -168,7 +163,7 @@ get_template_part( 'layouts/header', 'au' );
 
 
         <!--BANNERS-->
-        <?php wp_archive_banners('audiosivual');?>
+        <?php wp_archive_banners('audiovisual');?>
 
 
 <?php 
