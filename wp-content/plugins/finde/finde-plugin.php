@@ -1129,6 +1129,12 @@ function mbox_register_meta_boxes( $meta_boxes ){
         'id'               => "{$prefix}video",
         'type'             => 'video',
       ),
+      array(
+        'name' => 'Sin título',
+        'id'   => 'no_title',
+        'type' => 'checkbox',
+        'std'  => 0, // 0 or 1
+      ),
       
     )
   );
@@ -1934,6 +1940,7 @@ if ( ! function_exists( 'wp_showSlides_fullbg_portag' ) ) {
         $url = rwmb_meta( 'mbox_url' );
         $videos = rwmb_meta( 'mbox_video', array( 'limit' => 1 ) );
         $video = reset( $videos );
+        $no_title = rwmb_meta( 'no_title' );
         ?>
         <?php
         if ($video) { 
@@ -1947,10 +1954,12 @@ if ( ! function_exists( 'wp_showSlides_fullbg_portag' ) ) {
             echo '<div class="container h-100" style="z-index: 2;">';
               echo '<div class="d-flex h-100 text-center align-items-center">';
                 echo '<div class="carousel-caption text-left">';
+                if( $no_title == 1 ) {
                   echo '<div class="info">';
                     echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1>';
                     echo '<div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
                   echo '</div>';
+                };
                 echo '</div>';
               echo '</div>';
             echo '</div>';
@@ -1963,10 +1972,12 @@ if ( ! function_exists( 'wp_showSlides_fullbg_portag' ) ) {
         }
             echo '<div class="container">';
               echo '<div class="carousel-caption text-left">';
+              if( $no_title == 1 ) {
                 echo '<div class="info">';
                   echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1>';
                   echo '<div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
                 echo '</div>';
+              };
               echo '</div>';
             echo '</div>';
           echo '</div>';

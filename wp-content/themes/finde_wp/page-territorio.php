@@ -35,34 +35,32 @@
   <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
     <div id="soon" style="display:none;">
-    <header class="main-header bg-primary">
-  		<div class="container">
-	  		<div class="row position-relative">
-		  		<div class="logo-wrapper col-lg-2 col-md-3 col-8">
-			        <a class="main-logo mt-3" href="/">
-			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde_te_logo.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
-			        </a>
-			    </div>
-			    <div class="col-md-7 d-none d-md-block pt-4 text-right ml-auto">
-				    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-cultura-gobierno-blanco.png" class="img-fluid ml-auto" width="340">
-				</div>
-			</div>
-		</div>
-	</header>
+    
 
 
         <div id="content" class="home-territorio">
-            <!--CCK-->
-            <section class="bg-white cck">
+            <div id="logo-flotante" class="position-absolute" style="z-index:2;left:calc(50% - 90px);top: 100px;width:180px;">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_finde_footer-te.png" class="img-fluid mb-5" width="180">
+            </div>
+            
+            <section class="">
                 <div class="container-fluid">
                     <div class="row ">
-                        <div class="w-100 w-md-50 h-100 text-center text-white d-flex justify-content-center align-items-center position-relative" style="background-color:#153243;min-height:350px;">
-                            <a href="/territorio/gestion-cultural-publica" title="Gestión Cultural Pública" class="stretched-link"></a>
-                            <h4>Gestión Cultural Pública</h4>
+                        <div class="w-100 w-md-50 h-100 text-center text-white d-flex justify-content-center align-items-end position-relative" style="background-color:#4e3e7c;min-height:650px;background-position:center;background-image:url(<?php echo get_template_directory_uri(); ?>/assets/img/gcp.jpg);background-size:cover;background-repeat:no-repeat;">
+                            <div class="data">
+                                <a href="/territorio/gestion-cultural-publica" title="Gestión Cultural Pública" class="stretched-link"></a>
+                                <h4 class="text-dark font-weight-bold">Gestión Cultural Pública</h4>
+                                <div class="lead px-5 pt-2 pb-3 font-weight-bold mx-3">Sitio para Secretarías de Cultura y gestorxs culturales públicos</div>
+                                <a href="/territorio/gestion-cultural-publica" class="boton-3d my-3">Entrar</a>
+                            </div>
                         </div>
-                        <div class="w-100 w-md-50 h-100 text-center text-white d-flex justify-content-center align-items-center position-relative" style="background-color:#284B63;min-height:350px;">
-                            <a href="/territorio/gestion-cultural-independiente" title="Gestión Cultural Independiente" class="stretched-link"></a>
-                            <h4>Gestión Cultural Independiente</h4>
+                        <div class="w-100 w-md-50 h-100 text-center text-white d-flex justify-content-center align-items-end position-relative" style="background-color:#dd0839;min-height:650px;background-position:center;background-image:url(<?php echo get_template_directory_uri(); ?>/assets/img/gci.jpg);background-size:cover;background-repeat:no-repeat;">
+                            <div class="data">
+                                <a href="/territorio/gestion-cultural-independiente" title="Gestión Cultural Independiente" class="stretched-link"></a>
+                                <h4 class="text-dark font-weight-bold">Gestión Cultural Independiente</h4>
+                                <div class="lead px-5 pt-2 pb-3 font-weight-bold mx-3">Sitio para espacios, festivales y colectivos culturales independientes</div>
+                                <a href="/territorio/gestion-cultural-independiente" class="boton-3d my-3">Entrar</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -147,7 +145,7 @@ jQuery(function($) {
     hour = minute * 60,
     day = hour * 24;
 
-    let countDown = new Date('2020-10-05T00:00:01'.replace(/\s/, 'T')).getTime(),
+    let countDown = new Date('2020-11-05T00:00:01'.replace(/\s/, 'T')).getTime(),
     x = setInterval(function() {    
 
     let now = new Date().getTime(),
