@@ -91,7 +91,7 @@ get_template_part( 'layouts/header', 'au' );
                                 </div>
                             </div>
                             <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-youtube.jpg')">
-                                <a href="/catalogo-audiovisual/seccion/youtube/" title="Youtube. Nuevas narrativas" class="stretched-link"></a>
+                                <a href="/catalogo-audiovisual/seccion/youtubers/" title="Youtube. Nuevas narrativas" class="stretched-link"></a>
                                 <div class="titulos">
                                     <h5>Youtube</h5>
                                     <p>Nuevas narrativas</p>
