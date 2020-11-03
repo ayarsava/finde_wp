@@ -91,11 +91,21 @@ $cargo = rwmb_meta( 'mbox_cargo' );
 
         <div class="container py-5">
             <div class="w-md-70 mx-auto">
+                <div class="etiquetas">
+                <?php
+                $posttags = get_the_tags();
+                if ($posttags) {
+                    foreach($posttags as $tag) {
+                        echo '<span>'.$tag->name.'</span>'; 
+                    }
+                }
+                ?>
+                </div>
                 <?php 
                     if( has_excerpt() ){
                         echo '<div class="mt-2 lead">'. get_the_excerpt() .'</div>';
                     }
-                    echo '<div class="mt-2 d-block">' . get_the_content().'</div>';
+                    echo '<div class="mt-2 d-block">' . the_content().'</div>';
                 ?>
             </div>
             <?php
@@ -126,9 +136,11 @@ $cargo = rwmb_meta( 'mbox_cargo' );
                 
             ?>
         </div>
+        <?php 
+        $images = rwmb_meta( 'image_te', array( 'size' => 'medium' ) );
+        if ($images) {?>
         <div class="container-fluid p-0">
         <?php 
-            $images = rwmb_meta( 'image_te', array( 'size' => 'medium' ) );
             echo '<div class="sl-galeria">';
                 $url = get_post_meta( get_the_ID(), 'oembed', true );
                 $embed = wp_oembed_get( $url, $args );
@@ -136,18 +148,30 @@ $cargo = rwmb_meta( 'mbox_cargo' );
                     // slick
                     foreach ( $images as $image ) {
                         echo '<div>';
-                        echo '<img src="', $image['url'], '">';
+                        echo '<img data-lazy="', $image['url'], '">';
                         echo '</div>';
                     }    
                 }   
             echo '</div>';
         ?>
         </div>
+        <?php } ?>
+        <!--SUMATE-->
+        <section class="py-5 participa" style="background-color:#dfe4d8;background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/territorio/bk-territorio-01.png');">
+            <div class="container">
+                <div class="row">
+                    <h3 class="col-15 mb-4 text-primary"><strong>Cultura en territorio</strong>  <a href="/territorio/sumate" class="btn btn-outline-primary">SUMATE  <i class="fas fa-chevron-right"></i></a></h3>
+                    <div class="lead col-md-7">
+                    ¿Querés recibir más información sobre este u otro caso del Atlas de Experiencias? ¿Querés compartir alguna política pública en territorio? <a href="/territorio/sumate" target="_blank">Escribínos</a>.
+                    </div>
+                </div>
+            </div>
+        </section>
 
 <?php } else { ?>
 <!--NI ATLAS DE EXPERIENCIAS NI RADAR-->
         <header class="branding-header p-0" style="background:#111;"> 
-            <div class="container text-left py-5">
+            <div class="container text-left py-2">
                 <?php the_title( '<h1 class="entry-title text-white extra-grande mt-5">', '</h1>' ); ?>
                 <ul class="list-unstyled text-white">
                     <?php 

@@ -41,8 +41,8 @@ get_template_part( 'layouts/header', 'te-pu' );
         <!--BIENVENIDA-->
         <section class="bg-white py-5">
             <div class="container">
-                <h3 class="mb-4"><strong>Bienvenida</strong></h3>
-                <p class="lead">Territorios Unidos es un espacio de encuentro entre los 135 municipios bonaerenses, Territorios Unidos es un espacio de encuentro entre los 135 municipios bonaerenses, Territorios Unidos es un espacio de encuentro entre los 135 municipios bonaerenses.</p>
+                <h3 class="mb-4"><strong>Cultura en territorio</strong></h3>
+                <p class="lead">Finde Cultura en Territorio es un espacio de encuentro entre los 135 municipios bonaerenses, para analizar y compartir experiencias de gestión cultural pública. En esta primera edición tendremos presentaciones y análisis de políticas públicas municipales, conferencias y talleres. Tres secciones para pensar la cultura pública en territorio desde los territorios y junto a invitadxs que son referentes de la gestión en otras provincias.</p>
                 <div class="row mt-5" style="background:#e2e2e2;">
                     <div class="col-md-9">
                         <div class="embed-responsive embed-responsive-16by9">
@@ -51,10 +51,9 @@ get_template_part( 'layouts/header', 'te-pu' );
                     </div>
                     <div class="col-md-6">
                         <div class="wrap pt-5 px-sm-5">
-                            <h3>Introducción</h3>
-                            <h4>Territorios Unidos</h4>
-                            <p class="mt-5">Augusto Costa, Ministro de Producción, Ciencia e Innovación de la Provinicia de Buenos Aires abre Finde Territorios.</p>
-                            <p class="">Un espacio de encuentro para gestores culturales públicos de los 135 municipios bonaerenses.</p>
+                            <h4>Mesa de Apertura</h4>
+                            <p class="mt-5">Augusto Costa, Ministro de Producción, Ciencia e Innovación Tecnológica de la provincia de Buenos Aires, le da la bienvenida a las provincias invitadas a participar de esta primera edición de Finde Cultura en Territorio.</p>
+                            <p class="">Una charla sobre gestionar cultura en territorios diversos junto a Peki Torres, Directora de PolÍticas e Industrias Culturales de San Juan, Jorge Llonch, MInistro de Cultura de Santa Fe, Mariela Quirós, Presidenta del Instituto Cultural de Chaco, Sabrina Sansone, Secretaria de Cultura de Salta y Lucrecia Cardoso, Secretaria de Desarrollo Cultural del Ministerio de Cultura de la Nación.</p>
                         </div>
                     </div>
                 </div>
@@ -66,7 +65,7 @@ get_template_part( 'layouts/header', 'te-pu' );
             <div class="container">
                 <h3 class="mb-4"><strong>Atlas de experiencias</strong></h3>
                 <div class="lead">
-                    Un inventario de políticas y eventos culturales lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Un inventario de políticas y eventos culturales públicos generados por los municipios bonaerenses. Un espacio para compartir experiencias de gestión, construir vínculos y aprender de nuestros pares: Cómo crean y gestionan acciones que transforman sus comunidades y activan el desarrollo.
                 </div>
                 
                 <div class="slick x3 my-5">
@@ -80,7 +79,7 @@ get_template_part( 'layouts/header', 'te-pu' );
             <div class="container">
                 <h3 class="mb-4"><strong>Conferencias</strong></h3>
                 <div class="lead">
-                    Gestores culturales públicos de otras provincias nos comparten casos de gestión que produjeron un impacto en sus territorios.
+                    Gestores culturales públicos de otras provincias comparten casos de gestión que produjeron un impacto en sus territorios.
                 </div>
                 <div class="slick-custom my-5" data-slick='{"slidesToShow": 3, "slidesToScroll": 1}'>           
                     <div class="text-center">
@@ -115,7 +114,7 @@ get_template_part( 'layouts/header', 'te-pu' );
             <div class="container">
                 <h3 class="mb-4"><strong>Capacitaciones</strong></h3>
                 <div class="lead">
-                   Un espacio de formación virtual permanente para gestores culturales públicos de la provincia de Buenos Aires
+                Un espacio de formación virtual permanente para gestores culturales públicos de la provincia de Buenos Aires.
                 </div>
                 <div class="slick x3 my-5">
                     <?php wp_archive_experiencias_x_recurso('capacitaciones', 'gestion-cultural-publica') ?>
@@ -129,7 +128,7 @@ get_template_part( 'layouts/header', 'te-pu' );
                 <div class="row">
                     <h3 class="col-12 mb-4 text-primary"><strong>Participá</strong></h3>
                     <div class="lead col-md-7">
-                    ¿Trabajás en cultura de alguno de los 135 municipios de la provincia de Buenos Aires? ¿Querés compartir experiencias de gestión? ¿Generar lazos y aprendizajes con otros territorios? Te estamos esperando. Hacé <a href="/participa" target="_blank">click acá</a>.
+                    ¿Trabajás en cultura en alguno de los 135 municipios de la provincia de Buenos Aires? ¿Querés compartir experiencias de gestión? ¿Generar lazos y aprendizajes con otros territorios? Te estamos esperando. Hacé <a href="/participa" target="_blank">click acá</a>.
                     </div>
                 </div>
             </div>
@@ -140,4 +139,4 @@ get_template_part( 'layouts/header', 'te-pu' );
 
 
 <?php 
-get_template_part( 'layouts/footer', 'te' ); 
+get_template_part( 'layouts/footer', 'te-pu' ); 

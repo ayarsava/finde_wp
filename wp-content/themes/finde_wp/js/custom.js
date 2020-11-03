@@ -401,7 +401,7 @@ $( document ).ready(function() {
 
   $('.sl-galeria').slick({
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 300,
     slidesToShow: 1,
     centerMode: true,

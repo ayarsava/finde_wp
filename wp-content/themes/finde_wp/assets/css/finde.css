@@ -410,6 +410,10 @@
 [class*=audiovisual] nav.navbar .dropdown .dropdown-menu {
   background-color: #e5013b !important;
 }
+[class*=audiovisual] .etiquetas span {
+  background: #fe0142;
+  color: #FFF;
+}
 
 /*** Territorio Custom ***/
 [class*=territorio] a {
@@ -483,6 +487,10 @@
 }
 [class*=territorio] .card .card-text {
   font-size: 0.9rem;
+}
+[class*=territorio] .etiquetas span {
+  background: #943668;
+  color: #FFF;
 }
 
 header.main-header.bg-primary {
@@ -782,8 +790,9 @@ footer img.logo-cultura {
   }
 }
 #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption {
-  bottom: 20%;
-  width: 40%;
+  bottom: 70px;
+  left: 0;
+  width: 45%;
 }
 @media (max-width: 767.98px) {
   #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption {
@@ -791,8 +800,8 @@ footer img.logo-cultura {
   }
 }
 #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info {
-  background: #FFF;
-  padding: 1rem;
+  background: #222;
+  padding: 0.9rem;
   color: #333333;
 }
 #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info h1 {
@@ -805,7 +814,7 @@ footer img.logo-cultura {
   }
 }
 #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info h1 a {
-  color: #333333;
+  color: #FFF;
 }
 #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info h1 a:hover {
   text-decoration: none;
@@ -1594,6 +1603,9 @@ a.badge.os {
 .sl-galeria .slick-slide {
   max-height: 370px;
   overflow: hidden;
+}
+.sl-galeria .slick-slide img {
+  min-height: 370px;
 }
 .sl-galeria .slick-dots {
   bottom: 0px;
@@ -3018,6 +3030,13 @@ section.cck .titulos h4 {
 }
 .ficha ul.ficha-tecnica li {
   margin-bottom: 0.4rem;
+}
+
+.etiquetas span {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  margin-right: 0.5rem;
+  padding: 3px 10px;
 }
 
 /*# sourceMappingURL=finde.css.map */

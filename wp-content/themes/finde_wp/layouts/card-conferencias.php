@@ -16,20 +16,9 @@
         echo '<div class="card w-100">';
         $hacedores = get_the_terms( $post->ID, 'hacedor' );
         $partidos = get_the_terms( $post->ID, 'partido' );
-
-        $url = get_post_meta( get_the_ID(), 'oembed', true );
-        $embed = wp_oembed_get( $url, $args );
-        if ( ! $embed ) {
-            $embed = $GLOBALS['wp_embed']->shortcode( $args, $url );
-        }
-        if ( $embed ) {
-            echo '<div class="embed-responsive embed-responsive-16by9">';
-            echo $embed;
-            echo '</div>';
-        }
         echo '<div class="card-body">';
-        echo '<h5 class="card-title font-weight-bold"><a href="' . get_the_permalink() .'" rel="slidemark">' . get_the_title() . '</a></h5>';
-        echo '<p>';
+        echo '<h5 class="card-title font-weight-bold mr-4"><a href="' . get_the_permalink() .'" rel="slidemark">' . get_the_title() . '</a></h5>';
+        echo '<div class="p-0">';
         if ($hacedores) {
             foreach($hacedores as $hacedor) {
             $hacedorestring[] = $hacedor->name;
@@ -46,9 +35,19 @@
             echo rtrim($list,',');
             echo ')';
         }
-        echo '</p>';
+        echo '</div></div>';
 
-        
-        echo '</div></div></div>';
+
+        $url = get_post_meta( get_the_ID(), 'oembed', true );
+        $embed = wp_oembed_get( $url, $args );
+        if ( ! $embed ) {
+            $embed = $GLOBALS['wp_embed']->shortcode( $args, $url );
+        }
+        if ( $embed ) {
+            echo '<div class="embed-responsive embed-responsive-16by9">';
+            echo $embed;
+            echo '</div>';
+        }
+        echo '</div></div>';
     
 ?>

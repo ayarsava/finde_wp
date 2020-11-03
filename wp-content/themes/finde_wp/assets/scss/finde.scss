@@ -364,6 +364,12 @@ $audiovisual: #fe0142;
   nav.navbar .dropdown .dropdown-menu {
     background-color: darken($audiovisual, 5%)!important;
   }
+  .etiquetas {
+    span {
+      background:$audiovisual;
+      color:#FFF;
+    }
+  }
 }
 
 /*** Territorio Custom ***/
@@ -441,6 +447,12 @@ $territorio: #943668;
   }
   .card .card-text {
     font-size:0.9rem;
+  }
+  .etiquetas {
+    span {
+      background:$territorio;
+      color:#FFF;
+    }
   }
 }
 
@@ -735,14 +747,15 @@ footer {
       background-size:cover;
       background-position:center center;
       .carousel-caption {
-        bottom: 20%;
-        width: 40%;
+        bottom: 70px;
+        left: 0;
+        width: 45%;
         @media (max-width: 767.98px) {
           width: 70%;
         }
         .info {
-          background:#FFF;
-          padding:1rem;
+          background:#222;
+          padding:.9rem;
           color: #333333;
           h1 {
             font-size: 2.4rem;
@@ -751,7 +764,7 @@ footer {
                 font-size: 1.3rem;
             }
             a {
-              color: #333333;
+              color: #FFF;
             &:hover {
                 text-decoration: none;
               }
@@ -1357,6 +1370,9 @@ a.badge.os {
   .slick-slide {
     max-height: 370px;
     overflow: hidden;
+    img {
+      min-height: 370px;
+    }
   }
   .slick-dots {
     bottom: 0px;
@@ -2709,5 +2725,13 @@ section.cck {
     li {
       margin-bottom:.4rem;
     }
+  }
+}
+.etiquetas {
+  span {
+    text-transform: uppercase;
+    font-size: .7rem;
+    margin-right: .5rem;
+    padding:3px 10px;
   }
 }

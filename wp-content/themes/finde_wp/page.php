@@ -20,6 +20,8 @@ if (has_category( 'Editorial' )) {
   get_template_part( 'layouts/header', 'mu' ); 
 } elseif (has_category( 'Diseño' )) {
   get_template_part( 'layouts/header', 'di' ); 
+} elseif (has_category( 'Territorio' )) {
+	get_template_part( 'layouts/header', 'te' ); 
 } else {
 get_header();
 }
@@ -64,6 +66,8 @@ if (has_category( 'Editorial' )) {
   get_template_part( 'layouts/footer', 'mu' ); 
 } elseif (has_category( 'Diseño' )) {
   get_template_part( 'layouts/footer', 'di' ); 
+} elseif (has_category( 'Territorio' )) {
+  get_template_part( 'layouts/footer', 'te' ); 
 } else {
 get_footer();
 }

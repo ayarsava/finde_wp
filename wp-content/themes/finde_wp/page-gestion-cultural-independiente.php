@@ -39,25 +39,10 @@ get_template_part( 'layouts/header', 'te-in' );
         <?php the_content();?>
 
         <!--BIENVENIDA-->
-        <section class="bg-white py-5">
+        <section class="bg-light py-5">
             <div class="container">
                 <h3 class="mb-4"><strong>Bienvenida</strong></h3>
                 <p class="lead">Territorios Unidos es un espacio de encuentro entre los 135 municipios bonaerenses, Territorios Unidos es un espacio de encuentro entre los 135 municipios bonaerenses, Territorios Unidos es un espacio de encuentro entre los 135 municipios bonaerenses.</p>
-                <div class="row mt-5" style="background:#e2e2e2;">
-                    <div class="col-md-9">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OYTyE12K_mA?rel=0" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="wrap pt-5 px-sm-5">
-                            <h3>Introducción</h3>
-                            <h4>Territorios Unidos</h4>
-                            <p class="mt-5">Augusto Costa, Ministro de Producción, Ciencia e Innovación de la Provinicia de Buenos Aires abre Finde Territorios.</p>
-                            <p class="">Un espacio de encuentro para gestores culturales públicos de los 135 municipios bonaerenses.</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -121,4 +106,4 @@ get_template_part( 'layouts/header', 'te-in' );
 
 
 <?php 
-get_template_part( 'layouts/footer', 'te' ); 
+get_template_part( 'layouts/footer', 'te-in' ); 

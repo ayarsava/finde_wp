@@ -35,20 +35,21 @@
   <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
     <div id="soon" style="display:none;">
-        <header class="main-header bg-primary">
-            <div class="container">
-                <div class="row position-relative">
-                    <div class="logo-wrapper col-lg-2 col-md-3 col-8">
-                        <a class="main-logo mt-3" href="/">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde_diseno_logo.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
-                        </a>
-                    </div>
-                    <div class="col-md-7 d-none d-md-block pt-4 text-right ml-auto">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-cultura-gobierno-blanco.png" class="img-fluid ml-auto" width="340">
-                    </div>
-                </div>
-            </div>
-        </header>
+    <header class="main-header bg-primary">
+  		<div class="container">
+	  		<div class="row position-relative">
+		  		<div class="logo-wrapper col-lg-2 col-md-3 col-8">
+			        <a class="main-logo mt-3" href="/">
+			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde_te_logo.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
+			        </a>
+			    </div>
+			    <div class="col-md-7 d-none d-md-block pt-4 text-right ml-auto">
+				    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-cultura-gobierno-blanco.png" class="img-fluid ml-auto" width="340">
+				</div>
+			</div>
+		</div>
+	</header>
+
 
         <div id="content" class="home-territorio">
             <!--CCK-->
@@ -104,14 +105,14 @@
             <div class="container">
                 <div class="row my-5">
                     <div class="col-lg-2 col-md-3 col-5">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_finde_footer-di.png" class="img-fluid mb-5">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_finde_footer-te.png" class="img-fluid mb-5">
                     </div>
                     <div class="col-lg-6 col-md-5">
                     <ul class="list-unstyled text-white">
-                        <li><a href="/" class="text-light">Finde</a></li>
-                        <li><a href="/diseno/#tienda" class="text-light">Tienda</a></li>
-                        <li><a href="/agenda-diseno/" class="text-light">Agenda</a></li>
-                        <li><a href="/preguntas-frecuentes/" class="text-light">Preguntas frecuentes</a></li>
+                    <li><a href="/territorio" class="text-light">Finde</a></li>
+					<li><a href="/territorio/gestion-cultural-independiente/" class="text-light">Finde Territorio Cultura Independiente</a></li>
+					<li><a href="/territorio/gestion-cultural-publica/" class="text-light">Finde Territorio Gestión Pública</a></li>
+			      	<li><a href="/preguntas-frecuentes/" class="text-light">Preguntas frecuentes</a></li>
                     </ul>
                     </div>
                     <div class="col-lg-7 col-md-7 ml-auto text-right">
@@ -146,7 +147,7 @@ jQuery(function($) {
     hour = minute * 60,
     day = hour * 24;
 
-    let countDown = new Date('2020-11-05T00:00:01'.replace(/\s/, 'T')).getTime(),
+    let countDown = new Date('2020-10-05T00:00:01'.replace(/\s/, 'T')).getTime(),
     x = setInterval(function() {    
 
     let now = new Date().getTime(),
