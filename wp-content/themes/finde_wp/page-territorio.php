@@ -145,7 +145,7 @@ jQuery(function($) {
     hour = minute * 60,
     day = hour * 24;
 
-    let countDown = new Date('2020-10-05T00:00:01'.replace(/\s/, 'T')).getTime(),
+    let countDown = new Date('2020-11-05T00:00:01'.replace(/\s/, 'T')).getTime(),
     x = setInterval(function() {    
 
     let now = new Date().getTime(),
