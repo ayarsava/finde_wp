@@ -49,10 +49,10 @@
 			    </div>
 			    <div class="col-lg-6 col-md-5">
 			      <ul class="list-unstyled text-white">
-                    <li><a href="/territorio/gestion-cultural-publica/" class="text-light">Finde</a></li>
-                    <li><a href="/territorio/gestion-cultural-publica/" class="text-light">Finde Territorio Gestión Pública</a></li>
-                    <li><a href="/territorio/gestion-cultural-independiente/" class="text-light">Finde Territorio Cultura Independiente</a></li>
-			      	<li><a href="/preguntas-frecuentes/" class="text-light">Preguntas frecuentes</a></li>
+                    <li><a href="/territorio/" class="text-light">Finde</a></li>
+                    <li><a href="/territorio/gestion-cultural-publica/" class="text-light">Gestión Pública</a></li>
+                    <li><a href="/territorio/gestion-cultural-independiente/" class="text-light">Cultura Independiente</a></li>
+					<li><a href="/territorio/preguntas-frecuentes/" class="text-light">Preguntas frecuentes</a></li>
 			      </ul>
 			    </div>
 			    <div class="col-lg-7 col-md-7 ml-auto text-right">

@@ -1957,7 +1957,7 @@ if ( ! function_exists( 'wp_showSlides_fullbg_portag' ) ) {
                 if( $no_title == 1 ) {
                   echo '<div class="info">';
                     echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1>';
-                    echo '<div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
+                    echo '<div class="text-light">' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
                   echo '</div>';
                 };
                 echo '</div>';
@@ -1975,7 +1975,7 @@ if ( ! function_exists( 'wp_showSlides_fullbg_portag' ) ) {
               if( $no_title == 1 ) {
                 echo '<div class="info">';
                   echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1>';
-                  echo '<div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
+                  echo '<div class="text-light">' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
                 echo '</div>';
               };
               echo '</div>';
@@ -2024,7 +2024,7 @@ function wp_showSlides_fullbg() {
               echo '<div class="carousel-caption text-left">';
                 echo '<div class="info">';
                   echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1>';
-                  echo '<div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
+                  echo '<div class="text-light">' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
                 echo '</div>';
               echo '</div>';
             echo '</div>';
@@ -2040,7 +2040,7 @@ function wp_showSlides_fullbg() {
               echo '<div class="carousel-caption text-left">';
                 echo '<div class="info">';
                   echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1>';
-                  echo '<div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
+                  echo '<div class="text-light">' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
                 echo '</div>';
               echo '</div>';
             echo '</div>';
@@ -2079,7 +2079,7 @@ function wp_showSlides_fullbg_editorial() {
         echo '<div class="container">';
         echo '<div class="carousel-caption text-left">';
         echo '<div class="info">';
-        echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1><div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
+        echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1><div class="text-light">' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
         echo '</div></div></div></div>';
     }
     /* Restore original Post Data */
@@ -2114,7 +2114,7 @@ function wp_showSlides_fullbg_musica() {
         echo '<div class="container">';
         echo '<div class="carousel-caption text-left">';
         echo '<div class="info">';
-        echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1><div>' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
+        echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1><div class="text-light">' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
         echo '</div></div></div></div>';
     }
     /* Restore original Post Data */

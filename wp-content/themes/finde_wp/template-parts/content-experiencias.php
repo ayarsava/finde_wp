@@ -32,7 +32,7 @@ $cargo = rwmb_meta( 'mbox_cargo' );
 
 <?php if( has_term( 'atlas-de-experiencias', 'recurso' ) || has_term( 'radar', 'recurso' )) { ?>
 <!--ATLAS DE EXPERIENCIAS O RADAR-->
-        <header class="branding-header bg-light text-dark pt-3<?php if ($featured_img_url) { echo ' tengo-background" style="background-image: url('. esc_url($featured_img_url) .'); background-size: cover; min-height:450px;">'; 
+        <header class="branding-header bg-light text-dark pt-3<?php if ($featured_img_url) { echo ' tengo-background" style="background-image: url('. esc_url($featured_img_url) .')!important; background-size: cover; background-position:center center; min-height:450px;background-position: center center;background-repeat:no-repeat;">'; 
         } ?>
             <div class="container">
                 <div class="row">
@@ -91,7 +91,7 @@ $cargo = rwmb_meta( 'mbox_cargo' );
 
         <div class="container py-5">
             <div class="w-md-70 mx-auto">
-                <div class="etiquetas">
+                <div class="etiquetas mb-2">
                 <?php
                 $posttags = get_the_tags();
                 if ($posttags) {
@@ -148,7 +148,7 @@ $cargo = rwmb_meta( 'mbox_cargo' );
                     // slick
                     foreach ( $images as $image ) {
                         echo '<div>';
-                        echo '<img data-lazy="', $image['url'], '">';
+                        echo '<img src="', $image['url'], '">';
                         echo '</div>';
                     }    
                 }   
@@ -162,7 +162,7 @@ $cargo = rwmb_meta( 'mbox_cargo' );
                 <div class="row">
                     <h3 class="col-15 mb-4 text-primary"><strong>Cultura en territorio</strong>  <a href="/territorio/sumate" class="btn btn-outline-primary">SUMATE  <i class="fas fa-chevron-right"></i></a></h3>
                     <div class="lead col-md-7">
-                    ¿Querés recibir más información sobre este u otro caso del Atlas de Experiencias? ¿Querés compartir alguna política pública en territorio? <a href="/territorio/sumate" target="_blank">Escribínos</a>.
+                    ¿Querés recibir más información sobre este u otro caso del Atlas de Experiencias? ¿Querés compartir alguna política pública en territorio? <a href="/territorio/sumate" target="_blank">Escribinos</a>.
                     </div>
                 </div>
             </div>

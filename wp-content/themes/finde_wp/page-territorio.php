@@ -49,17 +49,17 @@
                         <div class="w-100 w-md-50 h-100 text-center text-white d-flex justify-content-center align-items-end position-relative" style="background-color:#4e3e7c;min-height:650px;background-position:center;background-image:url(<?php echo get_template_directory_uri(); ?>/assets/img/gcp.jpg);background-size:cover;background-repeat:no-repeat;">
                             <div class="data">
                                 <a href="/territorio/gestion-cultural-publica" title="Gestión Cultural Pública" class="stretched-link"></a>
-                                <h4 class="text-dark font-weight-bold">Gestión Cultural Pública</h4>
-                                <div class="lead px-5 pt-2 pb-3 font-weight-bold mx-3">Sitio para Secretarías de Cultura y gestorxs culturales públicos</div>
-                                <a href="/territorio/gestion-cultural-publica" class="boton-3d my-3">Entrar</a>
+                                <h4 class="font-weight-bold" style="color:#000;text-shadow: 1px 0px 3px #FFF;">Gestión Cultural Pública</h4>
+                                <div class="lead px-5 pt-0 pb-3 font-weight-bold mx-3" style="text-shadow: 1px 0px 3px #FFF; color:#000">Sitio para Secretarías de Cultura y gestorxs culturales públicos</div>
+                                <a href="/territorio/gestion-cultural-publica" class="boton-3d mt-3 mb-5">Entrar</a>
                             </div>
                         </div>
                         <div class="w-100 w-md-50 h-100 text-center text-white d-flex justify-content-center align-items-end position-relative" style="background-color:#dd0839;min-height:650px;background-position:center;background-image:url(<?php echo get_template_directory_uri(); ?>/assets/img/gci.jpg);background-size:cover;background-repeat:no-repeat;">
                             <div class="data">
                                 <a href="/territorio/gestion-cultural-independiente" title="Gestión Cultural Independiente" class="stretched-link"></a>
-                                <h4 class="text-dark font-weight-bold">Gestión Cultural Independiente</h4>
-                                <div class="lead px-5 pt-2 pb-3 font-weight-bold mx-3">Sitio para espacios, festivales y colectivos culturales independientes</div>
-                                <a href="/territorio/gestion-cultural-independiente" class="boton-3d my-3">Entrar</a>
+                                <h4 class="font-weight-bold" style="color:#000;text-shadow: 1px 0px 3px #FFF;">Gestión Cultural Independiente</h4>
+                                <div class="lead px-5 pt-0 pb-3 font-weight-bold mx-3" style="text-shadow: 1px 0px 3px #FFF; color:#000">Sitio para espacios, festivales y colectivos culturales independientes</div>
+                                <a href="/territorio/gestion-cultural-independiente" class="boton-3d mt-3 mb-5">Entrar</a>
                             </div>
                         </div>
                     </div>
@@ -145,7 +145,7 @@ jQuery(function($) {
     hour = minute * 60,
     day = hour * 24;
 
-    let countDown = new Date('2020-11-05T00:00:01'.replace(/\s/, 'T')).getTime(),
+    let countDown = new Date('2020-10-05T00:00:01'.replace(/\s/, 'T')).getTime(),
     x = setInterval(function() {    
 
     let now = new Date().getTime(),

@@ -401,12 +401,10 @@ $( document ).ready(function() {
 
   $('.sl-galeria').slick({
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 300,
     slidesToShow: 1,
-    centerMode: true,
     variableWidth: true,
-    lazyLoad: 'ondemand',
     responsive: [
       {
         breakpoint: 1024,

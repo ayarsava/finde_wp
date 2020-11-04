@@ -41,8 +41,8 @@ get_template_part( 'layouts/header', 'te-in' );
         <!--BIENVENIDA-->
         <section class="bg-light py-5">
             <div class="container">
-                <h3 class="mb-4"><strong>Bienvenida</strong></h3>
-                <p class="lead">Territorios Unidos es un espacio de encuentro entre los 135 municipios bonaerenses, Territorios Unidos es un espacio de encuentro entre los 135 municipios bonaerenses, Territorios Unidos es un espacio de encuentro entre los 135 municipios bonaerenses.</p>
+                <h3 class="mb-4"><strong>Cultura en Territorio</strong></h3>
+                <p class="lead">Finde Cultura en Territorio es un espacio de encuentro de la cultura independiente bonaerense, para compartir experiencias y herramientas que la potencien. En esta primera edición tendremos presentaciones de proyectos colectivos, festivales y espacios culturales, conversaciones y capacitaciones. Un espacio para pensar la cultura independiente en territorio desde los territorios.</p>
             </div>
         </section>
 
@@ -51,10 +51,10 @@ get_template_part( 'layouts/header', 'te-in' );
             <div class="container">
                 <h3 class="mb-4"><strong>Atlas de experiencias</strong></h3>
                 <div class="lead">
-                    Un inventario de políticas y eventos culturales lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Un inventario de proyectos independientes y de gestión mixta que estimulan la potencia de la cultura bonaerense. Un espacio para compartir experiencias, construir vínculos y aprender de nuestros pares: Cómo crean y gestionan acciones que transforman sus comunidades y territorios.
                 </div>
                 
-                <div class="slick x3 my-5">
+                <div class="slick x3 mt-5">
                     <?php wp_archive_experiencias_x_recurso('atlas-de-experiencias', 'gestion-cultural-independiente') ?>
                 </div>
             </div>
@@ -67,9 +67,9 @@ get_template_part( 'layouts/header', 'te-in' );
                 <div class="container">
                     <h3 class="mb-4"><strong>Conversaciones</strong></h3>
                     <div class="lead mb-4">
-                        Gestores culturales públicos de otras provincias nos comparten casos de gestión que produjeron un impacto en sus territorios.
+                    Referentes de proyectos colectivos, festivales y espacios culturales intercambian miradas, experiencias y desafíos en conversaciones sobre las singularidades de producir cultura en la provincia de Buenos Aires.
                     </div>
-                    <div class="slick-custom my-5" data-slick='{"slidesToShow": 2, "slidesToScroll": 1}'>
+                    <div class="slick-custom mt-5" data-slick='{"slidesToShow": 2, "slidesToScroll": 1}'>
                         <?php wp_archive_experiencias_x_recurso('conferencias', 'gestion-cultural-independiente') ?>
                     </div>
                 </div>
@@ -81,9 +81,9 @@ get_template_part( 'layouts/header', 'te-in' );
             <div class="container">
                 <h3 class="mb-4"><strong>Capacitaciones</strong></h3>
                 <div class="lead">
-                   Un espacio de formación virtual permanente para gestores culturales públicos de la provincia de Buenos Aires
+                Un espacio de formación virtual permanente para gestores culturales independientes de la provincia de Buenos Aires.
                 </div>
-                <div class="slick x3 my-5">
+                <div class="slick x3 mt-5">
                     <?php wp_archive_experiencias_x_recurso('capacitaciones', 'gestion-cultural-independiente') ?>
                 </div>
             </div>
@@ -95,7 +95,7 @@ get_template_part( 'layouts/header', 'te-in' );
                 <div class="row">
                     <h3 class="col-12 mb-4 text-primary"><strong>Participá</strong></h3>
                     <div class="lead col-md-7">
-                    ¿Trabajás en cultura de alguno de los 135 municipios de la provincia de Buenos Aires? ¿Querés compartir experiencias de gestión? ¿Generar lazos y aprendizajes con otros territorios? Te estamos esperando. Hacé <a href="/participa" target="_blank">click acá</a>.
+                    ¿Trabajás en la cultura independiente en alguno de los 135 municipios de la provincia de Buenos Aires? ¿Querés compartir experiencias? ¿Generar lazos y aprendizajes con otros territorios? Te estamos esperando. Hacé <a href="/participa" target="_blank">click acá</a>.
                     </div>
                 </div>
             </div>
