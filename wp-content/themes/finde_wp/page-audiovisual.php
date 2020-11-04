@@ -54,15 +54,13 @@ get_template_part( 'layouts/header', 'au' );
         </section>
 
         <!--CONVERSACIONES-->
-        <section id="tienda" class="text-center bg-light pt-5">
+        <section id="conversaciones" class="bg-light py-5">
             <div class="container text-left">
                 <h2 class="extra-grande font-weight-bold">Conversaciones</h2>
                 <div class="lead">Encuentros de creadorxs audiovisuales</div>
             </div>
-            <div class="container-fluid">
-                <div class="slick-custom my-5" data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
-                    <?php wp_archive_agenda_destacado('audiovisual') ?>
-                </div>
+            <div class="mt-5">
+                <?php wp_archive_conversaciones('audiovisual') ?>
             </div>
         </section>
 
@@ -103,19 +101,11 @@ get_template_part( 'layouts/header', 'au' );
             </div>
         </section>
 
-        <!--AGENDA-->
-        <section id="agenda-slick" class="bg-white py-5">
+        <!--CARTELERA-->
+        <section id="cartelera-slick" class="bg-white py-5">
             <div class="container">
-                <h1 class="mb-4"><strong>Cartelera</strong> <a href="/en-vivo" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
-                
-                <?php wp_archive_agenda('audiovisual'); ?>
-                <div class="row">
-                    <div class="col-15">
-                        <div class="border-top mt-3 py-3">
-                            <a href="/agenda-audiovisual"><strong>+ Ver agenda completa</strong></a>
-                        </div>
-                    </div>
-                </div>
+                <h1 class="mb-4"><strong>Cartelera</strong></h1>
+                <?php wp_archive_cartelera_destacada(); ?>
             </div><!-- #main -->
         </section>
 

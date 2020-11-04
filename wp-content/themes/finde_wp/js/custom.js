@@ -198,6 +198,39 @@ $('.slick.agenda').slick({
   ]
 });
 
+$('.slick.cartelera').slick({
+  centerMode: true,
+  centerPadding: '60px',
+  slidesToShow: 3,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+      }
+    }
+  ]
+});
+
+$('.slick.conversaciones_slide').slick({
+  infinite: false,
+  speed: 300,
+  slidesToScroll: 1,
+  slidesToShow: 1,
+});
+
 $('#agenda-destacada').slick({
   infinite: false,
   speed: 300,
@@ -487,6 +520,8 @@ if ($('#gamejam_videos').length) {
     ]
   });
 }
+
+$( ".card-cartelera" ).append( '<button type="button" class="plyr__control plyr__control--overlaid" data-plyr="play" aria-label="Play"><svg aria-hidden="true" focusable="false"><svg id="plyr-play" viewBox="0 0 18 18"><path d="M15.562 8.1L3.87.225c-.818-.562-1.87 0-1.87.9v15.75c0 .9 1.052 1.462 1.87.9L15.563 9.9c.584-.45.584-1.35 0-1.8z"></path></svg></svg></button>' );
 
 
 // Filtro de catalogo

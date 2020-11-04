@@ -1674,7 +1674,7 @@ function mbox_register_meta_boxes( $meta_boxes ){
       ),
       array(
         'id'               => 'image_contar',
-        'name'             => 'Imagen para contenido en ContAR/CineAr',
+        'name'             => 'Imagen para contenido en ContAR/CineAr y para Slides. OBLIGATORIO',
         'type'             => 'image_advanced',
 
         // Delete image from Media Library when remove it from post meta?
@@ -2010,7 +2010,7 @@ function wp_showSlides_fullbg() {
       $videos = rwmb_meta( 'mbox_video', array( 'limit' => 1 ) );
       $video = reset( $videos );
       ?>
-<?php
+  <?php
       if ($video) { 
         echo '<div class="carousel-item">';
           echo '<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" >';
@@ -3192,6 +3192,34 @@ if ( ! function_exists( 'wp_archive_agenda_destacado' ) ) {
   }
 }
 
+/*** AGENDA DESTACADO***/
+if ( ! function_exists( 'wp_archive_conversaciones' ) ) {
+  function wp_archive_conversaciones($post_category) {
+    $args = array(
+      'post_type'             => 'agenda',
+      'posts_per_page'        => -1,
+      'category_name'         => $post_category,
+      'meta_query'            => array(
+          'destacado_clause'  => array(
+              'key'           => 'destacado_id',
+          ),
+      ),
+    );
+    // The Query
+    $query_cartelera = new WP_Query( $args );
+
+    if ( $query_cartelera->have_posts() ) { 
+      echo '<div class="slick conversaciones_slide">';
+      while ( $query_cartelera->have_posts() ) : $query_cartelera->the_post();
+        get_template_part( 'layouts/card', 'conversaciones-slide' );
+      endwhile;
+      echo '</div>';
+    } else {
+      get_template_part( 'template-parts/content', 'none' );    
+    }
+  }
+}
+
 /*** AGENDA POR DÍA, POR CATEGORIA***/
 if ( ! function_exists( 'wp_archive_agenda_por_dia' )) {
   function wp_archive_agenda_por_dia($post_category) {
@@ -3288,6 +3316,35 @@ if ( ! function_exists( 'wp_archive_agenda_por_dia' )) {
         echo '</div>';
     endforeach;
     echo '</div>';
+  }
+}
+
+/*** AGENDA ***/
+if ( ! function_exists( 'wp_archive_cartelera_destacada' ) ) {
+  function wp_archive_cartelera_destacada() {
+
+    $args = array(
+        'post_type'             => 'audiovisual',
+        'posts_per_page'        => -1,
+        'meta_query'            => array(
+            'destacado_clause'  => array(
+                'key'           => 'destacado_id',
+            ),
+        ),
+    );
+
+    // The Query
+    $query_cartelera = new WP_Query( $args );
+
+    if ( $query_cartelera->have_posts() ) { 
+      echo '<div class="slick cartelera">';
+      while ( $query_cartelera->have_posts() ) : $query_cartelera->the_post();
+        get_template_part( 'layouts/card', 'cartelera' );
+      endwhile;
+      echo '</div>';
+    } else {
+      get_template_part( 'template-parts/content', 'none' );    
+    }
   }
 }
 

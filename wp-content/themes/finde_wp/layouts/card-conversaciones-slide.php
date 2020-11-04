@@ -1,0 +1,44 @@
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * Contains the closing of the #content div and all content after.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Finde_WP
+ */
+
+?>
+
+<?php
+$partidos = get_the_terms( $post->ID, 'partido' );
+$featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
+    echo '<div class="blocks">';
+        echo '<div class="block block--left p-5">';
+                $posttags = get_the_tags();
+                if ($posttags) {
+                    echo '<div class="tags mb-2">';
+                    foreach($posttags as $tag) {
+                        echo '<span>'.$tag->name.'</span>'; 
+                    }
+                    echo '</div>';
+                }
+            echo '<div class="wrap mr-5"><h3>'.get_the_title().'</h3>';
+            if ( get_the_excerpt() ) {
+                echo '<div class="card-text mb-2">' . get_the_excerpt() .'</div>';
+                } else {
+                echo '<div class="card-text mb-2">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+            }
+            echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+        echo '</div></div>';
+        echo '<div';
+        if ($featured_img_url) { 
+            echo ' class="block block--right" style="background-image: url('. esc_url($featured_img_url) .');">'; 
+        } else {
+            echo '>';
+        }
+        echo '</div>';
+        
+    echo '</div>';
+?>
