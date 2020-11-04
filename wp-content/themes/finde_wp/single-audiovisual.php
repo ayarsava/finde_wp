@@ -116,7 +116,7 @@ get_template_part( 'layouts/header', 'au' );
                     <p><?php echo $descripcion;?></p>
                 </div>
                 <div class="col-md-5 p-4 bg-black text-light">
-                    <div class="titulo">Selección</div>
+                    <div class="titulo">Curación</div>
                     <p><?php echo $seleccion;?></p>
                 </div>
                 <div class="col-md-5 p-4 bg-light">
@@ -128,9 +128,6 @@ get_template_part( 'layouts/header', 'au' );
                     <div class="titulo">Ficha técnica</div>
                     <ul class="list-unstyled ficha-tecnica text-light">
                         <? 
-                        if ($productora) {
-                            echo '<li><strong>Productora:</strong> '.$productora.'</li>';
-                        }
                         if ($direccion) {
                             echo '<li><strong>Dirección:</strong> '.$direccion.'</li>';
                         }
@@ -145,6 +142,9 @@ get_template_part( 'layouts/header', 'au' );
                         }
                         if ($elenco) {
                             echo '<li><strong>Elenco:</strong> '.$elenco.'</li>';
+                        }
+                        if ($productora) {
+                            echo '<li><strong>Productora:</strong> '.$productora.'</li>';
                         }
                         ?>
                     </ul>

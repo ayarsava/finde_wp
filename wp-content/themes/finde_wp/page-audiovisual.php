@@ -62,13 +62,22 @@ get_template_part( 'layouts/header', 'au' );
             <div class="mt-5">
                 <?php wp_archive_conversaciones('audiovisual') ?>
             </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-15">
+                        <div class="border-top mt-3 py-3">
+                            <a href="/agenda-audiovisual"><strong>+ Ver agenda completa</strong></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!--PROYECCIONES-->
         <section class="cck pt-5" style="background:#000;">
             <div class="container text-left" style="color:#F1F1F1;">
                 <h2 class="extra-grande font-weight-bold">Proyecciones</h2>
-                <div class="lead mb-4">Series interactivas, 360, youtubers y cortos</div>
+                <div class="lead mb-4">Series interactivas, 360°, películas, cortos y canales de YouTube</div>
             </div>
             <div class="container-fluid">
                 <div class="row h-100">
