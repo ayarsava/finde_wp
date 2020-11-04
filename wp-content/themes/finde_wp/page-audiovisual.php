@@ -119,15 +119,15 @@ get_template_part( 'layouts/header', 'au' );
         </section>
 
         <!--ESTRENO EXCLUSIVO-->
-        <section class="bg-light py-5" style="background:#e2e2e2;">
+        <section class="bg-light pb-5" style="background:#e2e2e2;">
             <div class="container">
-                <div class="row mt-5">
+                <div class="row mt-md-5">
                     <div class="col-md-6">
                         <div class="wrap pt-5 pr-sm-5">
                             <h5>ESTRENO EXCLUSIVO</h5>
                             <h2>PUNTO DE QUIEBRE</h2>
                             <p class="mt-5">En exclusiva, no te pierdas el estreno de la primera serie 360 de Argentina y la charla con su director, etc.</p>
-                            <a href="#" class="btn btn-outline-primary badge-pill px-5 mt-3">Ver  <i class="fas fa-play"></i></a>
+                            <a href="/catalogo-audiovisual/punto-de-quiebre" class="btn btn-outline-primary badge-pill px-5 my-3">Ver  <i class="fas fa-play"></i></a>
                         </div>
                     </div>
                     <div class="col-md-9">
@@ -142,7 +142,7 @@ get_template_part( 'layouts/header', 'au' );
         <!--ESTRENO DIGITAL-->
         <section class="py-5 bg-primary text-light">
             <div class="container">
-                <div class="row mt-5">
+                <div class="row">
                     <div class="col-md-9">
                         <div class="embed-responsive embed-responsive-16by9">
                             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/OX1ZXj2Qqt0?rel=0" allowfullscreen style="border:solid 3px #FFF; border-radius:3px;padding:1px"></iframe>
@@ -153,13 +153,32 @@ get_template_part( 'layouts/header', 'au' );
                             <h5>ESTRENO DIGITAL</h5>
                             <h2>LAVA</h2>
                             <p class="mt-5">En exclusiva, no te pierdas el estreno de Lava, de Ayar Blasco y la charla con su director, etc.</p>
-                            <a href="#" class="btn btn-outline-light badge-pill px-5 mt-3">Ver  <i class="fas fa-play"></i></a>
+                            <a href="/catalogo-audiovisual/lava" class="btn btn-outline-light badge-pill px-5 my-3">Ver  <i class="fas fa-play"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
+        
+        <!--PLAYLIST-->
+        <section class="bg-white py-5" style="background:#e2e2e2;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="wrap pr-sm-5">
+                            <h2>Música para ver</h2>
+                            <p class="mt-5">Un continuado de videoclips que te hacen viajar por los paisajes, la mística y los paisajes bonaerenses. Desde El Mató a Calle 13, pasando por Conociendo a Rusia o Louta, entre otros.</p>
+                            <a href="/audiovisual/musica-para-ver" class="btn btn-outline-primary badge-pill px-5 my-3">Ver más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/videoseries?list=PLY8H3O1gjtpOohfu5yLMxdSMP3C6zK6T4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border:solid 3px #f2f2f2; border-radius:3px;padding:1px"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!--BANNERS-->
         <?php wp_archive_banners('audiovisual');?>

@@ -3117,6 +3117,11 @@ section.cck .titulos h4 {
   width: 50%;
   width: calc(50% + 2rem);
 }
+@media (max-width: 787px) {
+  .slick.conversaciones_slide.slick-slider .slick-list .slick-track .block {
+    width: 100%;
+  }
+}
 .slick.conversaciones_slide.slick-slider .slick-list .slick-track .block--left {
   clip-path: polygon(0 0, 100% 0, calc(100% - 3rem) 100%, 0% 100%);
   color: #222;
@@ -3126,6 +3131,11 @@ section.cck .titulos h4 {
   font-weight: 700;
   font-size: 3rem;
 }
+@media (max-width: 787px) {
+  .slick.conversaciones_slide.slick-slider .slick-list .slick-track .block--left h3 {
+    font-size: 1.2rem;
+  }
+}
 .slick.conversaciones_slide.slick-slider .slick-list .slick-track .block--left .tags {
   color: #FFF;
 }
@@ -3133,6 +3143,11 @@ section.cck .titulos h4 {
   font-weight: 400;
   margin-top: 1rem;
   font-size: 1.1rem;
+}
+@media (max-width: 787px) {
+  .slick.conversaciones_slide.slick-slider .slick-list .slick-track .block--left .card-text {
+    font-size: 0.8rem;
+  }
 }
 .slick.conversaciones_slide.slick-slider .slick-list .slick-track .block--right {
   margin-left: -2rem;

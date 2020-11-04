@@ -127,7 +127,7 @@ get_template_part( 'layouts/header', 'te-pu' );
                 <div class="row">
                     <h3 class="col-12 mb-4 text-primary"><strong>Participá</strong></h3>
                     <div class="lead col-md-7">
-                    ¿Trabajás en cultura en alguno de los 135 municipios de la provincia de Buenos Aires? ¿Querés compartir experiencias de gestión? ¿Generar lazos y aprendizajes con otros territorios? Te estamos esperando. Hacé <a href="/participa" target="_blank">click acá</a>.
+                    ¿Trabajás en cultura en alguno de los 135 municipios de la provincia de Buenos Aires? ¿Querés compartir experiencias de gestión? ¿Generar lazos y aprendizajes con otros territorios? Te estamos esperando. Hacé <a href="https://docs.google.com/forms/d/e/1FAIpQLScKM27DelTXnmeA7lzORDxzrDEo8ejtLCANYAXLZAVPEC9bBw/viewform" target="_blank">click acá</a>.
                     </div>
                 </div>
             </div>

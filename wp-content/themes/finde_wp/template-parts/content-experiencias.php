@@ -160,9 +160,9 @@ $cargo = rwmb_meta( 'mbox_cargo' );
         <section class="py-5 participa" style="background-color:#dfe4d8;background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/territorio/bk-territorio-01.png');">
             <div class="container">
                 <div class="row">
-                    <h3 class="col-15 mb-4 text-primary"><strong>Cultura en territorio</strong>  <a href="/territorio/sumate" class="btn btn-outline-primary">SUMATE  <i class="fas fa-chevron-right"></i></a></h3>
+                    <h3 class="col-15 mb-4 text-primary"><strong>Cultura en territorio</strong>  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdE3C3GbUjRFonuG2cDm38Ex4vhmjkFAnKs_cV9RYJ6GDiaZg/viewform" class="btn btn-outline-primary">SUMATE  <i class="fas fa-chevron-right"></i></a></h3>
                     <div class="lead col-md-7">
-                    ¿Querés recibir más información sobre este u otro caso del Atlas de Experiencias? ¿Querés compartir alguna política pública en territorio? <a href="/territorio/sumate" target="_blank">Escribinos</a>.
+                    ¿Querés recibir más información sobre este u otro caso del Atlas de Experiencias? ¿Querés compartir alguna política pública en territorio? <a href="https://docs.google.com/forms/d/e/1FAIpQLSdE3C3GbUjRFonuG2cDm38Ex4vhmjkFAnKs_cV9RYJ6GDiaZg/viewform" target="_blank">Escribinos</a>.
                     </div>
                 </div>
             </div>

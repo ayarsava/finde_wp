@@ -202,6 +202,7 @@ $('.slick.cartelera').slick({
   centerMode: true,
   centerPadding: '60px',
   slidesToShow: 3,
+  swipeToSlide: true,
   responsive: [
     {
       breakpoint: 768,

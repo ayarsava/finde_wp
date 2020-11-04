@@ -44,10 +44,10 @@
 	<footer class="site-footer py-5 bg-primary">
     	<div class="container">
 			<div class="row my-5">
-			    <div class="col-lg-2 col-md-3 col-5">
+			    <div class="col-lg-2 col-md-2 col-5">
 			      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_finde_footer-te.png" class="img-fluid mb-5">
 			    </div>
-			    <div class="col-lg-6 col-md-5">
+			    <div class="col-lg-4 col-md-5">
 			      <ul class="list-unstyled text-white">
 				  	<li><a href="/territorio/" class="text-light">Finde</a></li>
                     <li><a href="/territorio/gestion-cultural-publica/" class="text-light">Gestión Pública</a></li>
@@ -55,8 +55,8 @@
 			      	<li><a href="/territorio/preguntas-frecuentes/" class="text-light">Preguntas frecuentes</a></li>
 			      </ul>
 			    </div>
-			    <div class="col-lg-7 col-md-7 ml-auto text-right">
-			      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-cultura-gobierno-blanco.png" class="logo-cultura img-fluid">
+			    <div class="col-lg-9 col-md-8 text-right">
+			      <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logos-finde-territorio.png" class="img-fluid">
 			    </div>
 			</div>
 		</div><!-- .container -->

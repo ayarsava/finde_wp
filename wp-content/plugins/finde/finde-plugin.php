@@ -1697,6 +1697,12 @@ function mbox_register_meta_boxes( $meta_boxes ){
         'desc'        => 'Línea optativa para explicar que se va a redirigir a Contar, Cinear u otro',
       ),
       array(
+        'name'        => 'Duración',
+        'id'          => "{$prefix}duracion",
+        'type'        => 'text',
+        'desc'        => 'Por ej. 11:54',
+      ),
+      array(
         'name'        => 'Dirección',
         'id'          => "{$prefix}direccion",
         'type'        => 'text',
