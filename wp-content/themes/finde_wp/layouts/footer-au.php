@@ -17,23 +17,38 @@
 		<section id="sponsors" class="bg-white">
 			<div class="container py-3">
 				<div class="row">
-					<div class="col-lg-15 py-2 mb-3"><strong>Acompañan</strong></div>
+					<div class="col-lg-15 py-2 mb-3"><strong>Socios estratégicos</strong></div>
 					<div class="col-lg-15 text-center">
-						<div class="container autoplay">
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/diseno/cad.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/diseno/hay-futura.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/diseno/ecodal.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/diseno/disur.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/diseno/upso.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/diseno/unnoba.jpg"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/diseno/unmpd.png"></span>
+						<div class="container autoplay big">
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/incaa.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/cine-ar.png"></span> 
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/min-cultura.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/sec-medios.png" style="max-width:360px;"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/contar.png"></span>
+						</div>
+					</div>
+				</div>
+				<div class="row mt-5">
+					<div class="col-lg-15 py-2 mb-3"><strong>Acompañamiento</strong></div>
+					<div class="col-lg-15 text-center">
+						<div class="container autoplay small">
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/rafma.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/espacio-queer.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/mil-gritos.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/luz-del-desierto.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/rec.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/fesaalp.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/uncipar.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/tafic.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/epa.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/mdq35.png" style="max-width:250px;"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/vs.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/lfc.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/eda.png"></span> 
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/sagai.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/un3tv.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/lpa.png"></span>
 							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/diseno/unlp.jpg"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/diseno/undav.jpg"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/diseno/unahur.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/diseno/inti.png"></span> 
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/diseno/ida.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/diseno/cck.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/diseno/min-sgc.png"></span>
 						</div>
 					</div>
 				</div>
@@ -50,8 +65,9 @@
 			    <div class="col-lg-6 col-md-5">
 			      <ul class="list-unstyled text-white">
 			      	<li><a href="/" class="text-light">Finde</a></li>
-			      	<li><a href="/diseno/#tienda" class="text-light">Tienda</a></li>
-			      	<li><a href="/agenda-diseno/" class="text-light">Agenda</a></li>
+			      	<li><a href="/audiovisual/#proyecciones" class="text-light">Proyecciones</a></li>
+					<li><a href="/agenda-audiovisual/" class="text-light">Conversaciones</a></li>
+					<li><a href="/audiovisual/#cartelera" class="text-light">Cartelera</a></li>
 			      	<li><a href="/preguntas-frecuentes/" class="text-light">Preguntas frecuentes</a></li>
 			      </ul>
 			    </div>

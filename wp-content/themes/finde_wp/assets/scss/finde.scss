@@ -1768,7 +1768,7 @@ a[class^="hvr-"] {
           right: 0;
         }
         .card-body {
-          min-height: 10rem;
+          min-height: 7rem;
         }
 
       }
@@ -1913,6 +1913,7 @@ a[class^="hvr-"] {
   &.slick-slider .slick-track .slick-slide {
       background: transparent;
       margin-bottom:0;
+      text-align: center;
   }
 }
 #gamejam_videos {
@@ -2652,6 +2653,15 @@ section.cck {
     }
   }
 }
+.autoplay.big.slick-slider .slick-track .slick-slide img {
+  max-height: 150px;
+  max-width:330px;
+}
+.autoplay.small.slick-slider .slick-track .slick-slide img {
+  max-height: 70px;
+  max-width:200px;
+}
+
 
 .profile-face {
   display: block;
@@ -2803,13 +2813,16 @@ section.cck {
   }
 }
 #agenda-destacada {
+  .item .destacado {
+    margin:0px;
+  }
   .slick-slide {
-    margin-left:10px;
+    margin-left:15px;
   }
 
   /* the parent */
   .slick-list {
-    margin-left:-10px;
+    margin-left:-15px;
   }
 }
 

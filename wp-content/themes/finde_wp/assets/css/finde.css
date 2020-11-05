@@ -2054,7 +2054,7 @@ a[class^=hvr-]:hover {
 #agenda-destacada .item .destacado .card .card-body,
 #agenda-por-dia .item .destacado .card .card-body,
 #gamejam_videos .item .destacado .card .card-body {
-  min-height: 10rem;
+  min-height: 7rem;
 }
 #agenda-destacada button.slick-next,
 #agenda-destacada button.slick-prev,
@@ -2217,6 +2217,7 @@ a[class^=hvr-]:hover {
 .pasadia.slick-slider .slick-track .slick-slide {
   background: transparent;
   margin-bottom: 0;
+  text-align: center;
 }
 
 #gamejam_videos .item {
@@ -2954,6 +2955,16 @@ section.cck .titulos h4 {
   max-width: 270px;
 }
 
+.autoplay.big.slick-slider .slick-track .slick-slide img {
+  max-height: 150px;
+  max-width: 330px;
+}
+
+.autoplay.small.slick-slider .slick-track .slick-slide img {
+  max-height: 70px;
+  max-width: 200px;
+}
+
 .profile-face {
   display: block;
   height: 130px;
@@ -3104,11 +3115,14 @@ section.cck .titulos h4 {
 #agenda-destacada {
   /* the parent */
 }
+#agenda-destacada .item .destacado {
+  margin: 0px;
+}
 #agenda-destacada .slick-slide {
-  margin-left: 10px;
+  margin-left: 15px;
 }
 #agenda-destacada .slick-list {
-  margin-left: -10px;
+  margin-left: -15px;
 }
 
 .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide {

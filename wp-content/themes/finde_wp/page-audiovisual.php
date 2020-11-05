@@ -74,7 +74,7 @@ get_template_part( 'layouts/header', 'au' );
         </section>
 
         <!--PROYECCIONES-->
-        <section class="cck pt-5" style="background:#000;">
+        <section id="proyecciones" class="cck pt-5" style="background:#000;">
             <div class="container text-left" style="color:#F1F1F1;">
                 <h2 class="extra-grande font-weight-bold">Proyecciones</h2>
                 <div class="lead mb-4">Series interactivas, 360°, películas, cortos y canales de YouTube</div>

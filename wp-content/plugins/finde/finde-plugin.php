@@ -3180,11 +3180,11 @@ if ( ! function_exists( 'wp_archive_agenda_destacado' ) ) {
             echo '<div class="card-body">';
               echo '<a href="'. get_permalink() .'" class="stretched-link"></a>';
               echo '<div class="row">';
-                echo '<div class="col-md-5">';
+                echo '<div class="col-md-4">';
                   echo '<div class="fecha"><span class="dia">'.date('d-m', $fecha).'</span><span class="hora">'. date('H:i', $fecha).'hs</span></div>';
                 echo '</div>';
-                echo '<div class="col-md-10">';
-                  echo the_title( '<h5 class="card-title">', '</h5>' );
+                echo '<div class="col-md-11">';
+                  echo the_title( '<h5 class="card-title font-weight-bold pr-3">', '</h5>' );
                   if ( get_the_excerpt() ) {
                     echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_excerpt() ), 18, '...' ) .'</div>';
                   } else {
@@ -3303,7 +3303,7 @@ if ( ! function_exists( 'wp_archive_agenda_por_dia' )) {
                           echo '</div>';
                       }
                       
-                      echo '<div class="col-md-9 pl-md-4 data">';
+                      echo '<div class="col-md-9 pl-md-4">';
                           if ($featured_img_url) { 
                             echo '<h4 class="card-title font-weight-bold">'.$evento->post_title.'</h4>';
                           } else {
