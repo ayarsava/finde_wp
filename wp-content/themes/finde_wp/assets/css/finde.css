@@ -3157,4 +3157,8 @@ section.cck .titulos h4 {
   background-repeat: no-repeat;
 }
 
+.tax-recurso .img-wrapper img {
+  max-width: 100%;
+}
+
 /*# sourceMappingURL=finde.css.map */
