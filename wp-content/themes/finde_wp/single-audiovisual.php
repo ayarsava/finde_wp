@@ -11,6 +11,7 @@ get_template_part( 'layouts/header', 'au' );
 
     $youtubevimeo = rwmb_meta( $post->ID, 'youtubevimeo' );
     $contar = rwmb_meta('mbox_contar');
+    $iframe = rwmb_meta( 'iframe' );
     $aclaracion = rwmb_meta('mbox_aclaracion');
     $image_contar = rwmb_meta( 'image_contar', array( 'limit' => 1, 'size' => 'full' ) );
     $image = reset( $image_contar );
@@ -28,6 +29,7 @@ get_template_part( 'layouts/header', 'au' );
     $guion = rwmb_meta('mbox_guion');
     $ano = rwmb_meta('mbox_ano');
     $elenco = rwmb_meta('mbox_elenco');
+
 ?>
 <div id="content">
     <div id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
@@ -39,19 +41,23 @@ get_template_part( 'layouts/header', 'au' );
             echo $embed;
             echo '</div></header>';
         } else if ($contar) {
-            echo '<header class="movie-container contar text-light py-3"';
-            if ($image_contar) { 
-                echo ' style="background-image: url('.$image['url'].'">';
-                echo '<a href="'.$contar.'" target="_blank" class="goto-contar"><i class="fas fa-play-circle"></i></a>';
-                echo '</header>';
+            if ($iframe == 1) {
+                echo '<iframe width="100%" height="640" style="width: 100%; height: 640px; border: none; max-width: 100%;" frameborder="0" allowfullscreen allow="xr-spatial-tracking; gyroscope; accelerometer" scrolling="yes" src="'.$contar.'"></iframe>';
             } else {
-                echo '></header>';
+                echo '<header class="movie-container contar text-light py-3"';
+                if ($image_contar) { 
+                    echo ' style="background-image: url('.$image['url'].'">';
+                    echo '<a href="'.$contar.'" target="_blank" class="goto-contar"><i class="fas fa-play-circle"></i></a>';
+                    echo '</header>';
+                } else {
+                    echo '></header>';
+                }
             }
         } else {
             echo '<header class="movie-container text-light py-3" style="background:#000;">
             <div class="container">No hemos encontrado contenido para ser mostrado</div></header>';
         }
-        if ($contar) {
+        if ($contar && $iframe == 0) {
             if ($aclaracion) {
                 echo '<!--Aclaración de redirección-->';
                 echo '<div class="aclaracion" style="background:#F1F1F1; font-size:.8rem;"><div class="container py-3">';
@@ -67,11 +73,11 @@ get_template_part( 'layouts/header', 'au' );
                 <?php the_title( '<h1 class="entry-title extra-grande">', '</h1>' ); ?>
                 <div class="etiquetas">
                 <?php if ($duracion) { ?>
-                    <span class="mr-3"><i class="far fa-clock"></i> Duración: <?php echo $duracion;?></span>
+                    <span class="mr-1"><i class="far fa-clock"></i> Duración: <?php echo $duracion;?></span>
                 <?php } ?>
                     <?php
                     if ($tipo_au) {
-                        echo '<span class="mr-3"><i class="fas fa-film"></i>';
+                        echo '<span class="mr-1"><i class="fas fa-film"></i>  ';
                         foreach($tipo_au as $tipo) {
                         $tipo_autring[] = $tipo->name;
                         }
@@ -82,7 +88,7 @@ get_template_part( 'layouts/header', 'au' );
                     ?>
                     <?php
                     if ($genero_au) {
-                        echo '<span class="mr-3"><i class="fas fa-eye"></i>';
+                        echo '<span class="mr-1"><i class="fas fa-eye"></i>  ';
                         foreach($genero_au as $genero) {
                         $genero_autring[] = $genero->name;
                         }
@@ -93,7 +99,7 @@ get_template_part( 'layouts/header', 'au' );
                     ?>
                     <?php
                     if ($calificacion_au) {
-                        echo '<span class="mr-3"><i class="far fa-hand-paper"></i>';
+                        echo '<span class="mr-1"><i class="far fa-hand-paper"></i>  ';
                         foreach($calificacion_au as $calificacion) {
                         $calificacion_autring[] = $calificacion->name;
                         }
@@ -103,9 +109,9 @@ get_template_part( 'layouts/header', 'au' );
                     }
                     ?>
                 </div>
-                <div class="lead py-4">
+                <div class="lead py-4 gutemberg">
                     <?php 
-                    echo get_the_content();
+                    echo the_content();
                     ?>
                 </div>
             </div>

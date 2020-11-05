@@ -1673,6 +1673,13 @@ function mbox_register_meta_boxes( $meta_boxes ){
         'type' => 'url',
       ),
       array(
+        'name' => 'Es iframe?',
+        'id'   => 'iframe',
+        'type' => 'checkbox',
+        'desc' => __( 'Sólo active esta opción si el contenido será embebido en forma de Iframe en finde.gba.gob.ar', 'mbox' ),
+        'std'  => 0, // 0 or 1
+      ),
+      array(
         'id'               => 'image_contar',
         'name'             => 'Imagen para contenido en ContAR/CineAr y para Slides. OBLIGATORIO',
         'type'             => 'image_advanced',
@@ -3335,6 +3342,7 @@ if ( ! function_exists( 'wp_archive_cartelera_destacada' ) ) {
         'meta_query'            => array(
             'destacado_clause'  => array(
                 'key'           => 'destacado_id',
+                'value'         => 1,
             ),
         ),
     );

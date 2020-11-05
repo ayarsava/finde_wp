@@ -3053,9 +3053,11 @@ section.cck .titulos h4 {
   /* the parent */
 }
 .slick.cartelera.slick-slider .slick-list .slick-track .slick-slide.card-cartelera {
-  height: 230px;
+  height: 190px;
   background-size: cover;
   position: relative;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 .slick.cartelera.slick-slider .slick-list .slick-track .slick-slide.card-cartelera:before {
   content: "";
@@ -3099,8 +3101,18 @@ section.cck .titulos h4 {
   margin-left: -10px;
 }
 
+#agenda-destacada {
+  /* the parent */
+}
+#agenda-destacada .slick-slide {
+  margin-left: 10px;
+}
+#agenda-destacada .slick-list {
+  margin-left: -10px;
+}
+
 .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide {
-  height: 550px;
+  height: 385px;
   position: relative;
 }
 .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.tengo-background {
@@ -3159,6 +3171,16 @@ section.cck .titulos h4 {
 
 .tax-recurso .img-wrapper img {
   max-width: 100%;
+}
+
+.gutemberg .wp-block-embed.is-type-video .wp-block-embed__wrapper:before {
+  padding-top: 0%;
+}
+
+.item-audiovisual .card .card-header {
+  height: 220px;
+  background-size: cover;
+  background-position: center center;
 }
 
 /*# sourceMappingURL=finde.css.map */

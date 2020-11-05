@@ -65,8 +65,8 @@ get_template_part( 'layouts/header', 'au' );
             <div class="container">
                 <div class="row">
                     <div class="col-15">
-                        <div class="border-top mt-3 py-3">
-                            <a href="/agenda-audiovisual"><strong>+ Ver agenda completa</strong></a>
+                        <div class="mt-3 py-3">
+                            <a href="/agenda-audiovisual"><strong>+ Ver agenda de conversaciones     completa</strong></a>
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@ get_template_part( 'layouts/header', 'au' );
             </div>
             <div class="container-fluid">
                 <div class="row h-100">
-                    <div class="col-md-9 full-img position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-cine.jpg'); min-height:500px;">
+                    <div class="col-md-9 full-img position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-cine-elpoetaenlaluna.jpg'); min-height:500px;">
                         <a href="/catalogo-audiovisual/seccion/cine/" title="Cine. Selección curada por festivales" class="stretched-link"></a>
                         <div class="titulos">
                             <h4>Cine</h4>
@@ -114,6 +114,8 @@ get_template_part( 'layouts/header', 'au' );
         <section id="cartelera-slick" class="bg-white py-5">
             <div class="container">
                 <h1 class="mb-4"><strong>Cartelera</strong></h1>
+            </div>
+            <div class="container-fluid">
                 <?php wp_archive_cartelera_destacada(); ?>
             </div><!-- #main -->
         </section>
@@ -161,14 +163,14 @@ get_template_part( 'layouts/header', 'au' );
         </section>
         
         <!--PLAYLIST-->
-        <section class="bg-white py-5" style="background:#e2e2e2;">
+        <section class="bg-light py-5" style="background:#e2e2e2;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="wrap pr-sm-5">
                             <h2>Música para ver</h2>
                             <p class="mt-5">Un continuado de videoclips que te hacen viajar por los paisajes, la mística y los paisajes bonaerenses. Desde El Mató a Calle 13, pasando por Conociendo a Rusia o Louta, entre otros.</p>
-                            <a href="/audiovisual/musica-para-ver" class="btn btn-outline-primary badge-pill px-5 my-3">Ver más</a>
+                            <a href="/catalogo-audiovisual/videoclips/" class="btn btn-outline-primary badge-pill px-5 my-3">Ver más</a>
                         </div>
                     </div>
                     <div class="col-md-9">

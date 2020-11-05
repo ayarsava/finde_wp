@@ -201,16 +201,25 @@ $('.slick.agenda').slick({
 $('.slick.cartelera').slick({
   centerMode: true,
   centerPadding: '60px',
-  slidesToShow: 3,
+  slidesToShow: 4,
   swipeToSlide: true,
   responsive: [
+    {
+      breakpoint: 1000,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 3
+      }
+    },
     {
       breakpoint: 768,
       settings: {
         arrows: false,
         centerMode: true,
         centerPadding: '40px',
-        slidesToShow: 3
+        slidesToShow: 2
       }
     },
     {
@@ -522,8 +531,6 @@ if ($('#gamejam_videos').length) {
   });
 }
 
-$( ".card-cartelera" ).append( '<button type="button" class="plyr__control plyr__control--overlaid" data-plyr="play" aria-label="Play"><svg aria-hidden="true" focusable="false"><svg id="plyr-play" viewBox="0 0 18 18"><path d="M15.562 8.1L3.87.225c-.818-.562-1.87 0-1.87.9v15.75c0 .9 1.052 1.462 1.87.9L15.563 9.9c.584-.45.584-1.35 0-1.8z"></path></svg></svg></button>' );
-
 
 // Filtro de catalogo
 // set up variables
@@ -636,10 +643,15 @@ var $quicksearch = $('#search').keyup(debounce(function() {
 
 
   //CAPTURO FUENTE Y ASIGNO AUTOPLAY
-if($(".fullmedia, .trailer, .video")[0]){
+
+if($(".fullmedia, .trailer, .video, .movie-container")[0]){
   $('iframe[src*="youtube"]').wrap(
   "<div class='embed-responsive embed-responsive-16by9'></div>"
   ).addClass("embed-responsive-item");
+
+  $('iframe[src*="vimeo"]').wrap(
+    "<div class='embed-responsive embed-responsive-16by9'></div>"
+    ).addClass("embed-responsive-item");
 
   $('iframe[src*="twitch.tv"]').wrap(
   "<div class='embed-responsive embed-responsive-16by9'></div>"
