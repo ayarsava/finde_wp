@@ -47,7 +47,7 @@ get_template_part( 'layouts/header', 'te-in' );
         </section>
 
         <!--ATLAS DE EXPERIENCIAS-->
-        <section class="bg-white py-2 py-sm-5">
+        <section id="atlas-de-experiencias" class="bg-white py-2 py-sm-5">
             <div class="container">
                 <h3 class="mb-4"><strong>Atlas de experiencias</strong></h3>
                 <div class="lead">
@@ -60,8 +60,8 @@ get_template_part( 'layouts/header', 'te-in' );
             </div>
         </section>
 
-        <!--CONFERENCIAS-->
-        <section class="py-2 py-sm-5">
+        <!--CONVERSACIONES-->
+        <section id="conversaciones" class="py-2 py-sm-5">
         
             <div class="container-fluid bg-light py-2">
                 <div class="container">
@@ -77,7 +77,7 @@ get_template_part( 'layouts/header', 'te-in' );
         </section>
 
         <!--CAPACITACIONES-->
-        <section class="bg-white py-2 py-sm-5">
+        <section id="capacitaciones" class="bg-white py-2 py-sm-5">
             <div class="container">
                 <h3 class="mb-4"><strong>Capacitaciones</strong></h3>
                 <div class="lead">
@@ -90,7 +90,7 @@ get_template_part( 'layouts/header', 'te-in' );
         </section>
 
         <!--PARTICIPA-->
-        <section class="bg-light py-5 participa" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/territorio/bk-territorio-01.png');">
+        <section id="participa" class="bg-light py-5 participa" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/territorio/bk-territorio-01.png');">
             <div class="container">
                 <div class="row">
                     <h3 class="col-12 mb-4 text-primary"><strong>Participá</strong></h3>
