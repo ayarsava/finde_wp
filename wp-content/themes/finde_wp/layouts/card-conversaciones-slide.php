@@ -15,16 +15,16 @@
 $partidos = get_the_terms( $post->ID, 'partido' );
 $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
     echo '<div class="blocks">';
-        echo '<div class="block block--left p-5">';
+        echo '<div class="block block--left p-md-5 py-5 text-right">';
                 $posttags = get_the_tags();
                 if ($posttags) {
-                    echo '<div class="tags mb-2">';
+                    echo '<div class="tags mb-2 mx-4">';
                     foreach($posttags as $tag) {
                         echo '<span>'.$tag->name.'</span>'; 
                     }
                     echo '</div>';
                 }
-            echo '<div class="wrap mr-5"><h3>'.get_the_title().'</h3>';
+            echo '<div class="wrap mx-4"><h3>'.get_the_title().'</h3>';
             if ( get_the_excerpt() ) {
                 echo '<div class="card-text mb-2">' . get_the_excerpt() .'</div>';
                 } else {

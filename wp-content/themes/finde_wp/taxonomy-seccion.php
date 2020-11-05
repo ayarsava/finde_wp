@@ -9,19 +9,29 @@
 
 
 get_template_part( 'layouts/header', 'au' );
-?>
 
-<div class="container">
+$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
+if ($term->slug == 'cine' ) {?>
+<div class="title-head" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-cine-elpoetaenlaluna.jpg')">
+<?php } else if ($term->slug == 'series' ) { ?>
+<div class="title-head" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-series.jpg')">
+<?php } else if ($term->slug == 'youtubers' ) { ?>
+<div class="title-head" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-youtube.jpg')">
+<?php } else { ?>
+<div class="title-head" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-cine-elpoetaenlaluna.jpg')">
+<?php } ?>
+<?php 
+echo '<div class="wrap"><div class="container py-5">';
+the_archive_title( '<h1 class="page-title">', '</h1>' );
+the_archive_description( '<div class="archive-description">', '</div>' );
+echo '</div></div>';
+?>
+</div class="title-head">
+
+<div class="container mt-4">
 	<div id="primary" class="content-area">
 			<main id="main" class="site-main">
 			<?php if ( have_posts() ) : ?>
-
-				<header class="page-header py-3">
-					<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="archive-description">', '</div>' );
-					?>
-				</header><!-- .page-header -->
 				<div class="row py-3">
 				<?php
 				/* Start the Loop */

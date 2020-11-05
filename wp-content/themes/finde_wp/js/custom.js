@@ -486,9 +486,9 @@ $( document ).ready(function() {
     slidesToShow: 3,
     centerMode: true,
     variableWidth: true,
-    slidesToScroll: 3,
     autoplay: true,
     autoplaySpeed: 2000,
+    swipeToSlide:true,
   });
 });
 

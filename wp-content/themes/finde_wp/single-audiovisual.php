@@ -119,33 +119,33 @@ get_template_part( 'layouts/header', 'au' );
         <section class="container-fluid no-gutters ficha">
             <div class="row">
             <?php if ($presentado_por) {?>
-                <div class="col-md-5 p-4 bg-black text-light">
+                <div class="item col-md-5 p-4">
                     <div class="titulo">Este contenido es presentado por</div>
                     <p class="text-light"><?php echo $presentado_por;?></p>
                 </div>
             <?php } ?>
             <?php if ($descripcion) {?>
-                <div class="col-md-5 p-4 bg-light">
+                <div class="item col-md-5 p-4">
                     <div class="titulo">Descripción</div>
                     <p><?php echo $descripcion;?></p>
                 </div>
             <?php } ?>
             <?php if ($seleccion) {?>
-                <div class="col-md-5 p-4 bg-black text-light">
+                <div class="item col-md-5 p-4">
                     <div class="titulo">Curación</div>
                     <p class="text-light"><?php echo $seleccion;?></p>
                 </div>
             <?php } ?>
             <?php if ($afiche) {?>
-                <div class="col-md-5 p-4 bg-light">
+                <div class="item col-md-5 p-4">
                     <div class="titulo">Afiche</div>
                     <img src="<?php echo $afiche;?>" class="img-fluid px-4">
                 </div>
             <?php } ?>
             <? if ($productora || $direccion || $produccion || $guion || $ano || $elenco) {?>
-                <div class="col-md-5 p-4 bg-black text-light">
+                <div class="item col-md-5 p-4">
                     <div class="titulo">Ficha técnica</div>
-                    <ul class="list-unstyled ficha-tecnica text-light">
+                    <ul class="list-unstyled ficha-tecnica">
                         <? 
                         if ($direccion) {
                             echo '<li><strong>Dirección:</strong> '.$direccion.'</li>';
@@ -173,7 +173,7 @@ get_template_part( 'layouts/header', 'au' );
                 $url = get_post_meta( get_the_ID(), 'trailer', true );
                 $trailer = wp_oembed_get( $url, $args );
                 if ( $trailer ) {
-                    echo '<div class="col-md-5 p-4 bg-light trailer"><div class="titulo">Trailer</div>';
+                    echo '<div class="item col-md-5 p-4 trailer"><div class="titulo">Trailer</div>';
                     echo '<div>';
                     echo $trailer;
                     echo '</div></div>';

@@ -3036,6 +3036,10 @@ section.cck .titulos h4 {
   background-color: #000;
 }
 
+.ficha {
+  background: #000;
+  color: #f8f9fa;
+}
 .ficha .titulo {
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -3044,6 +3048,10 @@ section.cck .titulos h4 {
 }
 .ficha ul.ficha-tecnica li {
   margin-bottom: 0.4rem;
+}
+.ficha .item:nth-child(even) {
+  background: #f8f9fa;
+  color: #000;
 }
 
 .etiquetas span {
@@ -3129,58 +3137,117 @@ section.cck .titulos h4 {
   height: 385px;
   position: relative;
 }
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(1) {
+  background-color: #fe5f01;
+  color: #222;
+}
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(2) {
+  background-color: #422af2;
+}
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(2) .block.block--left {
+  color: #F1F1F1 !important;
+}
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(2) .block.block--left h3 {
+  color: #F1F1F1 !important;
+}
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(3) {
+  background-color: #fe0141;
+}
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(3) .block.block--left {
+  color: #F1F1F1 !important;
+}
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(3) .block.block--left h3 {
+  color: #F1F1F1 !important;
+}
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(4) {
+  background-color: #dcfd00;
+}
 .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.tengo-background {
   background-size: 50%;
   background-position: right;
   background-repeat: no-repeat;
 }
-.slick.conversaciones_slide.slick-slider .slick-list .slick-track .blocks {
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks {
   display: flex;
 }
-.slick.conversaciones_slide.slick-slider .slick-list .slick-track .block {
-  background-color: #fe0142;
+@media (max-width: 787px) {
+  .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks {
+    display: block;
+  }
+}
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks .block {
   min-height: 100px;
   width: 50%;
   width: calc(50% + 2rem);
 }
 @media (max-width: 787px) {
-  .slick.conversaciones_slide.slick-slider .slick-list .slick-track .block {
+  .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks .block {
     width: 100%;
   }
 }
-.slick.conversaciones_slide.slick-slider .slick-list .slick-track .block--left {
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks .block.block--left {
   clip-path: polygon(0 0, 100% 0, calc(100% - 3rem) 100%, 0% 100%);
   color: #222;
 }
-.slick.conversaciones_slide.slick-slider .slick-list .slick-track .block--left h3 {
-  color: #222;
-  font-weight: 700;
-  font-size: 3rem;
-}
 @media (max-width: 787px) {
-  .slick.conversaciones_slide.slick-slider .slick-list .slick-track .block--left h3 {
-    font-size: 1.2rem;
+  .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks .block.block--left {
+    width: calc(100% - 170px);
+    margin-right: 0;
+    padding-right: 0px !important;
+    clip-path: none;
+  }
+  .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks .block.block--left h3 {
+    font-size: 1.5rem;
   }
 }
-.slick.conversaciones_slide.slick-slider .slick-list .slick-track .block--left .tags {
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks .block.block--left h3 {
+  color: #222;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+@media (max-width: 991px) {
+  .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks .block.block--left h3 {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 787px) {
+  .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks .block.block--left h3 {
+    font-size: 1.4rem;
+  }
+}
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks .block.block--left .tags {
   color: #FFF;
 }
-.slick.conversaciones_slide.slick-slider .slick-list .slick-track .block--left .card-text {
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks .block.block--left .card-text {
   font-weight: 400;
   margin-top: 1rem;
   font-size: 1.1rem;
 }
 @media (max-width: 787px) {
-  .slick.conversaciones_slide.slick-slider .slick-list .slick-track .block--left .card-text {
+  .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks .block.block--left .card-text {
     font-size: 0.8rem;
   }
 }
-.slick.conversaciones_slide.slick-slider .slick-list .slick-track .block--right {
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks .block.block--right {
   margin-left: -2rem;
-  clip-path: polygon(3rem 0, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(20% 0, 80% 0, 100% 50%, 80% 100%, 20% 100%, 0% 50%);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  width: 40%;
+}
+@media (max-width: 787px) {
+  .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks .block.block--right {
+    clip-path: none;
+    width: 220px;
+    height: 220px;
+    margin-left: 0px;
+    float: left;
+    border-radius: 50%;
+    position: absolute;
+    top: 85px;
+    right: -50px;
+  }
 }
 
 .tax-recurso .img-wrapper img {
@@ -3195,6 +3262,31 @@ section.cck .titulos h4 {
   height: 220px;
   background-size: cover;
   background-position: center center;
+}
+
+.title-head {
+  min-height: 450px;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+.title-head .wrap {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  color: #FFF;
+}
+.title-head:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: black;
+  background: linear-gradient(38deg, black 0%, black 25%, rgba(0, 212, 255, 0) 100%);
+  opacity: 0.5;
 }
 
 /*# sourceMappingURL=finde.css.map */

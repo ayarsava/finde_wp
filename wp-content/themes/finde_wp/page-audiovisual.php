@@ -59,7 +59,7 @@ get_template_part( 'layouts/header', 'au' );
                 <h2 class="extra-grande font-weight-bold">Conversaciones</h2>
                 <div class="lead">Encuentros de creadorxs audiovisuales</div>
             </div>
-            <div class="mt-5">
+            <div class="mt-3">
                 <?php wp_archive_conversaciones('audiovisual') ?>
             </div>
             <div class="container">
