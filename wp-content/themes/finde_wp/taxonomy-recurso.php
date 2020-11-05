@@ -10,7 +10,6 @@
 
 get_template_part( 'layouts/header', 'te' );
 ?>
-
 <div class="container">
 	<div id="primary" class="content-area">
 			<main id="main" class="site-main">

@@ -254,6 +254,7 @@ add_filter('body_class','add_category_to_single');
     add_theme_support( 'responsive-embeds' );
 } );
 
+
 /**
  * Implement the Custom Header feature.
  */

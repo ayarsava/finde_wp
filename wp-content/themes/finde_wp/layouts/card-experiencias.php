@@ -13,6 +13,7 @@
 
 <?php
 $partidos = get_the_terms( $post->ID, 'partido' );
+$areas = get_the_terms( $post->ID, 'area' );
 $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); 
     
     echo '<div class="mb-1">';
@@ -25,6 +26,7 @@ $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
     }
     
     echo '<div class="card-body">';
+    
     echo '<div class="badge badge-primary mb-3 px-2 py-1">';
     if ($partidos) {
         foreach($partidos as $partido) {
@@ -33,6 +35,7 @@ $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
         $list = implode(', ', $partidostring);
         echo rtrim($list,',');
     }
+    
     echo '</div>';
     echo '<h5 class="card-title font-weight-bold">' . get_the_title() . '</h5>';
     if ( get_the_excerpt() ) {
