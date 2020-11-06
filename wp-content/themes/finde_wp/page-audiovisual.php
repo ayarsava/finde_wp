@@ -135,7 +135,7 @@ get_template_part( 'layouts/header', 'au' );
                     </div>
                     <div class="col-md-9">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe src="https://player.vimeo.com/video/310427506" class="embed-responsive-item" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="border:solid 3px #FFF; border-radius:3px;padding:1px"></iframe>
+                            <iframe src="https://player.vimeo.com/video/348240535" class="embed-responsive-item" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="border:solid 3px #FFF; border-radius:3px;padding:1px"></iframe>
                         </div>
                     </div>
                 </div>
