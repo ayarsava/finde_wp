@@ -49,7 +49,7 @@ get_template_part( 'layouts/header', 'au' );
             </ul>';
             echo '</div></header>';
         echo '</div>';
-        echo '<div id="activo" style="display:none;">';
+        echo '<div id="activo" class="movie-wrapper" style="display:none;">';
             if ( $embed ) {
                 echo '<header class="movie-container text-light py-3" style="background:#000;"><div class="container">';
                 echo $embed;

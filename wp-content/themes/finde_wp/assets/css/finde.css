@@ -636,6 +636,15 @@ header.main-header .menu-wrapper nav.navbar {
   padding-right: 10px;
   min-height: 70px;
 }
+@media (max-width: 991px) {
+  header.main-header .menu-wrapper nav.navbar {
+    min-height: 48px;
+  }
+  header.main-header .menu-wrapper nav.navbar .navbar-collapse.show,
+header.main-header .menu-wrapper nav.navbar .navbar-collapse.collapsing {
+    min-width: 300px;
+  }
+}
 header.main-header .menu-wrapper nav.navbar a:hover {
   text-decoration: none;
   opacity: 0.8;
@@ -3134,7 +3143,7 @@ section.cck .titulos h4 {
 }
 
 .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide {
-  height: 385px;
+  min-height: 385px;
   position: relative;
 }
 .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(1n+4), .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(1) {
@@ -3202,7 +3211,7 @@ section.cck .titulos h4 {
 }
 @media (max-width: 787px) {
   .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks .block.block--left {
-    width: calc(100% - 170px);
+    width: calc(100% - 140px);
     margin-right: 0;
     padding-right: 0px !important;
     clip-path: none;
@@ -3254,7 +3263,7 @@ section.cck .titulos h4 {
     border-radius: 50%;
     position: absolute;
     top: 85px;
-    right: -50px;
+    right: -80px;
   }
 }
 
@@ -3295,6 +3304,12 @@ section.cck .titulos h4 {
   background: black;
   background: linear-gradient(38deg, black 0%, black 25%, rgba(0, 212, 255, 0) 100%);
   opacity: 0.5;
+}
+
+@media (max-width: 576px) {
+  #activo.movie-wrapper iframe {
+    height: 330px !important;
+  }
 }
 
 /*# sourceMappingURL=finde.css.map */

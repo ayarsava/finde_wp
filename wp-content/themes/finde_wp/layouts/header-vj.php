@@ -79,8 +79,9 @@
                             Ediciones anteriores
                         </div>
                         <div class="dropdown-menu border-0" aria-labelledby="dropdownMenu">
-                            <a href="/diseno" class="dropdown-item"><i class="fas fa-swatchbook"></i>  Diseño</a>
-                        </div>
+							<a href="/diseno" class="dropdown-item"><i class="fas fa-swatchbook"></i>  Diseño</a>
+                            <a href="/audiovisual" class="dropdown-item"><i class="fas fa-film"></i>  Audiovisual</a>
+						</div>
                     </div>
 			    	<div class="navbar-sec d-md-flex my-2 my-lg-0">
 					  	<div class="buscador mr-1 my-2 mb-md-0">

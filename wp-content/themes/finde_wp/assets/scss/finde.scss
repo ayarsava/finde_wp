@@ -589,6 +589,13 @@ header.main-header {
       padding-left: 10px;
       padding-right: 10px;
       min-height: 70px;
+      @media (max-width: 991px) {
+        min-height: 48px;
+        .navbar-collapse.show,
+        .navbar-collapse.collapsing {
+          min-width: 300px;
+        }
+      }
       a:hover {
         text-decoration: none;
         opacity: .8;
@@ -2876,7 +2883,7 @@ section.cck {
             }
           }
         }
-        height: 385px;
+        min-height: 385px;
         position: relative;
         &.tengo-background {
           background-size: 50%;
@@ -2899,7 +2906,7 @@ section.cck {
               clip-path: polygon(0 0, 100% 0, calc(100% - 3rem) 100%, 0% 100%);
               color:#222;
               @media (max-width:787px) {
-                width: calc(100% - 170px);
+                width: calc(100% - 140px);
                 margin-right: 0;
                 padding-right: 0px!important;
                 clip-path: none;
@@ -2944,7 +2951,7 @@ section.cck {
                 border-radius: 50%;
                 position: absolute;
                 top: 85px;
-                right: -50px;
+                right: -80px;
               }  
             }
           }
@@ -2993,5 +3000,10 @@ section.cck {
     background: rgb(0,0,0);
     background: linear-gradient(38deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(0,212,255,0) 100%);
     opacity: 0.5;
+  }
+}
+#activo.movie-wrapper iframe {
+  @media (max-width:576px) {
+    height: 330px!important;
   }
 }

@@ -128,7 +128,8 @@ get_template_part( 'layouts/header', 'au' );
                         <div class="wrap pt-5 pr-sm-5">
                             <h5>ESTRENO EXCLUSIVO</h5>
                             <h2>PUNTO DE QUIEBRE</h2>
-                            <p class="mt-5">En exclusiva, no te pierdas el estreno de la primera serie 360 de Argentina y la charla con su director, etc.</p>
+                            <p class="mt-5">Premiere de la primra serie inmersiva en 360° de Argentina. Una producción de UN3 (Universidad Nacional de Tres de Febrero).</p> 
+                            <p>Un nuevo formato que te permite vivir la serie como si estuvieses dentro de la pantalla. La vas a poder ver desde el viernes 6 las 21hs hasta el domingo a las 23hs. ¡No te la pierdas!</p>
                             <a href="/catalogo-audiovisual/punto-de-quiebre" class="btn btn-outline-primary badge-pill px-5 my-3">Ver  <i class="fas fa-play"></i></a>
                         </div>
                     </div>
@@ -154,7 +155,9 @@ get_template_part( 'layouts/header', 'au' );
                         <div class="wrap pt-5 px-sm-5">
                             <h5>ESTRENO DIGITAL</h5>
                             <h2>LAVA</h2>
-                            <p class="mt-5">En exclusiva, no te pierdas el estreno de Lava, de Ayar Blasco y la charla con su director, etc.</p>
+                            <p class="mt-5">CINE.AR presenta la última película animada de Ayar Blasco. La vas a poder ver durante 24 a partir del sábado 7 a las 22 hs.</p> 
+                            <p>Un programa alucinante para una noche del sábado a pura acción, ciencia ficción y delirio. También vas a poder ver el making off. 
+                            </p>
                             <a href="/catalogo-audiovisual/lava" class="btn btn-outline-light badge-pill px-5 my-3">Ver  <i class="fas fa-play"></i></a>
                         </div>
                     </div>
@@ -168,8 +171,9 @@ get_template_part( 'layouts/header', 'au' );
                 <div class="row">
                     <div class="col-md-6">
                         <div class="wrap pr-sm-5">
-                            <h2>Música para ver</h2>
-                            <p class="mt-5">Un continuado de videoclips que te hacen viajar por los paisajes, la mística y los paisajes bonaerenses. Desde El Mató a Calle 13, pasando por Conociendo a Rusia o Louta, entre otros.</p>
+                            <h2>Filmar Música</h2>
+                            <p class="mt-5">Filmar Música nos presenta una selección de videoclips en diferentes formatos y géneros, filmados en la Provincia de Buenos Aires.</p>
+                            <p>El recorrido por esta playlist incluye a El Mató a un policía motorizado, Calle 13, Conociendo a Rusia y Louta, entre otros.</p>
                             <a href="/catalogo-audiovisual/videoclips/" class="btn btn-outline-primary badge-pill px-5 my-3">Ver más</a>
                         </div>
                     </div>
