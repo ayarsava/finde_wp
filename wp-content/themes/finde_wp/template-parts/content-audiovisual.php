@@ -27,17 +27,7 @@ $duracion = rwmb_meta('mbox_duracion');
                 <?php if ($duracion) { ?>
                     <div><span class="mr-1"><i class="far fa-clock"></i> Duración: <?php echo $duracion;?></span></div>
                 <?php } ?>
-                <?php
-                if ($tipo_au) {
-                    echo '<div><span class="mr-1"><i class="fas fa-film"></i>  ';
-                    foreach($tipo_au as $tipo) {
-                    $tipo_autring[] = $tipo->name;
-                    }
-                    $list = implode(', ', $tipo_autring);
-                    echo rtrim($list,',');
-                    echo '</span></div>';
-                }
-                ?>
+                
                 <?php
                 if ($genero_au) {
                     echo '<div><span class="mr-1"><i class="fas fa-eye"></i>  ';
@@ -45,17 +35,6 @@ $duracion = rwmb_meta('mbox_duracion');
                     $genero_autring[] = $genero->name;
                     }
                     $list = implode(', ', $genero_autring);
-                    echo rtrim($list,',');
-                    echo '</span></div>';
-                }
-                ?>
-                <?php
-                if ($calificacion_au) {
-                    echo '<div><span class="mr-1"><i class="far fa-hand-paper"></i>  ';
-                    foreach($calificacion_au as $calificacion) {
-                    $calificacion_autring[] = $calificacion->name;
-                    }
-                    $list = implode(', ', $calificacion_autring);
                     echo rtrim($list,',');
                     echo '</span></div>';
                 }

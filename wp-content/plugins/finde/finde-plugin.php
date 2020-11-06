@@ -1783,6 +1783,19 @@ function mbox_register_meta_boxes( $meta_boxes ){
         // Input size
         'size'  => 30,
       ),
+      array(
+        'name'       => 'Fecha de estreno',
+        'id'         => 'fecha_estreno',
+        'type'       => 'datetime',
+
+        'timestamp'  => true,
+
+        'js_options' => array(
+          'dateFormat'      => 'dd-mm-yy',
+          'showTimepicker'  => true,
+          ),
+        'save_format' => 'Y-m-d H:i:s',
+      ),
     )
   );
 
@@ -1967,7 +1980,7 @@ if ( ! function_exists( 'wp_showSlides_fullbg_portag' ) ) {
             echo '<div class="container h-100" style="z-index: 2;">';
               echo '<div class="d-flex h-100 text-center align-items-center">';
                 echo '<div class="carousel-caption text-left">';
-                if( $no_title == 1 ) {
+                if( $no_title == 0 ) {
                   echo '<div class="info">';
                     echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1>';
                     echo '<div class="text-light">' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
@@ -1985,7 +1998,7 @@ if ( ! function_exists( 'wp_showSlides_fullbg_portag' ) ) {
         }
             echo '<div class="container">';
               echo '<div class="carousel-caption text-left">';
-              if( $no_title == 1 ) {
+              if( $no_title == 0 ) {
                 echo '<div class="info">';
                   echo '<h1><a href="'. $url .'" title="' .get_the_title().'">'.get_the_title().'</a></h1>';
                   echo '<div class="text-light">' .wp_trim_words( get_the_content(), 22, '...' ). '</div>';
@@ -3215,6 +3228,7 @@ if ( ! function_exists( 'wp_archive_conversaciones' ) ) {
       'meta_query'            => array(
           'destacado_clause'  => array(
               'key'           => 'destacado_id',
+              'value'         => 1,
           ),
       ),
     );

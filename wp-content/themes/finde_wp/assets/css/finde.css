@@ -3137,30 +3137,41 @@ section.cck .titulos h4 {
   height: 385px;
   position: relative;
 }
-.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(1) {
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(1n+4), .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(1) {
   background-color: #fe5f01;
-  color: #222;
 }
-.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(2) {
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(1n+4) .block.block--left, .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(1) .block.block--left {
+  color: #222 !important;
+}
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(1n+4) .block.block--left h3, .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(1) .block.block--left h3 {
+  color: #222 !important;
+}
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(2n+4), .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(2) {
   background-color: #422af2;
 }
-.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(2) .block.block--left {
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(2n+4) .block.block--left, .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(2) .block.block--left {
   color: #F1F1F1 !important;
 }
-.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(2) .block.block--left h3 {
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(2n+4) .block.block--left h3, .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(2) .block.block--left h3 {
   color: #F1F1F1 !important;
 }
-.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(3) {
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(3n+4), .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(3) {
   background-color: #fe0141;
 }
-.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(3) .block.block--left {
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(3n+4) .block.block--left, .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(3) .block.block--left {
   color: #F1F1F1 !important;
 }
-.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(3) .block.block--left h3 {
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(3n+4) .block.block--left h3, .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(3) .block.block--left h3 {
   color: #F1F1F1 !important;
 }
-.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(4) {
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(4n+4), .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(4) {
   background-color: #dcfd00;
+}
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(4n+4) .block.block--left, .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(4) .block.block--left {
+  color: #222 !important;
+}
+.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(4n+4) .block.block--left h3, .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide:nth-child(4) .block.block--left h3 {
+  color: #222 !important;
 }
 .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.tengo-background {
   background-size: 50%;
@@ -3214,9 +3225,6 @@ section.cck .titulos h4 {
   .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks .block.block--left h3 {
     font-size: 1.4rem;
   }
-}
-.slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks .block.block--left .tags {
-  color: #FFF;
 }
 .slick.conversaciones_slide.slick-slider .slick-list .slick-track .slick-slide.blocks .block.block--left .card-text {
   font-weight: 400;

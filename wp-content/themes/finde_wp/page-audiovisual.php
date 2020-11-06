@@ -57,7 +57,7 @@ get_template_part( 'layouts/header', 'au' );
         <section id="conversaciones" class="bg-light py-5">
             <div class="container text-left">
                 <h2 class="extra-grande font-weight-bold">Conversaciones</h2>
-                <div class="lead">Encuentros de creadorxs audiovisuales</div>
+                <div class="lead">Encuentros de creadorxs audiovisuales, referentes de la industria y actores del sector.</div>
             </div>
             <div class="mt-3">
                 <?php wp_archive_conversaciones('audiovisual') ?>
@@ -111,7 +111,7 @@ get_template_part( 'layouts/header', 'au' );
         </section>
 
         <!--CARTELERA-->
-        <section id="cartelera-slick" class="bg-white py-5">
+        <section id="cartelera" class="bg-white py-5">
             <div class="container">
                 <h1 class="mb-4"><strong>Cartelera</strong></h1>
             </div>
@@ -183,7 +183,9 @@ get_template_part( 'layouts/header', 'au' );
         </section>
 
         <!--BANNERS-->
-        <?php wp_archive_banners('audiovisual');?>
+        <section class="bg-white">
+            <?php wp_archive_banners('audiovisual');?>
+        </section>
 
 
 <?php 

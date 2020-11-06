@@ -29,6 +29,8 @@ get_template_part( 'layouts/header', 'au' );
     $guion = rwmb_meta('mbox_guion');
     $ano = rwmb_meta('mbox_ano');
     $elenco = rwmb_meta('mbox_elenco');
+    $fecha_estreno = rwmb_meta('fecha_estreno');
+    $curDateTime = date("Y-m-d H:i:s");
 
 ?>
 <div id="content">
@@ -36,27 +38,72 @@ get_template_part( 'layouts/header', 'au' );
         <?php 
         $url = get_post_meta( get_the_ID(), 'youtubevimeo', true );
         $embed = wp_oembed_get( $url, $args );
-        if ( $embed ) {
-            echo '<header class="movie-container text-light py-3" style="background:#000;"><div class="container">';
-            echo $embed;
+        echo '<div id="clock" class="movie-container contar mx-auto text-white" style="display:none;background:#000;background-image:url('. esc_url($image['url']) .'">';
+            echo '<header class="movie-container text-light py-3"><div class="container">';
+            echo '<ul class="reloj list-unstyled text-center position-absolute" style="bottom:50px;left:0;right:0;z-index:9;">
+            <h3>Estreno en:</h3>
+                <li><span id="days"></span>días</li>
+                <li><span id="hours"></span>horas</li>
+                <li><span id="minutes"></span>minutos</li>
+                <li><span id="seconds"></span>segundos</li>
+            </ul>';
             echo '</div></header>';
-        } else if ($contar) {
-            if ($iframe == 1) {
-                echo '<iframe width="100%" height="640" style="width: 100%; height: 640px; border: none; max-width: 100%;" frameborder="0" allowfullscreen allow="xr-spatial-tracking; gyroscope; accelerometer" scrolling="yes" src="'.$contar.'"></iframe>';
-            } else {
-                echo '<header class="movie-container contar text-light py-3"';
-                if ($image_contar) { 
-                    echo ' style="background-image: url('.$image['url'].'">';
-                    echo '<a href="'.$contar.'" target="_blank" class="goto-contar"><i class="fas fa-play-circle"></i></a>';
-                    echo '</header>';
+        echo '</div>';
+        echo '<div id="activo" style="display:none;">';
+            if ( $embed ) {
+                echo '<header class="movie-container text-light py-3" style="background:#000;"><div class="container">';
+                echo $embed;
+                echo '</div></header>';
+            } else if ($contar) {
+                if ($iframe == 1) {
+                    echo '<iframe width="100%" height="640" style="width: 100%; height: 640px; border: none; max-width: 100%;" frameborder="0" allowfullscreen allow="xr-spatial-tracking; gyroscope; accelerometer" scrolling="yes" src="'.$contar.'"></iframe>';
                 } else {
-                    echo '></header>';
+                    echo '<header class="movie-container contar text-light py-3"';
+                    if ($image_contar) { 
+                        echo ' style="background-image: url('.$image['url'].'">';
+                        echo '<a href="'.$contar.'" target="_blank" class="goto-contar"><i class="fas fa-play-circle"></i></a>';
+                        echo '</header>';
+                    } else {
+                        echo '></header>';
+                    }
                 }
+            } else {
+                echo '<header class="movie-container text-light py-3" style="background:#000;">
+                <div class="container">No hemos encontrado contenido para ser mostrado</div></header>';
             }
-        } else {
-            echo '<header class="movie-container text-light py-3" style="background:#000;">
-            <div class="container">No hemos encontrado contenido para ser mostrado</div></header>';
-        }
+        echo '</div>';
+        ?>
+        <script type="text/javascript">
+		 jQuery(function($) {
+			const second = 1000,
+			minute = second * 60,
+			hour = minute * 60,
+			day = hour * 24;
+
+            let countDown = new Date('<?php echo date("Y-m-d\TH:i:s",$fecha_estreno);?>'.replace(/\s/, 'T')).getTime(),
+			x = setInterval(function() {    
+
+			let now = new Date().getTime(),
+			distance = countDown - now;
+
+			document.getElementById('days').innerText = Math.floor(distance / (day)),
+			document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+			document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+			document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+
+			//do something later when date is reached
+			if (distance > 0) {
+				document.getElementById("clock").style.display = "block";
+			} else {
+				clearInterval(x);
+                document.getElementById("activo").style.display = "block";
+                document.getElementById("clock").style.display = "none";
+			}
+
+			}, second)
+			});
+        </script>
+        <?php 
         if ($contar && $iframe == 0) {
             if ($aclaracion) {
                 echo '<!--Aclaración de redirección-->';
@@ -67,7 +114,8 @@ get_template_part( 'layouts/header', 'au' );
                 echo '<!--Aclaración de redirección-->';
                 echo '<div class="aclaracion" style="background:#F1F1F1; font-size:.8rem;"><div class="container py-3">Al dar play, serás redirigido al sitio web de Cont.ar. Si no sos miembro, registrate, lleva 2 minutos, es gratis y vas a poder ver cientos de series y películas.</div></div>';
             }
-        } ?>
+        } 
+        ?>
         <section class="bg-white">
             <div class="container py-4">
                 <?php the_title( '<h1 class="entry-title extra-grande">', '</h1>' ); ?>
@@ -183,5 +231,6 @@ get_template_part( 'layouts/header', 'au' );
         </section>
 
     </div><!-- #post-<?php the_ID(); ?> -->
+    
 
 <?php get_template_part( 'layouts/footer', 'au' ); 

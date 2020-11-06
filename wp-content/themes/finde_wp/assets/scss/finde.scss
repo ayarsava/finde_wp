@@ -2836,10 +2836,17 @@ section.cck {
   .slick-list {
     .slick-track {
       .slick-slide {
+        &:nth-child(1n+4),
         &:nth-child(1) {
           background-color: #fe5f01;
-          color:#222;
+          .block.block--left {
+            color:#222!important;
+            h3 {
+              color:#222!important;
+            }
+          }
         }
+        &:nth-child(2n+4),
         &:nth-child(2) {
           background-color: #422af2;
           .block.block--left {
@@ -2849,6 +2856,7 @@ section.cck {
             }
           }
         }
+        &:nth-child(3n+4),
         &:nth-child(3) {
           background-color: #fe0141;
           .block.block--left {
@@ -2858,8 +2866,15 @@ section.cck {
             }
           }
         }
+        &:nth-child(4n+4),
         &:nth-child(4) {
           background-color: #dcfd00;
+          .block.block--left {
+            color:#222!important;
+            h3 {
+              color:#222!important;
+            }
+          }
         }
         height: 385px;
         position: relative;
@@ -2903,9 +2918,6 @@ section.cck {
                   font-size: 1.4rem;
                 }
               }
-              .tags {
-                color:#FFF;
-              }
               .card-text {
                 font-weight: 400;
                 margin-top:1rem;
@@ -2936,15 +2948,8 @@ section.cck {
               }  
             }
           }
-        }
-        
-        
-        
-        
+        } 
       }
-      
-      
-      
     }
   }
 }
