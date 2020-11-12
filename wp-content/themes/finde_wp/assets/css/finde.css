@@ -118,6 +118,12 @@
   background: #ff677d !important;
   color: #FFF !important;
 }
+[class*=editorial] .bg-editorial {
+  background: #ff677d;
+}
+[class*=editorial] .bg-editorial.menu-wrapper {
+  background: #ff4e67;
+}
 [class*=editorial] .bg-editorial a,
 [class*=editorial] .badge-dark {
   color: #FFF !important;

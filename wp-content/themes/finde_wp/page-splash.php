@@ -65,12 +65,12 @@
 						<div class="w-50 bg-transparent mb-4 mx-auto">
 							<div class="card text-center shadow hover-shadow">
 									<div class="py-3 col-md-8 mx-auto">
-											<img src="/wp-content/themes/finde_wp/assets/img/icon-audiovisual.png" class="img-fluid icon">
+											<img src="/wp-content/themes/finde_wp/assets/img/icon-editorial.png" class="img-fluid icon">
 									</div>
 									<div class="pb-1 text-white">
-										<h3><strong>PRÓXIMA EDICIÓN<br>AUDIOVISUAL</strong></h3>
-										<p>Del 05 AL 08 DE NOVIEMBRE</p>
-										<div class="mb-3" id="activo" style="display:none;"><a href="/audiovisual" class="btn btn-outline-light" title="Accedé a la Edición de Audiovisual">Accedé</a></div>
+										<h3><strong>PRÓXIMA EDICIÓN<br>EDITORIAL</strong></h3>
+										<p>Del 20 AL 22 DE NOVIEMBRE</p>
+										<div class="mb-3" id="activo" style="display:none;"><a href="/editorial" class="btn btn-outline-light" title="Accedé a la Edición de Editorial">Accedé</a></div>
 										<button id="soon" type="button" class="btn btn-outline-light mb-3" disabled style="display:none;">Muy pronto</button>
 									</div>
 							</div>
@@ -79,12 +79,12 @@
 					<div class="w-50 bg-transparent mb-4 mx-auto">
 						<div class="card text-center shadow hover-shadow">
 								<div class="py-3 col-md-8 mx-auto">
-										<img src="/wp-content/themes/finde_wp/assets/img/icon-vj.png" class="img-fluid icon">
+										<img src="/wp-content/themes/finde_wp/assets/img/icon-audiovisual.png" class="img-fluid icon">
 								</div>
 								<div class="pb-1 text-white">
-									<h3><strong>EDICIÓN VIDEOJUEGOS</strong></h3>
-									<p>Del 8 AL 11 DE OCTUBRE</p>
-									<div class="mb-3"><a href="/videojuegos" title="Accedé a la Edición de Videojuegos" class="btn btn-outline-light">Revivila</a></div>
+									<h3><strong>AUDIOVISUAL</strong></h3>
+									<p>Del 22 AL 25 DE OCTUBRE</p>
+									<div class="mb-3"><a href="/audiovisual" title="Accedé a la Edición de Audiovisual" class="btn btn-outline-light">Revivila</a></div>
 								</div>
 						</div>
 					</div>
@@ -94,12 +94,25 @@
 										<img src="/wp-content/themes/finde_wp/assets/img/icon-diseno.png" class="img-fluid icon">
 								</div>
 								<div class="pb-1 text-white">
-									<h3><strong>EDICIÓN DISEÑO</strong></h3>
+									<h3><strong>DISEÑO</strong></h3>
 									<p>Del 22 AL 25 DE OCTUBRE</p>
 									<div class="mb-3"><a href="/diseno" title="Accedé a la Edición de Diseño" class="btn btn-outline-light">Revivila</a></div>
 								</div>
 						</div>
 					</div>
+					<div class="w-50 bg-transparent mb-4 mx-auto">
+						<div class="card text-center shadow hover-shadow">
+								<div class="py-3 col-md-8 mx-auto">
+										<img src="/wp-content/themes/finde_wp/assets/img/icon-vj.png" class="img-fluid icon">
+								</div>
+								<div class="pb-1 text-white">
+									<h3><strong>VIDEOJUEGOS</strong></h3>
+									<p>Del 8 AL 11 DE OCTUBRE</p>
+									<div class="mb-3"><a href="/videojuegos" title="Accedé a la Edición de Videojuegos" class="btn btn-outline-light">Revivila</a></div>
+								</div>
+						</div>
+					</div>
+					
 
 					
 				</div>
@@ -119,7 +132,7 @@
 			hour = minute * 60,
 			day = hour * 24;
 
-			let countDown = new Date('2020-11-06T14:00:00'.replace(/\s/, 'T')).getTime(),
+			let countDown = new Date('2020-11-20T14:00:00'.replace(/\s/, 'T')).getTime(),
 			x = setInterval(function() {    
 
 			let now = new Date().getTime(),

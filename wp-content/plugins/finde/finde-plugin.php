@@ -117,6 +117,34 @@ function wporg_register_taxonomy_descuento_ed() {
 }
 add_action('init', 'wporg_register_taxonomy_descuento_ed');
 
+/*** Taxonomias para Producto editorial | Tipo ***/
+function wporg_register_taxonomy_tipo_pe() {
+  $labels = [
+    'name'              => _x('Tipo', 'taxonomy general name'),
+    'singular_name'     => _x('Tipo', 'taxonomy singular name'),
+    'search_items'      => __('Buscar tipos'),
+    'all_items'         => __('Todos los tipos'),
+    'parent_item'       => __('Tipo padre'),
+    'parent_item_colon' => __('Tipo padre:'),
+    'edit_item'         => __('Editar tipos'),
+    'update_item'       => __('Actualizar tipos'),
+    'add_new_item'      => __('Agregar nuevo tipo'),
+    'new_item_name'     => __('Nuevo nombre de tipo '),
+    'menu_name'         => __('Tipo'),
+  ];
+  $args = [
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => array( 'slug' => 'tipo_pe', 'with_front' => false ),
+  ];
+  register_taxonomy('tipo_pe', ['productoeditorial'], $args);
+}
+add_action('init', 'wporg_register_taxonomy_tipo_pe');
+
 
 function wporg_register_taxonomy_rubro_mu() {
   $labels = [
@@ -781,20 +809,26 @@ function custom_post_type_productoeditorial() {
         'description'         => __( 'Producto editorial', 'finde-plugin' ),
         'labels'              => $labels,
         // Features this CPT supports in Post Editor
-        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields', ),
+
+        // You can associate this CPT with a taxonomy or custom taxonomy. 
+        'taxonomies'  => array( 'post_tag', 'tipo_pe'),
         /* A hierarchical CPT is like Pages and can have
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.
         */ 
         'hierarchical'        => false,
-        'public'              => true,
         'show_ui'             => true,
         'show_in_menu'        => true,
         'show_in_nav_menus'   => true,
         'show_in_admin_bar'   => true,
         'menu_position'       => 7,
         'can_export'          => true,
-        'has_archive'         => true,
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array(
+          'slug' => 'libro'
+        ),
         'exclude_from_search' => false,
         'publicly_queryable'  => true,
         'capability_type'     => 'post',
@@ -1411,9 +1445,115 @@ function mbox_register_meta_boxes( $meta_boxes ){
     'priority'   => 'low',
     'autosave'   => true,
     'fields'     => array(
+        array(
+          'name' => 'Destacado',
+          'id'   => 'destacado_id',
+          'type' => 'checkbox',
+          'std'  => 0, // 0 or 1
+        ),
+        array(
+          'name'        => 'Subtitulo',
+          'label_description' => 'Opcional',
+          'id'          => "{$prefix}subtitulo",
+          'type'        => 'text',
+        ),
+        array(
+          'name'        => 'Autorx/es',
+          'id'          => "{$prefix}autor",
+          'type'        => 'textarea',
+        ),
+        array(
+          'name'        => 'Traductorx/es',
+          'id'          => "{$prefix}traductor",
+          'type'        => 'text',
+        ),
+        array(
+          'name'        => 'Ilustradorx/es',
+          'id'          => "{$prefix}ilustrador",
+          'type'        => 'text',
+        ),
+        array(
+          'id'          => "{$prefix}tapa",
+          'name'        => 'Tapa',
+          'type'        => 'image_advanced',
+          'max_file_uploads' => 1,
+          'image_size'       => 'thumbnail',
+          'max_status'       => 'false',
+        ),
+        array(
+          'id'          => "{$prefix}contratapa",
+          'name'        => 'Contratapa',
+          'type'        => 'image_advanced',
+          'max_file_uploads' => 1,
+          'image_size'       => 'thumbnail',
+          'max_status'       => 'false',
+        ),
+        array(
+          'name'        => 'ISBN',
+          'id'          => "{$prefix}isbn",
+          'type'        => 'text',
+        ),
+        array(
+          'name'       => 'Fecha de publicación',
+          'id'         => "{$prefix}fecha_publicacion",
+          'type'       => 'datetime',
+  
+          'timestamp'  => true,
+  
+          'js_options' => array(
+            'dateFormat'      => 'dd-mm-yy',
+            'showTimepicker'  => false,
+            ),
+          'save_format' => 'Y-m-d',
+        ),
+        array(
+          'name'        => 'Páginas',
+          'label_description' => 'ej. 147',
+          'id'          => "{$prefix}paginas",
+          'type'        => 'text',
+        ),
+        array(
+          'name'        => 'Precio',
+          'label_description' => 'ej. $590',
+          'id'          => "{$prefix}precio",
+          'type'        => 'text',
+        ),
+        array(
+          'name'        => 'Formato',
+          'label_description' => 'ej. 14 x 21,2 cm',
+          'id'          => "{$prefix}formato",
+          'type'        => 'text',
+        ),
+        array(
+          'name'        => 'Edición',
+          'label_description' => 'ej. 1ª',
+          'id'          => "{$prefix}edicion",
+          'type'        => 'text',
+        ),
+        array(
+          'name'        => 'Impresión',
+          'label_description' => 'ej. 1ª',
+          'id'          => "{$prefix}impresion",
+          'type'        => 'text',
+        ),
+        array(
+          'name'    => 'Destacado',
+          'id'      => "{$prefix}quote",
+          'type'    => 'wysiwyg',
+          'label_description' => 'Puede ser una frase de alguna reseña del libro en medios o una oración de alguien recomendando el libro. Es un texto que irá entre comillas y su función es promocionar el libro en una lectura rápida.',
+          
+          // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
+          'raw'     => false,
+
+          // Editor settings, see https://codex.wordpress.org/Function_Reference/wp_editor
+          'options' => array(
+              'textarea_rows' => 4,
+              'teeny'         => true,
+          ),
+        ),
         //  URL
         array(
-            'name' => __( 'Url del producto, servicio u oferta', 'mbox' ),
+            'name' =>'Url del libro a la venta',
             // prefix es mbox_, o sea que en este caso es mbox_url.
             'id'   => "{$prefix}url",
             'desc' => __( 'Ingrese la url donde se ofrece el producto a la venta', 'mbox' ),

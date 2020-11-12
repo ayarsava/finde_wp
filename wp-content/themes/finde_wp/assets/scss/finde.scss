@@ -86,6 +86,12 @@ $editorial: #ff677d;
     background: $editorial!important;
     color:#FFF!important;
   }
+  .bg-editorial {
+    background: $editorial;
+    &.menu-wrapper {
+      background: darken($editorial, 5%);
+    }
+  }
   .bg-editorial a,
   .badge-dark {
     color:#FFF!important;
