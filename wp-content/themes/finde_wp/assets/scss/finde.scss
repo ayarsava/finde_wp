@@ -2831,6 +2831,52 @@ section.cck {
     }
   }
 }
+.slick.vidriera.slick-slider {
+  .slick-list {
+    .slick-track {
+      .slick-slide.card-vidriera {
+        height: 190px;
+        background-size: cover;
+        position: relative;
+        background-position: center center;
+        background-repeat:no-repeat;
+        
+        a {
+          i {
+            opacity: 0;
+            position: absolute;
+            font-size: 50px;
+            left: calc(50% - 25px);
+            top: calc(50% - 25px);
+            color:$editorial;
+            z-index: 2;
+            -webkit-transition: opacity 100ms ease-in-out;
+            -moz-transition: opacity 100ms ease-in-out;
+            -ms-transition: opacity 100ms ease-in-out;
+            -o-transition: opacity 100ms ease-in-out;
+            transition: opacity 100ms ease-in-out;
+            &:hover {
+              opacity: 1;
+            }
+          }
+          &:hover > i {
+            opacity: .8;
+            cursor: pointer;
+          }
+        }
+      }
+      .slick-slide {
+        margin-left:10px;
+      }
+    
+      /* the parent */
+      .slick-list {
+        margin-left:-10px;
+      }
+    }
+  }
+}
+
 #agenda-destacada {
   .item .destacado {
     margin:0px;
@@ -3011,5 +3057,17 @@ section.cck {
 #activo.movie-wrapper iframe {
   @media (max-width:576px) {
     height: 330px!important;
+  }
+}
+
+.single-productoeditorial {
+  .autores {
+    color: $editorial;
+  }
+  blockquote {
+    border-left: solid 5px #ff4e67;
+    padding-left: 30px;
+    font-style: italic;
+    font-size: 1.2rem;
   }
 }

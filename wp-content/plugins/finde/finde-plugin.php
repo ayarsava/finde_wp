@@ -2562,7 +2562,7 @@ if ( ! function_exists( 'wp_archive_catalogovj_bytag' ) ) {
 }
 
 /*** CATALOGO EDITORIAL ***/
-if ( ! function_exists( 'wp_archive_destacadoed' ) ) {
+if ( ! function_exists( 'wp_archive_catalogoed' ) ) {
   function wp_archive_catalogoed() {
     $args = array(
       'post_type'              => 'editoriales',
@@ -2666,6 +2666,127 @@ if ( ! function_exists( 'wp_archive_destacadoed' ) ) {
     wp_reset_postdata();
   }
 }
+
+/*** CATALOGO EDITORIAL ***/
+if ( ! function_exists( 'wp_archive_libros' ) ) {
+  function wp_archive_libros() {
+    $args = array(
+      'post_type'              => 'productoeditorial',
+      'posts_per_page'         => -1,
+      'post_status'            => 'publish',
+      'no_found_rows'          => true,
+    );
+
+    // The Query
+    $query_catalogo = new WP_Query( $args );
+    // The Loop
+    if ( $query_catalogo->have_posts() ) {
+
+      while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
+
+          $editoriales = MB_Relationships_API::get_connected( [
+              'id'   => 'editoriales_to_productoeditorial',
+              'to' => get_the_ID(),
+          ] );
+
+          $url = rwmb_meta( 'mbox_url' );
+          $images = rwmb_meta( 'image_ed', array( 'size' => 'medium' ) );
+          $instagram = rwmb_meta( 'mbox_instagram' );
+          $twitter = rwmb_meta( 'mbox_twitter' );
+          $facebook = rwmb_meta( 'mbox_facebook' );
+          $libreria = rwmb_meta( 'mbox_libreria' );
+          $whatsapp = rwmb_meta( 'mbox_whatsapp' );
+
+
+          $terms = get_the_terms( $post->ID, 'rubro_ed' );
+          $dterms = get_the_terms( $post->ID, 'descuento_ed' );
+
+          echo '<div class="item mb-1"';
+          if ($terms) {
+          echo ' data-category="';
+          foreach( $terms as $term ) echo $term->slug. ' ';
+          echo '" ';
+          }
+          if ($terms) {
+          echo ' data-descuento="';
+          foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
+          echo '"';
+          }
+          echo '>';
+          // slick
+          if ($images) {
+          echo '<div class="galeria-slick">';
+          foreach ( $images as $image ) {
+              echo '<a href="' . get_the_permalink() .'"><img data-lazy="'. $image['url']. '"></a>';
+          }    
+          echo '</div>';
+          }
+          echo '<div class="grid-item-content card">';
+          echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+          echo '<div class="card-body">';
+          echo '<h5 class="card-title sr-only">' . get_the_title() . '</h5>';
+          
+          if ($terms) {
+              echo '<div class="rubro_ed">';
+              foreach( $terms as $term ) { echo '<a href="'.get_term_link($term->slug, 'rubro_ed').'" class="badge bg-primary mt-1 os">'.$term->name.'</a></span>', ' ';}
+              echo '</div>';
+          }
+          if ($dterms) {
+              echo '<div class="descuento_ed">';
+              foreach( $dterms as $term ) { echo '<a href="'.get_term_link($term->slug, 'descuento_ed').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
+              echo '</div>';
+          }
+          if ($url || $instagram || $facebook || $twitter) {
+              echo '<div class="contacto mt-2">';
+              if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></i></a></li>';}
+              if ($libreria) { echo '<li class="list-inline-item"><a href="'. $libreria . '" target="_blank" class="os"><i class="fas fa-shopping-cart"></i></a></li>';}
+              if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
+              if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
+              if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
+              if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
+              echo '</div>';
+          }
+          
+          echo '</div>';
+          
+          if ($editoriales) {
+              echo '<small class="card-footer text-muted text-sm lista">';
+              echo 'Editorial:<ul>'; foreach ( $editoriales as $editorial ) {
+              echo '<li><span><strong>' .$editorial->post_title.'</strong></span></li> ';
+              }
+              echo '</ul></small>';
+          }
+          echo '</div></div>';
+      endwhile;
+      wp_reset_postdata();
+    } else {
+      echo 'No hemos encontrado productos o servicios asociados al catálogo.';
+    }
+
+    // Restore original Post Data
+    wp_reset_postdata();
+  }
+}
+
+if ( ! function_exists( 'wp_editorial_vidriera' ) ) {
+  function wp_editorial_vidriera($ppp) {
+    $args = array(
+      'post_type'             => 'productoeditorial',
+      'posts_per_page'        => $ppp,
+    );
+    // The Query
+    $query_cartelera = new WP_Query( $args );
+
+    if ( $query_cartelera->have_posts() ) { 
+      while ( $query_cartelera->have_posts() ) : $query_cartelera->the_post();
+        get_template_part( 'layouts/card', 'vidriera-slide' );
+      endwhile;
+    } else {
+      get_template_part( 'template-parts/content', 'none' );    
+    }
+  }
+}
+
 
 /*** CATALOGO MUSICA ***/
 if ( ! function_exists( 'wp_archive_catalogomu' ) ) {

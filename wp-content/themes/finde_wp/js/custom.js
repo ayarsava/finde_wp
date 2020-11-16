@@ -241,6 +241,43 @@ $('.slick.conversaciones_slide').slick({
   slidesToShow: 1,
 });
 
+$('.slick.vidriera').slick({
+  centerMode: true,
+  centerPadding: '60px',
+  slidesToShow: 8,
+  swipeToSlide: true,
+  responsive: [
+    {
+      breakpoint: 1000,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+      }
+    }
+  ]
+});
+
+
 $('#agenda-destacada').slick({
   infinite: false,
   speed: 300,
@@ -490,6 +527,7 @@ $( document ).ready(function() {
     autoplaySpeed: 2000,
     swipeToSlide:true,
   });
+
 });
 
 if ($('#gamejam_videos').length) {

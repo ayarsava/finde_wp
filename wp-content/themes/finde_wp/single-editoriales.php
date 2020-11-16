@@ -18,18 +18,9 @@ get_template_part( 'layouts/header', 'ed' );
     $libreria = rwmb_meta( 'mbox_libreria' );
     $whatsapp = rwmb_meta( 'mbox_whatsapp' );
     $images = rwmb_meta( 'image_ed', array( 'size' => 'large' ) );
+
+    
 ?>
-
-<?php while ( have_posts() ) :
-                the_post(); 
-
-                $productos = MB_Relationships_API::get_connected( [
-            'id'   => 'productoeditorial_to_editoriales',
-            'to' => get_the_ID(),
-        ] );
-
-        ?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
     <header class="branding-header pt-3 bg-editorial">
         <div class="container pb-5">
@@ -80,12 +71,64 @@ get_template_part( 'layouts/header', 'ed' );
                 <?php
                 the_content();
                 ?>
+                <?php
+                echo '<hr>';
+                $args = array(
+                      'post_type'              => 'productoeditorial',
+                      'order'                  => 'ASC',
+                      'orderby'                => 'title',
+                      'relationship' => [
+                        'id'   => 'productoeditorial_to_editoriales',
+                        'to' => get_the_ID(), // You can pass object ID or full object
+                    ],
+                    'nopaging'     => true,
+                );
+
+                // The Query
+                $query_libros = new WP_Query( $args );
+                // The Loop
+                if ( $query_libros->have_posts() ) {
+                  while ( $query_libros->have_posts() ) : $query_libros->the_post();
+            
+                    $libros = MB_Relationships_API::get_connected( [
+                        'id'   => 'productoeditorial_to_editoriales',
+                        'to' => get_the_ID(),
+                    ] );
+                    $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
+                    $url = rwmb_meta( 'mbox_url' );
+                    $image_tapa = rwmb_meta( 'mbox_tapa', array( 'limit' => 1, 'size' => 'small' ) );
+                    $tapa = reset( $image_tapa );
+    
+                        
+                    echo '<div class="card mb-3 w-100">';
+                        echo '<div class="row no-gutters">';
+                            echo '<div class="col-md-5">';
+                                echo '<img src="'.$tapa['url'].'" class="card-img" alt="...">';
+                            echo '</div>';
+                            echo '<div class="col-md-10"><div class="card-body">';
+                                echo '<h5 class="card-title"><a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link">'. get_the_title() .'</a></h5>';
+                                if( has_excerpt() ){
+                                    echo '<div class="card-text">'.get_the_excerpt().'</div>';
+                                } else {
+                                    echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+                                }
+                                echo '<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>';
+                            echo '</div></div>';
+                        echo '</div>';
+                    echo '</div>';
+    
+                  endwhile;
+                  wp_reset_postdata();
+                }
+    
+                // Restore original Post Data
+                wp_reset_postdata();
+    
+                // termino loop
+                ?>
             </div>
         </div>
     </div><!-- .container -->
 </article><!-- #post-<?php the_ID(); ?> -->
 
-<?php
-endwhile; // End the loop.
-?>
 <?php get_template_part( 'layouts/footer', 'ed' ); 

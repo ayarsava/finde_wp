@@ -3135,6 +3135,44 @@ section.cck .titulos h4 {
   margin-left: -10px;
 }
 
+.slick.vidriera.slick-slider .slick-list .slick-track {
+  /* the parent */
+}
+.slick.vidriera.slick-slider .slick-list .slick-track .slick-slide.card-vidriera {
+  height: 190px;
+  background-size: cover;
+  position: relative;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.slick.vidriera.slick-slider .slick-list .slick-track .slick-slide.card-vidriera a i {
+  opacity: 0;
+  position: absolute;
+  font-size: 50px;
+  left: calc(50% - 25px);
+  top: calc(50% - 25px);
+  color: #ff677d;
+  z-index: 2;
+  -webkit-transition: opacity 100ms ease-in-out;
+  -moz-transition: opacity 100ms ease-in-out;
+  -ms-transition: opacity 100ms ease-in-out;
+  -o-transition: opacity 100ms ease-in-out;
+  transition: opacity 100ms ease-in-out;
+}
+.slick.vidriera.slick-slider .slick-list .slick-track .slick-slide.card-vidriera a i:hover {
+  opacity: 1;
+}
+.slick.vidriera.slick-slider .slick-list .slick-track .slick-slide.card-vidriera a:hover > i {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.slick.vidriera.slick-slider .slick-list .slick-track .slick-slide {
+  margin-left: 10px;
+}
+.slick.vidriera.slick-slider .slick-list .slick-track .slick-list {
+  margin-left: -10px;
+}
+
 #agenda-destacada {
   /* the parent */
 }
@@ -3316,6 +3354,16 @@ section.cck .titulos h4 {
   #activo.movie-wrapper iframe {
     height: 330px !important;
   }
+}
+
+.single-productoeditorial .autores {
+  color: #ff677d;
+}
+.single-productoeditorial blockquote {
+  border-left: solid 5px #ff4e67;
+  padding-left: 30px;
+  font-style: italic;
+  font-size: 1.2rem;
 }
 
 /*# sourceMappingURL=finde.css.map */

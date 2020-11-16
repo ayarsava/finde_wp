@@ -14,24 +14,23 @@ get_template_part( 'layouts/header', 'ed' );
     $image_contratapa = rwmb_meta( 'mbox_contratapa', array( 'limit' => 1, 'size' => 'full' ) );
     $contratapa = reset( $image_contratapa );
     $quote = rwmb_meta('mbox_quote');
-    
-
-    $tipo_au = get_the_terms( $post->ID, 'tipo_au' );
-    $genero_au = get_the_terms( $post->ID, 'genero_au' );
-    $calificacion_au = get_the_terms( $post->ID, 'calificacion_au' );
-    $afiche = get_the_post_thumbnail_url(get_the_ID(),'full'); 
-    $presentado_por = rwmb_meta('mbox_presentado-por');
-    $seleccion = rwmb_meta('mbox_seleccion');
-    $descripcion = rwmb_meta('mbox_descripcion');
-    $duracion = rwmb_meta('mbox_duracion');
-    $productora = rwmb_meta('mbox_productora');
-    $direccion = rwmb_meta('mbox_direccion');
-    $produccion = rwmb_meta('mbox_produccion');
-    $guion = rwmb_meta('mbox_guion');
-    $ano = rwmb_meta('mbox_ano');
-    $elenco = rwmb_meta('mbox_elenco');
-    $fecha_estreno = rwmb_meta('fecha_estreno');
-    $curDateTime = date("Y-m-d H:i:s");
+    $destacado_id = rwmb_meta('mbox_destacado_id');
+    $subtitulo = rwmb_meta('mbox_subtitulo');
+    $autor = rwmb_meta('mbox_autor');
+    $traductor = rwmb_meta('mbox_traductor');
+    $ilustrador = rwmb_meta('mbox_ilustrador');
+    $isbn = rwmb_meta('mbox_isbn');
+    $fecha_publicacion = rwmb_meta('mbox_fecha_publicacion');
+    $paginas = rwmb_meta('mbox_paginas');
+    $precio = rwmb_meta('mbox_precio');
+    $formato = rwmb_meta('mbox_formato');
+    $edicion = rwmb_meta('mbox_edicion');
+    $impresion = rwmb_meta('mbox_impresion');
+    $url = rwmb_meta('mbox_url');
+    $editoriales = MB_Relationships_API::get_connected( [
+        'id'   => 'productoeditorial_to_editoriales',
+        'from' => get_the_ID(),
+    ] );
 
 ?>
 <div id="content">
@@ -39,72 +38,95 @@ get_template_part( 'layouts/header', 'ed' );
         <div class="container">
             <div class="row py-5">
                 <div class="col-md-5">
-                <?php 
-                    if ($image_tapa) { 
-                        echo '<img src="'.$tapa['url'].'" class="img-fluid">';
+                    <div class="profile-slick" style="min-height:500px!important;margin-top:0px!important;">
+                    <?php 
+                        if ($image_tapa) { 
+                            echo '<img src="'.$tapa['url'].'" class="img-fluid">';
+                        }
+                    ?>
+                    <?php 
+                        if ($image_contratapa) { 
+                            echo '<img src="'.$contratapa['url'].'" class="img-fluid mt-2">';
+                        }
+                    ?>
+                    </div>
+                    <?php 
+                    if ($url) {
+                        echo '<a href="'.$url.'" target="_blank" title="Comprar en tienda" class="btn btn-outline-primary btn-block">Comprar</a>';
                     }
-                ?>
-                <?php 
-                    if ($image_contratapa) { 
-                        echo '<img src="'.$contratapa['url'].'" class="img-fluid mt-2">';
-                    }
-                ?>
+                    ?>
                 </div>
                 <div class="col-md-10">
                     <?php the_title( '<h1 class="entry-title extra-grande">', '</h1>' ); ?>
                     <?php 
+                    if ($subtitulo) {
+                    echo '<div class="lead font-weight-bold mb-2">'.$subtitulo.'</div>';
+                    }
+                    if ($autor) {
+                    echo '<div class="autores">'.$autor.'</div>';
+                    }
+                    if ($traductor) {
+                    echo '<div class="traductor">Traducción por: '.$traductor.'</div>';
+                    }
+                    if ($ilustrador) {
+                    echo '<div class="traductor">Ilustraciones de: '.$ilustrador.'</div>';
+                    }
+                    if ($editoriales) {
+                        echo 'Editorial:<ul class="list-unstyled">'; foreach ( $editoriales as $editorial ) {
+                        echo '<li><span>Por editorial: <strong><a href="'.get_permalink( $editorial ).'">' .$editorial->post_title.'</a></strong></span></li> ';
+                        }
+                        echo '</ul>';
+                    }
+                    echo '<div class="mt-4">';
                     echo the_content();
+                    echo '</div>';
+                    ?>
+                    <?php if ($quote) {?>
+                    <div class="py-4 gutemberg">
+                        <div class="item col-md-12 p-4">
+                            <?php echo $quote;?>
+                        </div>
+                    </div>
+                    <?php } ?>
+
+                    <?php
+                    echo '<!--Metadata--><dl class="ficha-tecnica">';
+                    if ($isbn) {
+                        echo '<dt>ISBN</dt>';
+                        echo '<dd>'.$isbn.'</dd>';
+                    }
+                    if ($fecha_publicacion) {
+                        echo '<dt>Fecha de publicación</dt>';
+                        echo '<dd>'.date('d-m-Y', $fecha_publicacion);'</dd>';
+                    }
+                    if ($paginas) {
+                        echo '<dt>Páginas</dt>';
+                        echo '<dd>'.$paginas.'</dd>';
+                    }
+                    if ($precio) {
+                        echo '<dt>Precio</dt>';
+                        echo '<dd>'.$precio.'</dd>';
+                    }
+                    if ($formato) {
+                        echo '<dt>Formato</dt>';
+                        echo '<dd>'.$formato.'</dd>';
+                    }
+                    if ($edicion) {
+                        echo '<dt>Edición</dt>';
+                        echo '<dd>'.$edicion.'</dd>';
+                    }
+                    if ($impresion) {
+                        echo '<dt>Impresión</dt>';
+                        echo '<dd>'.$impresion.'</dd>';
+                    }
+                    echo '<!--Fin Metadata-->';
                     ?>
                 </div>
             </div>
         </div>
         <section class="bg-white">
             <div class="container py-4">
-                <div class="etiquetas">
-                <?php if ($duracion) { ?>
-                    <span class="mr-1"><i class="far fa-clock"></i> Duración: <?php echo $duracion;?></span>
-                <?php } ?>
-                    <?php
-                    if ($tipo_au) {
-                        echo '<span class="mr-1"><i class="fas fa-film"></i>  ';
-                        foreach($tipo_au as $tipo) {
-                        $tipo_autring[] = $tipo->name;
-                        }
-                        $list = implode(', ', $tipo_autring);
-                        echo rtrim($list,',');
-                        echo '</span>';
-                    }
-                    ?>
-                    <?php
-                    if ($genero_au) {
-                        echo '<span class="mr-1"><i class="fas fa-eye"></i>  ';
-                        foreach($genero_au as $genero) {
-                        $genero_autring[] = $genero->name;
-                        }
-                        $list = implode(', ', $genero_autring);
-                        echo rtrim($list,',');
-                        echo '</span>';
-                    }
-                    ?>
-                    <?php
-                    if ($calificacion_au) {
-                        echo '<span class="mr-1"><i class="far fa-hand-paper"></i>  ';
-                        foreach($calificacion_au as $calificacion) {
-                        $calificacion_autring[] = $calificacion->name;
-                        }
-                        $list = implode(', ', $calificacion_autring);
-                        echo rtrim($list,',');
-                        echo '</span>';
-                    }
-                    ?>
-                </div>
-                <?php if ($quote) {?>
-                <div class="lead py-4 gutemberg">
-                    <div class="item col-md-5 p-4">
-                        <?php echo $quote;?>
-                    </div>
-                </div>
-                <?php } ?>
+                
             </div>
         </section>
         <section class="container-fluid no-gutters ficha">

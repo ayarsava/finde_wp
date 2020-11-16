@@ -71,11 +71,13 @@ get_template_part( 'layouts/header', 'ed' );
         <section class="opb-editoriales">
             <div class="opb-wrapper">
                 <div class="container">
-                    <div class="col-lg-9 col-md-10 col-sm-15 p-lg-5 p-3 cta-info">
-                        <div class="">
-                            <h1 class="extra-grande mt-4">Entrá a la oferta de editoriales independientes que participan en Finde</h1>
-                            <div class="lead my-3">Apoyá tu circuito cultural local.</div>
-                            <a href="/editoriales" class="hvr-icon-forward"><strong>Conocé las editoriales</strong> <i class="fas fa-angle-double-right hvr-icon"></i></a>
+                    <div class="row">
+                        <div class="col-lg-9 col-md-10 col-sm-15 pt-lg-5 p-3 cta-info">
+                            <div class="">
+                                <h1 class="extra-grande mt-4">Entrá a la oferta de editoriales independientes que participan en Finde</h1>
+                                <div class="lead my-3">Apoyá tu circuito cultural local.</div>
+                                <a href="/editoriales" class="hvr-icon-forward"><strong>Conocé las editoriales</strong> <i class="fas fa-angle-double-right hvr-icon"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -99,6 +101,96 @@ get_template_part( 'layouts/header', 'ed' );
             </div>
         </section>
 
+        <!--VIDRIERA-->
+        <section id="vidriera-slick" class="py-5" style="background: #f6f5f3;">
+            <div class="container">
+                <h1 class="mb-4"><strong>Vidriera</strong> <a href="/libros" title="Vidriera" class="btn btn-outline-primary">Ver todos</a></h1>
+            </div>
+            <div class="container-fluid border-bottom pb-3">
+                <div class="slick vidriera">
+                    <?php wp_editorial_vidriera(-1); ?>
+                </div>
+            </div><!-- #main -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-15">
+                        <div class="mt-3 py-3">
+                            <a href="/libros"><strong>+ Ver todos los libros</strong></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--AGENDA-->
+        <section id="agenda-slick" class="bg-light py-5">
+            <div class="container">
+                <h1 class="mb-4"><strong>Agenda</strong> <a href="/en-vivo" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
+                <?php wp_archive_agenda('editorial'); ?>
+                <div class="row">
+                    <div class="col-15">
+                        <div class="border-top mt-3 py-3">
+                            <a href="/agenda-editorial"><strong>+ Ver agenda completa</strong></a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- #main -->
+        </section>
+
+        <!--PROYECCIONES-->
+        <section id="proyecciones" class="cck" style="background:#000;">
+            <div class="container-fluid">
+                <div class="row h-100">
+                    <div class="col-md-9 full-img position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-cine-elpoetaenlaluna.jpg'); min-height:500px;">
+                        <a href="/editorial/encuesta/" title="Editorial | Encuesta" class="stretched-link"></a>
+                        <div class="titulos">
+                            <h4>Encuesta</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row h-100">
+                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-series.jpg')">
+                                <a href="/editorial/duatlon" title="Editorial | Duatlón" class="stretched-link"></a>
+                                <div class="titulos">
+                                    <h5>Duatlón</h5>
+                                </div>
+                            </div>
+                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-youtube.jpg')">
+                                <a href="/editorial/memes" title="Editorial | Memes" class="stretched-link"></a>
+                                <div class="titulos">
+                                    <h5>Memes</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--BANNERS-->
+        <?php wp_archive_banners('editorial');?>
+
+        <!--ESTRENO EXCLUSIVO-->
+        <section class="bg-light pb-5" style="background:#e2e2e2;">
+            <div class="container">
+                <div class="row mt-md-5">
+                    <div class="col-md-6">
+                        <div class="wrap pt-5 pr-sm-5">
+                            <h5 class="font-weight-bold">Lista de reproducción de</h5>
+                            <h2 class="font-weight-bold">Recomendaciones</h2>
+                            <p class="mt-5">Texto en desarrollo...</p>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe src="https://player.vimeo.com/video/348240535" class="embed-responsive-item" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="border:solid 3px #FFF; border-radius:3px;padding:1px"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <!--ENTRADA AL CATALOGO DE LIBRERÍAS-->
         <section class="bg-white">
             <div class="position-relative" style="min-height: 400px;">
@@ -115,22 +207,6 @@ get_template_part( 'layouts/header', 'ed' );
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!--AGENDA-->
-        <section id="agenda-slick" class="bg-light py-5">
-            <div class="container">
-                <h1 class="mb-4"><strong>Agenda</strong> <a href="/en-vivo" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
-                
-                <?php wp_archive_agenda('editorial'); ?>
-                <div class="row">
-                    <div class="col-15">
-                        <div class="border-top mt-3 py-3">
-                            <a href="/agenda-editorial"><strong>+ Ver agenda completa</strong></a>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- #main -->
         </section>
 
 
