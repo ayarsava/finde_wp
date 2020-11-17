@@ -108,7 +108,7 @@ get_template_part( 'layouts/header', 'ed' );
             </div>
             <div class="container-fluid border-bottom pb-3">
                 <div class="slick vidriera">
-                    <?php wp_editorial_vidriera(-1); ?>
+                    <?php wp_editorial_vidriera(-1,''); ?>
                 </div>
             </div><!-- #main -->
             <div class="container">
@@ -137,11 +137,11 @@ get_template_part( 'layouts/header', 'ed' );
             </div><!-- #main -->
         </section>
 
-        <!--PROYECCIONES-->
+        <!--BLOQUES-->
         <section id="proyecciones" class="cck" style="background:#000;">
             <div class="container-fluid">
                 <div class="row h-100">
-                    <div class="col-md-9 full-img position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-cine-elpoetaenlaluna.jpg'); min-height:500px;">
+                    <div class="col-md-9 full-img position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/editorial-004.jpg'); min-height:500px;">
                         <a href="/editorial/encuesta/" title="Editorial | Encuesta" class="stretched-link"></a>
                         <div class="titulos">
                             <h4>Encuesta</h4>
@@ -149,13 +149,13 @@ get_template_part( 'layouts/header', 'ed' );
                     </div>
                     <div class="col-md-6">
                         <div class="row h-100">
-                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-series.jpg')">
+                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/editorial-002.jpg')">
                                 <a href="/editorial/duatlon" title="Editorial | Duatlón" class="stretched-link"></a>
                                 <div class="titulos">
                                     <h5>Duatlón</h5>
                                 </div>
                             </div>
-                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-youtube.jpg')">
+                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/editorial-003.jpg')">
                                 <a href="/editorial/memes" title="Editorial | Memes" class="stretched-link"></a>
                                 <div class="titulos">
                                     <h5>Memes</h5>

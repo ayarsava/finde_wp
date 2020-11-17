@@ -38,7 +38,7 @@ get_template_part( 'layouts/header', 'ed' );
         <div class="container">
             <div class="row py-5">
                 <div class="col-md-5">
-                    <div class="profile-slick" style="min-height:500px!important;margin-top:0px!important;">
+                    <div class="libro-slick" style="margin-top:0px!important;">
                     <?php 
                         if ($image_tapa) { 
                             echo '<img src="'.$tapa['url'].'" class="img-fluid">';
@@ -53,6 +53,30 @@ get_template_part( 'layouts/header', 'ed' );
                     <?php 
                     if ($url) {
                         echo '<a href="'.$url.'" target="_blank" title="Comprar en tienda" class="btn btn-outline-primary btn-block">Comprar</a>';
+                    }
+                    ?>
+                    <?php 
+                    if ($editoriales) {
+                        echo '<ul class="list-unstyled my-4">'; foreach ( $editoriales as $editorial ) {
+                        echo '<li><h5 class="mb-3">Otros títulos de editorial <strong><a href="'.get_permalink( $editorial ).'" id="'.$editorial->ID.'">' .$editorial->post_title.'</a></strong><h5></li> ';
+                        
+                        $connected = new WP_Query( [
+                            'relationship' => [
+                                'id'   => 'productoeditorial_to_editoriales',
+                                'to' => $editorial->ID,
+                            ],
+                            'nopaging'     => true,
+                            'post__not_in'   => array( $post->ID )
+                        ] );
+                        while ( $connected->have_posts() ) : $connected->the_post();
+                        echo '<div class="w-100">';
+                            get_template_part( 'layouts/card', 'libro' );
+                        echo '</div>';
+                        endwhile;
+                        wp_reset_postdata();
+
+                        }
+                        echo '</ul>';
                     }
                     ?>
                 </div>
@@ -71,13 +95,15 @@ get_template_part( 'layouts/header', 'ed' );
                     if ($ilustrador) {
                     echo '<div class="traductor">Ilustraciones de: '.$ilustrador.'</div>';
                     }
-                    if ($editoriales) {
-                        echo 'Editorial:<ul class="list-unstyled">'; foreach ( $editoriales as $editorial ) {
-                        echo '<li><span>Por editorial: <strong><a href="'.get_permalink( $editorial ).'">' .$editorial->post_title.'</a></strong></span></li> ';
+                    $post_tags = get_the_tags();
+                    if ( $post_tags ) {
+                        echo '<div class="tags">';
+                        foreach( $post_tags as $tag ) {
+                        echo '<span class="badge badge-rounded badge-primary"> ' .$tag->name . ' </span>'; 
                         }
-                        echo '</ul>';
+                        echo '</div>';
                     }
-                    echo '<div class="mt-4">';
+                    echo '<div class="lead mt-4">';
                     echo the_content();
                     echo '</div>';
                     ?>
@@ -90,7 +116,7 @@ get_template_part( 'layouts/header', 'ed' );
                     <?php } ?>
 
                     <?php
-                    echo '<!--Metadata--><dl class="ficha-tecnica">';
+                    echo '<!--Metadata--><dl class="ficha-tecnica border-left pl-3 mt-2">';
                     if ($isbn) {
                         echo '<dt>ISBN</dt>';
                         echo '<dd>'.$isbn.'</dd>';
@@ -124,77 +150,6 @@ get_template_part( 'layouts/header', 'ed' );
                 </div>
             </div>
         </div>
-        <section class="bg-white">
-            <div class="container py-4">
-                
-            </div>
-        </section>
-        <section class="container-fluid no-gutters ficha">
-            <div class="row">
-            <?php if ($presentado_por) {?>
-                <div class="item col-md-5 p-4">
-                    <div class="titulo">Este contenido es presentado por</div>
-                    <p class="text-light"><?php echo $presentado_por;?></p>
-                </div>
-            <?php } ?>
-            <?php if ($descripcion) {?>
-                <div class="item col-md-5 p-4">
-                    <div class="titulo">Descripción</div>
-                    <p><?php echo $descripcion;?></p>
-                </div>
-            <?php } ?>
-            <?php if ($seleccion) {?>
-                <div class="item col-md-5 p-4">
-                    <div class="titulo">Curación</div>
-                    <p class="text-light"><?php echo $seleccion;?></p>
-                </div>
-            <?php } ?>
-            <?php if ($afiche) {?>
-                <div class="item col-md-5 p-4">
-                    <div class="titulo">Afiche</div>
-                    <img src="<?php echo $afiche;?>" class="img-fluid px-4">
-                </div>
-            <?php } ?>
-            <? if ($productora || $direccion || $produccion || $guion || $ano || $elenco) {?>
-                <div class="item col-md-5 p-4">
-                    <div class="titulo">Ficha técnica</div>
-                    <ul class="list-unstyled ficha-tecnica">
-                        <? 
-                        if ($direccion) {
-                            echo '<li><strong>Dirección:</strong> '.$direccion.'</li>';
-                        }
-                        if ($produccion) {
-                            echo '<li><strong>Producción:</strong> '.$produccion.'</li>';
-                        }
-                        if ($guion) {
-                            echo '<li><strong>Guión:</strong> '.$guion.'</li>';
-                        }
-                        if ($ano) {
-                            echo '<li><strong>Año:</strong> '.$ano.'</li>';
-                        }
-                        if ($elenco) {
-                            echo '<li><strong>Elenco:</strong> '.$elenco.'</li>';
-                        }
-                        if ($productora) {
-                            echo '<li><strong>Productora:</strong> '.$productora.'</li>';
-                        }
-                        ?>
-                    </ul>
-                </div>
-                <?php } ?>
-                <?php 
-                $url = get_post_meta( get_the_ID(), 'trailer', true );
-                $trailer = wp_oembed_get( $url, $args );
-                if ( $trailer ) {
-                    echo '<div class="item col-md-5 p-4 trailer"><div class="titulo">Trailer</div>';
-                    echo '<div>';
-                    echo $trailer;
-                    echo '</div></div>';
-                }
-                ?>
-            </div>
-        </section>
-
     </div><!-- #post-<?php the_ID(); ?> -->
     
 

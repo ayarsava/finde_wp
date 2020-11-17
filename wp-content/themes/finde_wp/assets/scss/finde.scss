@@ -3071,3 +3071,11 @@ section.cck {
     font-size: 1.2rem;
   }
 }
+.col-7-5 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  position: relative;
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+}

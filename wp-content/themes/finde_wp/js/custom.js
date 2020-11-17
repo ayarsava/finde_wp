@@ -40,6 +40,15 @@ $('.profile-slick').slick({
   autoplaySpeed: 2000,
   dots: true
 });
+$('.libro-slick').slick({
+  infinite: true,
+  speed: 2500,
+  fade: true,
+  cssEase: 'linear',
+  autoplay: true,
+  autoplaySpeed: 2000,
+  dots: true
+});
 $('.banner-slick').slick({
   infinite: true,
   speed: 500,
