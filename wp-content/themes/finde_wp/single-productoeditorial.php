@@ -103,13 +103,13 @@ get_template_part( 'layouts/header', 'ed' );
                         }
                         echo '</div>';
                     }
-                    echo '<div class="lead mt-4">';
+                    echo '<div class="mt-4">';
                     echo the_content();
                     echo '</div>';
                     ?>
                     <?php if ($quote) {?>
-                    <div class="py-4 gutemberg">
-                        <div class="item col-md-12 p-4">
+                    <div class="py-4 gutemberg row">
+                        <div class="item col-md-12 lead">
                             <?php echo $quote;?>
                         </div>
                     </div>

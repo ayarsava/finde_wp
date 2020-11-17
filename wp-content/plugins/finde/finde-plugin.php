@@ -1543,12 +1543,13 @@ function mbox_register_meta_boxes( $meta_boxes ){
           'label_description' => 'Puede ser una frase de alguna reseña del libro en medios o una oración de alguien recomendando el libro. Es un texto que irá entre comillas y su función es promocionar el libro en una lectura rápida.',
           
           // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
-          'raw'     => false,
+          'raw'     => true,
 
           // Editor settings, see https://codex.wordpress.org/Function_Reference/wp_editor
           'options' => array(
               'textarea_rows' => 4,
-              'teeny'         => true,
+              'teeny'         => false,
+              'toolbar'=> 'bold,italic,underline,bullist,numlist,link,unlink,forecolor,undo,redo,pastetext,removeformat',
           ),
         ),
         //  URL
