@@ -3139,11 +3139,15 @@ section.cck .titulos h4 {
   /* the parent */
 }
 .slick.vidriera.slick-slider .slick-list .slick-track .slick-slide.card-vidriera {
-  height: 190px;
-  background-size: cover;
-  position: relative;
-  background-position: center center;
-  background-repeat: no-repeat;
+  background: #FFF;
+  border: 0;
+  border-radius: 1px;
+  padding-top: 1rem;
+}
+.slick.vidriera.slick-slider .slick-list .slick-track .slick-slide.card-vidriera img {
+  max-height: 200px;
+  width: auto;
+  border-radius: 4px;
 }
 .slick.vidriera.slick-slider .slick-list .slick-track .slick-slide.card-vidriera a i {
   opacity: 0;
@@ -3167,10 +3171,10 @@ section.cck .titulos h4 {
   cursor: pointer;
 }
 .slick.vidriera.slick-slider .slick-list .slick-track .slick-slide {
-  margin-left: 10px;
+  margin-left: 3px;
 }
 .slick.vidriera.slick-slider .slick-list .slick-track .slick-list {
-  margin-left: -10px;
+  margin-left: -3px;
 }
 
 #agenda-destacada {

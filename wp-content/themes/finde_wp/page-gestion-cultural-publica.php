@@ -80,21 +80,38 @@ get_template_part( 'layouts/header', 'te-pu' );
                 <div class="lead">
                     Gestores culturales públicos de otras provincias comparten casos de gestión que produjeron un impacto en sus territorios.
                 </div>
-                <div class="slick-custom mt-5" data-slick='{"slidesToShow": 3, "slidesToScroll": 1}'>           
+                <div class="slick-custom mt-5" data-slick='{"slidesToShow": 6, "slidesToScroll": 1}'>   
+
+                <div class="text-center">
+                        <div class="profile-face mx-auto mb-3" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/territorio/peki-torres.jpg');"></div>
+                        <h5>Peki Torres</h5>
+                        <p class="h6">San Juan</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="profile-face mx-auto mb-3" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/territorio/flor-poblete.jpg');"></div>
+                        <h5>Florencia Poblete</h5>
+                        <p class="h6">San Juan</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="profile-face mx-auto mb-3" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/territorio/felix-fiore-sta-fe.jpg');"></div>
+                        <h5>Felix Fiore</h5>
+                        <p class="h6">Santa Fe</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="profile-face mx-auto mb-3" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/territorio/Florencia-Lattuada-Santa-Fe.jpg');"></div>
+                        <h5>Florencia Lattuada</h5>
+                        <p class="h6">Santa Fe</p>
+                    </div>
+
                     <div class="text-center">
                         <div class="profile-face mx-auto mb-3" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/territorio/carolina-sampor.jpg');"></div>
-                        <h4>Carolina Sampor</h4>
-                        <p class="h5">Chaco</p>
+                        <h5>Carolina Sampor</h5>
+                        <p class="h6">Chaco</p>
                     </div>
                     <div class="text-center">
                         <div class="profile-face mx-auto mb-3" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/territorio/katia-bradford.jpg');"></div>
-                        <h4>Katia Bradford</h4>
-                        <p class="h5">Chaco</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="profile-face mx-auto mb-3" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/territorio/peki-torres.jpg');"></div>
-                        <h4>Peki Torres</h4>
-                        <p class="h5">San Juan</p>
+                        <h5>Katia Bradford</h5>
+                        <p class="h6">Chaco</p>
                     </div>
                 </div>
             </div>

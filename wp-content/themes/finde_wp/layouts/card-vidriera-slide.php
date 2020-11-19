@@ -13,15 +13,17 @@
 
 <?php
 $images = rwmb_meta( 'mbox_tapa', array( 'size' => 'large' ) );
+$precio = rwmb_meta ('mbox_precio');
 $tapas = reset( $images );
-    echo '<div class="card card-vidriera"';
+
+    echo '<div class="card card-vidriera" style="width: 18rem;">';
+    echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+    
     if ($tapas) { 
-        echo ' style="background-image: url('. esc_url($tapas['url']) .');">'; 
-    } else {
-        echo '">';
+    echo '<img src="'. esc_url($tapas['url']) .'" class="card-img-top mx-auto" alt="...">';
     }
-    echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link">';
-    echo '<i class="fas fa-eye"></i>';
-    echo '<div class="data sr-only"><h5>'.get_the_title().'</h5></div></a>';
-    echo '</div>';
+    echo '<div class="card-body">';
+    echo '<h5>'.get_the_title().'</h5>';
+    echo '<p class="card-text">$'.$precio.'.-</p>';
+    echo '</div></div>';
 ?>

@@ -2835,12 +2835,15 @@ section.cck {
   .slick-list {
     .slick-track {
       .slick-slide.card-vidriera {
-        height: 190px;
-        background-size: cover;
-        position: relative;
-        background-position: center center;
-        background-repeat:no-repeat;
-        
+        background: #FFF;
+        border:0;
+        border-radius:1px;
+        padding-top:1rem;
+        img {
+          max-height: 200px;
+          width:auto;
+          border-radius: 4px;
+        }
         a {
           i {
             opacity: 0;
@@ -2866,12 +2869,12 @@ section.cck {
         }
       }
       .slick-slide {
-        margin-left:10px;
+        margin-left:3px;
       }
     
       /* the parent */
       .slick-list {
-        margin-left:-10px;
+        margin-left:-3px;
       }
     }
   }

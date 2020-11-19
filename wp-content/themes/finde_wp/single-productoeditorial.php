@@ -55,6 +55,38 @@ get_template_part( 'layouts/header', 'ed' );
                         echo '<a href="'.$url.'" target="_blank" title="Comprar en tienda" class="btn btn-outline-primary btn-block">Comprar</a>';
                     }
                     ?>
+                    <?php
+                    echo '<!--Metadata--><dl class="ficha-tecnica border-left pl-3 mt-2">';
+                    if ($isbn) {
+                        echo '<dt>ISBN</dt>';
+                        echo '<dd>'.$isbn.'</dd>';
+                    }
+                    if ($fecha_publicacion) {
+                        echo '<dt>Fecha de publicación</dt>';
+                        echo '<dd>'.date('d-m-Y', $fecha_publicacion);'</dd>';
+                    }
+                    if ($paginas) {
+                        echo '<dt>Páginas</dt>';
+                        echo '<dd>'.$paginas.'</dd>';
+                    }
+                    if ($precio) {
+                        echo '<dt>Precio</dt>';
+                        echo '<dd>'.$precio.'</dd>';
+                    }
+                    if ($formato) {
+                        echo '<dt>Formato</dt>';
+                        echo '<dd>'.$formato.'</dd>';
+                    }
+                    if ($edicion) {
+                        echo '<dt>Edición</dt>';
+                        echo '<dd>'.$edicion.'</dd>';
+                    }
+                    if ($impresion) {
+                        echo '<dt>Impresión</dt>';
+                        echo '<dd>'.$impresion.'</dd>';
+                    }
+                    echo '<!--Fin Metadata-->';
+                    ?>
                     <?php 
                     if ($editoriales) {
                         echo '<ul class="list-unstyled my-4">'; foreach ( $editoriales as $editorial ) {
@@ -89,6 +121,14 @@ get_template_part( 'layouts/header', 'ed' );
                     if ($autor) {
                     echo '<div class="autores">'.$autor.'</div>';
                     }
+
+                    if ($quote) {
+                        echo '<div class="py-4 gutemberg row">';
+                            echo '<div class="item col-md-12 lead text-primary"><em>';
+                                echo $quote;
+                            echo '</em></div>';
+                        echo '</div>';
+                    }
                     if ($traductor) {
                     echo '<div class="traductor">Traducción por: '.$traductor.'</div>';
                     }
@@ -99,7 +139,7 @@ get_template_part( 'layouts/header', 'ed' );
                     if ( $post_tags ) {
                         echo '<div class="tags">';
                         foreach( $post_tags as $tag ) {
-                        echo '<span class="badge badge-rounded badge-primary"> ' .$tag->name . ' </span>'; 
+                        echo '<span class="badge badge-rounded badge-primary"> ' .$tag->name . ' </span> '; 
                         }
                         echo '</div>';
                     }
@@ -107,46 +147,8 @@ get_template_part( 'layouts/header', 'ed' );
                     echo the_content();
                     echo '</div>';
                     ?>
-                    <?php if ($quote) {?>
-                    <div class="py-4 gutemberg row">
-                        <div class="item col-md-12 lead">
-                            <?php echo $quote;?>
-                        </div>
-                    </div>
-                    <?php } ?>
 
-                    <?php
-                    echo '<!--Metadata--><dl class="ficha-tecnica border-left pl-3 mt-2">';
-                    if ($isbn) {
-                        echo '<dt>ISBN</dt>';
-                        echo '<dd>'.$isbn.'</dd>';
-                    }
-                    if ($fecha_publicacion) {
-                        echo '<dt>Fecha de publicación</dt>';
-                        echo '<dd>'.date('d-m-Y', $fecha_publicacion);'</dd>';
-                    }
-                    if ($paginas) {
-                        echo '<dt>Páginas</dt>';
-                        echo '<dd>'.$paginas.'</dd>';
-                    }
-                    if ($precio) {
-                        echo '<dt>Precio</dt>';
-                        echo '<dd>'.$precio.'</dd>';
-                    }
-                    if ($formato) {
-                        echo '<dt>Formato</dt>';
-                        echo '<dd>'.$formato.'</dd>';
-                    }
-                    if ($edicion) {
-                        echo '<dt>Edición</dt>';
-                        echo '<dd>'.$edicion.'</dd>';
-                    }
-                    if ($impresion) {
-                        echo '<dt>Impresión</dt>';
-                        echo '<dd>'.$impresion.'</dd>';
-                    }
-                    echo '<!--Fin Metadata-->';
-                    ?>
+                    
                 </div>
             </div>
         </div>

@@ -106,7 +106,7 @@ get_template_part( 'layouts/header', 'ed' );
             <div class="container">
                 <h1 class="mb-4"><strong>Vidriera</strong> <a href="/libros" title="Vidriera" class="btn btn-outline-primary">Ver todos</a></h1>
             </div>
-            <div class="container-fluid border-bottom pb-3">
+            <div class="container-fluid pb-3">
                 <div class="slick vidriera">
                     <?php wp_editorial_vidriera(-1,''); ?>
                 </div>
@@ -167,13 +167,31 @@ get_template_part( 'layouts/header', 'ed' );
             </div>
         </section>
 
-        <!--BANNERS-->
-        <?php wp_archive_banners('editorial');?>
-
-        <!--ESTRENO EXCLUSIVO-->
-        <section class="bg-light pb-5" style="background:#e2e2e2;">
+        <!--SPOTIFY-->
+        <section class="bg-white py-5">
             <div class="container">
-                <div class="row mt-md-5">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe src="https://player.vimeo.com/video/348240535" class="embed-responsive-item" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="border:solid 3px #FFF; border-radius:3px;padding:1px"></iframe>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="wrap pt-5 pr-sm-5">
+                            <h5 class="font-weight-bold">Lista de reproducción de</h5>
+                            <h2 class="font-weight-bold">Recomendaciones</h2>
+                            <p class="mt-5">Texto en desarrollo...</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!--RECOMENDACIONES-->
+        <section class="bg-light py-5" style="background:#e2e2e2;">
+            <div class="container">
+                <div class="row">
                     <div class="col-md-6">
                         <div class="wrap pt-5 pr-sm-5">
                             <h5 class="font-weight-bold">Lista de reproducción de</h5>
@@ -189,7 +207,6 @@ get_template_part( 'layouts/header', 'ed' );
                 </div>
             </div>
         </section>
-
 
         <!--ENTRADA AL CATALOGO DE LIBRERÍAS-->
         <section class="bg-white">
@@ -208,6 +225,9 @@ get_template_part( 'layouts/header', 'ed' );
                 </div>
             </div>
         </section>
+
+        <!--BANNERS-->
+        <?php wp_archive_banners('editorial');?>
 
 
 

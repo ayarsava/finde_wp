@@ -41,12 +41,8 @@ $('.profile-slick').slick({
   dots: true
 });
 $('.libro-slick').slick({
-  infinite: true,
-  speed: 2500,
-  fade: true,
-  cssEase: 'linear',
-  autoplay: true,
-  autoplaySpeed: 2000,
+  autoplay: false,
+  autoplaySpeed: 300,
   dots: true
 });
 $('.banner-slick').slick({
@@ -253,7 +249,7 @@ $('.slick.conversaciones_slide').slick({
 $('.slick.vidriera').slick({
   centerMode: true,
   centerPadding: '60px',
-  slidesToShow: 8,
+  slidesToShow: 6,
   swipeToSlide: true,
   responsive: [
     {
