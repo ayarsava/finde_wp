@@ -16,7 +16,7 @@ $images = rwmb_meta( 'mbox_tapa', array( 'size' => 'large' ) );
 $precio = rwmb_meta ('mbox_precio');
 $tapas = reset( $images );
 
-    echo '<div class="card card-vidriera" style="width: 18rem;">';
+    echo '<div class="card card-vidriera h-100" style="width: 18rem;">';
     echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
     
     if ($tapas) { 
@@ -24,6 +24,8 @@ $tapas = reset( $images );
     }
     echo '<div class="card-body">';
     echo '<h5>'.get_the_title().'</h5>';
-    echo '<p class="card-text">$'.$precio.'.-</p>';
+    if ($precio) {
+    echo '<p class="card-text">'.$precio.'.-</p>';
+    }
     echo '</div></div>';
 ?>

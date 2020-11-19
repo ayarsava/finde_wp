@@ -141,24 +141,26 @@ get_template_part( 'layouts/header', 'ed' );
         <section id="proyecciones" class="cck" style="background:#000;">
             <div class="container-fluid">
                 <div class="row h-100">
-                    <div class="col-md-9 full-img position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/editorial-004.jpg'); min-height:500px;">
-                        <a href="/editorial/encuesta/" title="Editorial | Encuesta" class="stretched-link"></a>
+                    <div class="col-md-9 full-img position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/editorial-encuesta.jpg'); min-height:500px;">
+                        <a href="https://finde.gba.gob.ar/1era-encuesta-de-editoriales-independientes-bonaerenses/" title="Editorial | 1era Encuesta de Editoriales Bonaerenses" class="stretched-link"></a>
                         <div class="titulos">
-                            <h4>Encuesta</h4>
+                            <h4>1era Encuesta de Editoriales Bonaerenses</h4>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="row h-100">
-                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/editorial-002.jpg')">
-                                <a href="/editorial/duatlon" title="Editorial | Duatlón" class="stretched-link"></a>
+                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/editorial-duatlon.jpg')">
+                                <a href="https://finde.gba.gob.ar/duatlon-poetico/" title="Editorial | Desafío Duatlón Poético" class="stretched-link"></a>
                                 <div class="titulos">
-                                    <h5>Duatlón</h5>
+                                    <h5>Desafío Duatlón Poético</h5>
+                                    <p>¡Sumate!</p>
                                 </div>
                             </div>
-                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/editorial-003.jpg')">
-                                <a href="/editorial/memes" title="Editorial | Memes" class="stretched-link"></a>
+                            <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/editorial-memes.jpg')">
+                                <a href="https://finde.gba.gob.ar/torneo-de-memes-literarios/" title="Editorial | Concurso Memes Literarios" class="stretched-link"></a>
                                 <div class="titulos">
-                                    <h5>Memes</h5>
+                                    <h5>Concurso Memes Literarios</h5>
+                                    <p>Participá</p>
                                 </div>
                             </div>
                         </div>

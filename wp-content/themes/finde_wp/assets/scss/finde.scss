@@ -2833,8 +2833,10 @@ section.cck {
 }
 .slick.vidriera.slick-slider {
   .slick-list {
-    .slick-track {
+    .slick-track
+      display: flex !important;
       .slick-slide.card-vidriera {
+        height: inherit !important;
         background: #FFF;
         border:0;
         border-radius:1px;
