@@ -25,7 +25,7 @@ $tapas = reset( $images );
     echo '<div class="card-body">';
     echo '<h5>'.get_the_title().'</h5>';
     if ($precio) {
-    echo '<p class="card-text">'.$precio.'.-</p>';
+    echo '<p class="card-text">'.$precio.'</p>';
     }
     echo '</div></div>';
 ?>
