@@ -306,11 +306,11 @@ $( document ).ready(function() {
   $mm = today.getMonth()+1; //January is 0!
   $dm = $dd + '-' + $mm;
   console.log($dm);
-  if ($dm == '06-11') {
+  if ($dm == '20-11') {
     var slide = 0;
-  } else if ($dm == '07-11') {
+  } else if ($dm == '21-11') {
     var slide = 1;
-  } else if ($dm == '08-11') {
+  } else if ($dm == '22-11') {
     var slide = 2;
   } else {
     var slide = 0;

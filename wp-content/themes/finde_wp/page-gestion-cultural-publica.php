@@ -39,7 +39,7 @@ get_template_part( 'layouts/header', 'te-pu' );
         <?php the_content();?>
 
         <!--BIENVENIDA-->
-        <section class="bg-light py-5">
+        <section class="bg-light py-5" id="cultura-en-territorio">
             <div class="container">
                 <h3><strong>Cultura en territorio</strong></h3>
                 <p class="lead">Finde Cultura en Territorio es un espacio de encuentro entre los 135 municipios bonaerenses, para analizar y compartir experiencias de gestión cultural pública. En esta primera edición tendremos presentaciones y análisis de políticas públicas municipales, conferencias y talleres. Una herramienta para pensar la cultura pública en territorio desde los territorios y junto a invitadxs que son referentes de la gestión en otras provincias.</p>

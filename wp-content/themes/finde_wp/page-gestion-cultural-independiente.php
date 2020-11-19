@@ -39,7 +39,7 @@ get_template_part( 'layouts/header', 'te-in' );
         <?php the_content();?>
 
         <!--BIENVENIDA-->
-        <section class="bg-light py-5">
+        <section class="bg-light py-5" id="cultura-en-territorio">
             <div class="container">
                 <h3 class="mb-4"><strong>Cultura en Territorio</strong></h3>
                 <p class="lead">Finde Cultura en Territorio es un espacio de encuentro de la cultura independiente bonaerense, para compartir experiencias y herramientas que la potencien. En esta primera edición tendremos presentaciones de proyectos colectivos, festivales y espacios culturales, conversaciones y capacitaciones. Un espacio para pensar la cultura independiente en territorio desde los territorios.</p>
