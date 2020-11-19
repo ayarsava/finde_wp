@@ -125,7 +125,7 @@ get_template_part( 'layouts/header', 'ed' );
         <!--AGENDA-->
         <section id="agenda-slick" class="bg-light py-5">
             <div class="container">
-                <h1 class="mb-4"><strong>Agenda</strong> <a href="/en-vivo" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
+                <h1 class="mb-4"><strong>Agenda</strong></h1>
                 <?php wp_archive_agenda('editorial'); ?>
                 <div class="row">
                     <div class="col-15">
@@ -173,14 +173,13 @@ get_template_part( 'layouts/header', 'ed' );
                 <div class="row">
                     <div class="col-md-9">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe src="https://player.vimeo.com/video/348240535" class="embed-responsive-item" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="border:solid 3px #FFF; border-radius:3px;padding:1px"></iframe>
+                            <iframe src="https://www.youtube.com/embed/videoseries?list=PLTzRO-Kx1pr2yyC6EFaemth3dw-yUOqDk" class="embed-responsive-item" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="border:solid 3px #FFF; border-radius:3px;padding:1px"></iframe>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="wrap pt-5 pr-sm-5">
-                            <h5 class="font-weight-bold">Lista de reproducción de</h5>
-                            <h2 class="font-weight-bold">Recomendaciones</h2>
-                            <p class="mt-5">Texto en desarrollo...</p>
+                            <h2 class="font-weight-bold">Lista de recomendaciones</h2>
+                            <p class="mt-5">Editorxs y escritorxs recomiendan libros bonaerenses y cuentan sus proyectos en formato breve. </p>
                         </div>
                     </div>
                     
@@ -194,14 +193,13 @@ get_template_part( 'layouts/header', 'ed' );
                 <div class="row">
                     <div class="col-md-6">
                         <div class="wrap pt-5 pr-sm-5">
-                            <h5 class="font-weight-bold">Lista de reproducción de</h5>
-                            <h2 class="font-weight-bold">Recomendaciones</h2>
-                            <p class="mt-5">Texto en desarrollo...</p>
+                            <h2 class="font-weight-bold">Podcast</h2>
+                            <p class="mt-5">Te presentamos nuestro podcast sobre el oficio de hacer libros. En este primer episodio visitamos a Nico Biebel de editorial Econautas, en San Miguel del Monte, provincia de Buenos Aires</p>
                         </div>
                     </div>
                     <div class="col-md-9">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <iframe src="https://player.vimeo.com/video/348240535" class="embed-responsive-item" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="border:solid 3px #FFF; border-radius:3px;padding:1px"></iframe>
+                            <iframe src="https://www.youtube.com/embed/zi2Yap9VJ6A" class="embed-responsive-item" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="border:solid 3px #FFF; border-radius:3px;padding:1px"></iframe>
                         </div>
                     </div>
                 </div>

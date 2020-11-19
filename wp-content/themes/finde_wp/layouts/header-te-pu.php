@@ -51,7 +51,7 @@
   		<div class="container">
 	  		<div class="row position-relative">
 		  		<div class="logo-wrapper col-lg-2 col-md-3 col-8">
-			        <a class="main-logo mt-3" href="/">
+			        <a class="main-logo mt-3" href="/territorio/">
 			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde_te_logo.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
 			        </a>
 			    </div>
