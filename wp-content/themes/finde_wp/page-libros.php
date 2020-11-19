@@ -25,15 +25,42 @@ get_template_part( 'layouts/header', 'ed' );
 		</div>
 	</section>
 
-	<section id="catalogo" class="bg-white py-5">
+	<section id="catalogo" class="bg-light py-5">
 		<div class="container">
 			
 				<div class="container">
-					<h3 class="mb-4"><strong>Sustentabilidad</strong></h3>
+					<h3 class="mb-4"><strong>Ficción y literatura contemporánea</strong></h3>
 				</div>
-				<div class="container-fluid border-bottom pb-3">
+				<div class="container-fluid mb-5">
 					<div class="slick vidriera">
-						<?php wp_editorial_vidriera(30,'sustentabilidad'); ?>
+						<?php wp_editorial_vidriera(-1,'ficcion-y-literatura-contemporanea'); ?>
+					</div>
+				</div><!-- #main -->
+
+				<div class="container">
+					<h3 class="mb-4"><strong>Pensamiento</strong></h3>
+				</div>
+				<div class="container-fluid mb-5">
+					<div class="slick vidriera">
+						<?php wp_editorial_vidriera(-1,'pensamiento'); ?>
+					</div>
+				</div><!-- #main -->
+
+				<div class="container">
+					<h3 class="mb-4"><strong>Poesía</strong></h3>
+				</div>
+				<div class="container-fluid mb-5">
+					<div class="slick vidriera">
+						<?php wp_editorial_vidriera(-1,'poesia'); ?>
+					</div>
+				</div><!-- #main -->
+
+				<div class="container">
+					<h3 class="mb-4"><strong>Libros ilustrados</strong></h3>
+				</div>
+				<div class="container-fluid mb-5">
+					<div class="slick vidriera">
+						<?php wp_editorial_vidriera(-1,'libros-ilustrados'); ?>
 					</div>
 				</div><!-- #main -->
 

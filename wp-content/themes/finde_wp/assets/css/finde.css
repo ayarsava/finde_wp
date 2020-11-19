@@ -3136,9 +3136,11 @@ section.cck .titulos h4 {
 }
 
 .slick.vidriera.slick-slider .slick-list .slick-track {
+  display: flex !important;
   /* the parent */
 }
 .slick.vidriera.slick-slider .slick-list .slick-track .slick-slide.card-vidriera {
+  height: inherit !important;
   background: #FFF;
   border: 0;
   border-radius: 1px;
