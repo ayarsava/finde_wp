@@ -156,7 +156,7 @@ get_template_part( 'layouts/header', 'ed' );
                             <div class="col-md-15 full-img h-50 position-relative" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/editorial-memes.jpg')">
                                 <a href="https://finde.gba.gob.ar/torneo-de-memes-literarios/" title="Editorial | Concurso Memes Literarios" class="stretched-link"></a>
                                 <div class="titulos">
-                                    <h5>Concurso Memes Literarios</h5>
+                                    <h5>Torneo de Memes Literarios</h5>
                                     <p>Participá</p>
                                 </div>
                             </div>
