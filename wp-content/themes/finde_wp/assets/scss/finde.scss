@@ -760,9 +760,12 @@ footer {
       background-size:cover;
       background-position:center center;
       .carousel-caption {
-        bottom: 70px;
+        bottom: 0;
         left: 0;
-        width: 45%;
+        max-width: 45%;
+        width: auto;
+        right: auto;
+        padding-bottom: 0;
         @media (max-width: 767.98px) {
           width: 70%;
         }

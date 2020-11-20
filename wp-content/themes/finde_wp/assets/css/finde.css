@@ -805,9 +805,12 @@ footer img.logo-cultura {
   }
 }
 #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption {
-  bottom: 70px;
+  bottom: 0;
   left: 0;
-  width: 45%;
+  max-width: 45%;
+  width: auto;
+  right: auto;
+  padding-bottom: 0;
 }
 @media (max-width: 767.98px) {
   #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption {
