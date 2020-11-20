@@ -776,6 +776,9 @@ footer {
           h1 {
             font-size: 2.4rem;
             font-weight: 400;
+            @media (max-width: 991px) {
+              font-size: 1.5rem;
+          }
             @media (max-width: 767.98px) {
                 font-size: 1.3rem;
             }
@@ -839,6 +842,7 @@ footer {
         left:0;
         bottom:60px;
         width:80%;
+        max-width: 80%;
         .info {
           background:#000;
           color:#FFF;

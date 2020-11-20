@@ -826,6 +826,11 @@ footer img.logo-cultura {
   font-size: 2.4rem;
   font-weight: 400;
 }
+@media (max-width: 991px) {
+  #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info h1 {
+    font-size: 1.5rem;
+  }
+}
 @media (max-width: 767.98px) {
   #slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info h1 {
     font-size: 1.3rem;
@@ -885,6 +890,7 @@ footer img.logo-cultura {
     left: 0;
     bottom: 60px;
     width: 80%;
+    max-width: 80%;
   }
   section#slide-principal .carousel .carousel-inner .carousel-item .carousel-caption .info {
     background: #000;
