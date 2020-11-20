@@ -92,19 +92,19 @@ get_template_part( 'layouts/header', 'ed' );
                     echo '<h5 class="mt-5">Libros destacados</h5>';
                     echo '<hr>';
                     echo '<div class="row">';
-                  while ( $query_libros->have_posts() ) : $query_libros->the_post();
-            
-                    $libros = MB_Relationships_API::get_connected( [
-                        'id'   => 'productoeditorial_to_editoriales',
-                        'to' => get_the_ID(),
-                    ] );
-                    echo '<div class="col-7-5">';
-                    get_template_part( 'layouts/card', 'libro' );
+                    while ( $query_libros->have_posts() ) : $query_libros->the_post();
+                
+                        $libros = MB_Relationships_API::get_connected( [
+                            'id'   => 'productoeditorial_to_editoriales',
+                            'to' => get_the_ID(),
+                        ] );
+                        echo '<div class="col-15 col-lg-7-5 mb-3">';
+                        get_template_part( 'layouts/card', 'libro' );
+                        echo '</div>';
+        
+                    endwhile;
                     echo '</div>';
-    
-                  endwhile;
-                  echo '</div>';
-                  wp_reset_postdata();
+                    wp_reset_postdata();
                 }
     
                 // Restore original Post Data

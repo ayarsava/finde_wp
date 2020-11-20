@@ -3079,6 +3079,7 @@ section.cck {
     font-size: 1.2rem;
   }
 }
+
 .col-7-5 {
   flex: 0 0 50%;
   max-width: 50%;
@@ -3086,4 +3087,22 @@ section.cck {
   width: 100%;
   padding-right: 10px;
   padding-left: 10px;
+}
+@media (min-width: 768px) {
+  .col-md-7-5 {
+      flex: 0 0 50%;
+      max-width: 50%;
+      padding-right: 10px;
+      padding-left: 10px;
+      position: relative;
+  }
+}
+@media (min-width: 991px) {
+  .col-lg-7-5 {
+      flex: 0 0 50%;
+      max-width: 50%;
+      padding-right: 10px;
+      padding-left: 10px;
+      position: relative;
+  }
 }
