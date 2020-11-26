@@ -68,12 +68,24 @@
 											<img src="/wp-content/themes/finde_wp/assets/img/icon-editorial.png" class="img-fluid icon">
 									</div>
 									<div class="pb-1 text-white">
-										<h3><strong>PRÓXIMA EDICIÓN<br>EDITORIAL</strong></h3>
-										<p>Del 20 AL 22 DE NOVIEMBRE</p>
+										<h3><strong>PRÓXIMA EDICIÓN<br>MÚSICA</strong></h3>
+										<p>Del 04 AL 06 DE DICIEMBRE</p>
 										<div class="mb-3" id="activo" style="display:none;"><a href="/editorial" class="btn btn-outline-light" title="Accedé a la Edición de Editorial">Accedé</a></div>
 										<button id="soon" type="button" class="btn btn-outline-light mb-3" disabled style="display:none;">Muy pronto</button>
 									</div>
 							</div>
+						</div>
+					</div>
+					<div class="w-50 bg-transparent mb-4 mx-auto">
+						<div class="card text-center shadow hover-shadow">
+								<div class="py-3 col-md-8 mx-auto">
+										<img src="/wp-content/themes/finde_wp/assets/img/icon-editorial.png" class="img-fluid icon">
+								</div>
+								<div class="pb-1 text-white">
+									<h3><strong>EDITORIAL</strong></h3>
+									<p>Del 20 AL 22 DE NOVIEMBRE</p>
+									<div class="mb-3"><a href="/editorial" title="Accedé a la Edición de Editorial" class="btn btn-outline-light">Revivila</a></div>
+								</div>
 						</div>
 					</div>
 					<div class="w-50 bg-transparent mb-4 mx-auto">
@@ -132,7 +144,7 @@
 			hour = minute * 60,
 			day = hour * 24;
 
-			let countDown = new Date('2020-11-19T19:00:00'.replace(/\s/, 'T')).getTime(),
+			let countDown = new Date('2020-12-04T19:00:00'.replace(/\s/, 'T')).getTime(),
 			x = setInterval(function() {    
 
 			let now = new Date().getTime(),
