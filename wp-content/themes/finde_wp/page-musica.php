@@ -85,22 +85,13 @@ get_template_part( 'layouts/header', 'mu' );
     <!--VIDRIERA-->
     <section id="vidriera-slick" class="py-5" style="background: #f6f5f3;">
         <div class="container">
-            <h2 class="mb-4"><strong>Ofertas Destacadas</strong> <a href="/productosmusica" title="Ofertas Destacadas" class="btn btn-outline-primary">Ver todos los productos</a></h2>
+            <h2 class="mb-4"><strong>Ofertas Destacadas</strong></h2>
         </div>
         <div class="container-fluid pb-3">
             <div class="slick vidriera">
                 <?php wp_musica_vidriera(-1,''); ?>
             </div>
         </div><!-- #main -->
-        <div class="container">
-            <div class="row">
-                <div class="col-15">
-                    <div class="mt-3 py-3">
-                        <a href="/productos-musica"><strong>+ Ver todos los productos</strong></a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!--CONTENIDO - EX AGENDA-->
