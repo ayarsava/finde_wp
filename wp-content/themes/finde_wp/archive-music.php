@@ -24,7 +24,7 @@ get_template_part( 'layouts/header', 'mu' );
 			if ($term->slug == 'instrumentos-musicales' ) {
 				echo '<h1 class="page-title">Instrumentos</h1><div class="lead mb-5">Guitarras, Bajos, Teclados, Baterías y mucho más.</div>';
 			} elseif ($term->slug == 'musica' ) {
-				echo '<h1 class="page-title">Sellos discográficos</h1><div class="lead mb-5">Vinilos, Digital y CDs</div>';
+				echo '<h1 class="page-title">Música</h1><div class="lead mb-5">Vinilos, Digital y CDs</div>';
 			} elseif ($term->slug == 'audio-profesional' ) {
 				echo '<h1 class="page-title">Audio</h1><div class="lead mb-5">Profesional y Hogareño</div>';
 			} elseif ($term->slug == 'estudios' ) {

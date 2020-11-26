@@ -14,6 +14,7 @@
 <?php
 $images = rwmb_meta( 'mbox_tapa', array( 'size' => 'large' ) );
 $precio = rwmb_meta ('mbox_precio');
+$url = rwmb_meta ('mbox_url');
 $tapas = reset( $images );
 
     echo '<div class="card card-vidriera h-100" style="width: 18rem;">';
@@ -24,8 +25,15 @@ $tapas = reset( $images );
     }
     echo '<div class="card-body">';
     echo '<h5>'.get_the_title().'</h5>';
-    if ($precio) {
-    echo '<p class="card-text">'.$precio.'</p>';
+    if ($precio || $url) { 
+        echo '<p class="card-text">';
+        if ($precio) {
+            echo $precio;
+        }
+        if ($url) {
+            echo '<a href="'.$url.'" target="_blank" title="Comprar" class="btn btn-sm btn-outline-primary os ml-2"> <span class="fas fa-shopping-cart"></span> </a>';
+        }
+        echo '</p>';
     }
     echo '</div></div>';
 ?>

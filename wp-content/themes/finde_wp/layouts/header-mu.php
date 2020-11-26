@@ -74,13 +74,35 @@
 						)
 					);
 					?>
+
+					<div class="dropdown px-lg-2 mb-2 my-lg-0">
+                        <div class="dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Contenidos
+                        </div>
+                        <div class="dropdown-menu border-0" aria-labelledby="dropdownMenu">
+							<a href="/#" class="dropdown-item">Experiencia de gestión</a>
+							<a href="/#" class="dropdown-item">Ideas para el sector</a>
+							<a href="/#" class="dropdown-item">Identidad y producción bonaerense</a>
+                        </div>
+                    </div>
+					<div class="dropdown px-lg-2 mb-2 my-lg-0">
+                        <div class="dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Código Provincia
+                        </div>
+                        <div class="dropdown-menu border-0" aria-labelledby="dropdownMenu">
+							<a href="/#" class="dropdown-item">Convocatoria</a>
+							<a href="/#" class="dropdown-item">Laboratorio</a>
+                        </div>
+                    </div>
 			    	<div class="dropdown mr-auto px-lg-2 mb-2 my-lg-0">
                         <div class="dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Ediciones anteriores
                         </div>
                         <div class="dropdown-menu border-0" aria-labelledby="dropdownMenu">
-							<a href="/videojuegos" class="dropdown-item"><i class="fas fa-gamepad"></i>  Videojuegos</a>
-							<a href="/diseno" class="dropdown-item"><i class="fas fa-swatchbook"></i>  Diseño</a>
+                            <a href="/videojuegos" class="dropdown-item"><i class="fas fa-gamepad"></i>  Videojuegos</a>
+                            <a href="/diseno" class="dropdown-item"><i class="fas fa-swatchbook"></i>  Diseño</a>
+							<a href="/audiovisual" class="dropdown-item"><i class="fas fa-film"></i>  Audiovisual</a>
+                            <a href="/editorial" class="dropdown-item"><i class="fas fa-book"></i>  Editorial</a>
                         </div>
                     </div>
 			    	<div class="navbar-sec d-md-flex my-2 my-lg-0">

@@ -37,6 +37,13 @@ get_header();
 						the_post();
 						?>
 						  <div class="row no-gutters">
+
+						  <?php 
+							$video_url = rwmb_get_value( 'audiovisual' );
+							if ( $video_url ) {
+								echo '<div class="col-15 pb-5 video"><div class="plyr__video-embed" id="player" data-url="'.$video_url.'"></div></div>';
+							} ?>
+
 						  	<?php if ($featured_img_url) { 
 						    	echo '<div class="col-md-6">';
 						    	the_post_thumbnail('full', array('class' => 'img-fluid'));
@@ -55,14 +62,12 @@ get_header();
 							      echo '</div>';
 							    }
 								?>
+								<?php if ($fecha) {?>
 								<div class="fecha">
 									<span class="dia"><?php echo date('d-m', $fecha); ?> </span> - 
 									<span class="hora"><?php echo date('H:i', $fecha); ?>hs</span>
 								</div>
-						        <ul class="list-unstyled">
-
-									<li></li>
-								</ul>
+								<?php } ?>
 						      	<?php
 								the_title( '<h1 class="card-title">', '</h1>' );
 								if( has_excerpt() ){
@@ -78,14 +83,7 @@ get_header();
 						      </div>
 							</div>
 							
-							<?php 
-							$url = get_post_meta( get_the_ID(), 'audiovisual', true );
-							$contenido_audiovisual = wp_oembed_get( $url, $args );
-							if ( $contenido_audiovisual ) {
-								echo '<div class="col-15 pt-5 video">';
-								echo $contenido_audiovisual;
-								echo '</div>';
-							} ?>
+							
 						  </div>
 <?
 					endwhile; // End of the loop.

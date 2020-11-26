@@ -200,7 +200,7 @@ add_action( 'mb_relationships_init', function() {
     MB_Relationships_API::register( [
         'id'   => 'productomusica_to_musica',
         'from' => 'productomusica',
-        'to'   => 'musica',
+        'to'   => 'music',
     ] );
 } );
 

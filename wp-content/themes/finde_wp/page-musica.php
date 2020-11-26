@@ -14,184 +14,148 @@
 get_template_part( 'layouts/header', 'mu' ); 
 ?>
 
-    <div id="content" class="music">
-        <section id="slide-principal">
-            <div id="carouselCaptions" class="carousel slide" data-ride="carousel">
+<div id="content" class="home-music">
+    <section id="slide-principal">
+        <div id="carouselCaptions" class="carousel slide" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <?php wp_showSlides_fullbg_portag('musica') ?>
+            </div>
 
-              <!-- Wrapper for slides -->
-              <div class="carousel-inner">
-                <?php wp_showSlides_fullbg_musica() ?>
-              </div>
-
-              <!-- Controls -->
-              <!-- Carousel nav -->
-              <a class="carousel-control-prev" href="#carouselCaptions" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselCaptions" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselCaptions" role="button" data-slide="next">
+            </a>
+            <a class="carousel-control-next" href="#carouselCaptions" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
-              </a>
-            </div>
-        </section>
+            </a>
+        </div>
+    </section>
 
+    <!--OPB-->
+    <?php the_content();?>
 
-        <!--OPB-->
-        <section id="finde-vj">
-            <div class="container-fluid py-5 bg-primary">
-                <div class="container">
-                    <div class="col-md-8 mx-auto text-center text-white py-5">
-                        <div class="h4">#FINDEAPURAMÚSICA</div>
-                        <div class="h1 pb-3"><strong>Un finde dedicado a la música y a apoyar a la cultura local</strong></div>
-                        <div class="lead">Finde te propone un fin de semana a pura música; es una iniciativa para comprar desde instrumentos y equipamiento con promociones hasta vinilos, descargas, packs en estudios de grabación y mucho más. También, para disfrutar de conciertos, DJ sets, charlas y talleres desde casa para potenciar la escena local.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--BP-->
-        <section class="bg-white">
-            <div class="container-fluid">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <a href="https://www.bancoprovincia.com.ar/cuentadni/index?url=cdniIndividuos" target="_blank" title="Enlace al sitio web del Banco Provincia">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-banco-provincia.gif" class="img-fluid d-none d-sm-block" alt="Banco Provincia">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-banco-provincia_m.gif" class="mx-auto img-fluid d-block d-sm-none" alt="Banco Provincia">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!--ENTRADA AL CATALOGO DE MÚSICA-->
-        <section id="categorias" class="opb-music text-center bg-light" style="background: #f5f5f4;">
-            <div class="container text-left">
-                <h2 class="extra-grande font-weight-bold py-3">Comprar</h2>
-            </div>
-            <div class="d-md-flex flex-md-equal w-100">
-                <div class="py-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden position-relative" style="background: #38ccfe;">
-                    <a href="/rubro_mu/instrumentos-musicales/?post_type=music" class="stretched-link"></a>
-                    <div class="mx-lg-4 mx-sm-2 px-lg-5 px-md-3 px-sm-2 py-4">
-                        <img src="/wp-content/themes/finde_wp/assets/img/icono-instrumentos.png" class="img-fluid px-4 py-3" style="max-width:320px;">
-                        <h2 class="display-5 font-weight-bold">Instrumentos</h2>
-                        <p class="lead">Guitarras, Bajos, Teclados, Baterías y mucho más</p>
-                    </div>
-                </div>
-                <div class="py-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden position-relative" style="background: #f0456e;">
-                    <a href="/rubro_mu/musica/?post_type=music" class="stretched-link"></a>
-                    <div class="mx-lg-5 mx-sm-2 px-lg-5 px-md-3 px-sm-2 py-4">
-                        <img src="/wp-content/themes/finde_wp/assets/img/icono-musica.png" class="img-fluid px-5 pb-4" style="max-height:160px;">
-                        <h2 class="display-5 font-weight-bold">Sellos discográficos</h2>
-                        <p class="lead">Vinilos, Digital y CDs</p>
-                    </div>
-                </div>
-            </div>
-            <div class="d-md-flex flex-md-equal w-100">
-                <div class="py-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden position-relative" style="background: #01d79e;">
-                    <a href="/rubro_mu/audio-profesional/?post_type=music" class="stretched-link"></a>
-                    <div class="mx-lg-5 mx-sm-2 px-lg-5 px-md-3 px-sm-2 py-4">
-                        <img src="/wp-content/themes/finde_wp/assets/img/icono-audio.png" class="img-fluid px-5 py-4" style="max-height:160px;">
-                        <h2 class="display-5 font-weight-bold">Audio</h2>
-                        <p class="lead">Profesional y Hogareño</p>
-                    </div>
-                </div>
-                <div class="py-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden position-relative" style="background: #fefe7a;">
-                    <a href="/rubro_mu/estudios/?post_type=music" class="stretched-link"></a>
-                    <div class="mx-lg-5 mx-sm-2 px-lg-5 px-md-3 px-sm-2 py-4">
-                        <img src="/wp-content/themes/finde_wp/assets/img/icono-estudios.png" class="img-fluid px-5 pb-4" style="max-height:160px;">
-                        <h2 class="display-5 font-weight-bold">Estudios</h2>
-                        <p class="lead">Grabación, Mezcla y Mastering</p>
-                    </div>
-                </div>
-            </div>
-            <div class="d-md-flex flex-md-equal w-100">
-                <div class="py-3 px-5 pt-md-5 px-md-5 text-center overflow-hidden position-relative" style="background: #a39e8d;">
-                    <a href="/rubro_mu/agregadoras-digitales/?post_type=music" class="stretched-link"></a>
-                    <div class="mx-lg-5 mx-sm-2 px-lg-5 px-md-3 px-sm-2 py-4">
-                        <img src="/wp-content/themes/finde_wp/assets/img/icono-distribuidoras.png" class="img-fluid px-5 pb-4" style="width:250px;">
-                        <h2 class="display-5 font-weight-bold">Distribuidoras Digitales</h2>
-                        <p class="lead">Agregadoras de contenido</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--AGENDA-->
-        <section id="agenda-slick" class="bg-light py-5">
+    <!--BP-->
+    <section class="bg-white py-5">
+        <div class="container-fluid">
             <div class="container">
-                <h1 class="mb-4"><strong>Agenda</strong> <a href="/en-vivo" title="Agenda de eventos" class="btn btn-outline-primary"><i class="fas fa-video"></i> En vivo </a></h1>
-                
-                <?php wp_archive_agenda('musica'); ?>
                 <div class="row">
-                    <div class="col-15">
-                        <div class="border-top mt-3 py-3">
-                            <a href="/agenda-musica"><strong>+ Ver agenda completa</strong></a>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- #main -->
-        </section>
-
-
-
-        <!--BANNERS-->
-        <section class="bg-dark">
-            <div class="container-fluid">
-                <div class="container banner-slick">
-
-
-                    <div class="item" style="background:white!important;">
-                        <a href="https://instagram.com/laferiadelamusica?igshid=1s7wzxtot7mln" target="_blank" title="Enlace al sitio web de La feria de la Música">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Feria_De_La_Musica_Infinito.gif" class="img-fluid d-none d-sm-block" alt="La feria de la Música">
-                        </a>
-                        <a href="https://instagram.com/laferiadelamusica?igshid=1s7wzxtot7mln" target="_blank" title="Enlace al sitio web de La feria de la Música">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Feria_De_La_Musica_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="La feria de la Música">
-                        </a>
-                    </div>
-                    
-                    <div class="item" style="background:white!important;">
-                        <a href="http://aatia.com.ar/" target="_blank" title="Enlace al sitio web de AATIA">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_AATIA.gif" class="img-fluid d-none d-sm-block" alt="AATIA">
-                        </a>
-                        <a href="http://aatia.com.ar/" target="_blank" title="Enlace al sitio web de AATIA">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_AATIA_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="AATIA">
-                        </a>
-                    </div>
-
-                    <div class="item" style="background:white!important;">
-                        <a href="http://www.caimavi.org.ar/" target="_blank" title="Enlace al sitio web de CAIMAVI">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Caimavi.png" class="img-fluid d-none d-sm-block" alt="CAIMAVI">
-                        </a>
-                        <a href="http://www.caimavi.org.ar/" target="_blank" title="Enlace al sitio web de CAIMAVI">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Caimavi_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="CAIMAVI">
-                        </a>
-                    </div>
-
-                    <div class="item" style="background:white!important;">
-                        <a href="https://www.instagram.com/cafimoficial/" target="_blank" title="Enlace al sitio web de CAFIM">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Cafim.gif" class="img-fluid d-none d-sm-block" alt="CAFIM">
-                        </a>
-                        <a href="https://www.instagram.com/cafimoficial/" target="_blank" title="Enlace al sitio web de CAFIM">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_Cafim_Mobile.gif" class="mx-auto img-fluid d-block d-sm-none" alt="CAFIM">
-                        </a>
-                    </div>
-
-                    <div class="item" style="background:white!important;">
-                        <a href="https://asiar.musica.ar/" target="_blank" title="Enlace al sitio web de ASIAr">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_ASIAr.png" class="img-fluid d-none d-sm-block" alt="ASIAr">
-                        </a>
-                        <a href="https://asiar.musica.ar/" target="_blank" title="Enlace al sitio web de ASIAr">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/banners/Banner_ASIAr_Mobile.png" class="mx-auto img-fluid d-block d-sm-none" alt="ASIAr">
+                    <div class="col">
+                        <a href="https://www.bancoprovincia.com.ar/cuentadni/index?url=cdniIndividuos" target="_blank" title="Enlace al sitio web del Banco Provincia">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-bp-large.gif" class="img-fluid d-none d-sm-block" alt="Banco Provincia">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/banner-bp-small.gif" class="mx-auto img-fluid d-block d-sm-none" alt="Banco Provincia">
                         </a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
+    <!--ENTRADA AL CATALOGO DE MÚSICA-->
+    <section id="tienda" class="text-center bg-light pt-5">
+        <div class="container text-left">
+            <h2 class="font-weight-bold pb-3">Tienda  <a href="/musica/tienda"  class="btn btn-outline-primary"> <i class="fas fa-store"></i> Ver todos</a></h2>
+        </div>
+        <div class="d-md-flex flex-md-equal w-100 sectores">
+            <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 " style="background: #38ccfe;">
+                <div class="pt-4 pb-4">
+                    <h4 style="font-weight: 600 !important;" class="display-5 text-dark"><a href="/rubro_mu/instrumentos-musicales/?post_type=music" class="stretched-link text-dark">Instrumentos</a></h4>
+                </div>
+            </div>
+            <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100" style="background:#fefe7a;">
+                <div class="pt-4 pb-4">
+                    <h4 style="font-weight: 600 !important;" class="display-5 text-dark"><a href="/rubro_mu/estudios/?post_type=music" class="stretched-link text-dark">Estudios</a></h4>
+                </div>
+            </div>
+            <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 text-dark" style="background: #01d79e;">
+                <div class="pt-4 pb-4">
+                    <h4 style="font-weight: 600 !important;" class="display-5 text-dark"><a href="/rubro_mu/audio-profesional/?post_type=music" class="stretched-link text-dark">Audio</a></h4>
+                </div>
+            </div>
+            <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100" style="background: #f0456e;">
+                <div class="pt-4 pb-4">
+                    <h4 style="font-weight: 600 !important;" class="display-5 text-dark"><a href="/rubro_mu/musica/?post_type=music" class="stretched-link text-dark">Música</a></h4>
+                </div>
+                <!--<div class="caption">Catálogo</div>-->
+            </div>
+        </div>
+    </section>
+
+    <!--VIDRIERA-->
+    <section id="vidriera-slick" class="py-5" style="background: #f6f5f3;">
+        <div class="container">
+            <h2 class="mb-4"><strong>Ofertas Destacadas</strong> <a href="/productosmusica" title="Ofertas Destacadas" class="btn btn-outline-primary">Ver todos los productos</a></h2>
+        </div>
+        <div class="container-fluid pb-3">
+            <div class="slick vidriera">
+                <?php wp_musica_vidriera(-1,''); ?>
+            </div>
+        </div><!-- #main -->
+        <div class="container">
+            <div class="row">
+                <div class="col-15">
+                    <div class="mt-3 py-3">
+                        <a href="/productos-musica"><strong>+ Ver todos los productos</strong></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--CONTENIDO - EX AGENDA-->
+    <section id="contenido-slick" class="bg-light py-5">
+        <div class="container">
+            <h2 class="mb-4"><strong>Contenidos: Experiencias de gestión</strong></h2>
+            
+            <?php wp_archive_contenido('musica','experiencias-de-gestion'); ?>
+        </div><!-- #main -->
+
+        <div class="container">
+            <h2 class="mb-4"><strong>Contenidos: Ideas para el sector</strong></h2>
+            
+            <?php wp_archive_contenido('musica','ideas-para-el-sector'); ?>
+        </div><!-- #main -->
+
+        <div class="container">
+            <h2 class="mb-4"><strong>Contenidos: Identidad y producción bonaerense</strong></h2>
+            
+            <?php wp_archive_contenido('musica','identidad-y-produccion-bonaerense'); ?>
+            <div class="row">
+                <div class="col-15">
+                    <div class="border-top mt-3 py-3">
+                        <a href="/agenda-musica"><strong>+ Ver todos los contenidos</strong></a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- #main -->
+    </section>
+
+    <!--BANNERS-->
+    <section class="bg-white">
+        <?php wp_archive_banners('musica');?>
+    </section> 
+
+    <!--Partner destacado-->
+    <section class="bg-light pb-5" style="background:#e2e2e2;">
+        <div class="container">
+            <div class="row mt-md-5">
+                <div class="col-md-6">
+                    <div class="wrap pt-5 pr-sm-5">
+                        <h5>Partner destacado</h5>
+                        <h2>Lorem ipsum</h2>
+                        <p class="mt-5">Lorem ipsum...</p>
+                        <a href="#" class="btn btn-outline-primary badge-pill px-5 my-3">Ver más</a>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe src="https://player.vimeo.com/video/348240535" class="embed-responsive-item" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="border:solid 3px #FFF; border-radius:3px;padding:1px"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <?php 
 get_template_part( 'layouts/footer', 'mu' ); 

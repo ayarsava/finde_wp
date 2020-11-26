@@ -201,6 +201,34 @@ function wporg_register_taxonomy_descuento_mu() {
 }
 add_action('init', 'wporg_register_taxonomy_descuento_mu');
 
+/*** Taxonomias para Producto musica | Tipo ***/
+function wporg_register_taxonomy_tipo_mu() {
+  $labels = [
+    'name'              => _x('Tipo', 'taxonomy general name'),
+    'singular_name'     => _x('Tipo', 'taxonomy singular name'),
+    'search_items'      => __('Buscar tipos'),
+    'all_items'         => __('Todos los tipos'),
+    'parent_item'       => __('Tipo padre'),
+    'parent_item_colon' => __('Tipo padre:'),
+    'edit_item'         => __('Editar tipos'),
+    'update_item'       => __('Actualizar tipos'),
+    'add_new_item'      => __('Agregar nuevo tipo'),
+    'new_item_name'     => __('Nuevo nombre de tipo '),
+    'menu_name'         => __('Tipo'),
+  ];
+  $args = [
+    'hierarchical'      => true, // make it hierarchical (like categories)
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'show_in_rest'      => true,
+    'rewrite'           => array( 'slug' => 'tipo_mu', 'with_front' => false ),
+  ];
+  register_taxonomy('tipo_mu', ['productomusica'], $args);
+}
+add_action('init', 'wporg_register_taxonomy_tipo_mu');
+
 
 function wporg_register_taxonomy_rubro_di() {
   $labels = [
@@ -901,6 +929,68 @@ function custom_post_type_music() {
  
 }
 add_action( 'init', 'custom_post_type_music', 0 );
+
+
+/*** CPT PRODUCTO Editorial ***/ 
+function custom_post_type_productomusica() {
+ 
+  // Set UI labels for Custom Post Type
+    $labels = array(
+        'name'                => _x( 'Productos', 'Post Type General Name', 'finde-plugin' ),
+        'singular_name'       => _x( 'Producto', 'Post Type Singular Name', 'finde-plugin' ),
+        'menu_name'           => __( 'Productos de Música', 'finde-plugin' ),
+        'parent_item_colon'   => __( 'Producto padre', 'finde-plugin' ),
+        'all_items'           => __( 'Todos los Producto de música', 'finde-plugin' ),
+        'view_item'           => __( 'Ver Producto de música', 'finde-plugin' ),
+        'add_new_item'        => __( 'Agregar nuevo Producto', 'finde-plugin' ),
+        'add_new'             => __( 'Agregar nuevo', 'finde-plugin' ),
+        'edit_item'           => __( 'Editar Producto', 'finde-plugin' ),
+        'update_item'         => __( 'Actualizar Producto', 'finde-plugin' ),
+        'search_items'        => __( 'Buscar Producto', 'finde-plugin' ),
+        'not_found'           => __( 'No encontrado', 'finde-plugin' ),
+        'not_found_in_trash'  => __( 'No encontrado en la papelera', 'finde-plugin' ),
+    );
+     
+  // Set other options for Custom Post Type
+     
+    $args = array(
+        'label'               => __( 'productomusica', 'finde-plugin' ),
+        'description'         => __( 'Producto de música', 'finde-plugin' ),
+        'labels'              => $labels,
+        // Features this CPT supports in Post Editor
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields', ),
+
+        // You can associate this CPT with a taxonomy or custom taxonomy. 
+        'taxonomies'  => array( 'post_tag', 'tipo_pm'),
+        /* A hierarchical CPT is like Pages and can have
+        * Parent and child items. A non-hierarchical CPT
+        * is like Posts.
+        */ 
+        'hierarchical'        => false,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 16,
+        'can_export'          => true,
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array(
+          'slug' => 'tienda-musica'
+        ),
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'show_in_rest'        => true,
+        'menu_icon'           => 'dashicons-album',
+ 
+    );
+     
+    // Registering your Custom Post Type
+    register_post_type( 'productomusica', $args );
+ 
+}
+add_action( 'init', 'custom_post_type_productomusica', 0 );
 
 
 /*** CPT DISEÑO ***/
@@ -1639,6 +1729,47 @@ function mbox_register_meta_boxes( $meta_boxes ){
           'id'   => "{$prefix}whatsapp",
           'type' => 'number',
       ),
+    )
+  );
+
+  # meta_box para producto musica
+  $meta_boxes[] = array(
+    'id'         => 'mb_finde_productomusica',
+    'title'      => __( 'Campos adicionales', 'mbox' ),
+    'post_types' => 'productomusica',
+    'context'    => 'normal',
+    'priority'   => 'low',
+    'autosave'   => true,
+    'fields'     => array(
+        array(
+          'name' => 'Destacado',
+          'id'   => 'destacado_id',
+          'type' => 'checkbox',
+          'std'  => 0, // 0 or 1
+        ),
+        array(
+          'id'          => "{$prefix}tapa",
+          'name'        => 'Tapa',
+          'type'        => 'image_advanced',
+          'max_file_uploads' => 5,
+          'image_size'       => 'thumbnail',
+          'max_status'       => 'false',
+        ),
+        array(
+          'name'        => 'Precio',
+          'label_description' => 'ej. $590',
+          'id'          => "{$prefix}precio",
+          'type'        => 'text',
+        ),
+        //  URL
+        array(
+            'name' =>'Url del libro a la venta',
+            // prefix es mbox_, o sea que en este caso es mbox_url.
+            'id'   => "{$prefix}url",
+            'desc' => __( 'Ingrese la url donde se ofrece el producto a la venta', 'mbox' ),
+            'type' => 'url',
+            'std'  => '',
+        ),
     )
   );
 
@@ -2690,6 +2821,34 @@ if ( ! function_exists( 'wp_editorial_vidriera' ) ) {
   }
 }
 
+if ( ! function_exists( 'wp_musica_vidriera' ) ) {
+  function wp_musica_vidriera($ppp,$post_tag) {
+    $args = array(
+      'post_type'              => 'productomusica',
+      'posts_per_page'         => $ppp,
+      'post_status'            => 'publish',
+      'no_found_rows'          => true,
+      'tag'                    => $post_tag,
+      'meta_query'            => array(
+        'destacado_clause'  => array(
+            'key'           => 'destacado_id',
+            'value'         => 1
+        ),
+      ),
+    );
+    // The Query
+    $query_cartelera = new WP_Query( $args );
+
+    if ( $query_cartelera->have_posts() ) { 
+      while ( $query_cartelera->have_posts() ) : $query_cartelera->the_post();
+        get_template_part( 'layouts/card', 'vidriera-slide' );
+      endwhile;
+    } else {
+      get_template_part( 'template-parts/content', 'none' );    
+    }
+  }
+}
+
 
 /*** CATALOGO MUSICA ***/
 if ( ! function_exists( 'wp_archive_catalogomu' ) ) {
@@ -3292,6 +3451,43 @@ if ( ! function_exists( 'wp_archive_agenda' ) ) {
     }
   }
 }
+
+/*** CONTENIDO - EX AGENDA ***/
+if ( ! function_exists( 'wp_archive_contenido' ) ) {
+  function wp_archive_contenido($post_category, $post_tag) {
+
+    $args = array(
+        'post_type'             => 'agenda',
+        'posts_per_page'        => -1,
+        'category_name'         => $post_category,
+        'tag'                   => $post_tag,
+        'meta_query'            => array(
+            /*'destacado_clause'  => array(
+                'key'           => 'destacado_id',
+                'value'         => 1
+            ),*/
+        ),
+        'orderby'               => array( 
+            //'destacado_clause'  => 'DESC',
+            'fecha_clause'      => 'ASC',
+        ),
+    );
+
+    // The Query
+    $query_agenda = new WP_Query( $args );
+
+    if ( $query_agenda->have_posts() ) { 
+      echo '<div class="slick agenda contenido slider-nav">';
+      while ( $query_agenda->have_posts() ) : $query_agenda->the_post();
+          get_template_part( 'template-parts/content-contenido', get_post_type() );
+      endwhile;
+      echo '</div>';
+    } else {
+      get_template_part( 'template-parts/content', 'none' );    
+    }
+  }
+}
+
 
 /*** AGENDA DESTACADO***/
 if ( ! function_exists( 'wp_archive_agenda_destacado' ) ) {

@@ -162,6 +162,9 @@ $music: #793d97;
     background: $music;
     color:#FFF!important;
   }
+  #agenda .tags {
+    max-width: 50%;
+  }
   .bg-music a,
   .badge-dark {
     color:#FFF!important;
@@ -1148,6 +1151,10 @@ a.badge.os {
         justify-content: center;
         padding: 2px;
         background: transparent;
+        &:focus,
+        a:focus {
+          outline: none;
+        }
         .card {
           height: 100%;
           img.card-img, .card-img-top {
@@ -3083,7 +3090,107 @@ section.cck {
     font-size: 1.2rem;
   }
 }
+///*** PLYR ***///
 
+:root {
+  --plyr-color-main:#009aae;
+  }
+.plyr--video .plyr__controls {
+  padding-top:0;
+}
+.plyr__volume {
+  min-width: auto;
+  width: auto;
+}
+.plyr__controls .plyr__controls__item:first-child {
+  margin-right: 0;
+}
+.plyr__controls .plyr__controls__item.plyr__time {
+  margin-right:auto;
+}
+.plyr__control {
+  display: block;
+}
+.plyr__video-wrapper {
+  padding-bottom:0px;
+  padding-top:0px;
+}
+.plyr {
+  height:120px!important;
+}
+.plyr__control--overlaid {
+  background: #009aae;
+}
+.vid-wrapper {
+  .vid-player {
+      height: 120px;
+      background:#000;
+      background-size: cover;
+      position:relative;
+      background-position: center center;
+  }
+  &.destacado {
+      .vid-player,
+      .plyr {
+          height: 360px!important;
+      }
+  }
+  h4 {
+      margin-top: 15px;
+      padding-right: 10px;
+      font-size:1.2rem;
+      line-height: 1.3rem;
+      font-weight: 600;
+  }
+  h5 {
+      margin-top: 15px;
+      margin-bottom:30px;
+      padding-right: 10px;
+      font-size:0.9rem;
+      line-height: 1.3rem;
+      font-weight: 600;
+  }
+}
+.slick.agenda.contenido {
+  .card {
+    margin-right: 0px;
+  }
+  .slick-slide {
+    margin-left:15px;
+  }
+
+  /* the parent */
+  .slick-list {
+    margin-left:-15px;
+  }
+  .vid-wrapper {
+      .vid-player {
+          height: 150px!important;
+          background-color:#000;
+          background-size: cover;
+          position:relative;
+          @media (max-width: 768px) {
+            height: auto!important;
+            min-height: 150px;
+          }
+      }
+      &.destacado {
+          .vid-player,
+          .plyr {
+              height: 360px!important;
+          }
+      }
+      .plyr {
+          height:150px!important;
+          @media (max-width: 768px) {
+            height: auto!important;
+          }
+      }
+  }
+}
+.single .plyr {
+  height: auto !important;
+}
 .col-7-5 {
   flex: 0 0 50%;
   max-width: 50%;
@@ -3110,3 +3217,4 @@ section.cck {
       position: relative;
   }
 }
+
