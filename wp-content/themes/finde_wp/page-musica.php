@@ -137,20 +137,17 @@ get_template_part( 'layouts/header', 'mu' );
     </section> 
 
     <!--Partner destacado-->
-    <section class="bg-light pb-5" style="background:#e2e2e2;">
-        <div class="container">
-            <div class="row mt-md-5">
-                <div class="col-md-6">
-                    <div class="wrap pt-5 pr-sm-5">
-                        <h5>Partner destacado</h5>
-                        <h2>Lorem ipsum</h2>
-                        <p class="mt-5">Lorem ipsum...</p>
-                        <a href="#" class="btn btn-outline-primary badge-pill px-5 my-3">Ver más</a>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe src="https://player.vimeo.com/video/348240535" class="embed-responsive-item" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen style="border:solid 3px #FFF; border-radius:3px;padding:1px"></iframe>
+    <section class="bg-light">
+        <div class="position-relative" style="min-height: 400px;">
+            <div class="cta-cp d-none d-md-block">
+                <img src="/wp-content/themes/finde_wp/assets/img/musica-imagen-02.jpg">
+            </div>
+            <div class="container">
+                <div class="col-lg-9 col-md-9 ml-auto p-lg-5 p-3 cta-info">
+                    <div class="ml-lg-5">
+                        <h2 class="font-weight-bold mt-4 pt-4">Código Provincia</h2>
+                        <div class="lead my-3">Apoyá tu circuito musical local.</div>
+                        <a href="/#" class="hvr-icon-forward"><strong>Conocé la convocatoria</strong> <i class="fas fa-angle-double-right hvr-icon"></i></a>
                     </div>
                 </div>
             </div>

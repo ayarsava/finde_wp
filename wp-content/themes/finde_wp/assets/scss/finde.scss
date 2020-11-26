@@ -1457,6 +1457,20 @@ a.badge.os {
     object-fit: cover;
   }
 }
+.cta-cp {
+  position: absolute;
+  width: 45%;
+  padding: 0;
+  margin-right: 55%;
+  top: 0px;
+  overflow-x: hidden;
+  bottom: 0px;
+  img {
+    height: 100%; 
+    width: 100%; 
+    object-fit: cover;
+  }
+}
 .profile-slick {
   margin-top:-140px;
   margin-bottom: 30px!important;
