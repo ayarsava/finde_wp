@@ -1608,6 +1608,54 @@ a.badge.os {
   }
 }
 
+
+.slick.tienda-musica {
+  .slick-slide {
+    margin-left:15px;
+    height: inherit !important;
+  }
+  .slick-slide > div { height: 100%; }
+  .slick-list {
+    margin-left:-15px;
+  }
+  .slick-track {
+    display: flex !important;
+  }
+  .img-wrapper {
+    height: 218px;
+    width: 100%;
+    overflow: hidden;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    
+    @media (min-width: 320px) and (max-width: 479px) {
+      height: 161px;
+    }
+    @media (min-width: 480px) and (max-width: 767px) {
+      height: 204px;
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+      height: 204px;
+    }
+    @media (min-width: 992px) and (max-width: 1200px) {
+      height: 209px;
+    }
+  }
+  .card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .badge {
+    white-space: break-spaces;
+    text-align:left;
+  }
+}
+
 .slick.tienda,
 .slick.x3 {
   &.slick-slider {
@@ -1688,11 +1736,13 @@ a.badge.os {
   /* the slides */
   .slick-slide {
     margin-left:10px;
+    height: inherit !important;
   }
-
-  /* the parent */
   .slick-list {
     margin-left:-10px;
+  }
+  .slick-track {
+    display: flex !important;
   }
   .img-wrapper {
     height: 254px;
@@ -2906,6 +2956,18 @@ section.cck {
       .slick-list {
         margin-left:-3px;
       }
+    }
+  }
+}
+.slick.vidriera.musica.slick-slider {
+  .slick-slide.card-vidriera {
+    height: inherit !important;
+    background: #FFF;
+    border:0;
+    border-radius:1px;
+    padding-top:0px!important;
+    img {
+      border-radius: 4px 4px 0 0!important;
     }
   }
 }

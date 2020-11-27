@@ -976,7 +976,7 @@ function custom_post_type_productomusica() {
         'public' => true,
         'has_archive' => true,
         'rewrite' => array(
-          'slug' => 'tienda-musica'
+          'slug' => 'productos'
         ),
         'exclude_from_search' => false,
         'publicly_queryable'  => true,
@@ -2965,6 +2965,45 @@ if ( ! function_exists( 'wp_archive_catalogomu' ) ) {
   }
 }
 
+
+/*** CATALOGO MUSICA X RUBRO ***/
+if ( ! function_exists( 'wp_archive_catalogomuxrubro' ) ) {
+  function wp_archive_catalogomuxrubro($rubro) {
+      $args = array(
+          'post_type'              => 'music',
+          'posts_per_page'         => -1,
+          'post_status'            => 'publish',
+          'no_found_rows'          => true,
+          'tax_query' => array(
+          array(
+              'taxonomy' => 'rubro_mu',
+              'field' => 'slug', 
+              'terms' => $rubro, /// Where term_id of Term 1 is "1".
+              'include_children' => true
+              )
+          )
+      );
+
+    // The Query
+    $query_catalogomuxrubro = new WP_Query( $args );
+    // The Loop
+    if ( $query_catalogomuxrubro->have_posts() ) {
+      $term = get_term_by('slug', $rubro, 'rubro_mu'); 
+      $tag_name = $term->name;
+      echo '<div class="container"><h3 class="mb-4"><strong>'.$tag_name.'</strong>  <a href="/rubro_mu/'.$rubro.'/?post_type=music" style="font-size: .9rem;line-height:1rem;" class="btn btn-outline-primary">Ver todos</a></h3></div>';
+      echo '<div class="slick tienda-musica mb-5">';
+      
+      while ( $query_catalogomuxrubro->have_posts() ) : $query_catalogomuxrubro->the_post();
+        get_template_part('layouts/card', 'music');
+      endwhile;
+      // Restore original Post Data
+      wp_reset_postdata();
+      echo '</div>';
+    } 
+
+  }
+}
+
 /*** CATALOGO DISENIO ***/
 if ( ! function_exists( 'wp_archive_catalogodi' ) ) {
   function wp_archive_catalogodi() {
@@ -3121,6 +3160,7 @@ if ( ! function_exists( 'wp_archive_catalogodi' ) ) {
     wp_reset_postdata();
   }
 }
+
 
 /*** CATALOGO DISENIO X RUBRO ***/
 if ( ! function_exists( 'wp_archive_catalogodixrubro' ) ) {

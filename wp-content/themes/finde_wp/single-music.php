@@ -77,11 +77,7 @@ get_template_part( 'layouts/header', 'mu' );
     </div><!-- .container -->
 
 
-    <div class="container py-5">
-		<div class="text-center py-3">
-			<h2>Productos</h2>
-			<div class="row py-3 justify-content-md-center">
-			<?php 
+    <?php 
 
 			$args = array(
 			  	'post_type'              => 'productomusica',
@@ -98,50 +94,48 @@ get_template_part( 'layouts/header', 'mu' );
 			$query_catalogo = new WP_Query( $args );
 			// The Loop
 			if ( $query_catalogo->have_posts() ) {
-			  while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
-			    $estudios = MB_Relationships_API::get_connected( [
-			      'id'   => 'productomusica_to_musica',
-			      'to' => get_the_ID(),
-			    ] );
-			    $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
-			    $url = rwmb_meta( 'mbox_url' );
-			    
-			    
-			    $terms = get_the_terms( $post->ID, 'rubro' );
-			    $dterms = get_the_terms( $post->ID, 'descuento' );
+                echo '<div class="container py-5"><div class="text-center py-3"><h2>Productos</h2><div class="row py-3 justify-content-md-center">';
+			    while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
+                    $estudios = MB_Relationships_API::get_connected( [
+                    'id'   => 'productomusica_to_musica',
+                    'to' => get_the_ID(),
+                    ] );
+                    $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 5600,1000 ), false, '' );
+                    $url = rwmb_meta( 'mbox_url' );
+                    
+                    
+                    $terms = get_the_terms( $post->ID, 'rubro' );
+                    $dterms = get_the_terms( $post->ID, 'descuento' );
 
-			    echo '<div class="col-md-4 mb-1 text-left">';
-				echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
-				echo '<div class="grid-item-content card h-100 mb-3">';
-				if ( has_post_thumbnail() ) {
-					echo get_the_post_thumbnail( $post_id, 'small', array( 'class' => 'img-fluid card-img-top' ) );
-				}
-				echo '<div class="card-body">';
-				echo '<h5 class="card-title">' . get_the_title() . '</h5>';
-				if( has_excerpt() ){
-					echo '<div class="card-text">'. get_the_excerpt() .'</div>';
-				} else {
-					echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
-				}
-				echo '</div>';
-				echo '</div></div>';
-			  endwhile;
-			  wp_reset_postdata();
-			} else {
-			  echo 'No hemos encontrado productos o servicios asociados al estudio.';
+                    echo '<div class="col-md-4 mb-1 text-left">';
+                    echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+                    echo '<div class="grid-item-content card h-100 mb-3">';
+                    if ( has_post_thumbnail() ) {
+                        echo get_the_post_thumbnail( $post_id, 'small', array( 'class' => 'img-fluid card-img-top' ) );
+                    }
+                    echo '<div class="card-body">';
+                    echo '<h5 class="card-title">' . get_the_title() . '</h5>';
+                    if( has_excerpt() ){
+                        echo '<div class="card-text">'. get_the_excerpt() .'</div>';
+                    } else {
+                        echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+                    }
+                    echo '</div>';
+                    echo '</div></div>';
+                endwhile;
+                wp_reset_postdata();
+                echo '</div></div></div><!-- .container -->';
 			}
 
-			// Restore original Post Data
-			wp_reset_postdata();
 
 			// termino loop
 			?>
-		</div>
-		</div>
-	</div><!-- .container -->
+		
 </article><!-- #post-<?php the_ID(); ?> -->
 
 <?php
 endwhile; // End the loop.
+// Restore original Post Data
+wp_reset_postdata();
 ?>
 <?php get_template_part( 'layouts/footer', 'mu' ); 

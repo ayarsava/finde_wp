@@ -80,9 +80,9 @@
                             Contenidos
                         </div>
                         <div class="dropdown-menu border-0" aria-labelledby="dropdownMenu">
-							<a href="/#" class="dropdown-item">Experiencia de gestión</a>
-							<a href="/#" class="dropdown-item">Ideas para el sector</a>
-							<a href="/#" class="dropdown-item">Identidad y producción bonaerense</a>
+							<a href="/musica/#contenido-experiencias-de-gestion" class="dropdown-item">Experiencia de gestión</a>
+							<a href="/musica/#contenido-ideas-para-el-sector" class="dropdown-item">Ideas para el sector</a>
+							<a href="/musica/#contenido-identidad-y-produccion-bonaerense" class="dropdown-item">Identidad y producción bonaerense</a>
                         </div>
                     </div>
 					<div class="dropdown px-lg-2 mb-2 my-lg-0">

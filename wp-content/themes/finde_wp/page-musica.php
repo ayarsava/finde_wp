@@ -55,7 +55,7 @@ get_template_part( 'layouts/header', 'mu' );
     <!--ENTRADA AL CATALOGO DE MÚSICA-->
     <section id="tienda" class="text-center bg-light pt-5">
         <div class="container text-left">
-            <h2 class="font-weight-bold pb-3">Tienda  <a href="/musica/tienda"  class="btn btn-outline-primary"> <i class="fas fa-store"></i> Ver todos</a></h2>
+            <h2 class="font-weight-bold pb-3">Tienda  <a href="/tienda-musica"  class="btn btn-outline-primary"> <i class="fas fa-store"></i> Ver todos</a></h2>
         </div>
         <div class="d-md-flex flex-md-equal w-100 sectores">
             <div class="py-5 px-3 text-center overflow-hidden position-relative sector hvr-grow w-100 " style="background: #38ccfe;">
@@ -88,7 +88,7 @@ get_template_part( 'layouts/header', 'mu' );
             <h2 class="mb-4"><strong>Ofertas Destacadas</strong></h2>
         </div>
         <div class="container-fluid pb-3">
-            <div class="slick vidriera">
+            <div class="slick vidriera musica">
                 <?php wp_musica_vidriera(-1,''); ?>
             </div>
         </div><!-- #main -->
@@ -96,29 +96,22 @@ get_template_part( 'layouts/header', 'mu' );
 
     <!--CONTENIDO - EX AGENDA-->
     <section id="contenido-slick" class="bg-light py-5">
-        <div class="container">
+        <div class="container" id="contenido-experiencias-de-gestion">
             <h2 class="mb-4"><strong>Contenidos: Experiencias de gestión</strong></h2>
             
             <?php wp_archive_contenido('musica','experiencias-de-gestion'); ?>
         </div><!-- #main -->
 
-        <div class="container">
+        <div class="container" id="contenido-ideas-para-el-sector">
             <h2 class="mb-4"><strong>Contenidos: Ideas para el sector</strong></h2>
             
             <?php wp_archive_contenido('musica','ideas-para-el-sector'); ?>
         </div><!-- #main -->
 
-        <div class="container">
+        <div class="container" id="contenido-identidad-y-produccion-bonaerense">
             <h2 class="mb-4"><strong>Contenidos: Identidad y producción bonaerense</strong></h2>
             
             <?php wp_archive_contenido('musica','identidad-y-produccion-bonaerense'); ?>
-            <div class="row">
-                <div class="col-15">
-                    <div class="border-top mt-3 py-3">
-                        <a href="/agenda-musica"><strong>+ Ver todos los contenidos</strong></a>
-                    </div>
-                </div>
-            </div>
         </div><!-- #main -->
     </section>
 

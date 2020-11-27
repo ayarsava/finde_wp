@@ -1854,10 +1854,63 @@ a.badge.os {
   height: 208px;
 }
 
+.slick.tienda-musica .slick-slide {
+  margin-left: 15px;
+  height: inherit !important;
+}
+.slick.tienda-musica .slick-slide > div {
+  height: 100%;
+}
+.slick.tienda-musica .slick-list {
+  margin-left: -15px;
+}
+.slick.tienda-musica .slick-track {
+  display: flex !important;
+}
+.slick.tienda-musica .img-wrapper {
+  height: 218px;
+  width: 100%;
+  overflow: hidden;
+}
+.slick.tienda-musica .img-wrapper img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+@media (min-width: 320px) and (max-width: 479px) {
+  .slick.tienda-musica .img-wrapper {
+    height: 161px;
+  }
+}
+@media (min-width: 480px) and (max-width: 767px) {
+  .slick.tienda-musica .img-wrapper {
+    height: 204px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .slick.tienda-musica .img-wrapper {
+    height: 204px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  .slick.tienda-musica .img-wrapper {
+    height: 209px;
+  }
+}
+.slick.tienda-musica .card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.slick.tienda-musica .badge {
+  white-space: break-spaces;
+  text-align: left;
+}
+
 .slick.tienda,
 .slick.x3 {
   /* the slides */
-  /* the parent */
 }
 .slick.tienda.slick-slider .slick-list,
 .slick.x3.slick-slider .slick-list {
@@ -1960,10 +2013,15 @@ a.badge.os {
 .slick.tienda .slick-slide,
 .slick.x3 .slick-slide {
   margin-left: 10px;
+  height: inherit !important;
 }
 .slick.tienda .slick-list,
 .slick.x3 .slick-list {
   margin-left: -10px;
+}
+.slick.tienda .slick-track,
+.slick.x3 .slick-track {
+  display: flex !important;
 }
 .slick.tienda .img-wrapper,
 .slick.x3 .img-wrapper {
@@ -3216,6 +3274,17 @@ section.cck .titulos h4 {
 }
 .slick.vidriera.slick-slider .slick-list .slick-track .slick-list {
   margin-left: -3px;
+}
+
+.slick.vidriera.musica.slick-slider .slick-slide.card-vidriera {
+  height: inherit !important;
+  background: #FFF;
+  border: 0;
+  border-radius: 1px;
+  padding-top: 0px !important;
+}
+.slick.vidriera.musica.slick-slider .slick-slide.card-vidriera img {
+  border-radius: 4px 4px 0 0 !important;
 }
 
 #agenda-destacada {
