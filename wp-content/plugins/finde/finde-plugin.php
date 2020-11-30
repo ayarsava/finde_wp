@@ -1729,6 +1729,15 @@ function mbox_register_meta_boxes( $meta_boxes ){
           'id'   => "{$prefix}whatsapp",
           'type' => 'number',
       ),
+      //  URL de Tienda online
+      array(
+        'name' =>'Url de la tienda online',
+        // prefix es mbox_, o sea que en este caso es mbox_url.
+        'id'   => "{$prefix}tienda",
+        'desc' => __( 'Ingrese la url donde se ofrecen los productos de la marca a la venta', 'mbox' ),
+        'type' => 'url',
+        'std'  => '',
+      ),
     )
   );
 
