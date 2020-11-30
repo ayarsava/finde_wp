@@ -3276,15 +3276,16 @@ section.cck .titulos h4 {
   margin-left: -3px;
 }
 
-.slick.vidriera.musica.slick-slider .slick-slide.card-vidriera {
+.slick.vidriera.musica.slick-slider .slick-list .slick-track .slick-slide.card-vidriera {
   height: inherit !important;
   background: #FFF;
   border: 0;
   border-radius: 1px;
   padding-top: 0px !important;
 }
-.slick.vidriera.musica.slick-slider .slick-slide.card-vidriera img {
+.slick.vidriera.musica.slick-slider .slick-list .slick-track .slick-slide.card-vidriera img {
   border-radius: 4px 4px 0 0 !important;
+  width: 100%;
 }
 
 #agenda-destacada {
