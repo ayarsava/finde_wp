@@ -991,14 +991,14 @@ footer img.logo-cultura {
 .music .grid-sizer,
 .music .grid-item {
   width: 25%;
-  padding: 8px;
+  padding: 12px;
 }
 @media (min-width: 320px) and (max-width: 479px) {
   .post-type-archive-music .grid-sizer,
 .post-type-archive-music .grid-item,
 .music .grid-sizer,
 .music .grid-item {
-    width: 100%;
+    width: 50%;
   }
 }
 @media only screen and (min-width: 480px) and (max-width: 767px) {
@@ -1016,6 +1016,15 @@ footer img.logo-cultura {
 .music .grid-item {
     width: 25%;
   }
+}
+.post-type-archive-music .grid-sizer .item-wrapper,
+.post-type-archive-music .grid-item .item-wrapper,
+.music .grid-sizer .item-wrapper,
+.music .grid-item .item-wrapper {
+  -webkit-box-shadow: 0px 0px 3px 3px #f2f2f2;
+  -moz-box-shadow: 0px 0px 3px 3px #f2f2f2;
+  box-shadow: 0px 0px 3px 3px #f2f2f2;
+  border: solid 1px #CCC;
 }
 .post-type-archive-music .grid-item--width2,
 .music .grid-item--width2 {
@@ -1633,6 +1642,11 @@ a.badge.os {
 @media (max-width: 991px) {
   .archive-music .galeria-slick .slick-track .slick-slide {
     height: 224px;
+  }
+}
+@media (max-width: 480px) {
+  .archive-music .galeria-slick .slick-track .slick-slide {
+    height: 171px;
   }
 }
 

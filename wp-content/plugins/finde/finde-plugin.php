@@ -2904,7 +2904,7 @@ if ( ! function_exists( 'wp_archive_catalogomu' ) ) {
               foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
               echo '"';
           }
-          echo '>';
+          echo '><div class="item-wrapper">';
           // slick
           if ($images) {
               echo '<div class="galeria-slick">';
@@ -2918,14 +2918,14 @@ if ( ! function_exists( 'wp_archive_catalogomu' ) ) {
           echo '<div class="card-body">';
           echo '<h5 class="card-title">' . get_the_title() . '</h5>';
           if ( get_the_excerpt() ) {
-              echo '<div class="card-text">' . get_the_excerpt() .'</div>';
+              echo '<div class="card-text d-none d-sm-block">' . wp_trim_words( wp_strip_all_tags( get_the_excerpt() ), 18, '...' ) .'</div>';
           } else {
-              echo '<div class="card-text">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+              echo '<div class="card-text d-none d-sm-block">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
           }
           
           if ($terms) {
               echo '<div class="rubro_mu">';
-              foreach( $terms as $term ) { echo '<span><a href="'.get_term_link($term->slug, 'rubro_mu').'" class="badge bg-primary mt-1 os">'.$term->name.'</a></span>', ' ';}
+              foreach( $terms as $term ) { echo '<span><a href="'.get_term_link($term->slug, 'rubro_mu').'" class="badge bg-music text-white mt-1 os">'.$term->name.'</a></span>', ' ';}
               echo '</div>';
           }
           if ($dterms) {
@@ -2953,7 +2953,7 @@ if ( ! function_exists( 'wp_archive_catalogomu' ) ) {
               }
               echo '</ul></small>';
           }
-          echo '</div></div>';
+          echo '</div></div></div>';
       endwhile;
       wp_reset_postdata();
     } else {
