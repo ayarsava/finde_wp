@@ -144,9 +144,9 @@
 			hour = minute * 60,
 			day = hour * 24;
 
-			<?php $PriorityPoints = get_option( 'launching_date' );?>  // Field Name
+			<?php $splash_countdown = get_option( 'launching_date' );?>  // Field Name
 			//let countDown = new Date('2020-12-04T19:00:00'.replace(/\s/, 'T')).getTime(),
-			let countDown = new Date('<?php echo $PriorityPoints;?>'.replace(/\s/, 'T')).getTime(),
+			let countDown = new Date('<?php echo $splash_countdown;?>'.replace(/\s/, 'T')).getTime(),
 			x = setInterval(function() {    
 
 			let now = new Date().getTime(),
