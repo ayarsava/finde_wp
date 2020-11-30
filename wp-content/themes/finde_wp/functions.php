@@ -254,6 +254,22 @@ add_filter('body_class','add_category_to_single');
     add_theme_support( 'responsive-embeds' );
 } );
 
+$new_general_setting = new new_general_setting();
+
+class new_general_setting {
+    function new_general_setting( ) {
+        add_filter( 'admin_init' , array( &$this , 'register_fields' ) );
+    }
+    function register_fields() {
+        register_setting( 'general', 'launching_date', 'esc_attr' );
+        add_settings_field('laun_date', '<label for="launching_date">'.__('Fecha de cuenta regresiva en Splash' , 'launching_date' ).'</label>' , array(&$this, 'fields_html') , 'general' );
+    }
+    function fields_html() {
+        $value = get_option( 'launching_date', '' );
+		echo '<input type="datetime-local" name="launching_date" id="launching_date" class="regular-text" value="' . $value . '">';
+    }
+}
+
 
 /**
  * Implement the Custom Header feature.

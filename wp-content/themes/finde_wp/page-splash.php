@@ -70,7 +70,7 @@
 									<div class="pb-1 text-white">
 										<h3><strong>PRÓXIMA EDICIÓN<br>MÚSICA</strong></h3>
 										<p>Del 04 AL 06 DE DICIEMBRE</p>
-										<div class="mb-3" id="activo" style="display:none;"><a href="/editorial" class="btn btn-outline-light" title="Accedé a la Edición de Editorial">Accedé</a></div>
+										<div class="mb-3" id="activo" style="display:none;"><a href="/musica" class="btn btn-outline-light" title="Accedé a la Edición de Música">Accedé</a></div>
 										<button id="soon" type="button" class="btn btn-outline-light mb-3" disabled style="display:none;">Muy pronto</button>
 									</div>
 							</div>
@@ -144,7 +144,9 @@
 			hour = minute * 60,
 			day = hour * 24;
 
-			let countDown = new Date('2020-12-04T19:00:00'.replace(/\s/, 'T')).getTime(),
+			<?php $PriorityPoints = get_option( 'launching_date' );?>  // Field Name
+			//let countDown = new Date('2020-12-04T19:00:00'.replace(/\s/, 'T')).getTime(),
+			let countDown = new Date('<?php echo $PriorityPoints;?>'.replace(/\s/, 'T')).getTime(),
 			x = setInterval(function() {    
 
 			let now = new Date().getTime(),
