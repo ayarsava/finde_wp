@@ -20,16 +20,6 @@
     <meta name="description" content="Feria virtual de cultura independiente de la Provincia de Buenos Aires">
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico">
     
-    <meta property="og:type" content="website">
-	<meta property="og:title" content="Finde | Feria virtual de cultura independiente de la Provincia de Buenos Aires">
-	<meta property="og:description" content="Feria virtual de cultura independiente de la Provincia de Buenos Aires">
-	<meta property="og:url" content="https://finde.gba.gob.ar">
-	<meta property="og:image" content="https://finde.gba.gob.ar/wp-content/themes/finde_wp/assets/img/finde-logo-azul.png" />
-    <meta property="og:url" content="<?php echo home_url( $wp->request ) ?>">
-	<meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@ba_cultura">
-    <meta name="twitter:title" content="Finde ">
-
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164544539-1"></script>
@@ -51,7 +41,7 @@
   		<div class="container">
 	  		<div class="row position-relative">
 		  		<div class="logo-wrapper col-lg-2 col-md-3 col-8">
-			        <a class="main-logo mt-3" href="/">
+			        <a class="main-logo mt-3" href="/diseno">
 			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde_diseno_logo.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
 			        </a>
 			    </div>
@@ -81,6 +71,7 @@
                         <div class="dropdown-menu border-0" aria-labelledby="dropdownMenu">
                             <a href="/videojuegos" class="dropdown-item"><i class="fas fa-gamepad"></i>  Videojuegos</a>
                             <a href="/audiovisual" class="dropdown-item"><i class="fas fa-film"></i>  Audiovisual</a>
+							<a href="/editorial" class="dropdown-item"><i class="fas fa-book"></i>  Editorial</a>
 						</div>
                     </div>
 			    	<div class="navbar-sec d-md-flex my-2 my-lg-0">

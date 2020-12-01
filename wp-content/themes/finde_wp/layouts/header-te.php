@@ -20,16 +20,6 @@
     <meta name="description" content="Feria virtual de cultura independiente de la Provincia de Buenos Aires">
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/img/favicon.ico">
     
-    <meta property="og:type" content="website">
-	<meta property="og:title" content="Finde | Feria virtual de cultura independiente de la Provincia de Buenos Aires">
-	<meta property="og:description" content="Feria virtual de cultura independiente de la Provincia de Buenos Aires">
-	<meta property="og:url" content="https://finde.gba.gob.ar">
-	<meta property="og:image" content="https://finde.gba.gob.ar/wp-content/themes/finde_wp/assets/img/finde-logo-azul.png" />
-    <meta property="og:url" content="<?php echo home_url( $wp->request ) ?>">
-	<meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@ba_cultura">
-    <meta name="twitter:title" content="Finde ">
-
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-164544539-1"></script>

@@ -35,7 +35,7 @@ get_template_part( 'layouts/header', 'di' );
 ?>
 <div id="content">
 <div id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
-    <header class="branding-header bg-light text-dark pt-3 <?php if ($featured_img_url) { echo 'tengo-background'; } ?>">
+    <header class="branding-header bg-primary text-dark pt-3 <?php if ($featured_img_url) { echo 'tengo-background'; } ?>">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-12 mx-auto pt-4">
@@ -52,16 +52,16 @@ get_template_part( 'layouts/header', 'di' );
                         <?php
                             if ($url || $instagram || $facebook || $youtube || $twitter || $pinterest || $tiktok) {
                                 echo '<div class="contacto mt-2 text-white">';
-                                if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></a></li>';}
-                                if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
-                                if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
-                                if ($youtube) { echo '<li class="list-inline-item"><a href="'. $youtube . '" target="_blank" class="os"><i class="fab fa-youtube"></i></a></li>';}
-                                if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
-                                if ($pinterest) { echo '<li class="list-inline-item"><a href="'. $pinterest . '" target="_blank" class="os"><i class="fab fa-pinterest"></i></a></li>';}
-                                if ($tiktok) { echo '<li class="list-inline-item"><a href="'. $tiktok . '" target="_blank" class="os"><i class="fab fa-tiktok"></i></a></li>';}
+                                if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os text-white"><i class="fas fa-globe-americas"></i></a></li>';}
+                                if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os text-white"><i class="fab fa-instagram"></i></a></li>';}
+                                if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os text-white"><i class="fab fa-facebook"></i></a></li>';}
+                                if ($youtube) { echo '<li class="list-inline-item"><a href="'. $youtube . '" target="_blank" class="os text-white"><i class="fab fa-youtube"></i></a></li>';}
+                                if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os text-white"><i class="fab fa-twitter"></i></a></li>';}
+                                if ($pinterest) { echo '<li class="list-inline-item"><a href="'. $pinterest . '" target="_blank" class="os text-white"><i class="fab fa-pinterest"></i></a></li>';}
+                                if ($tiktok) { echo '<li class="list-inline-item"><a href="'. $tiktok . '" target="_blank" class="os text-white"><i class="fab fa-tiktok"></i></a></li>';}
                                 
                                 
-                                if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
+                                if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os text-white"><i class="fab fa-whatsapp"></i></a></li>';}
                             }
                             
                         ?>
@@ -69,7 +69,7 @@ get_template_part( 'layouts/header', 'di' );
                 </div>
             </div>
             <?php if ( has_post_thumbnail() ) {
-                echo '<div class="mt-3 row position-relative"><div class="col mx-auto my-5 border-bottom">';
+                echo '<div class="mt-3 row position-relative"><div class="col mx-auto my-5 border-bottom" style="top: 49px;">';
                 echo '<div class="mini-profile-img">';
                 echo get_the_post_thumbnail( $post_id, 'small', array( 'class' => 'img-fluid img-profile' ) );
                 echo '</div></div></div>';
@@ -78,7 +78,7 @@ get_template_part( 'layouts/header', 'di' );
     </header><!-- .entry-header -->
     
     
-    <div class="container py-5">
+    <div class="container py-5" style="margin-top:49px">
         <div class="row">
             <?php
                 $images = rwmb_meta( 'image_di', array( 'size' => 'medium' ) );
