@@ -59,13 +59,16 @@
 					</ul>
 				</div>
 			</div>
+			<?php
+				the_content();
+			?>
 			<div class="col-lg-12 col-md-15 mx-auto">
 				<div class="card-deck my-1 text-center">
 					<div class="w-100">
 						<div class="w-50 bg-transparent mb-4 mx-auto">
 							<div class="card text-center shadow hover-shadow">
 									<div class="py-3 col-md-8 mx-auto">
-											<img src="/wp-content/themes/finde_wp/assets/img/icon-editorial.png" class="img-fluid icon">
+											<img src="/wp-content/themes/finde_wp/assets/img/icon-musica.png" class="img-fluid icon">
 									</div>
 									<div class="pb-1 text-white">
 										<h3><strong>PRÓXIMA EDICIÓN<br>MÚSICA</strong></h3>
@@ -164,6 +167,8 @@
 			} else {
 				clearInterval(x);
 				document.getElementById("activo").style.display = "inline-block";
+				document.getElementById("clock").style.display = "none";
+				document.getElementById("soon").style.display = "none";
 			}
 
 			}, second)
