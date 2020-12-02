@@ -78,8 +78,8 @@
                             Código Provincia
                         </div>
                         <div class="dropdown-menu border-0" aria-labelledby="dropdownMenu">
-							<a href="/#" class="dropdown-item">Convocatoria</a>
-							<a href="/#" class="dropdown-item">Laboratorio</a>
+							<a href="/musica/codigo-provincia/convocatoria/" class="dropdown-item">Convocatoria</a>
+							<a href="/musica/codigo-provincia/lab/" class="dropdown-item">Laboratorio</a>
                         </div>
                     </div>
 			    	<div class="dropdown mr-auto px-lg-2 mb-2 my-lg-0">

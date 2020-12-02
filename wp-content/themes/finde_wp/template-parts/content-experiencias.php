@@ -102,11 +102,13 @@ $cargo = rwmb_meta( 'mbox_cargo' );
                 ?>
                 </div>
                 <?php 
-                    if( has_excerpt() ){
-                        echo '<div class="mt-2 lead">'. get_the_excerpt() .'</div>';
-                    }
-                    echo '<div class="mt-2 d-block">' . the_content().'</div>';
-                ?>
+                if( has_excerpt() ){
+                    echo '<div class="mt-2 lead">'. get_the_excerpt() .'</div>';
+                }
+                echo '<div class="mt-2 d-block">';
+                    the_content();
+                echo '</div>';
+            ?>
             </div>
             <?php
                 $url = get_post_meta( get_the_ID(), 'oembed', true );
@@ -173,7 +175,8 @@ $cargo = rwmb_meta( 'mbox_cargo' );
         <header class="branding-header p-0" style="background:#111;"> 
             <div class="container text-left py-2">
                 <?php the_title( '<h1 class="entry-title text-white extra-grande mt-5">', '</h1>' ); ?>
-                <ul class="list-unstyled text-white">
+                <?php if($ciudades || $partidos) {?>
+                    <ul class="list-unstyled text-white">
                     <?php 
                         if ($ciudades) {
                             foreach($ciudades as $ciudad) {
@@ -191,32 +194,30 @@ $cargo = rwmb_meta( 'mbox_cargo' );
                         }
                         
                     ?>
-                </ul>
+                    </ul>
+                <?php } ?>
 
-                <ul class="list-unstyled list-inline h4">
-                    <?php
-                        if ($url || $instagram || $facebook || $youtube || $twitter || $pinterest || $tiktok || $email) {
-                            echo '<div class="contacto mt-2 text-white">';
-                            if ($url) {
-                                foreach ( $url as $web ) {
-                                    echo '<li class="list-inline-item mb-3 mr-3"><a href="'. $web . '" target="_blank" class="btn btn-outline-light text-white">Visitar sitio web</a></li>';
-                                }
-                                echo '<br>';
+                <?php
+                    if ($url || $instagram || $facebook || $youtube || $twitter || $pinterest || $tiktok || $email) {
+                        echo '<div class="contacto mt-2 text-white"><ul class="list-unstyled list-inline h4">';
+                        if ($url) {
+                            foreach ( $url as $web ) {
+                                echo '<li class="list-inline-item mb-3 mr-3"><a href="'. $web . '" target="_blank" class="btn btn-outline-light text-white">Visitar sitio web</a></li>';
                             }
-                            if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os text-white"><i class="fab fa-instagram"></i></a></li>';}
-                            if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os text-white"><i class="fab fa-facebook"></i></a></li>';}
-                            if ($youtube) { echo '<li class="list-inline-item"><a href="'. $youtube . '" target="_blank" class="os text-white"><i class="fab fa-youtube"></i></a></li>';}
-                            if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os text-white"><i class="fab fa-twitter"></i></a></li>';}
-                            if ($pinterest) { echo '<li class="list-inline-item"><a href="'. $pinterest . '" target="_blank" class="os text-white"><i class="fab fa-pinterest"></i></a></li>';}
-                            if ($tiktok) { echo '<li class="list-inline-item"><a href="'. $tiktok . '" target="_blank" class="os text-white"><i class="fab fa-tiktok"></i></a></li>';}
-                            
-                            
-                            if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os text-white"><i class="fab fa-whatsapp"></i></a></li>';}
-                            if ($email) { echo '<li class="list-inline-item"><a href="mailto:'. $email . '" target="_blank" class="os text-white"><i class="fas fa-envelope-open-text"></i></a></li>';}
+                            echo '<br>';
                         }
-                        
-                    ?>
-                </ul>
+                        if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os text-white"><i class="fab fa-instagram"></i></a></li>';}
+                        if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os text-white"><i class="fab fa-facebook"></i></a></li>';}
+                        if ($youtube) { echo '<li class="list-inline-item"><a href="'. $youtube . '" target="_blank" class="os text-white"><i class="fab fa-youtube"></i></a></li>';}
+                        if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os text-white"><i class="fab fa-twitter"></i></a></li>';}
+                        if ($pinterest) { echo '<li class="list-inline-item"><a href="'. $pinterest . '" target="_blank" class="os text-white"><i class="fab fa-pinterest"></i></a></li>';}
+                        if ($tiktok) { echo '<li class="list-inline-item"><a href="'. $tiktok . '" target="_blank" class="os text-white"><i class="fab fa-tiktok"></i></a></li>';}
+                        if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os text-white"><i class="fab fa-whatsapp"></i></a></li>';}
+                        if ($email) { echo '<li class="list-inline-item"><a href="mailto:'. $email . '" target="_blank" class="os text-white"><i class="fas fa-envelope-open-text"></i></a></li>';}
+                        echo '</ul></div>';
+                    }
+                    
+                ?>
             </div>
             <?php
             $url = get_post_meta( get_the_ID(), 'oembed', true );
@@ -232,18 +233,18 @@ $cargo = rwmb_meta( 'mbox_cargo' );
             <?php } ?>
         </header><!-- .entry-header -->
 
-        <?php if( has_excerpt() || !empty( get_the_content() ) ) {?>
-            <div class="container py-5">
-                <div class="w-md-70 mx-auto">
-                <?php 
-                    if( has_excerpt() ){
-                        echo '<div class="mt-2 lead">'. get_the_excerpt() .'</div>';
-                    }
-                    echo '<div class="mt-2 d-block">' . the_content().'</div>';
-                ?>
-                </div>            
-            </div>
-        <?php } ?>
+        <div class="container py-5">
+            <div class="w-md-70 mx-auto">
+            <?php 
+                if( has_excerpt() ){
+                    echo '<div class="mt-2 lead">'. get_the_excerpt() .'</div>';
+                }
+                echo '<div class="mt-2 d-block">';
+                the_content();
+                echo '</div>';
+            ?>
+            </div>            
+        </div>
 
 <?php } ?>
 

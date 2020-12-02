@@ -13,10 +13,15 @@
 
 get_template_part( 'layouts/header', 'mu' ); 
 ?>
+<?php $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );?>
 
-    <div id="content" class="page-codigo-provincia">
-
-        <section class="archive-agenda spotlight bg-cover" style="background-image: url('/wp-content/themes/finde_wp/assets/img/music-lab.jpg'); background-size:cover; background-position:center center; height:400px;">
+<div id="content" class="page-codigo-provincia">
+    <?php if ($backgroundImg) {
+    echo '<section class="archive-agenda spotlight bg-cover" style="background-image: url('. $backgroundImg[0].'); background-size:cover; background-position:center center; height:400px;">';
+    } else { 
+    echo '<section class="archive-agenda spotlight bg-cover" style="background-image: url(\'/wp-content/themes/finde_wp/assets/img/music-lab.jpg\'); background-size:cover; background-position:center center; height:400px;">';
+    } ?>
+        
             <div class="spotlight-holder pt-5 pb-7 py-lg-0">
                 <span class="mask bg-gradient-primary opacity-6"></span>
                 <div class="container d-flex align-items-bottom">

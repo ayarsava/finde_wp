@@ -85,13 +85,18 @@ get_template_part( 'layouts/header', 'mu' );
     <!--VIDRIERA-->
     <section id="vidriera-slick" class="py-5" style="background: #f6f5f3;">
         <div class="container">
-            <h2 class="mb-4"><strong>Ofertas Destacadas</strong></h2>
+            <h2 class="mb-4"><strong>Ofertas Destacadas</strong>  <a href="/productos"  class="btn btn-outline-primary"> <i class="fas fa-store"></i> Ver todas</a></h2>
         </div>
         <div class="container-fluid pb-3">
             <div class="slick vidriera musica">
                 <?php wp_musica_vidriera(-1,''); ?>
             </div>
         </div><!-- #main -->
+        <div class="container">
+                <div class="border-top mt-3 pt-3">
+                    <a href="/productos"><strong>+ Ver todos los productos</strong></a>
+                </div>
+        </div>
     </section>
 
     <!--CONTENIDO - EX AGENDA-->
@@ -116,7 +121,7 @@ get_template_part( 'layouts/header', 'mu' );
     </section>
 
     <!--Partner destacado-->
-    <section class="bg-light">
+    <section id="codigo-provincia" class="bg-light">
         <div class="position-relative" style="min-height: 400px;">
             <div class="cta-cp d-none d-md-block">
                 <img src="/wp-content/themes/finde_wp/assets/img/musica-imagen-02.jpg">

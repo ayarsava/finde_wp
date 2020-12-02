@@ -46,8 +46,10 @@
 			    <div class="col-lg-6 col-md-5">
 			      <ul class="list-unstyled text-white">
 			      	<li><a href="/musica" class="text-light">Finde</a></li>
-			      	<li><a href="/musica/#categorias" class="text-light">Comprar</a></li>
-			      	<li><a href="/musica/#agenda" class="text-light">Agenda</a></li>
+			      	<li><a href="/musica/#tienda" class="text-light">Tienda</a></li>
+			      	<li><a href="/musica/#vidriera-slick" class="text-light">Ofertas destacadas</a></li>
+			      	<li><a href="/musica/#contenido-slick" class="text-light">Contenidos</a></li>
+					  <li><a href="/musica/#codigo-provincia" class="text-light">Código Provincia</a></li>
 			      	<li><a href="/preguntas-frecuentes/" class="text-light">Preguntas frecuentes</a></li>
 			      </ul>
 			    </div>
