@@ -114,7 +114,7 @@ get_template_part( 'layouts/header', 'mu' );
         </div><!-- #main -->
 
         <div class="container" id="contenido-identidad-y-produccion-bonaerense">
-            <h2 class="mb-4"><strong>Contenidos: Identidad y producción bonaerense</strong></h2>
+            <h2 class="mb-4"><strong>Contenidos: Identidad y producción bonaerenses</strong></h2>
             
             <?php wp_archive_contenido('musica','identidad-y-produccion-bonaerense'); ?>
         </div><!-- #main -->
