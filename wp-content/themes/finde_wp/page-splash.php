@@ -72,7 +72,7 @@
 									</div>
 									<div class="pb-1 text-white">
 										<h3><strong>PRÓXIMA EDICIÓN<br>MÚSICA</strong></h3>
-										<p>Del 04 AL 06 DE DICIEMBRE</p>
+										<p>Del 3 AL 6 DE DICIEMBRE</p>
 										<div class="mb-3" id="activo" style="display:none;"><a href="/musica" class="btn btn-outline-light" title="Accedé a la Edición de Música">Accedé</a></div>
 										<button id="soon" type="button" class="btn btn-outline-light mb-3" disabled style="display:none;">Muy pronto</button>
 									</div>
@@ -86,7 +86,7 @@
 								</div>
 								<div class="pb-1 text-white">
 									<h3><strong>EDITORIAL</strong></h3>
-									<p>Del 20 AL 22 DE NOVIEMBRE</p>
+									<p>Del 19 AL 22 DE NOVIEMBRE</p>
 									<div class="mb-3"><a href="/editorial" title="Accedé a la Edición de Editorial" class="btn btn-outline-light">Revivila</a></div>
 								</div>
 						</div>
@@ -98,7 +98,7 @@
 								</div>
 								<div class="pb-1 text-white">
 									<h3><strong>AUDIOVISUAL</strong></h3>
-									<p>Del 22 AL 25 DE OCTUBRE</p>
+									<p>Del 6 AL 8 DE NOVIEMBRE</p>
 									<div class="mb-3"><a href="/audiovisual" title="Accedé a la Edición de Audiovisual" class="btn btn-outline-light">Revivila</a></div>
 								</div>
 						</div>
