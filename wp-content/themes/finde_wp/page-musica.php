@@ -115,11 +115,6 @@ get_template_part( 'layouts/header', 'mu' );
         </div><!-- #main -->
     </section>
 
-    <!--BANNERS-->
-    <section class="bg-white">
-        <?php wp_archive_banners('musica');?>
-    </section> 
-
     <!--Partner destacado-->
     <section class="bg-light">
         <div class="position-relative" style="min-height: 400px;">
@@ -137,6 +132,11 @@ get_template_part( 'layouts/header', 'mu' );
             </div>
         </div>
     </section>
+
+    <!--BANNERS-->
+    <section class="bg-white">
+        <?php wp_archive_banners('musica');?>
+    </section> 
 
 <?php 
 get_template_part( 'layouts/footer', 'mu' ); 
