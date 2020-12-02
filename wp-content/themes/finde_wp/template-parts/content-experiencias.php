@@ -239,7 +239,7 @@ $cargo = rwmb_meta( 'mbox_cargo' );
                     if( has_excerpt() ){
                         echo '<div class="mt-2 lead">'. get_the_excerpt() .'</div>';
                     }
-                    echo '<div class="mt-2 d-block">' . get_the_content().'</div>';
+                    echo '<div class="mt-2 d-block">' . the_content().'</div>';
                 ?>
                 </div>            
             </div>
