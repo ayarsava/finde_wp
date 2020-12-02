@@ -122,15 +122,16 @@ get_template_part( 'layouts/header', 'mu' );
 
     <!--Partner destacado-->
     <section id="codigo-provincia" class="bg-white">
-        <div class="position-relative" style="min-height: 250px;">
+        <div class="position-relative" style="min-height: 450px;">
             <div class="cta-cp d-none d-md-block">
-                <img src="/wp-content/themes/finde_wp/assets/img/musica-imagen-02.jpg">
+                <img src="/wp-content/themes/finde_wp/assets/img/musica-splash-05.jpg">
             </div>
             <div class="container">
                 <div class="col-lg-9 col-md-9 ml-auto p-lg-5 p-3 cta-info">
                     <div class="ml-lg-5">
-                        <h2 class="font-weight-bold mt-2 pt-4">Código Provincia</h2>
-                        <div class="lead my-3">Participá de nuestro <a href="/musica/codigo-provincia/lab/">Laboratorio <i class="fas fa-link"></i></a> y <a href="/musica/codigo-provincia/lab/">Convocatoria <i class="fas fa-link"></i></a></div>
+                        <!--<h2 class="font-weight-bold mt-2 pt-4">Código Provincia</h2>-->
+                        <div class="lead my-3">No te pierdas el cierre de FINDE Música con un show especial de Carmen Sánchez Viamonte en la fábrica de guitarras Gracia. Estreno exclusivo el domingo 6/12 a las 19 hs.</div>
+                        <a href="/agenda/carmen-sanchez-viamonte-en-vivo-en-la-fabrica-de-guitarras-gracia/" class="btn btn-outline-primary">Ver actividad >></a>
                     </div>
                 </div>
             </div>
