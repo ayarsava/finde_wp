@@ -121,17 +121,16 @@ get_template_part( 'layouts/header', 'mu' );
     </section>
 
     <!--Partner destacado-->
-    <section id="codigo-provincia" class="bg-light">
-        <div class="position-relative" style="min-height: 400px;">
+    <section id="codigo-provincia" class="bg-white">
+        <div class="position-relative" style="min-height: 250px;">
             <div class="cta-cp d-none d-md-block">
                 <img src="/wp-content/themes/finde_wp/assets/img/musica-imagen-02.jpg">
             </div>
             <div class="container">
                 <div class="col-lg-9 col-md-9 ml-auto p-lg-5 p-3 cta-info">
                     <div class="ml-lg-5">
-                        <h2 class="font-weight-bold mt-4 pt-4">Código Provincia</h2>
-                        <div class="lead my-3">Apoyá tu circuito musical local.</div>
-                        <a href="/#" class="hvr-icon-forward"><strong>Conocé la convocatoria</strong> <i class="fas fa-angle-double-right hvr-icon"></i></a>
+                        <h2 class="font-weight-bold mt-2 pt-4">Código Provincia</h2>
+                        <div class="lead my-3">Participá de nuestro <a href="/musica/codigo-provincia/lab/">Laboratorio <i class="fas fa-link"></i></a> y <a href="/musica/codigo-provincia/lab/">Convocatoria <i class="fas fa-link"></i></a></div>
                     </div>
                 </div>
             </div>
@@ -139,7 +138,7 @@ get_template_part( 'layouts/header', 'mu' );
     </section>
 
     <!--BANNERS-->
-    <section class="bg-white">
+    <section class="bg-light">
         <?php wp_archive_banners('musica');?>
     </section> 
 

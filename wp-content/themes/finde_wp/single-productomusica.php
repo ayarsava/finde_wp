@@ -15,7 +15,7 @@ get_template_part( 'layouts/header', 'mu' );
     $fecha_publicacion = rwmb_meta('mbox_fecha_publicacion');
     $precio = rwmb_meta('mbox_precio');
     $url = rwmb_meta('mbox_url');
-    $productos = MB_Relationships_API::get_connected( [
+    $musica = MB_Relationships_API::get_connected( [
         'id'   => 'productomusica_to_musica',
         'from' => get_the_ID(),
     ] );
@@ -47,28 +47,37 @@ get_template_part( 'layouts/header', 'mu' );
                     }
                     echo '<!--Fin Metadata-->';
                     ?>
-                    <?php 
-                    if ($productos) {
-                        echo '<ul class="list-unstyled my-4">'; foreach ( $productos as $producto ) {
-                        echo '<li><h5 class="mb-3">Otros productos de <strong><a href="'.get_permalink( $producto ).'" id="'.$producto->ID.'">' .$producto->post_title.'</a></strong><h5></li> ';
-                        
-                        $connected = new WP_Query( [
-                            'relationship' => [
-                                'id'   => 'productomusica_to_musica',
-                                'to' => $producto->ID,
-                            ],
-                            'nopaging'     => true,
-                            'post__not_in'   => array( $post->ID )
-                        ] );
-                        while ( $connected->have_posts() ) : $connected->the_post();
-                        echo '<div class="w-100 mb-3">';
-                            get_template_part( 'layouts/card', 'libro' );
-                        echo '</div>';
-                        endwhile;
-                        wp_reset_postdata();
 
+                    
+
+                    <?php 
+                    if ($musica) {
+                        foreach ( $musica as $music ) {
+                            
+                            $connected = new WP_Query( [
+                                'relationship' => [
+                                    'id'   => 'productomusica_to_musica',
+                                    'to' => $music->ID,
+                                ],
+                                'nopaging'     => true,
+                                'post__not_in'   => array( $post->ID )
+                            ] );
+
+                            $the_count = $connected->found_posts;
+                            if ( ( $connected->have_posts() ) && ( $the_count > 1 ) ) :
+
+                                echo '<h5 class="mb-3">Otros productos de <strong><a href="'.get_permalink( $music ).'" id="'.$music->ID.'">' .$music->post_title.'</a></strong><h5> ';
+
+                                while ( $connected->have_posts() ) : $connected->the_post();
+                                echo '<div class="w-100 mb-3">';
+                                    get_template_part( 'layouts/card', 'libro' );
+                                echo '</div>';
+                                endwhile;
+                                wp_reset_postdata();
+                            else:
+                                echo '<h5 class="mb-3">Un producto de <strong><a href="'.get_permalink( $music ).'" id="'.$music->ID.'">' .$music->post_title.'</a></strong><h5>';
+                            endif;
                         }
-                        echo '</ul>';
                     }
                     ?>
                 </div>

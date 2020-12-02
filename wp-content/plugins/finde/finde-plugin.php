@@ -4028,8 +4028,8 @@ if ( ! function_exists( 'wp_archive_banners' ) ) {
       while ( $query_banners->have_posts() ) : $query_banners->the_post();
       /* grab the url for the full size featured image */
       $enlace = rwmb_meta( 'mbox_url' );
-      $img_desktop = rwmb_meta( 'mbox_imagen_desktop', array( 'size' => 'large' ) );
-      $img_mobile = rwmb_meta( 'mbox_imagen_mobile', array( 'size' => 'large' ) );
+      $img_desktop = rwmb_meta( 'mbox_imagen_desktop', array( 'size' => 'full' ) );
+      $img_mobile = rwmb_meta( 'mbox_imagen_mobile', array( 'size' => 'full' ) );
 
       if ($img_desktop || $img_mobile) {
       echo '<div class="item" style="background:white!important;">';
