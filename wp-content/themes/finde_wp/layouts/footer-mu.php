@@ -16,38 +16,20 @@
 		<section id="sponsors" class="bg-white">
 			<div class="container py-3">
 				<div class="row">
-					<div class="col-lg-15 py-2 mb-3"><strong>Socios estratégicos</strong></div>
-					<div class="col-lg-15 text-center">
-						<div class="container autoplay big">
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/incaa.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/cine-ar.png"></span> 
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/min-cultura.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/sec-medios.png" style="max-width:360px;"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/contar.png"></span>
-						</div>
-					</div>
-				</div>
-				<div class="row mt-5">
-					<div class="col-lg-15 py-2 mb-3"><strong>Acompañamiento</strong></div>
+					<div class="col-lg-15 py-2 mb-3"><strong>Acompañan</strong></div>
 					<div class="col-lg-15 text-center">
 						<div class="container autoplay small">
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/rafma.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/espacio-queer.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/mil-gritos.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/luz-del-desierto.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/rec.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/fesaalp.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/uncipar.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/tafic.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/epa.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/mdq35.png" style="max-width:250px;"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/vs.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/lfc.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/eda.png"></span> 
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/sagai.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/un3tv.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/audiovisual/lpa.png"></span>
-							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/diseno/unlp.jpg"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/apromuvi-logo.png" style="max-width:250px;"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/unmar-logo.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/logo-cucha.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/aatia-logo.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/caimavi-logo.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/feria-de-la-musica-logo.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/silencio-logo.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/agentes-de-prensa-logo.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/asiar-logo.png"></span>
+							<span class="align-middle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/sponsors/cafim-logo.png"></span>
+							
 						</div>
 					</div>
 				</div>
