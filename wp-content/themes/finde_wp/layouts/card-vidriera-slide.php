@@ -17,7 +17,7 @@ $precio = rwmb_meta ('mbox_precio');
 $url = rwmb_meta ('mbox_url');
 $tapas = reset( $images );
 
-    echo '<div class="card card-vidriera h-100" style="width: 18rem;">';
+    echo '<div class="card card-vidriera h-100">';
     echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
     
     if ($tapas) { 

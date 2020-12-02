@@ -2858,6 +2858,36 @@ if ( ! function_exists( 'wp_musica_vidriera' ) ) {
   }
 }
 
+/*** CATALOGO DE PRODUCTOS DE MUSICA ***/
+if ( ! function_exists( 'wp_musica_productosmusica_full' ) ) {
+  function wp_musica_productosmusica_full($ppp,$post_tag) {
+    $args = array(
+      'post_type'              => 'productomusica',
+      'posts_per_page'         => $ppp,
+      'post_status'            => 'publish',
+      'no_found_rows'          => true,
+      'tag'                    => $post_tag,
+      'meta_query'            => array(
+        'destacado_clause'  => array(
+            'key'           => 'destacado_id',
+            'value'         => 1
+        ),
+      ),
+    );
+    // The Query
+    $query_cartelera = new WP_Query( $args );
+
+    if ( $query_cartelera->have_posts() ) { 
+      while ( $query_cartelera->have_posts() ) : $query_cartelera->the_post();
+        echo '<div class="col-md-3 mb-3">';
+        get_template_part( 'layouts/card', 'vidriera-slide' );
+        echo '</div>';
+      endwhile;
+    } else {
+      get_template_part( 'template-parts/content', 'none' );    
+    }
+  }
+}
 
 /*** CATALOGO MUSICA ***/
 if ( ! function_exists( 'wp_archive_catalogomu' ) ) {
@@ -2870,6 +2900,121 @@ if ( ! function_exists( 'wp_archive_catalogomu' ) ) {
 
       $args = array(
           'post_type'              => 'music',
+          'posts_per_page'         => -1,
+          'post_status'            => 'publish',
+          'no_found_rows'          => true,
+          'tax_query' => array(
+          array(
+              'taxonomy' => 'rubro_mu',
+              'field' => 'term_id', 
+              'terms' => $term_id, /// Where term_id of Term 1 is "1".
+              'include_children' => true
+              )
+          )
+      );
+
+    // The Query
+    $query_catalogo = new WP_Query( $args );
+    // The Loop
+    if ( $query_catalogo->have_posts() ) {
+
+      while ( $query_catalogo->have_posts() ) : $query_catalogo->the_post();
+
+          $url = rwmb_meta( 'mbox_url' );
+          $images = rwmb_meta( 'image_ed', array( 'size' => 'medium' ) );
+          $instagram = rwmb_meta( 'mbox_instagram' );
+          $twitter = rwmb_meta( 'mbox_twitter' );
+          $facebook = rwmb_meta( 'mbox_facebook' );
+          $libreria = rwmb_meta( 'mbox_libreria' );
+          $whatsapp = rwmb_meta( 'mbox_whatsapp' );
+
+
+          $terms = get_the_terms( $post->ID, 'rubro_mu' );
+          $dterms = get_the_terms( $post->ID, 'descuento_mu' );
+
+          echo '<div class="grid-item item mb-1"';
+          if ($terms) {
+              echo ' data-category="';
+              foreach( $terms as $term ) echo $term->slug. ' ';
+              echo '" ';
+          }
+          if ($dterms) {
+              echo ' data-descuento="';
+              foreach( $dterms as $dterm ) echo $dterm->slug. ' ';
+              echo '"';
+          }
+          echo '><div class="item-wrapper">';
+          // slick
+          if ($images) {
+              echo '<div class="galeria-slick">';
+              foreach ( $images as $image ) {
+                  echo '<a href="' . get_the_permalink() .'"><img data-lazy="'. $image['url']. '"></a>';
+              }    
+              echo '</div>';
+          }
+          echo '<div class="grid-item-content card">';
+          echo '<a href="' . get_the_permalink() .'" rel="slidemark" class="stretched-link"></a>';
+          echo '<div class="card-body">';
+          echo '<h5 class="card-title">' . get_the_title() . '</h5>';
+          if ( get_the_excerpt() ) {
+              echo '<div class="card-text d-none d-sm-block">' . wp_trim_words( wp_strip_all_tags( get_the_excerpt() ), 18, '...' ) .'</div>';
+          } else {
+              echo '<div class="card-text d-none d-sm-block">' . wp_trim_words( wp_strip_all_tags( get_the_content() ), 18, '...' ) .'</div>';
+          }
+          
+          if ($terms) {
+              echo '<div class="rubro_mu">';
+              foreach( $terms as $term ) { echo '<span><a href="'.get_term_link($term->slug, 'rubro_mu').'" class="badge bg-music text-white mt-1 os">'.$term->name.'</a></span>', ' ';}
+              echo '</div>';
+          }
+          if ($dterms) {
+              echo '<div class="descuento_mu">';
+              foreach( $dterms as $term ) { echo '<a href="'.get_term_link($term->slug, 'descuento_mu').'" class="badge badge-dark mt-1 os">'.$term->name.'</a></span>', ' ';}
+              echo '</div>';
+          }
+          if ($url || $instagram || $facebook || $twitter) {
+              echo '<div class="contacto mt-2">';
+              if ($url) { echo '<li class="list-inline-item"><a href="'. $url . '" target="_blank" class="os"><i class="fas fa-globe-americas"></i></a></li>';}
+              if ($libreria) { echo '<li class="list-inline-item"><a href="'. $libreria . '" target="_blank" class="os"><i class="fas fa-shopping-cart"></i></a></li>';}
+              if ($instagram) { echo '<li class="list-inline-item"><a href="'. $instagram. '" target="_blank" class="os"><i class="fab fa-instagram"></i></a></li>';}
+              if ($facebook) { echo '<li class="list-inline-item"><a href="'. $facebook. '" target="_blank" class="os"><i class="fab fa-facebook"></i></a></li>';}
+              if ($twitter) { echo '<li class="list-inline-item"><a href="'. $twitter. '" target="_blank" class="os"><i class="fab fa-twitter"></i></a></li>';}
+              if ($whatsapp) { echo '<li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone='. $whatsapp . '" target="_blank" class="os"><i class="fab fa-whatsapp"></i></a></li>';}
+              echo '</div>';
+          }
+          
+          echo '</div><!--End .card-body-->';
+          
+          if ($productos) {
+              echo '<small class="card-footer text-muted text-sm lista">';
+              echo 'Productos u ofertas:<ul>'; foreach ( $productos as $producto ) {
+              echo '<li><span><strong>' .$producto->post_title.'</strong></span></li> ';
+              }
+              echo '</ul></small>';
+          }
+          echo '</div></div></div>';
+      endwhile;
+      wp_reset_postdata();
+    } else {
+      echo 'No hemos encontrado productos o servicios asociados al catálogo.';
+    }
+
+    // Restore original Post Data
+    wp_reset_postdata();
+  }
+}
+
+/*** CATALOGO PRODUCTOS DE MUSICA ***/
+if ( ! function_exists( 'wp_archive_productos' ) ) {
+  function wp_archive_productos() {
+      $term = get_term_by( 'slug', get_query_var('term'), get_query_var('taxonomy') );
+      $term_id = $term->term_id;
+      $taxonomy_name = 'rubro_mu';
+      $termchildren = get_term_children( $term_id, $taxonomy_name );
+                          
+
+      $args = array(
+          'post_type'              => 'productomusica',
           'posts_per_page'         => -1,
           'post_status'            => 'publish',
           'no_found_rows'          => true,
@@ -3510,16 +3655,6 @@ if ( ! function_exists( 'wp_archive_contenido' ) ) {
         'posts_per_page'        => -1,
         'category_name'         => $post_category,
         'tag'                   => $post_tag,
-        'meta_query'            => array(
-            /*'destacado_clause'  => array(
-                'key'           => 'destacado_id',
-                'value'         => 1
-            ),*/
-        ),
-        'orderby'               => array( 
-            //'destacado_clause'  => 'DESC',
-            'fecha_clause'      => 'ASC',
-        ),
     );
 
     // The Query
