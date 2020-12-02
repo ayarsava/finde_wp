@@ -122,7 +122,7 @@ get_template_part( 'layouts/header', 'mu' );
 
     <!--Partner destacado-->
     <section id="codigo-provincia" class="bg-white">
-        <div class="position-relative" style="min-height: 450px;">
+        <div class="position-relative" style="min-height: 350px;">
             <div class="cta-cp d-none d-md-block">
                 <img src="/wp-content/themes/finde_wp/assets/img/musica-splash-05.jpg">
             </div>
