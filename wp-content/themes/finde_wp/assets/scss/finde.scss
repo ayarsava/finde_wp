@@ -2977,7 +2977,7 @@ section.cck {
     padding-top:0px!important;
     img {
       border-radius: 4px 4px 0 0!important;
-      width:100%;
+      max-width:100%;
     }
   }
 }
@@ -3197,10 +3197,7 @@ section.cck {
 .plyr__control {
   display: block;
 }
-.plyr__video-wrapper {
-  padding-bottom:0px;
-  padding-top:0px;
-}
+
 .plyr {
   height:120px!important;
 }

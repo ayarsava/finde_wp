@@ -40,7 +40,7 @@
 	  		<div class="row position-relative">
 		  		<div class="logo-wrapper col-lg-2 col-md-3 col-8">
 			        <a class="main-logo mt-3" href="/musica">
-			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde_mu_logo.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
+			          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/finde_mu_logo2.png" class="navbar-brand-img img-fluid" alt="Logo Finde" width="260">
 			        </a>
 			    </div>
 			    <div class="col-md-7 d-none d-md-block pt-4 text-right ml-auto">
@@ -70,7 +70,7 @@
                         <div class="dropdown-menu border-0" aria-labelledby="dropdownMenu">
 							<a href="/musica/#contenido-experiencias-de-gestion" class="dropdown-item">Experiencia de gestión</a>
 							<a href="/musica/#contenido-ideas-para-el-sector" class="dropdown-item">Ideas para el sector</a>
-							<a href="/musica/#contenido-identidad-y-produccion-bonaerense" class="dropdown-item">Identidad y producción bonaerense</a>
+							<a href="/musica/#contenido-identidad-y-produccion-bonaerense" class="dropdown-item">Identidad y producción bonaerenses</a>
                         </div>
                     </div>
 					<div class="dropdown px-lg-2 mb-2 my-lg-0">

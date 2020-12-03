@@ -3299,7 +3299,7 @@ section.cck .titulos h4 {
 }
 .slick.vidriera.musica.slick-slider .slick-list .slick-track .slick-slide.card-vidriera img {
   border-radius: 4px 4px 0 0 !important;
-  width: 100%;
+  max-width: 100%;
 }
 
 #agenda-destacada {
@@ -3518,11 +3518,6 @@ section.cck .titulos h4 {
 
 .plyr__control {
   display: block;
-}
-
-.plyr__video-wrapper {
-  padding-bottom: 0px;
-  padding-top: 0px;
 }
 
 .plyr {

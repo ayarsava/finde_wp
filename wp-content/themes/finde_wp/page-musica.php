@@ -85,7 +85,7 @@ get_template_part( 'layouts/header', 'mu' );
     <!--VIDRIERA-->
     <section id="vidriera-slick" class="py-5" style="background: #f6f5f3;">
         <div class="container">
-            <h2 class="mb-4"><strong>Ofertas Destacadas</strong>  <a href="/productos"  class="btn btn-outline-primary"> <i class="fas fa-store"></i> Ver todas</a></h2>
+            <h2 class="mb-4"><strong>Productos destacados</strong>  <a href="/productos"  class="btn btn-outline-primary"> <i class="fas fa-store"></i> Ver todos</a></h2>
         </div>
         <div class="container-fluid pb-3">
             <div class="slick vidriera musica">
@@ -129,7 +129,7 @@ get_template_part( 'layouts/header', 'mu' );
             <div class="container">
                 <div class="col-lg-9 col-md-9 ml-auto p-lg-5 p-3 cta-info">
                     <div class="ml-lg-5">
-                        <h2 class="font-weight-bold mt-2 pt-4">DESTACADO</h2>
+                        <h2 class="font-weight-bold mt-2 pt-4">CONTENIDO DESTACADO</h2>
                         <div class="lead my-3">No te pierdas el cierre de FINDE Música con un show especial de Carmen Sánchez Viamonte en la fábrica de guitarras Gracia. Estreno exclusivo el domingo 6/12 a las 19 hs.</div>
                         <a href="/agenda/carmen-sanchez-viamonte-en-vivo-en-la-fabrica-de-guitarras-gracia/" class="btn btn-outline-primary">Ver actividad >></a>
                     </div>
